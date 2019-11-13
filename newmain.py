@@ -6,27 +6,31 @@ txt3 = open("french.xml", "r", encoding="utf8")
 file1 = txt1.read().split("\n")
 file2 = txt2.read()
 file3 = txt3.read()
+text = []
+ctn = 0
 
 
-def retrieve_trad(uid):
-    match = re.search(uid, file3)
+# Check presence of uid in file3
+def retrieve_trad(uid, line):
+    global ctn
+    match = re.search(f'<content contentuid="{uid}">(.*)</content>', file3, re.MULTILINE)
     if match is not None:
-        pass
-        # print('Searching for ' + uid + ' SUCESS')
+        uid_part = re.search('<content contentuid="(.*)">', line)
+        text.append(uid_part.group() + match.group(1) + '</content>')
+        ctn = ctn + 1
     else:
-        pass
-        # print('Searching for ' + uid + ' FAILED')
+        text.append(line)
 
 
 # Check presence of string in file2, an pass uid if match
-def check_for_existing(str_base):
+def check_for_existing(str_base, line):
     pat = re.escape('">' + str_base + '</content>')
-    match = re.search(pat, file2)
+    match = re.search(f'<content contentuid="(.*){pat}', file2, re.MULTILINE)
     if match is not None:
-        match3 = re.search(f'<content contentuid="(.*){pat}', file2, re.MULTILINE)
-        if match3 is not None:
-            uid = match3.group(1)
-            retrieve_trad(uid)
+        uid = match.group(1)
+        retrieve_trad(uid, line)
+    else:
+        text.append(line)
 
 
 # Parse line by line in file 1
@@ -36,10 +40,19 @@ def check_lines():
         if raw_val is not None:
             val = raw_val.group(1)
             if val == '':
-                pass
+                text.append(line)
             if val is not None:
-                check_for_existing(val)
+                pass
+                check_for_existing(val, line)
+        else:
+            text.append(line)
 
 
 if __name__ == '__main__':
     check_lines()
+    print('Fixed ' + str(ctn) + 'entries successfully !')
+    final = "\n".join(text)
+    File_object = open(r"test.xml", "w", encoding="utf-8")
+    File_object.write(final)
+    File_object.close()
+
