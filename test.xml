@@ -9,11 +9,9 @@
 	<content contentuid="hbe8b28b6g4cfcg4bfag9214gadaae68895c7">Résolution réduite</content>
 	<content contentuid="hfbc938ceg297fg4232ga11dg3fe44985b9f8">Résolution</content>
 	<content contentuid="h6b67efcagf943g43a1g959eg36f9ecc42e7e">Régénère 1% de votre Vitalité par point chaque tour, et augmente le maximum de Volonté de 1 tout les 5 points.</content>
-	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Portée: [1]&lt;br&gt;Encouragement augmente la Puissance, la Dextérité, la Résolution et la Constitution de la cible de 1.</content>
-	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Portée: [1]&lt;br&gt;Encouragement augmente la Puissance, la Dextérité, la Résolution et la Constitution de la cible de 1.</content>
-	<content contentuid="hea9cf9e9gb7f0g4cc0ga3d7gdd7516bc04bb">Emplacements: [1]. Emplacements supplémentaires grâce à l'I
-	
-	ntelligence: +[2].</content>
+	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Portée : [1]&lt;br&gt;Encouragement augmente la Puissance, la Dextérité, la Résolution et la Constitution de la cible de 1.</content>
+	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Portée : [1]&lt;br&gt;Encouragement augmente la Puissance, la Dextérité, la Résolution et la Constitution de la cible de 1.</content>
+	<content contentuid="hea9cf9e9gb7f0g4cc0ga3d7gdd7516bc04bb">Emplacements: [1]. Emplacements supplémentaires grâce à l'Intelligence: +[2].</content>
 	<content contentuid="hc66f272bgd297g41ffga78dgb9c17c739b6e">Intelligence : [1][2]&lt;br&gt;</content>
 	<content contentuid="hbde985cfgb1c4g4bb6g9a61gbec72c9b4ed6">[1] vous confère [2] points supplémentaires en Intelligence.</content>
 	<content contentuid="hbadf03e5gcc3ag40adg973fg1da29a1412ed">Intelligence</content>
@@ -938,7 +936,7 @@
 	<content contentuid="he66671a9g680fg49e5g9e8eg9b85ba6912d7">&lt;i&gt;The feeling&apos;s mutual.&lt;/i&gt;</content>
 	<content contentuid="h2cec3e77g9b25g4044g8a8bgad5f5fa475aa">Aha ha! You&apos;re smarter than you look.</content>
 	<content contentuid="h506cdd22gb157g4d10ga5f9gfb9e0317d59d">Crée un champ magique qui protège les alliés des dommages pour 2 tours.</content>
-	<content contentuid="h5128449fg8d71g4c2fg81e4gac5876dc95eb">Dome Of Protection</content>
+	<content contentuid="h5128449fg8d71g4c2fg81e4gac5876dc95eb">Dôme de protection</content>
 	<content contentuid="hf747e683g5075g461ag9fc2g7290af072f8d">Granting free movement to allies within 10m.</content>
 	<content contentuid="h9490ad2dg2f73g4729gafe4ga5618501b8f0">Aura de vent favorable</content>
 	<content contentuid="hb9e887d6g3b5fg4fdfgb672g0bf6d7bc646f">Gaining free movement.</content>
@@ -968,10 +966,10 @@
 	<content contentuid="h54c6292eg3d01g472cgb700g8308198cdf43">Téléportez-vous en restant en mode furtif.</content>
 	<content contentuid="he1703414g1179g4fbcg9897g442269bdf294">Jeux d&apos;ombres</content>
 	<content contentuid="h4ea6ea86ge59fg4111g849ag5182f35db9ee">Portée : [1]</content>
-	<content contentuid="h70604013g58efg4343g91edg1b3b2b3ec210">Teleport to a location, cursing nearby targets on arrival.</content>
+	<content contentuid="h70604013g58efg4343g91edg1b3b2b3ec210">Téléportez-vous a la zone ciblée, maudissant les ennemis a l'atterrissage.</content>
 	<content contentuid="h7be7912bg377bg469cgac0cg30b580e0bba0">Glissement du Néant</content>
 	<content contentuid="h0dafe9e3gc48dg4584g9540g429609fa41ae">Portée : [1]</content>
-	<content contentuid="h2b1acf3fg6226g4855ga954g04e81360affb">Teleport to a location, cursing nearby targets on arrival.</content>
+	<content contentuid="h2b1acf3fg6226g4855ga954g04e81360affb">Téléportez-vous a la zone ciblée, maudissant les ennemis a l'atterrissage.</content>
 	<content contentuid="hf8d82462g0672g4fabgb223g5ee508d22da6">Glissement du Néant</content>
 	<content contentuid="hc3624eaag2a25g48b3g90eegafb8356e723d">Portée : [1]</content>
 	<content contentuid="he2bfeb6ag2c6eg4a43gb690g9c3b8b837755">Saut propulsé</content>
@@ -985,7 +983,7 @@
 	<content contentuid="h522b8a27g5001g43bdga1f6g3269bf9c9e14">Jeux d&apos;ombres</content>
 	<content contentuid="h6d13b930g274bg4392g86d4g30cad7c371b4">Portée : [1]</content>
 	<content contentuid="hdd43247fg8e83g468cg81bcg51d21946c4fd">Dragon Swoop</content>
-	<content contentuid="h264ea41agd7d4g4095gb702g395fc9cbe360">|Teleport without breaking sneaking.|</content>
+	<content contentuid="h264ea41agd7d4g4095gb702g395fc9cbe360">|Téléportez-vous en restant en mode furtif.|</content>
 	<content contentuid="h4f85f70cgce89g46b0gaf0eg9467fe69a24d">Vol du charognard</content>
 	<content contentuid="h7ebdb35fgefcfg4285g8115g1eca32ab7a54">Portée : [1]</content>
 	<content contentuid="h547731e1g1a3fg4285ga864gb567b6e13ea2">Téléportation saurienne</content>
@@ -1016,7 +1014,7 @@
 	<content contentuid="hb1612dd3g4af9g4994ga0deg6a91bd6a62c6">Frost Aegis</content>
 	<content contentuid="h9e37fe4agb04dg4b85g9ab2gf468ea7631ff">Petrifies enemies without Volonté in [1] range.</content>
 	<content contentuid="hd73bcc47ga27eg4631g9c5egbe975bbca100">Tête de méduse</content>
-	<content contentuid="haed33b1eg172ag4c93gab82g62cf22ee5409">Jump from one target to another, hitting up to [1] targets, dealing [2] damage to each. Additional targets are chosen randomly in a [3] radius.</content>
+	<content contentuid="haed33b1eg172ag4c93gab82g62cf22ee5409">Passe d&apos;une cible à l&apos;autre en touchant jusqu&apos;à [1] cibles et inflige [2] à chacune d&apos;elles. Les cibles sont déterminées aléatoirement dans un rayon de [3].</content>
 	<content contentuid="h42ae68faga4c9g4e8dga8fdg174dc03fe222">Attaque éclair</content>
 	<content contentuid="h5780a151g5576g4728g879dg22042f5bd3bb">Carapace huileuse</content>
 	<content contentuid="h3503ce4eg3d2dg4177gbdedg606b86dfbd42">Shoot spores full of corrosive acid, dealing [1] damage in total.</content>
@@ -1529,13 +1527,13 @@
 	<content contentuid="h2590b832gcfb0g4518g9d7eg898b3f4938b4">Reptile Regrowth</content>
 	<content contentuid="hfee06963g490bg4293g88a6g8f57ab736399">Inflige [1] à chaque tour.</content>
 	<content contentuid="h28243277g7a8bg471bga107g75311ac14aec">Suffocation</content>
-	<content contentuid="h8256775ag1cdeg4a14ga660g090ed0707bef">Open an interdimensional rift to summon a powerful Eldritch Gatekeeper. After a turn passes, the Gatekeeper will emerge and instantly kill a random nearby character, whether friend or foe.</content>
+	<content contentuid="h8256775ag1cdeg4a14ga660g090ed0707bef">Ouvrez une brèche interdimensionnelle pour invoquer un puissant Gardien d'Eldritch. Après un délai d'un tour, le Gardien émergera et tuera instantanément un personnage proche au hasard, qu'il soit ami ou ennemi.</content>
 	<content contentuid="h29e40294g4258g4f01g8ddbg0216bc327562">Awaken Gatekeeper</content>
-	<content contentuid="hf3d5ff0cgc9e3g49eeg9c4dg2787ff36b47c">Summon an extremely fragile creature of chaotic magic to deal heavy damage from afar.</content>
+	<content contentuid="hf3d5ff0cgc9e3g49eeg9c4dg2787ff36b47c">Fait appel à une créature extrêmement fragile, constituée de magie chaotique, pour infliger de lourds dégâts à distance.</content>
 	<content contentuid="h739a8371g4f86g4a15g80d4g862cacdbf66d">Summon Chaos Elemental</content>
-	<content contentuid="h653e4737g16e0g452bgaac7gb646fe3223cb">Offer your lifeblood to summon a Parasitic Heart to this plane, sacrificing &lt;font color=&quot;a60228&quot;&gt;half of your current Vitality&lt;/font&gt; to summon a demon that heals allies by tormenting foes.</content>
+	<content contentuid="h653e4737g16e0g452bgaac7gb646fe3223cb">Offrez votre sang au vide pour appeler un Coeur Parasite dans ce plan d'existence, sacrifiant &lt;font color=&quot;a60228&quot;&gt; la moitié de votre Vitalité actuelle&lt;/font&gt; pour invoquer un démon qui guérit ses alliés en tourmentant ses ennemis.</content>
 	<content contentuid="ha14382f1g4218g4ce5g98d5g5b2382921dd9">Evoke Parasitic Heart</content>
-	<content contentuid="hf865322eg2513g41e2gb325g9363551e2ea6">Summon a demon of pain and torment to this realm, terrorizing foes in an area.</content>
+	<content contentuid="hf865322eg2513g41e2gb325g9363551e2ea6">Invoquez un démon de douleur et de tourment dans le royaume des vivants, terrorisant les ennemis dans une zone.</content>
 	<content contentuid="h99afcc3fg632ag4a65ga71cge76b2e42ebd7">Invoke Matron of Agony</content>
 	<content contentuid="h0824082fgccb3g4996gb5b3gd4d4a458fbfa">Raise a walking construct of bones which can consume corpses to restore Vitality and receive a stacking Damage buff.</content>
 	<content contentuid="hf729fb5bg76bfg4ed1gae72gf6e175a19dd9">Réveil de veuve des ossements</content>
@@ -1586,7 +1584,7 @@
 	<content contentuid="h4d4e3b0eg178cg496bga614g7e59d2512209">Raise Dead</content>
 	<content contentuid="h4b7f9984g1d26g4092ga350gb9b712f55b99">Instantly relocate to a water surface and set Wet. Create puddles at your start and end points.</content>
 	<content contentuid="h4ffef217g6d09g4d68g93a6g6f165521d1a4">Slipstream</content>
-	<content contentuid="h65f400b2g8b69g41f5g8c5fgad68b61a02c6">Range: [1]&lt;br&gt; Non-water surfaces</content>
+	<content contentuid="h65f400b2g8b69g41f5g8c5fgad68b61a02c6">Portée : [1]&lt;br&gt; Non-water surfaces</content>
 	<content contentuid="hf9bc7970geaecg48bcgba88g015d0a5febb9">Charme l&apos;ennemi pris pour cible, ce qui l&apos;oblige à combattre à vos côtés pendant toute la durée de l&apos;effet.</content>
 	<content contentuid="h7ee7b9bcg815dg4c09g8cffg4011170df579">Domination mentale</content>
 	<content contentuid="hce33b51fgddf6g4160g9970g2b373a39d03e">Portée : [1]&lt;br&gt;Une cible charmée attaquera temporairement son propre camp.</content>
@@ -1623,7 +1621,7 @@
 	<content contentuid="hdc44ce3cg8525g404ag99f5gf7dc43a0f1cc">Désir de mort</content>
 	<content contentuid="h70194c53ge36bg4bfeg8889g22931276abe2">Deal [1] to target character. Sets Decay, so the target will take physical damage from healing effects and potions.</content>
 	<content contentuid="h96d7b269g8a97g4230g8ea3gae544c1502c9">Putréfaction</content>
-	<content contentuid="hc5792036g45e7g43d9g842fg6db4e9a888d6">Range: [1]&lt;br&gt;Decay makes healing spells and potions damage the target instead.</content>
+	<content contentuid="hc5792036g45e7g43d9g842fg6db4e9a888d6">Portée : [1]&lt;br&gt;Decay makes healing spells and potions damage the target instead.</content>
 	<content contentuid="h8770a131g53dcg4fb6g82d7g7a08f089fa1d">Exchange Vitality percentages with target character, provided they have no remaining Volonté.</content>
 	<content contentuid="haa8428c9g255ag4898g91a1gd4dc5f1c7afe">Forced Exchange</content>
 	<content contentuid="h8195982bg8751g4ff0g9f8cg08e121333a43">Deal [1] to a target. Drain their Volonté and add it to yours.</content>
@@ -1732,7 +1730,7 @@
 	<content contentuid="h0fc142a8g84beg45c9gb3cegc3587d261027">Secousse du ver</content>
 	<content contentuid="hc0aaedcbg4bc5g4086gbb3cg5a9fa7622e13">Téléporte un objet ou un personnage à l&apos;endroit de votre choix.</content>
 	<content contentuid="h02e4960ag628cg4563g9491g16dccb9ab02d">Téléportation</content>
-	<content contentuid="hb8150cafgd3eeg4f18g98cbgd08756c23e27">Target range: [2]&lt;br&gt;Target can be moved [3] away from its position.&lt;br&gt;&lt;br&gt;Select item or character first, then select its destination.</content>
+	<content contentuid="hb8150cafgd3eeg4f18g98cbgd08756c23e27">Portée de la cible : [2]&lt;br&gt;La cible peut être déplacée d&apos;un maximum de [3].&lt;br&gt;&lt;br&gt;Sélectionnez d&apos;abord l&apos;objet ou le personnage cible, puis sa destination.</content>
 	<content contentuid="h3b41ffa4ga5dbg4b96g9773g4e050fc17380">Sacrifice your lifeblood to bring an ally back to life. Deals [1] damage to you and resurrects an ally with maximum Vitality.</content>
 	<content contentuid="h0d23f083g192ag4669g9a99gb753cdadf40a">Rite funéraire</content>
 	<content contentuid="h9d02c292gbbe0g4108g8c22geeffc4de63cc">Échange les places de deux personnages. Vous pouvez être l&apos;un d&apos;eux.</content>
@@ -1746,7 +1744,7 @@
 	<content contentuid="h0db73d14g76bbg4bb8ga88cg3aae445ddf65">Aura du vide</content>
 	<content contentuid="h110779a0geab9g4328g98aag033e68506c3e">Des vrilles jaillissent du sol pour empêcher de passer dans la zone d&apos;effet, tout en diffusant un gaz empoisonné autour d&apos;elles.</content>
 	<content contentuid="h30ef9068gb7e1g4e78ga6c5g81a88d01bddc">Mur vivant</content>
-	<content contentuid="hb59f5df1g72d2g43aega04cg1cfe3455021e">Cosmo Ray</content>
+	<content contentuid="hb59f5df1g72d2g43aega04cg1cfe3455021e">Rayon cosmique</content>
 	<content contentuid="h7a1a1e02g989eg47fdgb546gb1c25eb2ba39">Summon a line of intense heat that deals [1] damage to characters and leaves fire clouds behind.</content>
 	<content contentuid="h1a090321g5f8ag4d7ag8641gb15b6da6e48f">Laser Ray</content>
 </contentList>
