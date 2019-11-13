@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="4" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Restores physical armor." type="28" handle="hf9474d5cg3fcdg4f71ga02fgbc0e8c4e89e3" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Fortified_Restore_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Consumes blood surfaces to restore Vitality." type="28" handle="hc252e92ag9790g44fdg974ega380d41bdf75" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="BLOOD_BUBBLE_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

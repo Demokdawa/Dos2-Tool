@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="1" build="0" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Create a magic field that shields allies in the area from incoming damage for 2 turns." type="28" handle="h506cdd22gb157g4d10ga5f9gfb9e0317d59d" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Dome_CircleOfProtection_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

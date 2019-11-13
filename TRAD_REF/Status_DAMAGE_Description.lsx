@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="4" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deals [1] each turn." type="28" handle="haaf00e14g18c5g450egaae4g045c5b5f096e" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="ACID_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deals [1] each turn." type="28" handle="hfee06963g490bg4293g88a6g8f57ab736399" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="SUFFOCATING_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="The character receives bonus damage based on missing Vitality, minus 50%. Deals [1] damage each turn." type="28" handle="h08ab8597g2a87g4cc3ga92bg1b62346469e8" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="DEATH_WISH_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="You shouldn't be reading this. Please report it to the mod author." type="28" handle="ha9b2ba92g1c56g44ccg8884g6d5b455f640a" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="AS_AI_OVERRIDE_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deals [1]." type="28" handle="h46279404g66bbg4632g9f74g418b3d04e41d" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="AS_AFTERSHOCK_DMG_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Seized by a zombie, rendered immobile and suffering [1] each turn. Broken by killing the attacker." type="28" handle="hd2fa1d54g9019g4cf6g9279g0509b3475707" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="AS_ROTTING_GRASP_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

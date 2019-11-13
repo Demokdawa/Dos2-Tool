@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="1" build="0" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée de la cible : [2]&lt;br&gt;La cible peut être déplacée d&apos;un maximum de [3].&lt;br&gt;&lt;br&gt;Sélectionnez d&apos;abord l&apos;objet ou le personnage cible, puis sa destination." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Teleportation_FreeFall_StatsDescription" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

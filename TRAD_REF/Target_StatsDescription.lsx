@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="4" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]" type="28" handle="h0d02c172gf4a7g454dg9282g5eb269327b13" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_AS_IronSkin_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]" type="28" handle="h4b616a3eg91dfg4925g9bbbgb9b1d3abc6ce" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_ReactionShot_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]&lt;br&gt;Charmed status temporarily turns a target's allegiance around." type="28" handle="hf057b744g9d98g4bdag9239g059d27f216b4" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_Charm_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]&lt;br&gt;Decay makes healing spells and potions damage the target instead." type="28" handle="hc5792036g45e7g43d9g842fg6db4e9a888d6" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_DecayingTouch_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]&lt;br&gt; Non-water surfaces" type="28" handle="h65f400b2g8b69g41f5g8c5fgad68b61a02c6" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_AS_Slipstream_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]" type="28" handle="h9ea289b4g3d2ag4c54g9730g4c2ccdc728b0" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_SourceVampirism_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]&lt;br&gt;Charmed status temporarily turns a target's allegiance around." type="28" handle="hec0f31beg1f6cg47e5g9229gb72bd0589a77" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_AS_Nightsinger_Charm_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]&lt;br&gt;Charmed status temporarily turns a target's allegiance around." type="28" handle="hce33b51fgddf6g4160g9970g2b373a39d03e" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_AS_TestSummon_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Range: [1]" type="28" handle="h35211961ga091g47e0ga114g8aacfd226892" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_Haste_StatsDescription" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

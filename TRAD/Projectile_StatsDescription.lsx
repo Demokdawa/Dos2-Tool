@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="4" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock1_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock2_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock3_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock4_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock5_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock6_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock7_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock8_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock9_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ARKnock10_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]" type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_Chloroform_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_StaffOfMagus_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Empoisonnement inflige des dégâts de poison sur la durée.&lt;br&gt;Peut cibler le terrain pour créer une surface de vase." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_AS_FakePoisonDart_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_AS_FakeStaffOfMagus_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [4]&lt;br&gt;Étourdissement empêche la cible de bouger ou d&apos;agir.&lt;br&gt;Peut cibler des surfaces ou des nuages pour les électrifier." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ChainLightning_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Lance un projectile magique dont la puissance et le type de dégâts dépendent du type de bâton. Plus le bâton est de qualité, plus ce sort infligera de dégâts. Peut cibler le terrain." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_AS_Pull_Claw_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]&lt;br&gt;Les dégâts infligés dépendent de la valeur de dégâts de votre arme." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_Multishot_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Portée : [2]" type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_AS_Chaos_Barrage_StatsDescription" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Les dégâts infligés dépendent de la valeur de dégâts de votre arme." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_KnockedOutArrow_StatsDescription" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

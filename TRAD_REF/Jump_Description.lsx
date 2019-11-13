@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="4" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Apply Haste to yourself, then teleport away from danger." type="28" handle="h79a0cb93gf06dg454dgbdecg8224eef36daf" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_TacticalRetreat_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Teleport without breaking sneaking." type="28" handle="h62667fb8g8a9bg44edg9fd7g04240c636346" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_CloakAndDagger_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Leap toward the target position, creating a fire surface upon landing." type="28" handle="hbe34b03ag85e5g4627gb109gc3da952a726b" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_PhoenixDive_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="|Apply Haste to yourself, then teleport away from danger. |" type="28" handle="h8ba79d41g2a0eg449ag8fc8g685fc4e8bc62" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_EnemyVoidGlide_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="|Teleport without breaking sneaking.|" type="28" handle="h264ea41agd7d4g4095gb702g395fc9cbe360" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_EnemyBeetleJump_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Teleport to a location, cursing nearby targets on arrival." type="28" handle="h70604013g58efg4343g91edg1b3b2b3ec210" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_AS_Nightsinger_Jump_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Teleport without breaking sneaking." type="28" handle="h54c6292eg3d01g472cgb700g8308198cdf43" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_AS_Gerald_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Teleport to a location, cursing nearby targets on arrival." type="28" handle="h2b1acf3fg6226g4855ga954g04e81360affb" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_AS_VoidJump_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Surprise your enemies by emerging from the ground at target position." type="28" handle="h6eb199dbge71ag40e0ga4f5g60dd639f5e9f" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_BonePileBurrow_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Surprise your enemies by emerging from the ground at target position." type="28" handle="h4d874f0cgb404g4943ga9f0g4be4f68edf67" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_EnemySpiderBurrow_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Jump to higher ground." type="28" handle="hd36bf3bcgb6f1g44b8ga517g236f558b72ce" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Jump_CatJump_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

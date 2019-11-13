@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="1" build="0" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal [1] damage and Knock Down enemy characters and items around you. Creates [2] random oil surfaces within the area." type="28" handle="h4fff5be4gc28bg4b6eg9815g370587749f7d" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Quake_Earthquake_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

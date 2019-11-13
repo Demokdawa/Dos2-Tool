@@ -16,7 +16,7 @@ def retrieve_trad(uid, line):
     match = re.search(f'<content contentuid="{uid}">(.*)</content>', file3, re.MULTILINE)
     if match is not None:
         uid_part = re.search('<content contentuid="(.*)">', line)
-        text.append(uid_part.group() + match.group(1) + '</content>')
+        text.append('\t' + uid_part.group() + match.group(1) + '</content>')
         ctn = ctn + 1
     else:
         text.append(line)
@@ -50,7 +50,7 @@ def check_lines():
 
 if __name__ == '__main__':
     check_lines()
-    print('Fixed ' + str(ctn) + 'entries successfully !')
+    print('Fixed ' + str(ctn) + ' entries successfully !')
     final = "\n".join(text)
     File_object = open(r"test.xml", "w", encoding="utf-8")
     File_object.write(final)

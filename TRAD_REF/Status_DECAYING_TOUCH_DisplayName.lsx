@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="&lt;font color=&quot;#dd00ff&quot;&gt;Black-Hearted&lt;/font&gt;" type="28" handle="h5f2a6e02g8f2ag40a0gbaf6g16bb858f22bb" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="AS_BLACKHEART_DisplayName" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Fait appel à une créature extrêmement fragile, constituée de magie chaotique, pour infliger de lourds dégâts à distance." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_AS_ChaosElemental_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">							
+					<attribute id="Content" value="Offrez votre sang au vide pour appeler un Coeur Parasite dans ce plan d'existence, sacrifiant &lt;font color=&quot;a60228&quot;&gt; la moitié de votre Vitalité actuelle&lt;/font&gt; pour invoquer un démon qui guérit ses alliés en tourmentant ses ennemis." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_AS_Heart_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Invoquez un démon de douleur et de tourment dans le royaume des vivants, terrorisant les ennemis dans une zone." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_AS_Nightsinger_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+													
+					<attribute id="Content" value="Ouvrez une brèche interdimensionnelle pour invoquer un puissant Gardien d'Eldritch. Après un délai d'un tour, le Gardien émergera et tuera instantanément un personnage proche au hasard, qu'il soit ami ou ennemi." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_AS_BigDemon_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>
