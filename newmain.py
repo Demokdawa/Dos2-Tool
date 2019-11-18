@@ -1,8 +1,8 @@
 import re
 
-txt1 = open("OdinCore.xml", "r", encoding="utf8")
-txt2 = open("english.xml", "r", encoding="utf8")
-txt3 = open("french.xml", "r", encoding="utf8")
+txt1 = open("OdinbladeNecromancerOverhaul_Input.xml", "r", encoding="utf8")
+txt2 = open("english_base.xml", "r", encoding="utf8")
+txt3 = open("french_base.xml", "r", encoding="utf8")
 file1 = txt1.read().split("\n")
 file2 = txt2.read()
 file3 = txt3.read()
