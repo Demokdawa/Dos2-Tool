@@ -1,6 +1,6 @@
 import re
 
-txt1 = open("english_WIP_FRENCH_8.11.19.xml", "r", encoding="utf8")
+txt1 = open("OdinCore.xml", "r", encoding="utf8")
 txt2 = open("english.xml", "r", encoding="utf8")
 txt3 = open("french.xml", "r", encoding="utf8")
 file1 = txt1.read().split("\n")
