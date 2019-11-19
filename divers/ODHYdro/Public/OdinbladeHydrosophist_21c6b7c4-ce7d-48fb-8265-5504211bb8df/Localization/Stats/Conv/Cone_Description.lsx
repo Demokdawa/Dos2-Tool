@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Blast a cone of bubbles, dealing [1] and &lt;font color=&quot;#4197e2&quot;&gt;Wetting&lt;/font&gt; all characters. &lt;br&gt;&lt;br&gt;Also douses &lt;font color=&quot;#fe6e27&quot;&gt;flames&lt;/font&gt; and sets &lt;font color=&quot;#4197e2&quot;&gt;Dampened&lt;/font&gt;, reducing &lt;font color=&quot;#c80030&quot;&gt;damage dealt by [2]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_OdinWater_DampeningWave_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Blast steam in a cone, hitting &lt;font color=&quot;#88a25b&quot;&gt;allies&lt;/font&gt; and &lt;font color=&quot;#aa3938&quot;&gt;enemies&lt;/font&gt;: &lt;br&gt;&lt;br&gt;&lt;font color=&quot;#88a25b&quot;&gt;Ally&lt;/font&gt;: Restores &lt;font color=&quot;#97fbff&quot;&gt;Vitality&lt;/font&gt; for each of 3 turns. &lt;br&gt;&lt;br&gt;&lt;font color=&quot;#aa3938&quot;&gt;Enemy&lt;/font&gt;: Deals [1] upfront and applies &lt;font color='#4197e2'&gt;Scalded&lt;/font&gt;, reducing &lt;font color=&quot;#4197e2&quot;&gt;Water Resistance by [3]%&lt;/font&gt; and &lt;font color=&quot;#fe6e27&quot;&gt;Fire Resistance by [4]%&lt;/font&gt;, as well as dealing [2] for each of 2 turns. &lt;br&gt;&lt;br&gt;This skill also hits the caster and leaves behind a &lt;font color=&quot;#4197e2&quot;&gt;steam cloud&lt;/font&gt; for 2 turns." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_SteamLance_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Nefarious winds &lt;font color=&quot;#cfecff&quot;&gt;freeze&lt;/font&gt; the battlefield in a cone, dealing [1] to all characters, instantly killing &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt; characters with less than &lt;font color=&quot;#97fbff&quot;&gt;15% Vitality&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Survivors of the blast become &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Hitting a &lt;font color=&quot;#cfecff&quot;&gt;Chilled&lt;/font&gt; or &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt; enemy with this skill applies &lt;font color=&quot;#cfecff&quot;&gt;Hypothermia&lt;/font&gt; for 2 turns, dealing [2] each turn and reducing &lt;font color=&quot;#4197e2&quot;&gt;Water Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_Shatter_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Blast a cone of bubbles, dealing [1] and &lt;font color=&quot;#4197e2&quot;&gt;Wetting&lt;/font&gt; all characters. &lt;br&gt;&lt;br&gt;Also douses &lt;font color=&quot;#fe6e27&quot;&gt;flames&lt;/font&gt; and sets &lt;font color=&quot;#4197e2&quot;&gt;Dampened&lt;/font&gt;, reducing &lt;font color=&quot;#c80030&quot;&gt;damage dealt by [2]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_OdinWater_EminatingArmour_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Blast a cone of bubbles, dealing [1] and &lt;font color=&quot;#4197e2&quot;&gt;Wetting&lt;/font&gt; all characters. &lt;br&gt;&lt;br&gt;Also douses &lt;font color=&quot;#fe6e27&quot;&gt;flames&lt;/font&gt; and sets &lt;font color=&quot;#4197e2&quot;&gt;Dampened&lt;/font&gt;, reducing &lt;font color=&quot;#c80030&quot;&gt;damage dealt by [2]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_OdinWater_EmanatingArmour_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="[1] + [2]" type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_OdinWater_EmanatingPulse_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

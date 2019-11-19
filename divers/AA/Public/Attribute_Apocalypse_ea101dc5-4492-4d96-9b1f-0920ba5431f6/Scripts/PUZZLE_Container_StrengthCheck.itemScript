@@ -1,0 +1,5 @@
+INIT
+ITEM:__Me
+EXTERN STRING:%FailureAD="GEN_AD_UseBlockedTooHeavy"
+EXTERN INT:%MinRequiredStrength=3
+

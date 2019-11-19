@@ -1,0 +1,36 @@
+{
+  "GR2": {
+    "InputPath": "",
+    "OutputPath": "",
+    "BatchInputPath": "",
+    "BatchOutputPath": "",
+    "BatchInputFormat": 0,
+    "BatchOutputFormat": 1,
+    "ConformPath": null
+  },
+  "PAK": {
+    "ExtractInputPath": "",
+    "ExtractOutputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\ODHYdro",
+    "CreateInputPath": "",
+    "CreateOutputPath": "",
+    "CreatePackageVersion": 0,
+    "CreatePackageCompression": 3
+  },
+  "Resources": {
+    "InputPath": "",
+    "OutputPath": "",
+    "BatchInputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\AA\\Public\\Attribute_Apocalypse_ea101dc5-4492-4d96-9b1f-0920ba5431f6\\Localization\\Stats",
+    "BatchOutputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\AA\\Public\\Attribute_Apocalypse_ea101dc5-4492-4d96-9b1f-0920ba5431f6\\Localization\\Stats\\Nouveau dossier",
+    "BatchInputFormat": 1,
+    "BatchOutputFormat": 0
+  },
+  "Story": {
+    "InputPath": "",
+    "OutputPath": ""
+  },
+  "Debugging": {
+    "SavePath": ""
+  },
+  "SelectedGame": 3,
+  "Version": "1.14.1"
+}

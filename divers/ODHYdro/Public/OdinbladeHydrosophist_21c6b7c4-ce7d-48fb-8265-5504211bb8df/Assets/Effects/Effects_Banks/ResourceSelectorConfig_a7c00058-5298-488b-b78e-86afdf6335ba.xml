@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <LastUsed>
+    <ResourceBank Type="LSFrameworkPlugin.MaterialResource">
+      <Resource Id="7f5ebaa0-cb54-43e7-b3af-0adca80bb2d5" />
+      <Resource Id="7ae75053-d13e-48f6-b7cd-b652a3f8ba25" />
+      <Resource Id="f417947f-2c06-4575-bfd9-fd8082643698" />
+      <Resource Id="6043f85b-b841-47db-9300-0b8bfd9f5044" />
+    </ResourceBank>
+    <ResourceBank Type="LSFrameworkPlugin.VisualResource">
+      <Resource Id="a0688202-f02d-46f3-b63d-5ccc3bf3a3ac" />
+    </ResourceBank>
+    <ResourceBank Type="LSFrameworkPlugin.SoundResource">
+      <Resource Id="6acab7db-f42a-40df-9ae5-e207456a6f7d" />
+      <Resource Id="e88172f5-83e5-4cc7-916a-d3a894a26f29" />
+      <Resource Id="d018a323-8292-4733-bf17-ff67d0bd7e0f" />
+      <Resource Id="b8b32a11-35b2-45b8-bc35-999a78b540c1" />
+      <Resource Id="3f0090fa-fbfb-447f-b3d1-f7a9b097874f" />
+      <Resource Id="3367c3de-f51b-45f4-a482-c9cba7595764" />
+      <Resource Id="f9b81f2c-d51d-4ffe-b655-428274219a61" />
+    </ResourceBank>
+  </LastUsed>
+  <Favorite>
+    <ResourceBank Type="LSFrameworkPlugin.MaterialResource" />
+    <ResourceBank Type="LSFrameworkPlugin.VisualResource" />
+    <ResourceBank Type="LSFrameworkPlugin.SoundResource" />
+  </Favorite>
+</Root>

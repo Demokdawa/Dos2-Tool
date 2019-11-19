@@ -1,0 +1,2011 @@
+EVENTS
+	
+EVENT CharacterSetWarm
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, WARM)
+ACTIONS
+	Set(_Result,WARM)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList,WET)
+	IF "c1"
+		CharacterHasStatus(_Character, WARM)
+	THEN	
+		ListAdd(_RemoveList,WARM)
+		Set(_Result,BURNING)		
+	ELIF "c1|c2|c3"
+		CharacterHasStatus(_Character, BURNING)
+		CharacterHasStatus(_Character, NECROFIRE)
+		CharacterHasStatus(_Character, HOLY_FIRE)
+	THEN
+		Set(_Result,null)	
+	ELIF "c1"
+		CharacterHasStatus(_Character, CHILLED)
+	THEN
+		ListAdd(_RemoveList,CHILLED)
+		Set(_Result,null)
+	ELIF "c1"
+		CharacterHasStatus(_Character, FROZEN)
+	THEN
+		ListAdd(_RemoveList,FROZEN)		
+		Set(_Result,CHILLED)		
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetBurning
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, BURNING)
+ACTIONS
+	Set(_Result,BURNING)
+	ListClear(_RemoveList)
+	IF "c1&!c2"
+		CharacterHasStatus(_Character, WARM)
+		CharacterHasStatus(_Character, WET)
+	THEN
+		ListAdd(_RemoveList, WARM)
+	ELIF "c1&!c2"
+		CharacterHasStatus(_Character, WET)
+		CharacterHasStatus(_Character, WARM)
+	THEN
+		ListAdd(_RemoveList, WET)
+		Set(_Result, WARM)
+	ELIF "c1&c2"
+		CharacterHasStatus(_Character, WET)
+		CharacterHasStatus(_Character, WARM)
+	THEN
+		ListAdd(_RemoveList, WET)
+	ELIF "c1"
+		CharacterHasStatus(_Character, CHILLED)
+	THEN
+		ListAdd(_RemoveList, CHILLED)
+		Set(_Result, WARM)
+	ELIF "c1"
+		CharacterHasStatus(_Character, FROZEN)
+	THEN
+		ListAdd(_RemoveList, FROZEN)
+		Set(_Result, WET)
+	ELIF "c1|c2"
+		CharacterHasStatus(_Character, NECROFIRE)
+		CharacterHasStatus(_Character, HOLY_FIRE)
+	THEN
+		Set(_Result,null)
+	ENDIF
+	ListAdd(_RemoveList, WEB)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetNecrofire
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, NECROFIRE)
+ACTIONS
+	Set(_Result,NECROFIRE)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, PETRIFIED)
+	THEN
+		Set(_Result,null)
+	ELSE
+		ListAdd(_RemoveList, WARM)
+		ListAdd(_RemoveList, BURNING)
+		ListAdd(_RemoveList, CHILLED)
+		ListAdd(_RemoveList, WET)
+		ListAdd(_RemoveList, FROZEN)
+		IF "c1"
+			CharacterHasStatus(_Character, HOLY_FIRE)
+		THEN
+			ListAdd(_RemoveList, HOLY_FIRE)		
+			Set(_Result, BURNING)
+		ELIF "c1"
+			CharacterHasStatus(_Character, BLESSED)
+		THEN
+			ListAdd(_RemoveList, BLESSED)		
+			Set(_Result, BURNING)		
+		ENDIF
+	ENDIF
+	IF "c1"
+		CharacterHasStatus(_Character,QUEST_OVERGROWN)
+	THEN
+		ListAdd(_RemoveList, QUEST_OVERGROWN)
+		Set(_Result,null)	
+	ENDIF
+	ListAdd(_RemoveList, WEB)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetHolyFire
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, HOLY_FIRE)
+ACTIONS
+	Set(_Result,HOLY_FIRE)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, PETRIFIED)
+	THEN
+		Set(_Result,null)
+	ELSE
+		ListAdd(_RemoveList, WARM)
+		ListAdd(_RemoveList, BURNING)
+		ListAdd(_RemoveList, CHILLED)
+		ListAdd(_RemoveList, WET)
+		ListAdd(_RemoveList, FROZEN)
+		IF "c1"
+			CharacterHasStatus(_Character, NECROFIRE)
+		THEN
+			ListAdd(_RemoveList, NECROFIRE)	
+			Set(_Result, BURNING)
+		ENDIF
+	ENDIF
+	ListAdd(_RemoveList, WEB)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetWet
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, WET)
+ACTIONS
+	Set(_Result,WET)
+	Set(_Turns,null)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, WARM)
+	ListAdd(_RemoveList, INVISIBLE)
+	IF "c1&c2"
+		IsTagged(_Character, VEGETAL)
+		CharacterHasStatus(_Character, QUEST_SUNSHINE)
+	THEN
+		Set(_Result,QUEST_OVERGROWN)
+		ListAdd(_RemoveList, QUEST_SUNSHINE)
+	ELIF "c1"
+		CharacterHasStatus(_Character, BURNING)
+	THEN
+		ListAdd(_RemoveList, BURNING)
+		Set(_Result, WARM)
+	ELIF "c1"
+		CharacterHasStatus(_Character, HOLY_FIRE)
+	THEN
+		ListAdd(_RemoveList, HOLY_FIRE)
+		Set(_Result, WARM)
+	ELIF "c1"
+		CharacterHasStatus(_Character, CHILLED)
+	THEN
+		ListAdd(_RemoveList, CHILLED)
+		Set(_Result,FROZEN)
+		Set(_Turns,1)
+	ELIF "c1|c2|c3"
+		CharacterHasStatus(_Character, FROZEN)
+		CharacterHasStatus(_Character, NECROFIRE)
+		CharacterHasStatus(_Character, HOLY_FIRE)
+	THEN
+		Set(_Result,null)
+	ELIF "c1"
+		CharacterHasStatus(_Character, SHOCKED)
+	THEN
+		ListAdd(_RemoveList, SHOCKED)
+		Set(_Result,STUNNED)
+		Set(_Turns,1)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharacterSetChilled
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, CHILLED)
+ACTIONS
+	Set(_Result,CHILLED)
+	Set(_Turns,null)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, BURNING)
+	THEN
+		ListAdd(_RemoveList, BURNING)
+		Set(_Result, WARM)
+	ELIF "c1"
+		CharacterHasStatus(_Character, HOLY_FIRE)
+	THEN
+		ListAdd(_RemoveList, HOLY_FIRE)
+		Set(_Result, WARM)
+	ELIF "c1"
+		CharacterHasStatus(_Character, WARM)
+	THEN
+		ListAdd(_RemoveList, WARM)		
+		Set(_Result,null)
+	ELIF "c1|c2"
+		CharacterHasStatus(_Character, CHILLED)
+		CharacterHasStatus(_Character, WET)
+	THEN
+		ListAdd(_RemoveList, CHILLED)
+		ListAdd(_RemoveList, WET)
+		Set(_Result, FROZEN)
+		Set(_Turns,1)
+	ELIF "c1|c2|c3"
+		CharacterHasStatus(_Character, FROZEN)
+		CharacterHasStatus(_Character, NECROFIRE)
+		CharacterHasStatus(_Character, HOLY_FIRE)
+	THEN		
+		Set(_Result,null)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharacterSetFrozen
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Willpower
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, FROZEN)
+ACTIONS
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Turns,null)
+		Set(_Result,FROZEN)
+		ListClear(_RemoveList)
+		ListAdd(_RemoveList, CHILLED)
+		ListAdd(_RemoveList, WET)
+		ListAdd(_RemoveList, INVISIBLE)
+		ListAdd(_RemoveList, SLEEPING)
+		IF "c1"
+			CharacterHasStatus(_Character, MAGIC_SHELL)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, MAGIC_SHELL)	
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, BURNING)
+		THEN
+			ListAdd(_RemoveList, BURNING)
+			Set(_Result, WET)
+		ELIF "c1"
+			CharacterHasStatus(_Character, HOLY_FIRE)
+		THEN
+			ListAdd(_RemoveList, HOLY_FIRE)
+			Set(_Result, WET)
+		ELIF "c1|c2"
+			CharacterHasStatus(_Character, NECROFIRE)
+			CharacterHasStatus(_Character, HOLY_FIRE)
+		THEN
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, WARM)
+		THEN
+			ListAdd(_RemoveList, WARM)
+			Set(_Result, CHILLED)
+		ENDIF
+	ELSE
+		IF "c1"
+			CharacterHasStatus(_Character, MAGIC_SHELL)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, MAGIC_SHELL)	
+			Set(_Result,null)
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			Set(_Turns, 0)
+		ENDIF
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharacterSetPetrified
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT: _Willpower
+	INT: _Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, PETRIFIED)
+ACTIONS
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Turns,null)
+		Set(_Result,PETRIFIED)
+		ListClear(_RemoveList)
+		IF "c1"
+			CharacterHasStatus(_Character, MAGIC_SHELL)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, MAGIC_SHELL)	
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, BLESSED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, BLESSED)		
+			Set(_Result,null)
+		ENDIF
+		IF "c1"
+			IsEqual(_Result, PETRIFIED)
+		THEN
+			ListAdd(_RemoveList, STUNNED)	
+			ListAdd(_RemoveList, SHOCKED)
+			ListAdd(_RemoveList, BLEEDING)
+			ListAdd(_RemoveList, CRIPPLED)
+			ListAdd(_RemoveList, BURNING)
+			ListAdd(_RemoveList, POISONED)
+			ListAdd(_RemoveList, INVISIBLE)
+			ListAdd(_RemoveList, SLEEPING)
+		ENDIF	
+	ELSE
+		IF "c1"
+			CharacterHasStatus(_Character, MAGIC_SHELL)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, MAGIC_SHELL)	
+			Set(_Result,null)
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			Set(_Turns, 0)
+		ENDIF
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharacterSetShocked
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+	INT:_Willpower
+ON 
+	FetchCharacterApplyStatusData(_Character, SHOCKED)
+ACTIONS
+	Set(_Result,SHOCKED)
+	Set(_Turns,null)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, MAGIC_SHELL)
+	THEN
+		ListAdd(_RemoveList, MAGIC_SHELL)	
+		Set(_Result,null)
+	ELIF "c1"
+		CharacterHasStatus(_Character, STUNNED)
+	THEN
+		ListAdd(_RemoveList, SHOCKED)	
+		Set(_Result,null)
+	ELIF "c1|c2"
+		CharacterHasStatus(_Character, SHOCKED)
+		CharacterHasStatus(_Character, WET)
+	THEN
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		THEN
+			ListAdd(_RemoveList, SHOCKED)	
+			Set(_Result,STUNNED)
+			Set(_Turns,1)
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			ListAdd(_RemoveList, WET)	
+			Set(_Turns, 0)
+		ENDIF
+	ENDIF
+	ListAdd(_RemoveList, INVISIBLE)
+	ListAdd(_RemoveList, SLEEPING)
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharacterSetStunned
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT: _Willpower
+	INT: _Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, STUNNED)
+ACTIONS
+	CharacterEvent(_Character,"AS_Debug_Shocktest")
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,STUNNED)
+		ListClear(_RemoveList)
+		ListAdd(_RemoveList, SHOCKED)
+		ListAdd(_RemoveList, PETRIFIED)
+		ListAdd(_RemoveList, WET)	
+		ListAdd(_RemoveList, INVISIBLE)
+		ListAdd(_RemoveList, SLEEPING)
+		IF "c1"
+			CharacterHasStatus(_Character, MAGIC_SHELL)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, MAGIC_SHELL)	
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, BLESSED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, BLESSED)	
+			Set(_Result,null)
+		ENDIF
+	ELSE
+		IF "c1"
+			CharacterHasStatus(_Character, MAGIC_SHELL)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, MAGIC_SHELL)	
+			Set(_Result,null)
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			Set(_Turns, 0)
+		ENDIF	
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+
+	
+EVENT CharacterSetDrunk
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, DRUNK)
+ACTIONS	
+	Set(_Result,DRUNK)
+	Set(_Turns,null)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, CLEAR_MINDED)
+	THEN
+		ListAdd(_RemoveList, CLEAR_MINDED)
+		Set(_Result, null)	
+	ELIF "c1"
+		CharacterHasStatus(_Character, DRUNK)
+	THEN
+		ListAdd(_RemoveList, DRUNK)
+		Set(_Result, SLEEPING)		
+		Set(_Turns,2)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharacterSetSlowed
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, SLOWED)
+ACTIONS	
+	Set(_Result,SLOWED)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, HASTED)
+	THEN
+		ListAdd(_RemoveList, HASTED)
+		Set(_Result,null)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetHasted
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, HASTED)
+ACTIONS	
+	Set(_Result,HASTED)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, SLOWED)
+	ListAdd(_RemoveList, CRIPPLED)
+	ListAdd(_RemoveList, KNOCKED_DOWN)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetFeared
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT: _Willpower
+	INT: _Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, FEAR)
+ACTIONS	
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,FEAR)
+		ListClear(_RemoveList)
+		IF "c1|c2"
+			CharacterHasStatus(_Character, CLEAR_MINDED)
+			CharacterHasStatus(_Character, ENRAGED)
+		THEN
+			ListAdd(_RemoveList, CLEAR_MINDED)
+			ListAdd(_RemoveList, ENRAGED)
+			Set(_Result,null)
+		ELSE
+			ListAdd(_RemoveList, CHARMED)
+			ListAdd(_RemoveList, TAUNTED)
+			ListAdd(_RemoveList, SLEEPING)	
+			ListAdd(_RemoveList, MADNESS)	
+		ENDIF
+	ELSE 
+		IF "c1"
+			CharacterHasStatus(_Character, CLEAR_MINDED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, CLEAR_MINDED)	
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, ENRAGED)	
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, ENRAGED)	
+			Set(_Result,null)
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			Set(_Turns, 0)
+		ENDIF		
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetCharmed
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Willpower
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, CHARMED)
+ACTIONS	
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,CHARMED)
+		ListClear(_RemoveList)
+		IF "c1|c2"
+			CharacterHasStatus(_Character, CLEAR_MINDED)
+			CharacterHasStatus(_Character, ENRAGED)
+		THEN
+			ListAdd(_RemoveList, CLEAR_MINDED)
+			ListAdd(_RemoveList, ENRAGED)		
+			Set(_Result,null)
+		ELSE
+			ListAdd(_RemoveList, FEAR)
+			ListAdd(_RemoveList, TAUNTED)
+			ListAdd(_RemoveList, SLEEPING)
+			ListAdd(_RemoveList, MADNESS)		
+		ENDIF
+		RETURN(_RemoveList,_Result,null)
+	ELSE
+		IF "c1"
+			CharacterHasStatus(_Character, CLEAR_MINDED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, CLEAR_MINDED)	
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, ENRAGED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, ENRAGED)	
+			Set(_Result,null)
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			Set(_Turns, 0)
+		ENDIF
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharacterSetTaunted
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, TAUNTED)
+ACTIONS	
+	Set(_Result,TAUNTED)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, INVISIBLE)
+	IF "c1|c2"
+		CharacterHasStatus(_Character, CLEAR_MINDED)
+		CharacterHasStatus(_Character, ENRAGED)
+	THEN
+		ListAdd(_RemoveList, CLEAR_MINDED)
+		ListAdd(_RemoveList, ENRAGED)		
+		Set(_Result,null)
+	ELSE
+		ListAdd(_RemoveList, CHARMED)
+		ListAdd(_RemoveList, FEAR)
+		ListAdd(_RemoveList, SLEEPING)		
+		ListAdd(_RemoveList, MADNESS)	
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetSleeping
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT: _Willpower
+	INT: _Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, SLEEPING)
+ACTIONS	
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,SLEEPING)
+		ListClear(_RemoveList)
+		ListAdd(_RemoveList, INVISIBLE)
+		IF "c1|c2"
+			CharacterHasStatus(_Character, CLEAR_MINDED)
+			CharacterHasStatus(_Character, ENRAGED)
+		THEN
+			ListAdd(_RemoveList, CLEAR_MINDED)
+			ListAdd(_RemoveList, ENRAGED)	
+			Set(_Result,null)
+		ELSE
+			ListAdd(_RemoveList, CHARMED)
+			ListAdd(_RemoveList, TAUNTED)
+			ListAdd(_RemoveList, FEAR)		
+			ListAdd(_RemoveList, MADNESS)	
+		ENDIF
+	ELSE
+		IF "c1"
+			CharacterHasStatus(_Character, CLEAR_MINDED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, CLEAR_MINDED)	
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, ENRAGED)		
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, ENRAGED)	
+			Set(_Result,null)			
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			Set(_Turns, 0)
+		ENDIF
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetMadness
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT: _Willpower
+	INT: _Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, MADNESS)
+ACTIONS	
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,MADNESS)
+		ListClear(_RemoveList)
+		IF "c1"
+			CharacterHasStatus(_Character, CLEAR_MINDED)
+		THEN
+			ListAdd(_RemoveList, CLEAR_MINDED)
+			Set(_Result,null)
+		ENDIF
+	ELSE
+		IF "c1"
+			CharacterHasStatus(_Character, CLEAR_MINDED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, CLEAR_MINDED)	
+			Set(_Result,null)
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			Set(_Turns, 0)
+		ENDIF
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetClearMinded
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, CLEAR_MINDED)
+ACTIONS	
+	Set(_Result,CLEAR_MINDED)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, POSSESSED)
+	THEN
+		Set(_Result,null)
+	ELSE
+		ListAdd(_RemoveList, FEAR)
+		ListAdd(_RemoveList, CHARMED)
+		ListAdd(_RemoveList, TAUNTED)
+		ListAdd(_RemoveList, SLEEPING)
+		ListAdd(_RemoveList, ENRAGED)
+		ListAdd(_RemoveList, BLIND)
+		ListAdd(_RemoveList, DRUNK)
+		ListAdd(_RemoveList, MADNESS)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetEnraged
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, ENRAGED)
+ACTIONS	
+	Set(_Result,ENRAGED)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, FEAR)
+	ListAdd(_RemoveList, CHARMED)
+	ListAdd(_RemoveList, TAUNTED)
+	ListAdd(_RemoveList, SLEEPING)
+	ListAdd(_RemoveList, MADNESS)	
+	ListAdd(_RemoveList, CLEAR_MINDED)
+	RETURN(_RemoveList,_Result,null)
+	
+	
+EVENT CharacterSetRested
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, RESTED)
+ACTIONS	
+	Set(_Result,RESTED)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, MUTED)
+	ListAdd(_RemoveList, BLIND)
+	ListAdd(_RemoveList, CRIPPLED)
+	ListAdd(_RemoveList, KNOCKED_DOWN)
+	ListAdd(_RemoveList, BLEEDING)
+	ListAdd(_RemoveList, PLAGUE)
+	ListAdd(_RemoveList, INFESTED)	
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetMuted
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Willpower
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, MUTED)
+ACTIONS	
+
+		Set(_Result,MUTED)
+		ListClear(_RemoveList)
+		IF "c1"
+			CharacterHasStatus(_Character, RESTED)
+		THEN
+			ListAdd(_RemoveList, RESTED)
+			Set(_Result,null)
+		ENDIF
+
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetBlind
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Willpower
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, BLIND)
+ACTIONS	
+
+		Set(_Result,BLIND)
+		ListClear(_RemoveList)
+		IF "c1"
+			CharacterHasStatus(_Character, RESTED)
+		THEN
+			ListAdd(_RemoveList, RESTED)
+			Set(_Result,null)
+		ENDIF
+
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetCrippled
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+	INT:_Willpower
+ON 
+	FetchCharacterApplyStatusData(_Character, CRIPPLED)
+ACTIONS	
+		Set(_Result,CRIPPLED)
+		ListClear(_RemoveList)
+		IF "c1"
+			CharacterHasStatus(_Character, RESTED)
+		THEN
+			ListAdd(_RemoveList, RESTED)
+			Set(_Result,null)
+		ENDIF
+		IF "c1"
+			CharacterHasStatus(_Character, HASTED)
+		THEN
+			ListAdd(_RemoveList, HASTED)
+			Set(_Result,null)
+		ENDIF
+
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetKnockedDown
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Willpower
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, KNOCKED_DOWN)
+ACTIONS	
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,KNOCKED_DOWN)
+		ListClear(_RemoveList)
+		ListAdd(_RemoveList, INVISIBLE)
+		ListAdd(_RemoveList, SLEEPING)
+		IF "c1"
+			CharacterHasStatus(_Character, RESTED)
+		THEN
+			ListAdd(_RemoveList, RESTED)
+			Set(_Result,null)
+		ENDIF
+	ELSE
+		IF "c1"
+			CharacterHasStatus(_Character, RESTED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, RESTED)	
+			Set(_Result,null)
+		ELSE
+			Set(_Result, AS_WILLPOWER_DOWN)
+			Set(_Turns, 0)
+		ENDIF
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetRegeneration
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, REGENERATION)
+ACTIONS	
+	Set(_Result,REGENERATION)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, ACID)
+	ListAdd(_RemoveList, POISONED)
+	ListAdd(_RemoveList, BLEEDING)
+	ListAdd(_RemoveList, SUFFOCATING)
+	ListAdd(_RemoveList, BURNING)
+	ListAdd(_RemoveList, INFESTED)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetFortified
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, FORTIFIED)
+ACTIONS	
+	Set(_Result,FORTIFIED)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, ACID)
+	ListAdd(_RemoveList, POISONED)
+	ListAdd(_RemoveList, BURNING)
+	ListAdd(_RemoveList, BLEEDING)
+	ListAdd(_RemoveList, DISEASED)
+	ListAdd(_RemoveList, INFECTIOUS_DISEASED)	
+	ListAdd(_RemoveList, DECAYING_TOUCH)	
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetAcid
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, ACID)
+ACTIONS	
+	Set(_Result,ACID)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, FORTIFIED)
+	THEN
+		ListAdd(_RemoveList, FORTIFIED)
+		Set(_Result,null)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetPoisoned
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, POISONED)
+ACTIONS	
+	Set(_Result,POISONED)
+	ListClear(_RemoveList)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetBleeding
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, BLEEDING)
+ACTIONS	
+	Set(_Result,BLEEDING)
+	ListClear(_RemoveList)
+	IF "c1&c2"	
+		IsTagged(_Character, UNDEAD)
+		CharacterIsPlayer(_Character)
+	THEN
+		Set(_Result,null)
+	ELIF "c1"
+		CharacterHasStatus(_Character, REGENERATION)
+	THEN
+		ListAdd(_RemoveList, REGENERATION)
+		Set(_Result,null)
+	ELIF "c1"
+		CharacterHasStatus(_Character, FORTIFIED)
+	THEN
+		ListAdd(_RemoveList, FORTIFIED)
+		Set(_Result,null)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetBlessed
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, BLESSED)
+ACTIONS
+	Set(_Result,BLESSED)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, DISEASED)
+	ListAdd(_RemoveList, INFECTIOUS_DISEASED)	
+	ListAdd(_RemoveList, DECAYING_TOUCH)	
+	ListAdd(_RemoveList, PETRIFIED)	
+	ListAdd(_RemoveList, STUNNED)	
+	ListAdd(_RemoveList, FROZEN)	
+	ListAdd(_RemoveList, INFESTED)	
+	ListAdd(_RemoveList, PLAGUE)
+	ListAdd(_RemoveList, MUTED)	
+	ListAdd(_RemoveList, DISARMED)		
+	IF "c1"
+		CharacterHasStatus(_Character, FROZEN)
+	THEN
+		ListAdd(_RemoveList, FROZEN)
+		Set(_Result, CHILLED)
+	ENDIF		
+	IF "c1"
+		CharacterHasStatus(_Character, BURNING)
+	THEN
+		ListAdd(_RemoveList, BURNING)
+		Set(_Result, HOLY_FIRE)
+	ENDIF		
+	IF "c1"
+		CharacterHasStatus(_Character, NECROFIRE)
+	THEN
+		ListAdd(_RemoveList, NECROFIRE)
+		Set(_Result, BURNING)
+	ENDIF	
+	IF "c1"
+		CharacterHasStatus(_Character, CURSED)
+	THEN
+		ListAdd(_RemoveList, CURSED)
+		Set(_Result,null)
+	ENDIF	
+	IF "c1"
+		CharacterHasStatus(_Character, PERMANENTLY_CURSED)
+	THEN
+		Set(_Result,null)
+	ENDIF	
+	IF "c1"
+		CharacterHasStatus(_Character, VOIDHOWL)
+	THEN
+		ListAdd(_RemoveList, VOIDHOWL)
+		Set(_Result,null)
+	ENDIF
+	// Divine War - if Black-Hearted, fuck yo bless
+	IF "c1"
+		CharacterHasTalent(_Character,LivingArmor)
+	THEN
+		ListAdd(_RemoveList, BLESSED)
+		Set(_Result,null)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetVoidHowl
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, VOIDHOWL)
+ACTIONS
+	Set(_Result,VOIDHOWL)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetMagicShell
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, MAGIC_SHELL)
+ACTIONS
+	Set(_Result,MAGIC_SHELL)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, FROZEN)	
+	ListAdd(_RemoveList, STUNNED)		
+	ListAdd(_RemoveList, PETRIFIED)
+	ListAdd(_RemoveList, PLAGUE)
+	ListAdd(_RemoveList, SUFFOCATING)
+	ListAdd(_RemoveList, POISONED)
+	ListAdd(_RemoveList, BURNING)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetCursed
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Willpower
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, CURSED)
+ACTIONS	
+	IF "c1|!c2"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,CURSED)
+		ListClear(_RemoveList)
+		IF "c1"
+			CharacterHasStatus(_Character, BLESSED)
+		THEN
+			ListAdd(_RemoveList, BLESSED)
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, CHILLED)
+		THEN
+			ListAdd(_RemoveList, CHILLED)
+			Set(_Result, FROZEN)
+		ELIF "c1"
+			CharacterHasStatus(_Character, QUEST_OVERGROWN)
+		THEN
+			ListAdd(_RemoveList, QUEST_OVERGROWN)
+			Set(_Result,null)	
+		ENDIF	
+		IF "c1"
+			CharacterHasStatus(_Character, BURNING)
+		THEN
+			ListAdd(_RemoveList, BURNING)
+			Set(_Result, NECROFIRE)
+		ENDIF				
+		IF "c1|c2"
+			CharacterHasStatus(_Character, WARM)
+			CharacterHasStatus(_Character, HOLY_FIRE)
+		THEN
+			ListAdd(_RemoveList, WARM)
+			ListAdd(_RemoveList, HOLY_FIRE)
+			Set(_Result, BURNING)
+		ENDIF		
+	ELSE
+		IF "c1"
+			CharacterHasStatus(_Character, BLESSED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, BLESSED)	
+			Set(_Result,null)
+		ELSE
+		ENDIF
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetDiseased
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, DISEASED)
+ACTIONS	
+	Set(_Result,DISEASED)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, FORTIFIED)
+	THEN
+		ListAdd(_RemoveList, FORTIFIED)		
+		Set(_Result,null)
+	ELIF "c1"
+		CharacterHasStatus(_Character, BLESSED)
+	THEN
+		ListAdd(_RemoveList, BLESSED)		
+		Set(_Result,null)
+	ENDIF	
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetInfectiousDiseased
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, INFECTIOUS_DISEASED)
+ACTIONS	
+	Set(_Result,INFECTIOUS_DISEASED)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, FORTIFIED)
+	THEN
+		ListAdd(_RemoveList, FORTIFIED)	
+		Set(_Result,null)
+	ELIF "c1"
+		CharacterHasStatus(_Character, BLESSED)
+	THEN
+		ListAdd(_RemoveList, BLESSED)	
+		Set(_Result,null)
+	ENDIF	
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetDecaying
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Willpower
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, DECAYING_TOUCH)
+ACTIONS	
+	//CharacterEvent(_Character,"AS_SetDecayCooldown")
+	IF "c1&!c2&!c3|!c4"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		CharacterHasTalent(_Character,LivingArmor)
+		HasFlag(_Character,"AS_Decay_Cooldown")
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,DECAYING_TOUCH)
+		ListClear(_RemoveList)
+		IF "c1"
+			CharacterHasStatus(_Character, FORTIFIED)
+		THEN
+			ListAdd(_RemoveList, FORTIFIED)	
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, BLESSED)
+		THEN
+			ListAdd(_RemoveList, BLESSED)	
+			Set(_Result,null)
+		ENDIF		
+	ELIF "!c1&!c2"
+		CharacterHasTalent(_Character,LivingArmor)
+		HasFlag(_Character,"AS_Decay_Cooldown")
+	THEN
+		IF "c1"
+			CharacterHasStatus(_Character, FORTIFIED)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, FORTIFIED)	
+			Set(_Result,null)
+		ELIF "c1"
+			CharacterHasStatus(_Character, DECAYING_TOUCH)
+		THEN
+			ListClear(_RemoveList)
+			ListAdd(_RemoveList, DECAYING_TOUCH)	
+			Set(_Result,null)
+		ELSE
+
+		ENDIF
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetInvisible
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, INVISIBLE)
+ACTIONS	
+	Set(_Result,INVISIBLE)
+	ListClear(_RemoveList)
+	IF "c1"
+		CharacterHasStatus(_Character, MARKED)
+	THEN
+		ListAdd(_RemoveList, INVISIBLE)	
+		Set(_Result,null)
+	ELSE
+		ListAdd(_RemoveList, WET)
+	ENDIF		
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetDeathfog
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, DEATH_FOG)
+ACTIONS	
+	Set(_Result,DEATH_FOG)
+	ListClear(_RemoveList)
+	IF "c1|c2|c3|c4|c5|c6|c7|c8"
+		CharacterHasTalent(_Character, Zombie)
+		IsTagged(_Character, UNDEAD)
+		IsTagged(_Character, UNDEAD_BEAST)
+		IsTagged(_Character, DEATHFOG_IMMUNE)
+		IsTagged(_Character, DRAGON)
+		IsTagged(_Character, VOIDWOKEN)
+		IsTagged(_Character, DEMON)
+		IsTagged(_Character, CONSTRUCT)
+	THEN
+		Set(_Result,null)
+	ENDIF		
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetChicken
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Willpower
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, CHICKEN)
+ACTIONS
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result, CHICKEN)
+		ListClear(_RemoveList)
+		ListAdd(_RemoveList, WINGS)
+		IF "c1"
+			CharacterHasStatus(_Character, CHICKEN)
+		THEN
+			Set(_Result,null)
+		ENDIF
+	ELSE
+		Set(_Result, AS_WILLPOWER_DOWN)
+		Set(_Turns, 0)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetHealingElixir
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, HEALING_ELIXIR)
+ACTIONS
+	Set(_Result,HEALING_ELIXIR)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, WEAK)
+	ListAdd(_RemoveList, SLOWED)
+	ListAdd(_RemoveList, DISEASED)
+	ListAdd(_RemoveList, POISONED)
+	ListAdd(_RemoveList, BLEEDING)
+	ListAdd(_RemoveList, CRIPPLED)
+	ListAdd(_RemoveList, CURSED)
+	ListAdd(_RemoveList, CHILLED)
+	ListAdd(_RemoveList, DRUNK)
+	ListAdd(_RemoveList, BURNING)
+	ListAdd(_RemoveList, BLEEDING)
+	ListAdd(_RemoveList, NECROFIRE)
+	ListAdd(_RemoveList, ACID)
+	ListAdd(_RemoveList, SUFFOCATING)
+	ListAdd(_RemoveList, DECAYING_TOUCH)
+	ListAdd(_RemoveList, INFECTIOUS_DISEASED)
+	ListAdd(_RemoveList, PLAGUE)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetChainHeal
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, CHAIN_HEAL)
+ACTIONS
+	Set(_Result,CHAIN_HEAL)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, INFESTED)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetCleanseWounds
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, CLEANSE_WOUNDS)
+ACTIONS
+	Set(_Result,CLEANSE_WOUNDS)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, INFESTED)
+	ListAdd(_RemoveList, PLAGUE)
+	ListAdd(_RemoveList, DISEASED)
+	ListAdd(_RemoveList, INFECTIOUS_DISEASED)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetSteamLance
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, STEAM_LANCE)
+ACTIONS
+	Set(_Result,STEAM_LANCE)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, FROZEN)
+	ListAdd(_RemoveList, CHILLED)
+	ListAdd(_RemoveList, DISEASED)
+	ListAdd(_RemoveList, INFECTIOUS_DISEASED)
+	ListAdd(_RemoveList, DECAYING_TOUCH)
+	ListAdd(_RemoveList, PLAGUE)
+	ListAdd(_RemoveList, INFESTED)	
+	IF "c1"
+		CharacterHasStatus(_Character, PLAGUE)
+	THEN
+		ListAdd(_RemoveList, PLAGUE)
+		Set(_Result,null)
+	ENDIF		
+	RETURN(_RemoveList,_Result,null)
+
+EVENT CharacterSetWeb
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, WEB)
+ACTIONS
+	Set(_Result,WEB)
+	ListClear(_RemoveList)
+	IF "c1&!c2"
+		CharacterHasStatus(_Character, SPIDER_LEGS)
+		CharacterHasStatus(_Character, HASTED)
+	THEN
+		Set(_Result,HASTED)		
+	ELIF "c1"
+		CharacterHasStatus(_Character, SPIDER_LEGS)
+	THEN
+		Set(_Result, null)/* Don't reapply Haste to avoid spam */
+	ELIF "c1&!c2"
+		CharacterHasStatus(_Character, HASTED)
+		CharacterHasStatus(_Character, SPIDER_LEGS)
+	THEN
+		ListAdd(_RemoveList, HASTED)
+	ENDIF		
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT CharacterSetSpiderLegs
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchCharacterApplyStatusData(_Character, SPIDER_LEGS)
+ACTIONS
+	Set(_Result,SPIDER_LEGS)
+	ListAdd(_RemoveList, WEB)
+	RETURN(_RemoveList,_Result,null)
+	
+// ITEMS ================================================================================================
+EVENT ItemSetWarm
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchItemApplyStatusData(_Item, WARM)
+ACTIONS
+	Set(_Result,WARM)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList,WET)
+	IF "c1"
+		ItemHasStatus(_Item, WARM)
+	THEN
+		ListAdd(_RemoveList,WARM)
+		Set(_Result,BURNING)
+	ELIF "c1|c2|c3"
+		ItemHasStatus(_Item, BURNING)
+		ItemHasStatus(_Item, NECROFIRE)
+		ItemHasStatus(_Item, HOLY_FIRE)
+	THEN
+		Set(_Result,null)
+	ELIF "c1"
+		ItemHasStatus(_Item, CHILLED)
+	THEN
+		ListAdd(_RemoveList,CHILLED)
+		Set(_Result,null)
+	ELIF "c1"
+		ItemHasStatus(_Item, FROZEN)
+	THEN
+		ListAdd(_RemoveList,FROZEN)
+		Set(_Result, CHILLED)		
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT ItemSetBurning
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchItemApplyStatusData(_Item, BURNING)
+ACTIONS
+	Set(_Result,BURNING)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList,WARM)
+	IF "c1"
+		ItemHasStatus(_Item, CHILLED)
+	THEN
+		ListAdd(_RemoveList,CHILLED)
+		Set(_Result, WARM)
+	ELIF "c1"
+		ItemHasStatus(_Item, WET)
+	THEN
+		ListAdd(_RemoveList,WET)
+		Set(_Result, WARM)
+	ELIF "c1"
+		ItemHasStatus(_Item, FROZEN)
+	THEN
+		ListAdd(_RemoveList,FROZEN)
+		Set(_Result, WET)
+	ELIF "c1|c2"
+		ItemHasStatus(_Item, NECROFIRE)
+		ItemHasStatus(_Item, HOLY_FIRE)
+	THEN
+		Set(_Result,null)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT ItemSetNecrofire
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchItemApplyStatusData(_Item, NECROFIRE)
+ACTIONS
+	Set(_Result,NECROFIRE)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList,WARM)
+	ListAdd(_RemoveList,BURNING)
+	ListAdd(_RemoveList,CHILLED)
+	ListAdd(_RemoveList,WET)
+	ListAdd(_RemoveList,FROZEN)
+	IF "c1"
+		ItemHasStatus(_Item, HOLY_FIRE)
+	THEN
+		ListAdd(_RemoveList,HOLY_FIRE)		
+		Set(_Result, BURNING)
+	ELIF "c1"
+		ItemHasStatus(_Item, BLESSED)
+	THEN
+		ListAdd(_RemoveList,BLESSED)		
+		Set(_Result, BURNING)		
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT ItemSetHolyFire
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchItemApplyStatusData(_Item, HOLY_FIRE)
+ACTIONS
+	Set(_Result,HOLY_FIRE)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList,WARM)
+	ListAdd(_RemoveList,BURNING)
+	ListAdd(_RemoveList,CHILLED)
+	ListAdd(_RemoveList,WET)
+	ListAdd(_RemoveList,FROZEN)
+	IF "c1"
+		ItemHasStatus(_Item, NECROFIRE)
+	THEN
+		ListAdd(_RemoveList,NECROFIRE)	
+		Set(_Result, BURNING)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT ItemSetWet
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+ON 
+	FetchItemApplyStatusData(_Item, WET)
+ACTIONS
+	Set(_Result,WET)
+	Set(_Turns,null)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList,WARM)
+	ListAdd(_RemoveList, INVISIBLE)
+	IF "c1"
+		ItemHasStatus(_Item, BURNING)
+	THEN
+		ListAdd(_RemoveList,BURNING)
+		Set(_Result,null)	
+	ELIF "c1"
+		ItemHasStatus(_Item, CHILLED)
+	THEN
+		ListAdd(_RemoveList,CHILLED)
+		Set(_Result, FROZEN)
+		Set(_Turns, 1)
+	ELIF "c1|c2|c3"
+		ItemHasStatus(_Item, FROZEN)
+		ItemHasStatus(_Item, NECROFIRE)
+		ItemHasStatus(_Item, HOLY_FIRE)
+	THEN
+		Set(_Result,null)	
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT ItemSetChilled
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+ON 
+	FetchItemApplyStatusData(_Item, CHILLED)
+ACTIONS
+	Set(_Result,CHILLED)
+	Set(_Turns,null)
+	ListClear(_RemoveList)
+	IF "c1"
+		ItemHasStatus(_Item, BURNING)
+	THEN
+		ListAdd(_RemoveList,BURNING)
+		Set(_Result, WARM)
+	ELIF "c1"
+		ItemHasStatus(_Item, WARM)
+	THEN
+		ListAdd(_RemoveList,WARM)
+		Set(_Result,null)	
+	ELIF "c1|c2"
+		ItemHasStatus(_Item, CHILLED)
+		ItemHasStatus(_Item, WET)
+	THEN
+		ListAdd(_RemoveList,CHILLED)
+		ListAdd(_RemoveList,WET)
+		Set(_Result, FROZEN)
+		Set(_Turns, 1)
+	ELIF "c1|c2|c3"
+		ItemHasStatus(_Item, FROZEN)
+		ItemHasStatus(_Item, NECROFIRE)
+		ItemHasStatus(_Item, HOLY_FIRE)
+	THEN		
+		Set(_Result,null)	
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT ItemSetFrozen
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchItemApplyStatusData(_Item, FROZEN)
+ACTIONS
+	Set(_Result,FROZEN)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList,CHILLED)
+	ListAdd(_RemoveList,WET)
+	ListAdd(_RemoveList, INVISIBLE)
+	IF "c1"
+		ItemHasStatus(_Item, BURNING)
+	THEN
+		ListAdd(_RemoveList,BURNING)
+		Set(_Result, WET)
+	ELIF "c1|c2"
+		ItemHasStatus(_Item, NECROFIRE)
+		ItemHasStatus(_Item, HOLY_FIRE)
+	THEN
+		Set(_Result,null)	
+	ELIF "c1"
+		ItemHasStatus(_Item, WARM)
+	THEN
+		ListAdd(_RemoveList,WARM)
+		Set(_Result, CHILLED)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT ItemSetBlessed
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchItemApplyStatusData(_Item, BLESSED)
+ACTIONS
+	Set(_Result,BLESSED)
+	ListClear(_RemoveList)
+	ListAdd(_RemoveList, DISEASED)
+	ListAdd(_RemoveList, INFECTIOUS_DISEASED)	
+	ListAdd(_RemoveList, DECAYING_TOUCH)	
+	ListAdd(_RemoveList, PETRIFIED)	
+	ListAdd(_RemoveList, STUNNED)	
+	ListAdd(_RemoveList, PLAGUE)
+	IF "c1"
+		ItemHasStatus(_Item, FROZEN)
+	THEN
+		ListAdd(_RemoveList, FROZEN)
+		Set(_Result, CHILLED)
+	ENDIF		
+	IF "c1"
+		ItemHasStatus(_Item, BURNING)
+	THEN
+		ListAdd(_RemoveList, BURNING)
+		Set(_Result, HOLY_FIRE)
+	ENDIF		
+	IF "c1"
+		ItemHasStatus(_Item, NECROFIRE)
+	THEN
+		ListAdd(_RemoveList, NECROFIRE)
+		Set(_Result, BURNING)
+	ENDIF	
+	IF "c1"
+		ItemHasStatus(_Item, CURSED)
+	THEN
+		ListAdd(_RemoveList, CURSED)
+		Set(_Result,null)
+	ENDIF	
+	IF "c1"
+		ItemHasStatus(_Item, PERMANENTLY_CURSED)
+	THEN
+		Set(_Result,null)
+	ENDIF	
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT ItemSetCursed
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+ON 
+	FetchItemApplyStatusData(_Item, CURSED)
+ACTIONS	
+	Set(_Result,CURSED)
+	ListClear(_RemoveList)
+	IF "c1"
+		ItemHasStatus(_Item, BLESSED)
+	THEN
+		ListAdd(_RemoveList, BLESSED)
+		Set(_Result,null)
+	ELIF "c1"
+		ItemHasStatus(_Item, CHILLED)
+	THEN
+		ListAdd(_RemoveList, CHILLED)
+		Set(_Result, FROZEN)
+	ENDIF	
+	IF "c1"
+		ItemHasStatus(_Item, BURNING)
+	THEN
+		ListAdd(_RemoveList, BURNING)
+		Set(_Result, NECROFIRE)
+	ENDIF				
+	IF "c1|c2"
+		ItemHasStatus(_Item, WARM)
+		ItemHasStatus(_Item, HOLY_FIRE)
+	THEN
+		ListAdd(_RemoveList, WARM)
+		ListAdd(_RemoveList, HOLY_FIRE)
+		Set(_Result, BURNING)
+	ENDIF		
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT ItemSetShocked
+VARS
+	ITEM:_Item
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+ON 
+	FetchItemApplyStatusData(_Item, SHOCKED)
+ACTIONS
+	Set(_Result,SHOCKED)
+	Set(_Turns,null)
+	ListClear(_RemoveList)
+	IF "c1"
+		ItemHasStatus(_Item, MAGIC_SHELL)
+	THEN
+		ListAdd(_RemoveList, MAGIC_SHELL)	
+		Set(_Result,null)
+	ELIF "c1"
+		ItemHasStatus(_Item, STUNNED)
+	THEN
+		ListAdd(_RemoveList, SHOCKED)	
+		Set(_Result,null)
+	ELIF "c1|c2"
+		ItemHasStatus(_Item, SHOCKED)
+		ItemHasStatus(_Item, WET)
+	THEN
+		ListAdd(_RemoveList, SHOCKED)	
+		Set(_Result,STUNNED)
+		Set(_Turns,1)
+	ENDIF
+	ListAdd(_RemoveList, INVISIBLE)
+	ListAdd(_RemoveList, SLEEPING)
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharRemoveFrozen
+VARS
+	CHARACTER:_Character
+	STATUS:_StatusRemoved
+ON 
+	OnCharacterStatusRemoved(_Character, FROZEN)
+ACTIONS
+	CharacterApplyStatus(_Character, POST_MAGIC_CONTROL, 0)
+	
+EVENT CharRemoveStunned
+VARS
+	CHARACTER:_Character
+	STATUS:_StatusRemoved
+ON 
+	OnCharacterStatusRemoved(_Character, STUNNED)
+ACTIONS
+	CharacterApplyStatus(_Character, POST_MAGIC_CONTROL, 0)
+	IF "c1"
+		IsTagged(_Character,"AUTOMATON")
+	THEN
+		CharacterApplyStatus(_Character, HYPERCHARGED, 3, 1)
+	ENDIF
+	
+EVENT CharRemovePetrified
+VARS
+	CHARACTER:_Character
+	STATUS:_StatusRemoved
+ON 
+	OnCharacterStatusRemoved(_Character, PETRIFIED)
+ACTIONS
+	CharacterApplyStatus(_Character, POST_PHYS_CONTROL, 0)
+	
+EVENT CharRemoveKnockedDown
+VARS
+	CHARACTER:_Character
+	STATUS:_StatusRemoved
+ON 
+	OnCharacterStatusRemoved(_Character, KNOCKED_DOWN)
+ACTIONS
+	CharacterApplyStatus(_Character, POST_PHYS_CONTROL, 0)
+	
+EVENT CharRemoveInnerDemon
+VARS
+	CHARACTER:_Character
+	STATUS:_StatusRemoved
+ON 
+	OnCharacterStatusRemoved(_Character, INNER_DEMON)
+ACTIONS
+	IF "!c1"
+		CharacterHasStatus(_Character,INNER_DEMON)
+	THEN
+		CharacterRemoveStatus(_Character, DEMONIC_TUTELAGE)
+	ENDIF
+	
+EVENT InfernalLizard_RemoveNecroFire
+VARS
+	CHARACTER:_Character
+ON 
+	OnCharacterStatusRemoved(_Character, NECROFIRE)
+ACTIONS
+	IF "c1&!c2"
+		IsTagged(_Character,"INFERNAL_LIZARD")
+		CharacterHasStatus(_Character,WEAK)
+	THEN
+		CharacterApplyStatus(_Character,WEAK,2,1)
+	ENDIF	
+	
+EVENT InfernalLizard_NecroFireReApply
+VARS
+	CHARACTER:_Character
+ON 
+	OnCharacterStatusRemoved(_Character, WEAK)
+ACTIONS
+	IF "c1&!c2"
+		IsTagged(_Character,"INFERNAL_LIZARD")
+		CharacterHasStatus(_Character,NECROFIRE)
+	THEN
+		CharacterApplyStatus(_Character,NECROFIRE,-1,1)
+	ENDIF	
+	
+EVENT VegetalSetSunshine
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, QUEST_SUNSHINE)
+ACTIONS
+	Set(_Result,QUEST_SUNSHINE)
+	Set(_Turns,null)
+	ListClear(_RemoveList)
+	IF "c1&c2"
+		IsTagged(_Character, VEGETAL)
+		CharacterHasStatus(_Character, WET)
+	THEN
+		Set(_Result, QUEST_OVERGROWN)
+		ListAdd(_RemoveList, WET)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT Veiled_Undead
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT:_Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, VEILED_UNDEAD)
+ACTIONS
+	IF "!c1"
+		CharacterHasStatus(_Character, VEILED_UNDEAD)
+	THEN
+		Set(_Result, VEILED_UNDEAD)
+		Set(_Turns,null)
+		ListClear(_RemoveList)
+	ELSE
+		Set(_Result,null)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+
+	
+EVENT Kill_Immunities_NPC
+VARS
+	CHARACTER:_Char
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	STATUS:_Any
+	INT:_Turns
+ON
+	FetchCharacterApplyStatusData(_Char,WATER_IMMUNITY_AURA)
+ACTIONS
+	ListClear(_RemoveList)
+	IF "!c1"
+		CharacterIsPlayer(_Char)
+	THEN
+		ListAdd(_RemoveList, WATER_IMMUNITY_AURA)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT Kill_Immunities_NPC2
+VARS
+	CHARACTER:_Char
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	STATUS:_Any
+	INT:_Turns
+ON
+	FetchCharacterApplyStatusData(_Char,FIRE_IMMUNITY_AURA)
+ACTIONS
+	ListClear(_RemoveList)
+	IF "!c1"
+		CharacterIsPlayer(_Char)
+	THEN
+		ListAdd(_RemoveList, FIRE_IMMUNITY_AURA)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT Kill_Immunities_NPC3
+VARS
+	CHARACTER:_Char
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	STATUS:_Any
+	INT:_Turns
+ON
+	FetchCharacterApplyStatusData(_Char,EARTH_IMMUNITY_AURA)
+ACTIONS
+	ListClear(_RemoveList)
+	IF "!c1"
+		CharacterIsPlayer(_Char)
+	THEN
+		ListAdd(_RemoveList, EARTH_IMMUNITY_AURA)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+
+EVENT Kill_Immunities_NPC4
+VARS
+	CHARACTER:_Char
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	STATUS:_Any
+	INT:_Turns
+ON
+	FetchCharacterApplyStatusData(_Char,AIR_IMMUNITY_AURA)
+ACTIONS
+	ListClear(_RemoveList)
+	IF "!c1"
+		CharacterIsPlayer(_Char)
+	THEN
+		ListAdd(_RemoveList, AIR_IMMUNITY_AURA)
+	ENDIF
+	RETURN(_RemoveList,_Result,_Turns)
+	
+EVENT CharacterSetDrain
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	INT: _Willpower
+	INT: _Turns
+ON 
+	FetchCharacterApplyStatusData(_Character, DRAIN)
+ACTIONS	
+	IF "c1&c2|!c3"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsLessThen(_Willpower,1.0)
+		GetVar(_Willpower,_Character,"AS_Willpower")
+	THEN
+		Set(_Result,DRAIN)
+		ListClear(_RemoveList)
+	ELSE
+		Set(_Result, AS_WILLPOWER_DOWN)
+		Set(_Turns, 0)
+	ENDIF
+	RETURN(_RemoveList,_Result,null)

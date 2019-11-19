@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="0" build="3" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Radius: [1]&lt;br&gt;Duration: [2]&lt;br&gt;Creates water puddles on terrain, douses fires, and makes characters wet. Wet makes target less resistant to air spells but more resistant to fire spells." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Rain_Water_StatsDescription" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

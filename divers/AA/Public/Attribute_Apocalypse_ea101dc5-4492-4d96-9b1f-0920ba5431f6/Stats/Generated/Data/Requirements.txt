@@ -1,0 +1,16 @@
+requirement "QuickStep",""
+
+requirement "Executioner",""
+
+requirement "Escapist","!TALENT_Stench;!TALENT_NoAttackOfOpportunity"
+
+requirement "Stench","!TALENT_Escapist"
+
+requirement "ExtraStatPoints",""
+
+requirement "ExtraSkillPoints",""
+
+requirement "NoAttackOfOpportunity","!TALENT_Escapist"
+
+requirement "ElementalAffinity","Polymorph 1"
+

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Pull &lt;font color='#aa3938'&gt;enemies&lt;/font&gt; towards you with a strong current, dealing [1]. &lt;br&gt;&lt;br&gt;&lt;font color='#aa3938'&gt;Enemies&lt;/font&gt; are then pushed back a short distance and become &lt;font color='#4197e2'&gt;Wet&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_HarshCurrent_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Push &lt;font color='#aa3938'&gt;enemies&lt;/font&gt; away from you with a forceful torrent, dealing [1] and applying &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Setting &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt; on an enemy who already has &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt; will set &lt;font color='#dbdbdb'&gt;Knocked Down&lt;/font&gt; if either Armour type is depleted." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_Rebuke_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Channel the power of the tide, adding [1] to your weapon attacks and skills. &lt;br&gt;&lt;br&gt;Basic attacks will &lt;font color=&quot;#4197e2&quot;&gt;Wet&lt;/font&gt; characters for 1 turn if they are not already &lt;font color=&quot;#4197e2&quot;&gt;Wet&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_Frostblade_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Water spouts from below, dealing [1] and applying &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt; to all nearby characters.&lt;br&gt;&lt;br&gt;Creates a &lt;font color='#4197e2'&gt;water surface&lt;/font&gt; and sets &lt;font color='#4197e2'&gt;Wet&lt;/font&gt; on characters around you. &lt;br&gt;&lt;br&gt;Setting &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt; on an enemy who already has &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt; will set &lt;font color='#dbdbdb'&gt;Knocked Down&lt;/font&gt; if either Armour type is depleted." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_Waterspout_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal [4] + [1] (based on current &lt;font color='#188ede'&gt;Magic Armour&lt;/font&gt;) and &lt;font color=&quot;#cfecff&quot;&gt;Chilling&lt;/font&gt; nearby &lt;font color='#aa3938'&gt;enemies&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Creates an &lt;font color=&quot;#cfecff&quot;&gt;ice surface&lt;/font&gt; beneath hit &lt;font color='#aa3938'&gt;enemies&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Hitting a &lt;font color=&quot;#cfecff&quot;&gt;Chilled&lt;/font&gt; or &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt; enemy with this skill applies &lt;font color=&quot;#cfecff&quot;&gt;Hypothermia&lt;/font&gt; for 2 turns, dealing [2] each turn and reducing &lt;font color=&quot;#4197e2&quot;&gt;Water Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_ArcticRoar_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Bestow a mystical enchantment to all &lt;font color=&quot;#88a25b&quot;&gt;allies&lt;/font&gt; within 7m, granting &lt;font color=&quot;#188ede&quot;&gt;Magic Armour Regeneration&lt;/font&gt; and [1] for 3 turns. &lt;br&gt;&lt;br&gt;The enchantment also provides &lt;font color=&quot;#c9aa58&quot;&gt;Slipping Immunity&lt;/font&gt; for its duration." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_FrostAura_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Northern winds &lt;font color=&quot;#cfecff&quot;&gt;Freeze&lt;/font&gt; susceptible surfaces around you, dealing [1] and &lt;font color=&quot;#cfecff&quot;&gt;Chilling&lt;/font&gt; &lt;font color='#aa3938'&gt;enemies&lt;/font&gt;.&lt;br&gt;&lt;br&gt;Hitting a &lt;font color=&quot;#cfecff&quot;&gt;Chilled&lt;/font&gt; or &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt; enemy with this skill applies &lt;font color=&quot;#cfecff&quot;&gt;Hypothermia&lt;/font&gt; for 2 turns, dealing [2] each turn and reducing &lt;font color=&quot;#4197e2&quot;&gt;Water Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_GlobalCooling_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Set off a chain reaction which causes &lt;font color=&quot;#cfecff&quot;&gt;ice surfaces&lt;/font&gt; to explode into &lt;font color=&quot;#4197e2&quot;&gt;water&lt;/font&gt;, dealing &lt;font color=&quot;#4197e2&quot;&gt;significant water damage&lt;/font&gt; and applying &lt;font color=&quot;#cfecff&quot;&gt;Chilled&lt;/font&gt; to all characters." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_IceBreaker_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Draw upon the lifeblood of the planet to gain an enchantment that provides &lt;font color=&quot;#cfecff&quot;&gt;[1]% max. Vitality&lt;/font&gt; and &lt;font color=&quot;#188ede&quot;&gt;[2]% max. Magic Armour&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Additionally, you and &lt;font color=&quot;#88a25b&quot;&gt;allies&lt;/font&gt; within [4]m are healed for [3] for each of 3 turns." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_HealingTears_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Command spheres of restorative waters to heal each of your &lt;font color=&quot;#88a25b&quot;&gt;allies&lt;/font&gt; and &lt;font color=&quot;#aa3938&quot;&gt;Undead enemies&lt;/font&gt; for &lt;font color=&quot;#cfecff&quot;&gt;[1]&lt;/font&gt;, and create a small &lt;font color=&quot;#4197e2&quot;&gt;water surface&lt;/font&gt; beneath them. &lt;br&gt;&lt;br&gt;Cleanses &lt;font color=&quot;#fe6e27&quot;&gt;Burning&lt;/font&gt;, &lt;font color=&quot;c9aa58&quot;&gt;Diseased&lt;/font&gt;, &lt;font color=&quot;#b823cb&quot;&gt;Decaying&lt;/font&gt;, &lt;font color=&quot;#00aa00&quot;&gt;Poisoned&lt;/font&gt;, and &lt;font color=&quot;#c80030&quot;&gt;Bleeding&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_MassCleanseWounds_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Consume &lt;font color=&quot;#4197e2&quot;&gt;water&lt;/font&gt; and &lt;font color=&quot;#cfecff&quot;&gt;frozen surfaces&lt;/font&gt; around you, restoring &lt;font color=&quot;#cfecff&quot;&gt;Vitality&lt;/font&gt; and &lt;font color=&quot;#188ede&quot;&gt;Magic Armour&lt;/font&gt; based on the surface area consumed this way. &lt;br&gt;&lt;br&gt;Grants the caster &lt;font color=&quot;#188ede&quot;&gt;Magic Shell&lt;/font&gt;, granting [1] for 1 turn. &lt;br&gt;&lt;br&gt;Cleanses &lt;font color=&quot;#fe6e27&quot;&gt;Burning&lt;/font&gt;, &lt;font color=&quot;#fe6e27&quot;&gt;Necrofire&lt;/font&gt;, and &lt;font color=&quot;#fe6e27&quot;&gt;Bleed Fire&lt;/font&gt; on-cast." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_Cryotherapy_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Each &lt;font color=&quot;#88a25b&quot;&gt;ally&lt;/font&gt; consumes &lt;font color=&quot;#4197e2&quot;&gt;water&lt;/font&gt; and &lt;font color=&quot;#cfecff&quot;&gt;frozen surfaces&lt;/font&gt; around them, restoring &lt;font color=&quot;#cfecff&quot;&gt;Vitality&lt;/font&gt; and &lt;font color=&quot;#188ede&quot;&gt;Magic Armour&lt;/font&gt; based on the surface area consumed this way. &lt;br&gt;&lt;br&gt;Grants each ally &lt;font color=&quot;#188ede&quot;&gt;Magic Shell&lt;/font&gt;, granting [1] for 1 turn. &lt;br&gt;&lt;br&gt;Cleanses &lt;font color=&quot;#fe6e27&quot;&gt;Burning&lt;/font&gt;, &lt;font color=&quot;#fe6e27&quot;&gt;Necrofire&lt;/font&gt;, and &lt;font color=&quot;#fe6e27&quot;&gt;Bleed Fire&lt;/font&gt; on-cast." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_MassCryotherapy_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Initiate a terrible thirst on all nearby &lt;font color=&quot;#88a25b&quot;&gt;allies&lt;/font&gt;, setting &lt;font color=&quot;#4197e2&quot;&gt;Vampiric Hunger&lt;/font&gt; for 2 turns, adding &lt;font color=&quot;#b823cb&quot;&gt;50% Life Steal&lt;/font&gt; for its duration. &lt;br&gt;&lt;br&gt;&lt;font color=&quot;#b823cb&quot;&gt;Life Steal&lt;/font&gt; heals the user based on any &lt;font color=&quot;#c80030&quot;&gt;non-Piercing&lt;/font&gt; damage they deal to &lt;font color=&quot;#c80030&quot;&gt;Vitality&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_VampiricHungerAura_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal [1] to &lt;font color='#aa3938'&gt;enemies&lt;/font&gt; around you and applying &lt;font color=&quot;#4197e2&quot;&gt;Drowning&lt;/font&gt;, dealing [2] for each of 2 turns. &lt;br&gt;&lt;br&gt;&lt;font color='#88a25b'&gt;Non-Undead allies&lt;/font&gt; start regenerating &lt;font color=&quot;#97fbff&quot;&gt;[3]&lt;/font&gt; for 2 turns. &lt;br&gt;&lt;br&gt;All characters become &lt;font color=&quot;#4197e2&quot;&gt;Wet&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_SongOfTheSeas_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="The oceans rhythm courses through you, granting &lt;font color=&quot;#4197e2&quot;&gt;Low Tide&lt;/font&gt; for 1 turn, granting &lt;font color=&quot;#4197e2&quot;&gt;[1] Hydrosophist&lt;/font&gt; and &lt;font color=&quot;#4197e2&quot;&gt;[2]% Water Resistance&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Upon expiry, &lt;font color=&quot;#4197e2&quot;&gt;Low Tide&lt;/font&gt; transforms into &lt;font color=&quot;#4197e2&quot;&gt;High Tide&lt;/font&gt; for 1 turn, granting &lt;font color=&quot;#4197e2&quot;&gt;[3] Hydrosophist&lt;/font&gt; and &lt;font color=&quot;#4197e2&quot;&gt;[4]% Water Resistance&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Upon expiry, &lt;font color=&quot;#4197e2&quot;&gt;High Tide&lt;/font&gt; transforms back into &lt;font color=&quot;#4197e2&quot;&gt;Low Tide&lt;/font&gt; for 1 turn. This instance does not transform upon expiry." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_RideTheTide_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Gain &lt;font color='#cfecff'&gt;Ice Barrier&lt;/font&gt;, providing [1] and an additional [1] for each nearby &lt;font color='#aa3938'&gt;enemy&lt;/font&gt; who is either &lt;font color='#cfecff'&gt;Chilled&lt;/font&gt;, &lt;font color='#cfecff'&gt;Frozen&lt;/font&gt;, or affected by &lt;font color='#cfecff'&gt;Hypothermia&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Whilst guarded by &lt;font color='#cfecff'&gt;Ice Barrier&lt;/font&gt;, you gain &lt;font color=&quot;#4197e2&quot;&gt;[2]% Water Resistance&lt;/font&gt; and any attacking characters become &lt;font color='#cfecff'&gt;Chilled&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_FuryOfTheNorth_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Gain &lt;font color=&quot;#cfecff&quot;&gt;Icy Veins&lt;/font&gt;, allowing you to apply &lt;font color=&quot;#cfecff&quot;&gt;Hypothermia&lt;/font&gt; regardless of whether your targets are &lt;font color=&quot;#cfecff&quot;&gt;Chilled&lt;/font&gt;, &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt;, or have &lt;font color=&quot;#188ede&quot;&gt;Magic Armour&lt;/font&gt;. &lt;br&gt;&lt;br&gt;&lt;font color=&quot;#cfecff&quot;&gt;Icy Veins&lt;/font&gt; reduces your &lt;font color=&quot;#a8a8a8&quot;&gt;Physical Resistance by [1]%&lt;/font&gt; and &lt;font color=&quot;#c80030&quot;&gt;Movement Speed by [2]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinWater_IcyVeins_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

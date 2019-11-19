@@ -1,0 +1,347 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_AS_PolyStatus("WINGS","Projectile_Flight");
+DB_AS_PolyStatus("HORNS","Rush_BullRush");
+DB_AS_PolyStatus("MEDUSA_HEAD","Shout_PetrifyingVisage");
+DB_AS_PolyStatus("SPIDER_LEGS","Projectile_SpinWeb");
+KBSECTION
+// This is a forced removal just in case the character relearned the skill from a Polymorph status.
+IF
+CharacterStatusRemoved(_Char,_Any,_)
+AND
+DB_AS_PolyStatus(_Any,_Skill)
+THEN
+CharacterRemoveSkill(_Char,_Skill);
+
+
+
+// Polymorph Handler for Lone Wolf
+/*
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+NOT DB_Illusionist(_Char,_)
+AND
+CharacterHasTalent(_Char,"LoneWolf",1)
+AND
+GetVarInteger(_Char,"AS_LastPolymorph",_Last)
+AND
+CharacterGetBaseAbility(_Char,"Polymorph",_Stat)
+AND
+_Stat != _Last
+THEN
+RemoveStatus(_Char,"AS_POLYBOOST");
+SetVarInteger(_Char,"AS_LastPolymorph",_Stat);
+DB_AS_Poly_Temp(_Char, _Stat);
+
+
+IF
+CharacterBaseAbilityChanged(_Char,"Polymorph",_Old,_New)
+AND
+CharacterHasTalent(_Char,"LoneWolf",1)
+THEN
+RemoveStatus(_Char,"AS_POLYBOOST");
+SetVarInteger(_Char,"AS_LastPoly", _New);
+DB_AS_Poly_Temp(_Char, _New);
+
+IF
+DB_AS_Poly_Temp(_Char, _Stacks)
+AND
+_Stacks > 0
+AND
+IntegerSubtract(_Stacks, 1, _NextStacks)
+THEN
+ApplyStatus(_Char,"AS_POLYBOOST", -1.0, 1);
+NOT DB_AS_Poly_Temp(_Char, _Stacks);
+DB_AS_Poly_Temp(_Char, _NextStacks);
+
+IF
+DB_AS_Poly_Temp(_Char, _Stacks)
+AND
+_Stacks <= 0
+THEN
+NOT DB_AS_Poly_Temp(_Char, _Stacks);
+*/
+/*
+IF
+GameStarted(_Level,_)
+AND
+IsCharacterCreationLevel(_Level,1)
+THEN
+GlobalSetFlag("AS_ISCHARCREATION");
+IterateParties("AS_PolyWarning");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_PolyWarning")
+THEN
+OpenMessageBox(_Char,"During Character Creation only in DOS2:CE, you will gain extra Attribute points from Polymorph. Do not spend them! This is a bug and they will be harmlessly removed after you finish.");
+ObjectSetFlag(_Char,"AS_GAVEPOLYWARNING");
+
+
+
+IF
+TimerFinished("AS_REMOVEPOLYPOINTS")
+THEN
+IterateParties("AS_DOREMOVEPOLYPOINTS");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_DOREMOVEPOLYPOINTS")
+AND
+CharacterGetAbility(_Char,"Polymorph",_Pts)
+AND
+_Pts > 0
+AND
+CharacterGetAttributePoints(_Char,_Pts2)
+AND
+_Pts2 > 0
+AND
+IntegerProduct(-1,_Pts,_Out)
+THEN
+CharacterAddAttributePoint(_Char,_Out);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_DOREMOVEPOLYPOINTS")
+AND
+CharacterGetAttribute(_Char,"Strength",_Str)
+AND
+CharacterGetAttribute(_Char,"Finesse",_Fin)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Int)
+AND
+CharacterGetAttribute(_Char,"Constitution",_Con)
+AND
+CharacterGetAttribute(_Char,"Memory",_Mem)
+AND
+CharacterGetAttribute(_Char,"Wits",_Wit)
+AND
+IntegerSum(_Str,_Fin,_One)
+AND
+IntegerSum(_Int,_Con,_Two)
+AND
+IntegerSum(_Mem,_Wit,_Three)
+AND
+IntegerSum(_One,_Two,_Tot1)
+AND
+IntegerSum(_Tot1,_Three,_Total)
+AND
+_Total > 3
+THEN
+SetStoryEvent(_Char,"AS_RemoveSomeAttributes1");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes1")
+AND
+CharacterGetAttribute(_Char,"Strength",_Str)
+AND
+_Str > 0
+THEN
+CharacterRemoveAttribute(_Char,"Strength",1);
+ObjectSetFlag(_Char,"AS_DidPolyRemove");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes1")
+THEN
+SetStoryEvent(_Char,"AS_RemoveSomeAttributes2");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes2")
+AND
+ObjectGetFlag(_Char,"AS_DidPolyRemove",0)
+AND
+CharacterGetAttribute(_Char,"Finesse",_Fin)
+AND
+_Fin > 0
+THEN
+CharacterRemoveAttribute(_Char,"Finesse",1);
+ObjectSetFlag(_Char,"AS_DidPolyRemove");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes2")
+THEN
+SetStoryEvent(_Char,"AS_RemoveSomeAttributes3");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes3")
+AND
+ObjectGetFlag(_Char,"AS_DidPolyRemove",0)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Int)
+AND
+_Int > 0
+THEN
+CharacterRemoveAttribute(_Char,"Intelligence",1);
+ObjectSetFlag(_Char,"AS_DidPolyRemove");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes3")
+THEN
+SetStoryEvent(_Char,"AS_RemoveSomeAttributes4");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes4")
+AND
+ObjectGetFlag(_Char,"AS_DidPolyRemove",0)
+AND
+CharacterGetAttribute(_Char,"Constitution",_Con)
+AND
+_Con > 0
+THEN
+CharacterRemoveAttribute(_Char,"Constitution",1);
+ObjectSetFlag(_Char,"AS_DidPolyRemove");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes4")
+THEN
+SetStoryEvent(_Char,"AS_RemoveSomeAttributes5");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes5")
+AND
+ObjectGetFlag(_Char,"AS_DidPolyRemove",0)
+AND
+CharacterGetAttribute(_Char,"Memory",_Mem)
+AND
+_Mem > 0
+THEN
+CharacterRemoveAttribute(_Char,"Memory",1);
+ObjectSetFlag(_Char,"AS_DidPolyRemove");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes5")
+THEN
+SetStoryEvent(_Char,"AS_RemoveSomeAttributes6");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RemoveSomeAttributes6")
+AND
+ObjectGetFlag(_Char,"AS_DidPolyRemove",0)
+AND
+CharacterGetAttribute(_Char,"Wits",_Wit)
+AND
+_Wit > 0
+THEN
+CharacterRemoveAttribute(_Char,"Wits",1);
+ObjectSetFlag(_Char,"AS_DidPolyRemove");
+
+
+// All this file really does is prevent players gaining attributes from polymorph.
+// Or losing them, for that matter.
+
+IF
+CharacterBaseAbilityChanged(_Char,"Polymorph",_Old,_New)
+AND
+_New > _Old
+THEN
+//CharacterStatusText(_Char,"Gottem");
+ProcObjectTimer(_Char,"AR_PolyRemove",80);
+
+
+IF
+CharacterBaseAbilityChanged(_Char,"Polymorph",_Old,_New)
+AND
+_New < _Old
+THEN
+ProcObjectTimer(_Char,"AR_PolyAdd",80);
+
+
+
+PROC
+ProcObjectTimerFinished(_Char,"AR_PolyRemove")
+THEN
+CharacterAddAttributePoint((CHARACTERGUID)_Char,-1);
+
+
+PROC
+ProcObjectTimerFinished(_Char,"AR_PolyAdd")
+THEN
+CharacterAddAttributePoint((CHARACTERGUID)_Char,1);
+
+
+IF
+DB_Illusionist((CHARACTERGUID)_Char,_Mirror)
+AND
+CharacterGetAbility(_Char,"Polymorph",_Ability)
+THEN
+DB_AR_Kala_PolymorphBeforeMirror(_Char,_Ability);
+TimerLaunch("AS_TestLoop",500);
+
+
+IF
+TimerFinished("AS_TestLoop")
+THEN
+IterateParties("AS_TestEvent");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_TestEvent")
+AND
+DB_Illusionist(_Char,_Mirror)
+THEN
+CharacterStatusText(_Char,"Getting loop!");
+ProcObjectTimer(_Char,"AS_TEST_LOOP",500);
+
+
+PROC
+Proc_HomesteadTeleportAfterMirror((CHARACTERGUID)_Char,(ITEMGUID)_,(TRIGGERGUID)_)
+AND
+DB_AR_Kala_PolymorphBeforeMirror(_Char,_Ability)
+AND
+CharacterGetAbility(_Char,"Polymorph",_AbilityNew)
+AND
+_AbilityNew < _Ability
+AND
+IntegerSubtract(_Ability,_AbilityNew,_Difference)
+THEN
+CharacterAddAttributePoint(_Char,_Difference);
+NOT DB_AR_Kala_PolymorphBeforeMirror(_Char,_Ability);
+
+
+*/
+
+
+
+
+
+
+
+/*
+IF
+GameStarted(_Level,_)
+AND
+IsCharacterCreationLevel(_Level,0)
+AND
+GlobalGetFlag("AS_ISCHARCREATION",1)
+THEN
+TimerLaunch("AS_REMOVEPOLYPOINTS",1200);
+*/
+
+
+// DOESN'T WORK IN CC
+/* 
+IF
+CharacterBaseAbilityChanged(_Char,"Polymorph",_Old,_New)
+AND
+GlobalGetFlag("AS_ISCHARCREATION",1)
+AND
+ObjectGetFlag(_Char,"AS_GAVEPOLYWARNING",0)
+AND
+_New > _Old
+THEN
+SetStoryEvent(_Char,"AS_PolyWarning");
+ObjectSetFlag(_Char,"AS_GAVEPOLYWARNING");
+*/
+EXITSECTION
+
+ENDEXITSECTION

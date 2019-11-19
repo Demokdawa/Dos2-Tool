@@ -1,0 +1,31 @@
+addSkill Target_AS_Slipstream
+nocooldowns
+spawnItem WPN_Elves_Dagger_1H_A_b5010438-0270-4fa5-b3ce-4e5153d1fd3b 
+spawnItem WPN_Elves_Dagger_1H_A_b5010438-0270-4fa5-b3ce-4e5153d1fd3b 
+spawnItem EQ_Armor_Platemail_Upperbody_A_244b9246-5a87-45cb-9f61-387c639d680a 
+spawnItem EQ_Origins_Lowerbody_f05b5aa1-5ea1-4dad-934e-25555f300e80 
+statusapply AS_MASTERY_POLYMORPH
+statusapply AS_MASTERY_POLYMORPH -1
+statusapply AS_MASTERY_POLYMORPH 5
+statusapply AS_MASTERY_POLYMORPH -1
+statusremove AS_MASTERY_POLYMORPH
+statusapply AS_MASTERY_POLYMORPH -1
+statusapply HORNS
+statusapply HORNS
+statusapply BURNING
+statusapply HORNS
+statusapply HORNS
+statusapply HORNS
+statusapply HORNS
+statusapply HORNS
+statusapply HORNS
+statusapply HORNS
+statusapply HORNS
+statusremove HORNS
+statusapply HORNS
+statusapply HORNS
+addSkill Shout_BullHorns 
+addSkill Projectile_SilverArrow 
+addSkill Shout_AS_Disperse 
+nocooldowns
+[HistoryLimit]30

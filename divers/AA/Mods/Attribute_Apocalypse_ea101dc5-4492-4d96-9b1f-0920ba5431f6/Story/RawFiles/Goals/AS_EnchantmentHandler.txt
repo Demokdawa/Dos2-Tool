@@ -1,0 +1,417 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+
+// For overrides such as Regeneration
+// In the format: (ORIGINAL_STATUS,TURN_BASED_PROC)
+//DB_AS_HealingOverrides("REGENERATION","AS_FAKEREGEN");
+KBSECTION
+
+IF
+DB_Sees(_,_)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",1)
+THEN
+GoalCompleted;
+
+// Get a status. If repeated, assume we need to reset HP.
+
+/*
+IF
+CharacterStatusAttempt(_Char,_Status,_)
+AND
+DB_AS_RepeatedStatus(_Char,_Status)
+AND
+DB_AS_OldVitalityPercent(_Char,(REAL)_Perct)
+THEN
+CharacterSetHitpointsPercentage(_Char,_Perct);
+
+IF
+CharacterStatusAttempt(_Char,_Status,_)
+AND
+GetStatusTurns(_Char,_Status,_Turns)
+AND
+_Turns > 0
+AND
+NOT DB_AS_RepeatedStatus(_Char,_Status)
+THEN
+DB_AS_RepeatedStatus(_Char,_Status);
+ProcObjectTimerCancel(_Char,"AS_RemoveRepeat");
+ProcObjectTimer(_Char,"AS_RemoveRepeat",5);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_RemoveRepeat")
+AND
+DB_AS_RepeatedStatus(_Char,_Status)
+THEN
+NOT DB_AS_RepeatedStatus(_Char,_Status);
+*/
+
+
+
+// HEALY BOI STUFF
+
+// For enchanted
+IF
+CharacterStatusAttempt(_Char,_Status,(CHARACTERGUID)_Healer)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+QRY_IsHealingStatus(_Status)
+AND
+DB_AS_OldVitalityPercent(_Char,_Perct)
+AND
+Integer(_Perct,_Inti)
+AND
+IntegertoString(_Inti,_Str)
+THEN
+//CharacterStatusText(_Char,_Str);
+DB_AS_Wisdom_StoredVitality(_Char,_Perct);
+
+
+
+
+
+
+
+
+IF
+CharacterStatusApplied(_Char,_Status,(CHARACTERGUID)_Healer)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+_Status != "LIFESTEAL"
+AND
+_Status != "VAMPIRIC_TOUCH"			// Prevent healing off of spell lifesteal. It takes the fun out of it!
+AND
+CharacterGetAttribute(_Healer,"Wits",_Wit)
+AND
+IntegerSubtract(_Wit,10,_Wits)
+AND
+Real(_Wits,_Wisdom)
+AND
+QRY_IsHealingStatus(_Status)
+AND
+DB_AS_Wisdom_StoredVitality(_Char,_Perct)
+AND
+CharacterGetHitpointsPercentage(_Char,_NewPerct)
+AND
+RealSubtract(_NewPerct,_Perct,_Sub)
+AND
+RealProduct(_Sub,_Wisdom,_Out1)
+AND
+RealProduct(_Out1,5.0,_Out2)
+AND
+RealDivide(_Out2,100.0,_Out3)
+AND
+Integer(_Out3,_SubI)
+AND
+IntegertoString(_SubI,_Str)
+AND
+RealSum(_NewPerct,_Out3,_NewLife)
+AND
+RealMin(_NewLife,100.0,_Max)
+AND
+Integer(_Perct,_IOldPer)
+AND
+Integer(_NewPerct,_INewPer)
+AND
+IntegertoString(_IOldPer,_SOldPer)
+AND
+IntegertoString(_INewPer,_SNewPer)
+AND
+StringConcatenate("Old vitality: ",_SOldPer,_StrP1)
+AND
+StringConcatenate(_StrP1,". New vitality: ",_StrP2)
+AND
+StringConcatenate(_StrP2,_SNewPer,_StrF)
+THEN
+CharacterSetHitpointsPercentage(_Char,_Max);
+NOT DB_AS_Wisdom_StoredVitality(_Char,_Perct);
+SetStoryEvent(_Char,"AS_CheckVitality");
+//CharacterStatusText(_Char,_StrF);
+
+
+IF
+CharacterStatusApplied(_Char,_Status,_)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+DB_AS_Wisdom_StoredVitality(_Char,_Perct)
+THEN
+NOT DB_AS_Wisdom_StoredVitality(_Char,_Perct);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ---------------------------------------
+//
+// Actual Wisdom stuff - status extension
+
+
+IF
+CharacterVitalityChanged(_Char,_)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+THEN
+SetStoryEvent(_Char,"AS_CheckVitality");
+
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckVitality")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+CharacterGetHitpointsPercentage(_Char,_NewHp)
+AND
+NOT DB_AS_OldVitalityPercent(_Char,_)
+THEN
+DB_AS_OldVitalityPercent(_Char,_NewHp);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckVitality")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+CharacterGetHitpointsPercentage(_Char,_NewHp)
+AND
+DB_AS_LatestVitalityPercent(_Char,_Any1)
+AND
+DB_AS_OldVitalityPercent(_Char,_Anything)
+THEN
+NOT DB_AS_LatestVitalityPercent(_Char,_Any1);
+NOT DB_AS_OldVitalityPercent(_Char,_Anything);
+DB_AS_OldVitalityPercent(_Char,_NewHp);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckVitality")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+CharacterGetHitpointsPercentage(_Char,_NewHp)
+THEN
+DB_AS_LatestVitalityPercent(_Char,_NewHp);
+
+
+
+
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND NOT // If they don't have the status
+HasActiveStatus(_Char,"AS_RESOLVEREGEN",1)
+THEN
+SetStoryEvent(_Char,"AS_ProcResolveRegen");
+ApplyStatus(_Char,"AS_RESOLVEREGEN",6.0);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+HasActiveStatus(_Char,"AS_RESOLVEREGEN",1)
+AND
+GetStatusTurns(_Char,"AS_RESOLVEREGEN",_Turns)
+AND NOT
+_Turns > 0
+THEN
+SetStoryEvent(_Char,"AS_ProcResolveRegen");
+ApplyStatus(_Char,"AS_RESOLVEREGEN",6.0);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+THEN
+RemoveStatus(_Char,"AS_RESOLVEREGEN");
+
+
+
+// Resolve regen for players
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_ProcResolveRegen")
+AND
+HasActiveStatus(_Char,"DECAYING_TOUCH",0)
+AND
+HasActiveStatus(_Char,"PERMANENT_DECAY",0)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Stat0)
+AND
+IntegerSubtract(_Stat0,10,_Stat1)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+_Stat1 > 0
+AND
+CharacterGetHitpointsPercentage(_Char,_Perct)
+AND
+Real(_Stat1,_Stat)
+AND
+RealProduct(_Stat,1.0,_Out)
+AND
+RealSum(_Perct,_Out,_Sum)
+THEN
+CharacterSetHitpointsPercentage(_Char,_Sum);
+PlayEffect(_Char,"AS_ResolveHeal");
+//CharacterStatusText(_Char,"Yes, got regen");
+
+// Resolve regen for NPCs
+// Theirs caps at 20%. Because fuck that shit above 21% regen per turn.
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_ProcResolveRegen")
+AND
+HasActiveStatus(_Char,"DECAYING_TOUCH",0)
+AND
+HasActiveStatus(_Char,"PERMANENT_DECAY",0)
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Stat0)
+AND
+IntegerSubtract(_Stat0,10,_Stat1)
+AND
+CharacterIsPlayer(_Char,0)
+AND
+_Stat1 > 0
+AND
+IntegerMin(_Stat1,20,_Min)
+AND
+CharacterGetHitpointsPercentage(_Char,_Perct)
+AND
+Real(_Min,_Stat)
+AND
+RealProduct(_Stat,1.0,_Out)
+AND
+RealSum(_Perct,_Out,_Sum)
+THEN
+CharacterSetHitpointsPercentage(_Char,_Sum);
+PlayEffect(_Char,"AS_ResolveHeal");
+//CharacterStatusText(_Char,"Yes, got regen");
+
+
+
+
+// ----------------------------------------
+// Healing effect overrides - WIP
+/*
+IF
+CharacterStatusApplied(_Char,_Status,(CHARACTERGUID)_Healer)
+AND
+NOT DB_AS_RecentlyEnchanted(_Char,_Status)
+AND
+DB_AS_HealingOverrides(_Status,_)
+AND
+StringConcatenate("AS_HealRepeat_",_Status,_Timer)
+AND
+CharacterGetDisplayName(_Healer,_Handle,_)
+AND
+StringConcatenate(_Timer,_Handle,_Out)
+THEN
+DB_AS_HealerRelationship(_Char,_Status,_Healer);
+ProcObjectTimerCancel(_Char,_Timer);
+ProcObjectTimer(_Char,_Timer,6000);
+CharacterStatusText(_Char,"Yeah we got the thing");
+CharacterStatusText(_Char,_Timer);
+
+IF
+CharacterStatusRemoved(_Char,_Status,_)
+AND
+DB_AS_HealerRelationship(_Char,_Status,_Healer)
+THEN
+NOT DB_AS_HealerRelationship(_Char,_Status,_Healer);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+DB_AS_HealingOverrides(_Status,_Proc)
+AND
+DB_AS_HealerRelationship(_Char,_Status,_Healer)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+StringConcatenate("AS_HealRepeat_",_Status,_Timer)
+AND
+CharacterGetDisplayName(_Healer,_Handle,_)
+AND
+StringConcatenate(_Timer,_Handle,_Out)
+THEN
+CharacterStatusText(_Char,"Got timer...");
+CharacterStatusText(_Char,_Timer);
+ProcObjectTimerCancel(_Char,_Timer);
+ProcObjectTimer(_Char,_Timer,6000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,_Any)
+AND
+CharacterIsInCombat(_Char,0)
+AND
+DB_AS_HealingOverrides(_Status,_Proc)
+AND
+DB_AS_HealerRelationship(_Char,_Status,_Healer)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+StringConcatenate("AS_HealRepeat_",_Status,_Timer)
+THEN
+CharacterStatusText(_Char,"Got timer...");
+CharacterStatusText(_Char,_Timer);
+ProcObjectTimerCancel(_Char,_Timer);
+ProcObjectTimer(_Char,_Timer,6000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,_Any)
+AND
+CharacterIsInCombat(_Char,0)
+AND
+DB_AS_HealingOverrides(_Status,_Proc)
+AND
+DB_AS_HealerRelationship(_Char,_Status,_Healer)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+StringConcatenate("AS_HealRepeat_",_Status,_Timer)
+AND
+_Any == _Timer
+THEN
+//ApplyStatus(_Char,_Proc,0.0,1,_Healer);
+CharacterStatusText(_Char,"Got heal event");
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_HealingOverrides(_Status,_Proc)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+DB_AS_HealerRelationship(_Char,_Status,_Healer)
+THEN
+ApplyStatus(_Char,_Proc,0.0,1,_Healer);
+*/
+
+EXITSECTION
+
+ENDEXITSECTION

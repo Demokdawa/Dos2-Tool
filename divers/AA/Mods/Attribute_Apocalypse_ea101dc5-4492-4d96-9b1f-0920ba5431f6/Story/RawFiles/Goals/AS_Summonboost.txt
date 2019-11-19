@@ -1,0 +1,57 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Summons now gain their owner's attributes
+IF
+CharacterStatusApplied(_Char,"SUMMONING",_)
+AND
+CharacterGetOwner(_Char,_Causee)
+AND
+CharacterIsPlayer(_Causee,1)
+AND
+CharacterGetAttribute(_Causee,"Strength",_Str1)
+AND
+IntegerSubtract(_Str1,10,_Str)
+AND
+CharacterGetAttribute(_Causee,"Finesse",_Fin1)
+AND
+IntegerSubtract(_Fin1,10,_Fin)
+AND
+CharacterGetAttribute(_Causee,"Intelligence",_Int1)
+AND
+IntegerSubtract(_Int1,10,_Int)
+AND
+CharacterGetAttribute(_Causee,"Constitution",_Con1)
+AND
+IntegerSubtract(_Con1,10,_Con)
+AND
+CharacterGetAttribute(_Causee,"Memory",_Mem1)
+AND
+IntegerSubtract(_Mem1,10,_Mem)
+AND
+CharacterGetAttribute(_Causee,"Wits",_Wit1)
+AND
+IntegerSubtract(_Wit1,10,_Wit)
+THEN
+CharacterAddAttribute(_Char,"Strength",_Str);
+CharacterAddAttribute(_Char,"Finesse",_Fin);
+CharacterAddAttribute(_Char,"Intelligence",_Int);
+CharacterAddAttribute(_Char,"Constitution",_Con);
+CharacterAddAttribute(_Char,"Memory",_Mem);
+CharacterAddAttribute(_Char,"Wits",_Wit);
+
+
+
+// Summons enter their owner in combat
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+CharacterGetOwner(_Char,_Owner)
+THEN
+EnterCombat(_Char,_Owner);
+
+EXITSECTION
+
+ENDEXITSECTION

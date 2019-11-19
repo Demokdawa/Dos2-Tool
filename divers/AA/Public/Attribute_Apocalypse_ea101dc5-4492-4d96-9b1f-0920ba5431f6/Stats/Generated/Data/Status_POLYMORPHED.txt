@@ -1,0 +1,12 @@
+new entry "AS_SHAPESHIFTFAKE"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+data "ForGameMaster" "Yes"
+data "InitiateCombat" "No"
+data "DisplayName" "AS_SHAPESHIFTFAKE_DisplayName"
+data "DisplayNameRef" "|Human Shape|"
+data "FormatColor" "White"
+data "StatsId" "Stats_Polymorphed"
+data "StackId" "Stack_Polymorphing"
+data "PolymorphResult" "Human"
+

@@ -1,0 +1,549 @@
+INIT
+
+EVENTS
+EVENT AS_HandleDamage
+VARS
+	CHARACTER: _Attacker
+	CHARACTER: _Victim
+	INT: _Val
+ON
+OnCharacterCharacterEvent(_Victim,_Attacker,"AS_DidDamage")
+ACTIONS
+IF "!c1&c2"
+	HasFlag(_Attacker,"AS_KnockbackDisabled")
+	CharacterIsPlayer(_Attacker)
+THEN
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,1)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock1,_Attacker,{0;2;0},_Victim)
+	ENDIF
+
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,2)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock2,_Attacker,{0;2;0},_Victim)
+	ENDIF
+
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,3)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock3,_Attacker,{0;2;0},_Victim)
+	ENDIF
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,4)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock4,_Attacker,{0;2;0},_Victim)
+	ENDIF
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,5)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+
+		ShootLocalProjectileAt(Projectile_ARKnock5,_Attacker,{0;2;0},_Victim)
+	ENDIF
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,6)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock6,_Attacker,{0;2;0},_Victim)
+	ENDIF
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,7)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock7,_Attacker,{0;2;0},_Victim)
+	ENDIF
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,8)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock8,_Attacker,{0;2;0},_Victim)
+	ENDIF
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsEqual(_Val,9)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock9,_Attacker,{0;2;0},_Victim)
+	ENDIF
+	IF "c1&c2&!c3"
+		CharacterGetAbility(_Val,_Attacker,"Ranged")
+		IsGreaterThen(_Val,9)
+		IsTagged(_Victim,GROUNDED)
+	THEN
+		ShootLocalProjectileAt(Projectile_ARKnock10,_Attacker,{0;2;0},_Victim)
+	ENDIF
+ENDIF
+
+EVENT AS_HurlSpear
+VARS
+	CHARACTER:_Char
+	CHARACTER:_Attacker
+	STATUS:_Status
+ON
+	OnCharacterCharacterEvent(_Char,_Attacker,"AS_ThrowSpear")
+ACTIONS
+	ShootLocalProjectileAt(Projectile_ARKnock3,_Attacker,{0;2;0},_Char)
+
+
+EVENT AS_GetHealth
+VARS
+	CHARACTER: _Char
+	FLOAT: _Val
+	INT:_AnInt
+ON
+OnCharacterEvent(_Char,"AS_GetHpHothead")
+ACTIONS
+IF "c1"
+	CharacterGetStat(_Val,_Char,VitalityPoints)
+THEN
+	Cast(_AnInt,_Val)
+	SetVar(_Char,"AS_CurrentHP",_AnInt)
+	CharacterEvent(_Char,"AS_HotheadTakeDamage")
+ENDIF
+
+
+EVENT AS_GetHealthForHeart
+VARS
+	CHARACTER: _Char
+	FLOAT: _Val
+	INT:_AnInt
+ON
+OnCharacterEvent(_Char,"AS_GetHpHeart")
+ACTIONS
+IF "c1"
+	CharacterGetStat(_Val,_Char,VitalityPoints)
+THEN
+	Cast(_AnInt,_Val)
+	SetVar(_Char,"AS_CurrentHP",_AnInt)
+	CharacterEvent(_Char,"AS_HeartTakeDamage")
+ENDIF
+
+
+EVENT AS_GetActionPoints
+VARS
+	CHARACTER: _Char
+	FLOAT: _Val
+	INT:_AnInt
+ON
+OnCharacterEvent(_Char,"AS_GetOldAP")
+ACTIONS
+IF "c1"
+	CharacterGetStat(_Val,_Char,ActionPoints)
+THEN
+	Cast(_AnInt,_Val)
+	SetVar(_Char,"AS_OldAP",_AnInt)
+ENDIF
+IF "c1&c2&!c3"
+	CharacterGetStat(_Val,_Char,ActionPoints)
+	IsLessThen(_Val,3)
+	HasFlag(_Char,"AS_IsBrawlerAttacking")
+THEN
+	CharacterAddActionPoints(_Char,3)
+
+ENDIF
+
+EVENT AS_GetNewActionPoints
+VARS
+	CHARACTER: _Char
+	FLOAT: _Val
+	INT:_AnInt
+ON
+OnCharacterEvent(_Char,"AS_GetNewAP")
+ACTIONS
+IF "c1"
+	CharacterGetStat(_Val,_Char,ActionPoints)
+THEN
+	Cast(_AnInt,_Val)
+	SetVar(_Char,"AS_NewAP",_AnInt)
+	CharacterEvent(_Char,"AS_DoRestoreAP")
+ENDIF
+
+
+
+
+EVENT AS_BlockDrain
+VARS
+    CHARACTER:_Character
+	STATUS:_Result
+	FLOAT:_Val
+	LIST<STATUS>:_RemoveList
+ON
+    FetchCharacterApplyStatusData(_Character, DRAIN)
+ACTIONS
+    Set(_Result, DRAIN)
+IF "c1&c2"
+	GetVar(_Val,_Character,"AS_Willpower")
+	IsGreaterThen(_Val,0)
+THEN
+    Set(_Result, null)
+ENDIF
+RETURN(_RemoveList,_Result,null)
+
+
+
+EVENT AS_SuckerPunch
+VARS
+	CHARACTER: _Attacker
+	CHARACTER: _Victim
+	INT: _Val
+ON
+OnCharacterCharacterEvent(_Victim,_Attacker,"AS_SuckerPunch")
+ACTIONS
+ShootLocalProjectileAt(Projectile_ARKnock4,_Attacker,{0;2;0},_Victim)
+
+
+// For attack of opportunity
+EVENT WeaponCheck
+VARS
+CHARACTER: _Char
+INT: _Result
+ON
+	OnCharacterEvent(_Char,"AS_SCR_CHECKWPN")
+ACTIONS
+	SetFlag(_Char,"AS_HasBlade")
+	IF "c1"
+		CharacterHasWeaponType(_Char, Bow, 1)
+	THEN
+		ClearFlag(_Char,"AS_HasBlade")
+	ENDIF
+	IF "c1"
+		CharacterHasWeaponType(_Char, Crossbow, 1)
+	THEN
+		ClearFlag(_Char,"AR_HasBlade")
+	ENDIF
+	IF "c1"
+		CharacterHasWeaponType(_Char, Wand, 1)
+	THEN
+		ClearFlag(_Char,"AR_HasBlade")
+	ENDIF
+	
+	
+// WILLPOWER!
+
+
+
+
+/*
+EVENT HandleWillpower_Shackles
+VARS
+    CHARACTER:_Character
+    LIST<STATUS>:_RemoveList
+	STATUS:_Status
+    STATUS:_Result
+    INT:_Turns
+	INT:_Willpower
+ON 
+    FetchCharacterApplyStatusData(_Character, SHACKLES_OF_PAIN)
+ACTIONS
+    IF "c1&c2"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsGreaterThen(_Willpower,0.0)
+    THEN
+		Set(_Result, AS_WILLPOWER_DOWN)
+		Set(_Turns, 0)
+		CharacterRemoveStatus(_Character, _Status)
+		ListAdd(_RemoveList, SHACKLES_OF_PAIN)
+	ELSE
+		Set(_Result,SHACKLES_OF_PAIN)
+		Set(_Turns,null)
+		ListClear(_RemoveList)
+    ENDIF
+RETURN(_RemoveList,_Result,_Turns)
+*/
+
+
+
+
+
+/*
+EVENT HandleWillpower_Dazed
+VARS
+    CHARACTER:_Character
+    LIST<STATUS>:_RemoveList
+	STATUS:_Status
+    STATUS:_Result
+    INT:_Turns
+	INT:_Willpower
+ON 
+    FetchCharacterApplyStatusData(_Character, DAZED)
+ACTIONS
+    IF "c1&c2"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsGreaterThen(_Willpower,0.0)
+    THEN
+		Set(_Result, AS_WILLPOWER_DOWN)
+		Set(_Turns, 0)
+		CharacterRemoveStatus(_Character, _Status)
+		ListAdd(_RemoveList, DAZED)
+	ELSE
+		Set(_Result,DAZED)
+		Set(_Turns,null)
+		ListClear(_RemoveList)
+    ENDIF
+RETURN(_RemoveList,_Result,_Turns)
+
+
+
+EVENT HandleWillpower_Drain
+VARS
+    CHARACTER:_Character
+    LIST<STATUS>:_RemoveList
+	STATUS:_Status
+    STATUS:_Result
+    INT:_Turns
+	INT:_Willpower
+ON 
+    FetchCharacterApplyStatusData(_Character, DRAIN)
+ACTIONS
+    IF "c1&c2"
+		GetVar(_Willpower,_Character,"AS_Willpower")
+		IsGreaterThen(_Willpower,0.0)
+    THEN
+		Set(_Result, AS_WILLPOWER_DOWN)
+		Set(_Turns, 0)
+		CharacterRemoveStatus(_Character, _Status)
+		ListAdd(_RemoveList, DRAIN)
+	ELSE
+		Set(_Result,DRAIN)
+		Set(_Turns,null)
+		ListClear(_RemoveList)
+    ENDIF
+RETURN(_RemoveList,_Result,_Turns)
+*/
+
+EVENT MakeKalavinkaCry
+VARS
+    CHARACTER:_Character
+    LIST<STATUS>:_RemoveList
+	STATUS:_Status
+    STATUS:_Result
+    INT:_Turns
+	INT:_Willpower
+	FIXEDSTRING:_Say
+ON 
+    FetchCharacterApplyStatusData(_Character, DAZED)
+ACTIONS
+    IF "c1"
+		GetStatusTurns(_Character,DAZED,_Turns)
+    THEN
+		Cast(_Say,_Turns)
+		StatusText(_Character,_Say)
+    ENDIF
+RETURN(_RemoveList,_Result,_Turns)
+
+EVENT Warfare_CheckCanCleave
+VARS
+    CHARACTER:_Char
+	FLOAT:_Val
+	STATUS:_Status
+    STATUS:_Result
+    INT:_Turns
+	INT:_Willpower
+ON 
+    OnCharacterEvent(_Char,"AS_CheckCanCleave")
+ACTIONS
+	IF "c1&!c2"
+		CharacterGetStat(_Val,_Char,ActionPoints)
+		IsGreaterThen(_Val,0.0)
+	THEN
+		CharacterAddActionPoints(_Char,1)
+		SetFlag(_Char,"AS_Cleave_RemoveAP")
+	ENDIF
+	CharacterEvent(_Char,"AS_DoCleave")
+	
+/*
+EVENT Polymorph_ExtendTransforms
+VARS
+    CHARACTER:_Char
+    LIST<STATUS>:_RemoveList
+	STATUS:_Status
+    STATUS:_Result
+    INT:_Turns
+	INT:_Willpower
+ON
+    FetchCharacterApplyStatusData(_Char, _Status)
+ACTIONS
+    IF "c1|c2|c3|c4|c5"
+		IsEqual(_Status,HORNS)
+		IsEqual(_Status,SPIDER_LEGS)
+		IsEqual(_Status,MEDUSA_HEAD)
+		IsEqual(_Status,WINGS)
+		IsEqual(_Status,AS_IRON_SKIN)
+    THEN
+		Set(_Result,null)
+		Set(_Turns,null)
+		StatusText(_Char,"Got event!")
+		IF "c1&!c2"
+			CharacterHasStatus(_Char,AS_MASTERY_POLYMORPH)
+			CharacterHasStatus(_Char,_Status)
+		THEN
+			StatusText(_Char,"We're doing it!")
+			Set(_Result, _Status)
+			Set(_Turns, 20)
+		ENDIF
+	ELSE
+		Set(_Result,_Status)
+		ListClear(_RemoveList)
+		StatusText(_Char,"No thanks")
+    ENDIF
+RETURN(_RemoveList,_Result,_Turns)
+*/
+
+// Arrow Recovery
+EVENT AS_ArrowRecoveryProcRepeat
+VARS
+    CHARACTER:_Char
+	FLOAT:_Level
+	INT:_Lvl
+	FLOAT:_Val
+	FLOAT3:_Loc
+	STATUS:_Status
+    STATUS:_Result
+    INT:_Turns
+	INT:_Willpower
+	SKILL:_Skill
+ON 
+    OnCharacterEvent(_Char,"AS_ArrowRepeatLoc")
+ACTIONS
+	IF "c1&c2&c3"
+		GetVar(_Loc,_Char,"AS_LastArrowLoc")
+		GetVar(_Skill,_Char,"AS_LastArrow")
+		CharacterGetStat(_Level,_Char,Level)
+	THEN
+		Cast(_Lvl,_Level)
+		ShootLocalProjectileAt(_Skill,_Char,{0;0;0},_Loc,_Lvl,_Char)
+		CharacterAddActionPoints(_Char,1)
+	ENDIF
+
+EVENT AS_CastASkill
+VARS
+	SKILL:_Skill
+	CHARACTER:_Char
+ON
+	OnSkillCast(_Char,_Skill)
+ACTIONS
+	SetVar(_Char,"AS_LastSkillScript",_Skill)
+
+EVENT AS_HuntsmanMasteryNearestEnemy
+VARS
+	CHARACTER:_Char
+	CHARACTER:_Nearest
+ON
+	OnCharacterCharacterEvent(_Char,_Nearest,"AS_FindNearestEnemy_Success")
+ACTIONS
+	SetVar(_Char,"AS_NearestAllyTo",_Nearest)
+
+EVENT AS_HuntsmanMasteryProjectileBounce
+VARS
+	CHARACTER:_Char
+	CHARACTER:_Victim
+	CHARACTER:_Nearest
+	STRING:_Skill
+	SKILL:_Proj
+	INT:_Lvl
+ON
+	OnCharacterCharacterEvent(_Char,_Victim,"AS_ShootProjectileAt")
+ACTIONS
+	IF "c1&c2&c3&c4"
+		GetVar(_Proj,_Char,"AS_LastSkillScript")
+		GetVar(_Lvl,_Char,"AS_CurrentLevel")
+		GetVar(_Nearest,_Victim,"AS_NearestAllyTo")
+		IsInCombat(_Nearest)
+	THEN
+		ShootLocalProjectileAt(_Proj,_Victim,{0;2;0},_Nearest,_Lvl,_Char)
+	ENDIF
+	
+EVENT AS_PyroMasteryExplosion
+VARS
+	CHARACTER:_Char
+	CHARACTER:_Victim
+	CHARACTER:_Nearest
+	STRING:_Skill
+	SKILL:_Proj
+	INT:_Lvl
+ON
+	OnCharacterCharacterEvent(_Char,_Victim,"AS_PyroExplosion")
+ACTIONS
+	CharacterPlayEffect(_Victim,"AS_Cataclysmflash","root")
+	ExplodeAt(_Victim,"Projectile_AS_Pyro_Explosion",-1,_Char)
+	
+EVENT AS_AeroMasteryStrike
+VARS
+	CHARACTER:_Char
+	FLOAT3:_Loc
+ON
+	OnCharacterEvent(_Char,"AS_LightningStrikeTrigger")
+ACTIONS
+	IF "c1"
+		GetVar(_Loc,_Char,"AS_LightningHerePls")
+	THEN
+		ExplodeAt(_Loc,ProjectileStrike_AS_LightningBolt,-1,_Char)
+	ENDIF
+
+EVENT AS_HydroMasteryVisual
+VARS
+	CHARACTER:_Dummy
+	CHARACTER:_Char
+	FLOAT3:_Loc
+	FIXEDSTRING:_Effectstr
+	INT:_Pools
+	INT64:_Effectpool
+ON
+	OnCharacterCharacterEvent(_Dummy,_Char,"AS_StartHydroVisual")
+ACTIONS
+	IF "c1"
+		GetVar(_Loc,_Dummy,"AS_PoolLoc")
+	THEN
+		PlayLoopEffectAt(_Effectpool,_Loc,"AS_Hydro_Pool")
+		Cast(_Effectstr,_Effectpool)
+		SetVar(_Dummy,"AS_PoolEffectId",_Effectpool)
+		CharacterEvent(_Dummy,"AS_StoreInt64Pool")
+	ENDIF
+	
+EVENT AS_KillHydroMasteryVisual
+VARS
+	CHARACTER:_Char
+	FLOAT3:_Loc
+	FIXEDSTRING:_Effectstr
+	INT:_Pools
+	INT64:_Effectpool
+ON
+	OnCharacterEvent(_Char,"AS_KillPool")
+ACTIONS
+	IF "c1"
+		GetVar(_Effectpool,_Char,"AS_PoolEffectId")
+	THEN
+		StopLoopEffect(_Effectpool,0)
+	ENDIF
+
+EVENT AS_HydroMasteryPool
+VARS
+	CHARACTER:_Char
+	CHARACTER:_Dummy
+	FLOAT3:_Loc
+	FIXEDSTRING:_Effectstr
+	INT:_Pools
+	INT64:_Effectpool
+ON
+	OnCharacterCharacterEvent(_Dummy,_Char,"AS_TriggerPoolsplosion")
+ACTIONS
+	IF "c1"
+		GetVar(_Loc,_Dummy,"AS_PoolHere")
+	THEN
+		ExplodeAt(_Loc,Projectile_AS_Hydro_Explosion,-1,_Char)
+		ExplodeAt(_Loc,Projectile_AS_Hydro_HealExplosion,-1,_Char)
+	ENDIF

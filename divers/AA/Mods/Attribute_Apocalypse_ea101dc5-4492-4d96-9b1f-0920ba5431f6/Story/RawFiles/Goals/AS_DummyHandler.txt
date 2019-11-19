@@ -1,0 +1,65 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Timer for killing dummies
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Clone,"AS_KillOffClone")
+THEN
+SetOnStage(_Clone,0);
+CharacterDieImmediate(_Clone,0,"None");
+
+PROC
+ProcRegionEnded("CoS_Main_Ending")
+AND
+DB_ASDummy(_Clone)
+THEN
+NOT DB_ASDummy(_Clone);
+
+IF
+RegionEnded(_)
+AND
+DB_ASDummy(_Clone)
+THEN
+NOT DB_ASDummy(_Clone);
+
+IF
+GameStarted(_Level,_)
+AND
+IsCharacterCreationLevel(_Level,0)
+AND
+DB_ASDummy(_Clone)
+THEN
+NOT DB_ASDummy(_Clone);
+
+IF
+GameStarted(_Level,_)
+AND
+IsCharacterCreationLevel(_Level,0)
+THEN
+TimerLaunch("AS_CreateDummy",2000);
+
+
+IF
+TimerFinished("AS_CreateDummy")
+THEN
+IterateParties("AS_MakeDummy");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_MakeDummy")
+AND
+GlobalGetFlag("AS_DummyMade",0)
+AND
+GetPosition(_Char,_X,_Y,_Z)
+AND
+TemporaryCharacterCreateAtPosition(_X,_Y,_Z,"AS_InvisDummy_c26be780-157f-4771-b51b-6c2e857ad6e5",0,_Clone)
+THEN
+GlobalSetFlag("AS_DummyMade");
+DB_ASDummy(_Clone);
+SetVisible(_Clone,0);
+ProcSetInvulnerable(_Clone,1);
+EXITSECTION
+
+ENDEXITSECTION

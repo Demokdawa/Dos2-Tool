@@ -1,0 +1,1180 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// Bosses: Object GUID, Region, Max Level, Dialog
+DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Gerald_002_99c0c252-8425-4db1-a9b2-80a8169dba31,"Test_Level",13,"AS_Gerald_Dialog");
+//DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_002_5498ee92-4410-4db3-b090-49e27eb82b4e,"Test_Level",13,"AS_Moira_Dialog");
+//DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"RC_Main",16,"AS_Gerald_Dialog");
+DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_000_b386fb41-44f2-4541-88fb-12cec747e5f7,"RC_Main",16,"AS_Moira_Dialog");
+DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19,"FJ_FortJoy_Main",10,"AS_Moira_Dialog");
+
+// Failsafe category of all bosses
+DB_AS_BossDebug((CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8);
+DB_AS_BossDebug((CHARACTERGUID)AS_Godbroken_Moira_000_b386fb41-44f2-4541-88fb-12cec747e5f7);
+DB_AS_BossDebug((CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19);
+
+// Boss retreat lines
+DB_AS_BossRetreat(1,(CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"Rrgh. You win this time, Godwoken. 'Til next we meet...");
+DB_AS_BossRetreat(2,(CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"No! I can't lose here!");
+DB_AS_BossRetreat(3,(CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"Damn you, Godwoken! We'll meet again.");
+DB_AS_BossRetreat(4,(CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"This isn't the end!");
+DB_AS_BossRetreat(5,(CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"I'll be back!");
+DB_AS_BossRetreat(1,(CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19,"Back into the shadows to fight another day...");
+DB_AS_BossRetreat(2,(CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19,"This isn't the end!");
+DB_AS_BossRetreat(3,(CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19,"I'll be back, Godwoken! Your Source will be mine!");
+DB_AS_BossRetreat(4,(CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19,"Time to go. Goodbye!");
+DB_AS_BossRetreat(5,(CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19,"We'll meet again...");
+
+// Weapons for bosses - BOSS TAG | WEAPON TEMPLATE
+DB_AS_BossesEquip("AS_GERALD","AS_Gerald_Sword_fdcf7556-3442-491f-a953-590067c9b501");
+DB_AS_BossesEquip("AS_MOIRA","AS_Moira_Staff_eacfb55e-2bc7-4632-afb9-29b2e91af343");
+
+// Boss tags - to categorise them
+DB_AS_BossTag("AS_GERALD","GERALD");
+DB_AS_BossTag("AS_MOIRA","MOIRA");
+
+// Statuses that remove Retreating if active
+DB_AS_BossPreventRetreat("FROZEN");
+DB_AS_BossPreventRetreat("STUNNED");
+DB_AS_BossPreventRetreat("PETRIFIED");
+DB_AS_BossPreventRetreat("CHARMED");
+DB_AS_BossPreventRetreat("KNOCKED_DOWN");
+DB_AS_BossPreventRetreat("CHICKEN");
+DB_AS_BossPreventRetreat("SLEEPING");
+DB_AS_BossPreventRetreat("CRIPPLED");
+DB_AS_BossPreventRetreat("BLIND");
+DB_AS_BossPreventRetreat("MADNESS");
+DB_AS_BossPreventRetreat("ENTANGLED");
+
+// Grenades for Gerald
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_Holy_A_f7ecad76-b074-4164-a99f-9262d3cd66db",1);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_CursedMolotov_A_4f63b088-f686-4e09-8c0f-16df6504f0ea",2);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_Flashbang_A_a71888d9-9d3f-4004-96c3-bbc1a158c3f6",3);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_Ice_A_a16947e3-5f2f-42c7-b05b-7cdaeb204d28",4);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_Love_A_22cd2247-45d7-432c-93bd-782777af3b33",5);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_Taser_A_29373e1d-5f91-490e-89dd-747042a1d6c7",6);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_Tremor_A_220f7257-faa9-4bc4-903b-ae52765948ea",7);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_ArmorPiercing_A_e057dc4a-3921-4740-a5ac-a4ca6a7a32f7",8);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_BlessedIce_A_4b70b9dc-ac99-415c-bfc8-15cd6dc9aa7d",9);
+DB_AS_GeraldNade("ITEMGUID_GRN_Grenade_ChemicalWarfare_A_bdff5d65-29ef-425c-9096-a119e4de228f",10);
+
+// Tags for Gerald's Sword to work against
+DB_AS_GeraldTags("VOIDWOKEN");
+DB_AS_GeraldTags("DEMON");
+DB_AS_GeraldTags("SUMMON");
+DB_AS_GeraldTags("UNDEAD");
+DB_AS_GeraldTags("MONSTROUS");
+
+// Buffs for Gerald's Sword to break
+DB_AS_GeraldBreak("MAGIC_SHELL");
+DB_AS_GeraldBreak("FORTIFIED");
+DB_AS_GeraldBreak("HASTED");
+DB_AS_GeraldBreak("CLEAR_MINDED");
+DB_AS_GeraldBreak("DEMONIC_HASTED");
+DB_AS_GeraldBreak("FAVOURABLE_WIND");
+DB_AS_GeraldBreak("FAVOURABLE_WIND_AURA");
+DB_AS_GeraldBreak("CHARMED");
+DB_AS_GeraldBreak("SUPERCHARGE");
+DB_AS_GeraldBreak("DEATH_RESIST");
+DB_AS_GeraldBreak("ETERNITY_DOOR");
+DB_AS_GeraldBreak("EVADING");
+DB_AS_GeraldBreak("EVASION_AURA");
+DB_AS_GeraldBreak("ARROWHEAD_FIRE");
+DB_AS_GeraldBreak("ARROWHEAD_WATER");
+DB_AS_GeraldBreak("ARROWHEAD_OIL");
+DB_AS_GeraldBreak("ARROWHEAD_BLOOD");
+DB_AS_GeraldBreak("ARROWHEAD_ELECTRIC");
+DB_AS_GeraldBreak("ARROWHEAD_POISON");
+DB_AS_GeraldBreak("DEFLECTING");
+DB_AS_GeraldBreak("BONE_CAGE");
+DB_AS_GeraldBreak("FARSIGHT");
+DB_AS_GeraldBreak("FIRE_BRAND");
+DB_AS_GeraldBreak("FIRE_BRAND_AURA");
+DB_AS_GeraldBreak("VENOM_COATING");
+DB_AS_GeraldBreak("VENOM_COATING_AURA");
+DB_AS_GeraldBreak("SIPHON_POISON");
+DB_AS_GeraldBreak("VAMPIRISM");
+DB_AS_GeraldBreak("VAMPIRISM_AURA");
+DB_AS_GeraldBreak("REGENERATION");
+DB_AS_GeraldBreak("FROST_AURA");
+DB_AS_GeraldBreak("STEEL_SKIN");
+DB_AS_GeraldBreak("MEND_METAL");
+
+// Banter
+// Gerald
+DB_AS_Banter(1,"I meant to do that.","SELFDAMAGE","GERALD");
+DB_AS_Banter(2,"Just keeping you on your toes, Godwoken...","SELFDAMAGE","GERALD");
+DB_AS_Banter(3,"... You didn't see that, right?","SELFDAMAGE","GERALD");
+DB_AS_Banter(4,"Argh! ... Calculated risk.","SELFDAMAGE","GERALD");
+DB_AS_Banter(1,"You'll regret that.","DISABLED","GERALD");
+DB_AS_Banter(2,"This isn't enough to stop me!","DISABLED","GERALD");
+DB_AS_Banter(3,"Grrr.","DISABLED","GERALD");
+DB_AS_Banter(4,"Damn it.","DISABLED","GERALD");
+DB_AS_Banter(1,"Damn you!","MISS","GERALD");
+DB_AS_Banter(2,"Drat!","MISS","GERALD");
+DB_AS_Banter(3,"Hold still!","MISS","GERALD");
+DB_AS_Banter(4,"You're really getting on my nerves.","MISS","GERALD");
+DB_AS_Banter(1,"ARRRRGH! Not bad...","BIGDAMAGE","GERALD");
+DB_AS_Banter(2,"ARRRRGH! Not bad...","BIGDAMAGE","GERALD");
+DB_AS_Banter(3,"ARRRRGH! Not bad...","BIGDAMAGE","GERALD");
+DB_AS_Banter(4,"ARRRRGH! Not bad...","BIGDAMAGE","GERALD");
+DB_AS_Banter(1,"I'll give you a proper burial when I've finished with your friends.","KILL","GERALD");
+DB_AS_Banter(2,"Is that all? Disappointing.","KILL","GERALD");
+DB_AS_Banter(3,"Sleep well.","KILL","GERALD");
+DB_AS_Banter(4,"If you know what's good for you, you won't come back.","KILL","GERALD");
+DB_AS_Banter(5,"One less evil blights Rivellon.","KILL","GERALD");
+DB_AS_Banter(6,"Rest in peace.","KILL","GERALD");
+DB_AS_Banter(1,"Watch over me, Camilla.","START","GERALD");
+DB_AS_Banter(2,"Ready or not, here I come.","START","GERALD");
+DB_AS_Banter(3,"So many monsters, so little time.","START","GERALD");
+DB_AS_Banter(4,"En garde.","START","GERALD");
+DB_AS_Banter(5,"Let's go.","START","GERALD");
+DB_AS_Banter(6,"Flee while you can.","START","GERALD");
+DB_AS_Banter(1,"Away!","DISPERSE","GERALD");
+DB_AS_Banter(2,"Back off!","DISPERSE","GERALD");
+DB_AS_Banter(3,"Too slow!","DISPERSE","GERALD");
+DB_AS_Banter(4,"Get out of my face!","DISPERSE","GERALD");
+DB_AS_Banter(5,"Away with you!","DISPERSE","GERALD");
+DB_AS_Banter(6,"Scatter!","DISPERSE","GERALD");
+DB_AS_Banter(1,"No magic can stop me.","BREAK","GERALD");
+DB_AS_Banter(2,"Spells won't save you.","BREAK","GERALD");
+DB_AS_Banter(3,"Be purified!","BREAK","GERALD");
+DB_AS_Banter(4,"Your magic fails. Give up!","BREAK","GERALD");
+DB_AS_Banter(5,"Weak sorcery!","BREAK","GERALD");
+DB_AS_Banter(6,"Anything else for me to disenchant?","BREAK","GERALD");
+DB_AS_Banter(1,"Out of this realm, daemon!","HUNTED","GERALD");
+DB_AS_Banter(2,"Purge!","HUNTED","GERALD");
+DB_AS_Banter(3,"Be cleansed!","HUNTED","GERALD");
+DB_AS_Banter(4,"Burn, devil!","HUNTED","GERALD");
+DB_AS_Banter(5,"Disappear, outsider!","HUNTED","GERALD");
+DB_AS_Banter(6,"Dust to dust!","HUNTED","GERALD");
+DB_AS_Banter(1,"Say your prayers!","TARGET","GERALD");
+DB_AS_Banter(2,"Eat this!","TARGET","GERALD");
+DB_AS_Banter(3,"Time to die!","TARGET","GERALD");
+DB_AS_Banter(4,"This is the end!","TARGET","GERALD");
+DB_AS_Banter(5,"Perish!","TARGET","GERALD");
+DB_AS_Banter(6,"Disappear!","TARGET","GERALD");
+
+// Moira
+DB_AS_Banter(1,"Ouch! Well, that wasn't supposed to happen...","SELFDAMAGE","MOIRA");
+DB_AS_Banter(2,"Just keeping you on your toes, Godwoken...","SELFDAMAGE","MOIRA");
+DB_AS_Banter(3,"No pain, no gain.","SELFDAMAGE","MOIRA");
+DB_AS_Banter(4,"An eye for an eye. Maybe for two.","SELFDAMAGE","MOIRA");
+DB_AS_Banter(1,"Oh, you're going to wish you hadn't done that.","DISABLED","MOIRA");
+DB_AS_Banter(2,"*Gasp!*","DISABLED","MOIRA");
+DB_AS_Banter(3,"Let's try this again.","DISABLED","MOIRA");
+DB_AS_Banter(4,"Cut that out!","DISABLED","MOIRA");
+DB_AS_Banter(1,"AAAAARGH!","BIGDAMAGE","MOIRA");
+DB_AS_Banter(2,"AIEEEGH! Not like this...!","BIGDAMAGE","MOIRA");
+DB_AS_Banter(1,"Another day, another corpse.","KILL","MOIRA");
+DB_AS_Banter(2,"That was painless, wasn't it? ... No?","KILL","MOIRA");
+DB_AS_Banter(3,"Another for the pile.","KILL","MOIRA");
+DB_AS_Banter(4,"Poor dear.","KILL","MOIRA");
+DB_AS_Banter(5,"Ho ho ho. I actually feel bad about that one.","KILL","MOIRA");
+DB_AS_Banter(6,"Don't worry, dear: you'll be back.","KILL","MOIRA");
+DB_AS_Banter(1,"So many corpses, so little time.","START","MOIRA");
+DB_AS_Banter(2,"Say your prayers, love.","START","MOIRA");
+DB_AS_Banter(3,"I'll show ye how it's done.","START","MOIRA");
+DB_AS_Banter(4,"You'll look beautiful dead.","START","MOIRA");
+DB_AS_Banter(5,"Don't puss out on me, now.","START","MOIRA");
+DB_AS_Banter(6,"The killing game begins.","START","MOIRA");
+DB_AS_Banter(1,"Away!","DISPERSE","MOIRA");
+DB_AS_Banter(2,"Back off!","DISPERSE","MOIRA");
+DB_AS_Banter(3,"Too slow!","DISPERSE","MOIRA");
+DB_AS_Banter(4,"Get out of my face!","DISPERSE","MOIRA");
+DB_AS_Banter(5,"Away with you!","DISPERSE","MOIRA");
+DB_AS_Banter(6,"Scatter!","DISPERSE","MOIRA");
+DB_AS_Banter(1,"No magic can stop me.","BREAK","MOIRA");
+DB_AS_Banter(2,"Spells won't save you.","BREAK","MOIRA");
+DB_AS_Banter(3,"Be purified!","BREAK","MOIRA");
+DB_AS_Banter(4,"Give up!","BREAK","MOIRA");
+DB_AS_Banter(5,"Weak sorcery!","BREAK","MOIRA");
+DB_AS_Banter(6,"Anything else for me to disenchant?","BREAK","MOIRA");
+DB_AS_Banter(1,"Out of this realm!","HUNTED","MOIRA");
+DB_AS_Banter(2,"Purge!","HUNTED","MOIRA");
+DB_AS_Banter(3,"Be cleansed!","HUNTED","MOIRA");
+DB_AS_Banter(4,"Burn, devil!","HUNTED","MOIRA");
+DB_AS_Banter(5,"Disappear, outsider!","HUNTED","MOIRA");
+DB_AS_Banter(6,"Dust to dust!","HUNTED","MOIRA");
+KBSECTION
+
+// 
+IF
+RegionStarted("RC_Main")
+AND
+DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"RC_Main",16,"AS_Gerald_Dialog")
+AND
+DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_000_d57f63ad-d7ef-4d37-82cf-d08fde8a16c8,"RC_Main",16,"AS_Moira_Dialog")
+THEN
+NOT DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"RC_Main",16,"AS_Gerald_Dialog");
+
+// Debug - reshow any ded Godbroken corpses
+IF
+RegionStarted(_Any)
+AND
+DB_AS_BossDebug(_Char)
+AND
+CharacterIsDead(_Char,1)
+THEN
+SetVisible(_Char,1);
+ProcSetInvulnerable(_Char,0);
+
+// Cleanup bosses timer
+IF
+RegionStarted(_Region)
+THEN
+TimerLaunch("AS_DisableGodbrokenCheckTimer",2000);
+
+IF
+TimerFinished("AS_DisableGodbrokenCheckTimer")
+AND
+GlobalGetFlag("AS_DisableGodbroken",1)
+AND
+DB_AS_Bosses(_Any,_Thing,_Here,_Dies)
+THEN
+NOT DB_AS_Bosses(_Any,_Thing,_Here,_Dies);
+
+// If Moira kicked the bucket, bring in Gerald in Act 2.
+IF
+CharacterDied(_Char)
+AND
+IsTagged(_Char,"AS_MOIRA",1)
+THEN
+DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"RC_Main",16,"AS_Gerald_Dialog");
+NOT DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_000_d57f63ad-d7ef-4d37-82cf-d08fde8a16c8,"RC_Main",16,"AS_Moira_Dialog");
+NOT DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_000_b386fb41-44f2-4541-88fb-12cec747e5f7,"RC_Main",16,"AS_Moira_Dialog");
+NOT DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19,"FJ_FortJoy_Main",10,"AS_Moira_Dialog");
+
+IF
+GameStarted(_,_)
+AND
+DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Gerald_001_660fb257-a2e3-433a-8a2c-c46eed2281e8,"RC_Main",16,"AS_Gerald_Dialog")
+THEN
+NOT DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_000_d57f63ad-d7ef-4d37-82cf-d08fde8a16c8,"RC_Main",16,"AS_Moira_Dialog");
+NOT DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_000_b386fb41-44f2-4541-88fb-12cec747e5f7,"RC_Main",16,"AS_Moira_Dialog");
+NOT DB_AS_Bosses((CHARACTERGUID)AS_Godbroken_Moira_001_4a12e969-690d-44db-8dab-040703255a19,"FJ_FortJoy_Main",10,"AS_Moira_Dialog");
+
+
+// Keep track of player score
+IF
+GameStarted(_,_)
+AND
+NOT DB_AS_PlayerScore(_)
+THEN
+DB_AS_PlayerScore(0);
+
+IF
+CharacterKilledBy(_Def,_,_Atk)
+AND
+DB_CurrentLevel(_Level)
+AND
+_Level != "Tut_Tutorial_A"
+AND
+CharacterIsPlayer(_Atk,1)
+AND
+CharacterIsPlayer(_Def,0)
+AND
+DB_AS_PlayerScore(_Score)
+AND
+IntegerSum(_Score,1,_New)
+AND
+IntegerMax(_New,0,_NScore)
+THEN
+NOT DB_AS_PlayerScore(_Score);
+DB_AS_PlayerScore(_NScore);
+
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+ObjectGetFlag(_Char,"AS_RecentlyEndedTurn",1)
+THEN
+ObjectSetFlag(_Char,"AS_PossiblyFarmingBosses");
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+ObjectSetFlag(_Char,"AS_RecentlyEndedTurn");
+ProcObjectTimer(_Char,"AS_RecentTurnTimer",1500);
+
+IF
+ObjectTurnEnded((CHARACTERGUID)_Char)
+AND
+ObjectGetFlag(_Char,"AS_PossiblyFarmingBosses",1)
+THEN
+ProcObjectTimerCancel(_Char,"AS_RecentTurnTimer");
+ObjectSetFlag(_Char,"AS_DefinitelyFarmingBosses");
+
+IF
+ObjectTurnEnded((CHARACTERGUID)_Char)
+THEN
+ProcObjectTimerCancel(_Char,"AS_RecentTurnTimer");
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_RecentTurnTimer")
+THEN
+ObjectClearFlag(_Char,"AS_RecentlyEndedTurn");
+ObjectClearFlag(_Char,"AS_PossiblyFarmingBosses");
+ObjectClearFlag(_Char,"AS_DefinitelyFarmingBosses2");
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+THEN
+ObjectClearFlag(_Char,"AS_RecentlyEndedTurn");
+ObjectClearFlag(_Char,"AS_PossiblyFarmingBosses");
+ObjectClearFlag(_Char,"AS_DefinitelyFarmingBosses2");
+
+
+// If the player "cheats" to get Moira to come to them - presumably alone - she'll summon zombie help.
+IF
+ObjectFlagSet("AS_MoiraSurprise",(CHARACTERGUID)_Char,_)
+THEN
+ObjectClearFlag(_Char,"AS_MoiraSurprise");
+SetVarInteger(_Char,"AS_MoiraZombieCount",5);
+ProcObjectTimer(_Char,"AS_MoiraSummonZombies",1000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_MoiraSummonZombies")
+AND
+GetVarInteger(_Char,"AS_MoiraZombieCount",_Val)
+AND
+IntegerSubtract(_Val,1,_Res)
+AND
+_Val > 0
+THEN
+CharacterUseSkill(_Char,"Target_AS_Raise_Dead_Multi",_Char,1,1,1);
+SetVarInteger(_Char,"AS_MoiraZombieCount",_Res);
+ProcObjectTimer(_Char,"AS_MoiraSummonZombies",1000);
+
+
+IF
+CharacterKilledBy(_Def,_,_Atk)
+AND
+CharacterHasTalent(_Def,"LoneWolf",0)
+AND
+CharacterIsPlayer(_Atk,0)
+AND
+CharacterIsPlayer(_Def,1)
+AND
+DB_AS_PlayerScore(_Score)
+AND
+IntegerSubtract(_Score,5,_New)
+AND
+IntegerMax(_New,0,_Max)
+THEN
+NOT DB_AS_PlayerScore(_Score);
+DB_AS_PlayerScore(_Max);
+
+IF
+CharacterKilledBy(_Def,_,_Atk)
+AND
+CharacterHasTalent(_Def,"LoneWolf",1)
+AND
+CharacterIsPlayer(_Atk,0)
+AND
+CharacterIsPlayer(_Def,1)
+AND
+DB_AS_PlayerScore(_Score)
+AND
+IntegerSubtract(_Score,8,_New)
+AND
+IntegerMax(_New,0,_Max)
+THEN
+NOT DB_AS_PlayerScore(_Score);
+DB_AS_PlayerScore(_Max);
+
+// Bosses regen 1 WP each turn
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+THEN
+ApplyStatus(_Char,"AS_WILLPOWER_UP",0.0);
+
+// Change music when one appears (doesn't work lol)
+PROC
+Proc_AS_BossMusic((CHARACTERGUID)_Boss)
+AND
+DB_CombatCharacters(_Boss,_Combat)
+AND
+DB_IsPlayer(_Char)
+AND
+DB_CombatCharacters(_Char,_Combat)
+THEN
+MusicPlayForPeer(_Char,"Boss_Fight_Phase_II_Start");
+
+// Debug - if invisible status, set boss totally invisible too.
+IF
+CharacterStatusApplied(_Char,"INVISIBLE",_)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+THEN
+SetVisible(_Char,0);
+
+IF
+CharacterStatusRemoved(_Char,"INVISIBLE",_)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+THEN
+SetVisible(_Char,1);
+
+
+// Equip bosses with their unique weapons
+
+IF
+DB_AS_BossLinkedToPlayer(_Boss,_)
+AND
+ObjectGetFlag(_Boss,"AS_BossEquipped",0)
+AND
+DB_AS_BossesEquip(_Tag,_Weapon)
+AND
+IsTagged(_Boss,_Tag,1)
+AND
+GetPosition(_Boss,_X,_Y,_Z)
+AND
+CreateItemTemplateAtPosition(_Weapon,_X,_Y,_Z,_Item)
+AND
+CharacterGetLevel(_Boss,_Lvl)
+THEN
+ItemToInventory(_Item,_Boss,1,1,1);
+CharacterEquipItem(_Boss,_Item);
+ItemLevelUpTo(_Item,_Lvl);
+ObjectSetFlag(_Boss,"AS_BossEquipped");
+
+IF
+DB_AS_BossLinkedToPlayer(_Boss,_)
+AND NOT
+CharacterGetEquippedWeapon(_Boss,_)
+AND
+DB_AS_BossesEquip(_Tag,_Weapon)
+AND
+GetPosition(_Boss,_X,_Y,_Z)
+AND
+CreateItemTemplateAtPosition(_Weapon,_X,_Y,_Z,_Item)
+AND
+CharacterGetLevel(_Boss,_Lvl)
+THEN
+ItemToInventory(_Item,_Boss,1,1,1);
+CharacterEquipItem(_Boss,_Item);
+ItemLevelUpTo(_Item,_Lvl);
+
+
+
+// Boss weapons
+
+// --------------------------------------
+// Virgin Camilla - Gerald, the Watcher
+// --------------------------------------
+
+// Gerald's Sword unique properties
+IF
+CharacterStatusApplied(_Char,"AS_GERALD_BREAKMAGIC",(CHARACTERGUID)_Causee)
+AND
+ObjectGetFlag(_Char,"AS_GeraldHaveMercy",0)
+AND
+DB_AS_GeraldTags(_Tag)
+AND
+IsTagged(_Char,_Tag,1)
+THEN
+PlayEffect(_Char,"RS3_FX_GP_ScriptedEvent_BreakPromise_End_01");
+ApplyStatus(_Char,"AS_GERALD_BREAK",0.0,1,_Causee);
+ObjectSetFlag(_Char,"AS_GeraldHaveMercy",1);
+ProcObjectTimer(_Char,"AS_GeraldStopHavingMercy",1500);
+
+IF
+CharacterStatusApplied(_Char,"AS_GERALD_BREAK",(CHARACTERGUID)_Boss)
+AND
+IsTagged(_Boss,"AS_GERALD",1)
+THEN
+AS_Kalavinka_BossBanter(_Boss,"GERALD","HUNTED");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckGeraldDidPurge")
+AND
+IsTagged(_Char,"AS_GERALD",1)
+THEN
+AS_Kalavinka_BossBanter(_Char,"GERALD","BREAK");
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_GeraldStopHavingMercy")
+THEN
+ObjectClearFlag(_Char,"AS_GeraldHaveMercy");
+
+IF
+CharacterStatusApplied(_Char,"AS_GERALD_BREAKMAGIC",(CHARACTERGUID)_Causee)
+AND
+DB_AS_GeraldBreak(_Status)
+AND
+HasActiveStatus(_Char,_Status,1)
+THEN
+RemoveStatus(_Char,_Status);
+SetStoryEvent(_Causee,"AS_CheckGeraldDidPurge");
+SetStoryEvent(_Char,"AS_PlayGeraldEffect2");
+
+IF
+StoryEvent(_Char,"AS_PlayGeraldEffect2")
+AND
+ObjectGetFlag(_Char,"AS_Gerald_EffDelay",0)
+THEN
+PlayEffect(_Char,"RS3_FX_GP_ScriptedEvent_BreakPromise_End_01");
+ProcObjectTimer(_Char,"AS_GeraldStopEffDelay",2000);
+ObjectSetFlag(_Char,"AS_GeraldEffFDelay",1);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_GeraldStopEffDelay")
+THEN
+ObjectClearFlag(_Char,"AS_Gerald_EffDelay");
+
+// Level up all Boss Items in a character's inventory
+
+IF
+CharacterLeveledUp(_Char)
+THEN
+InventoryLaunchIterator(_Char,"AS_LVLBOSSITEMS","");
+
+IF
+StoryEvent((ITEMGUID)_Item,"AS_LVLBOSSITEMS")
+AND
+ItemGetOwner(_Item,_Char)
+AND
+CharacterGetLevel(_Char,_Lvl)
+AND
+IsTagged(_Item,"AS_BOSS_UNIQUE",1)
+THEN
+ItemLevelUpTo(_Item,_Lvl);
+
+// Level up if added to a character
+IF
+ItemAddedToCharacter(_Item,_Char)
+AND
+CharacterGetLevel(_Char,_Lvl)
+AND
+IsTagged(_Item,"AS_BOSS_UNIQUE",1)
+THEN
+ItemLevelUpTo(_Item,_Lvl);
+
+IF
+CharacterLeveledUp(_Char)
+AND
+CharacterGetEquippedWeapon(_Char,(ITEMGUID)_Item)
+AND
+CharacterGetLevel(_Char,_Lvl)
+AND
+IsTagged(_Item,"AS_BOSS_UNIQUE",1)
+THEN
+ItemLevelUpTo(_Item,_Lvl);
+
+IF
+ItemEquipped(_Item,_Char)
+AND
+CharacterGetLevel(_Char,_Lvl)
+AND
+IsTagged(_Item,"AS_BOSS_UNIQUE",1)
+THEN
+ItemLevelUpTo(_Item,_Lvl);
+
+
+// Bosses should be the same level as the highest-level player.
+/*
+IF
+CharacterLeveledUp(_Char)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+DB_AS_Bosses(_Boss,_,_Max,_)
+AND
+CharacterGetLevel(_Char,_Lvl)
+AND NOT
+_Lvl > _Max
+THEN
+CharacterLevelUpTo((CHARACTERGUID)_Boss,_Lvl);
+*/
+
+// At region start, set bosses of that region to invisible and invincible
+IF
+RegionStarted(_Region)
+AND
+DB_AS_Bosses(_Boss,_Region,_,_)
+AND
+CharacterIsInCombat((CHARACTERGUID)_Boss,0)
+AND
+CharacterIsDead(_Boss,0)
+THEN
+SetVisible(_Boss,0);
+CharacterSetImmortal((CHARACTERGUID)_Boss,1);
+
+// Store initial position of bosses
+IF
+TimerFinished("AS_StatCheckStart")
+AND
+DB_AS_Bosses(_Boss,_Region,_,_)
+AND
+GetPosition(_Boss,_X,_Y,_Z)
+AND
+NOT DB_AS_GetBossRetreat(_Boss,_,_,_)
+THEN
+DB_AS_GetBossRetreat(_Boss,_X,_Y,_Z);
+
+// Resurrect Gerald, debug
+/*
+IF
+TimerFinished("AS_StatCheckStart")
+AND
+ObjectGetFlag(CHARACTERGUID_AS_Godbroken_Gerald_000_08c9a305-b3d6-4b7b-a2d0-d4e5fd12ba29,"AS_PermaBossDead",0)
+THEN
+CharacterResurrect(CHARACTERGUID_AS_Godbroken_Gerald_000_08c9a305-b3d6-4b7b-a2d0-d4e5fd12ba29);
+*/
+
+IF
+CharacterKilledBy(_Char,_,_)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+THEN
+ObjectSetFlag(_Char,"AS_PermaBossDead");
+
+// Boss attach event
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+IsTagged(_Char,"SUMMON",0)		// Don't attach to a summon. I don't think Moira would have much personal beef with a bloated corpse...
+AND
+CharacterIsPlayer(_Char,1)
+AND
+Random(200,_Rand)
+AND
+DB_AS_PlayerScore(_Score)
+AND
+IntegerSum(_Rand,_Score,_Out1)
+AND
+CharacterGetLevel(_Char,_Lvl)
+AND
+_Lvl > 2
+AND
+IntegerSum(_Out1,_Lvl,_Out)
+AND
+_Out1 >= 207
+AND
+GetRegion(_Char,_Region)
+AND
+DB_AS_Bosses(_Boss,_Region,_Max,_)
+AND
+CharacterIsDead((CHARACTERGUID)_Boss,0)
+AND
+CharacterIsInCombat(_Boss,0)
+AND
+NOT DB_AS_BossLinkedToPlayer((CHARACTERGUID)_Boss,_)		// Check the boss ain't already linked to somebody first
+AND NOT
+_Lvl > _Max
+THEN
+TeleportTo((GUIDSTRING)_Boss,_Char,"AS_BossTeleport",0,1,1);
+DB_AS_BossLinkedToPlayer((CHARACTERGUID)_Boss,_Char);
+CharacterLevelUpTo(_Boss,_Lvl);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+DB_AS_BossLinkedToPlayer((CHARACTERGUID)_Boss,_Char)
+THEN
+NOT DB_AS_BossLinkedToPlayer((CHARACTERGUID)_Boss,_Char);
+
+// Debug - make sure bosses don't fight while still invisible!
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_Combat)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+THEN
+SetVisible(_Char,1);
+
+IF
+CharacterDied(_Boss)
+AND
+DB_AS_BossLinkedToPlayer(_Boss,_Char)
+THEN
+NOT DB_AS_BossLinkedToPlayer(_Boss,_Char);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_BossLinkedToPlayer((CHARACTERGUID)_Boss,_Char)
+AND
+GetPosition(_Boss,_X,_Y,_Z)
+THEN
+CharacterSetImmortal((CHARACTERGUID)_Boss,0);
+CharacterUseSkillAtPosition(_Boss,"Jump_AS_Gerald",_X,_Y,_Z,1,1);
+//MusicPlayForPeer(_Char,"GM_Fight_Theme_06_Bansuri");
+MusicPlayGeneral("Arx_Outskirts_stinger_Dark_02");
+ProcObjectTimer(_Char,"AS_BossTriggers",1200);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_BossTriggers")
+AND
+GetFaction(_Char,_Faction)
+AND
+DB_AS_BossLinkedToPlayer((CHARACTERGUID)_Boss,_Char)
+AND
+DB_AS_Bosses(_Boss,_,_,_Dialog)
+THEN
+SetVisible(_Boss,1);
+NOT DB_AS_BossLinkedToPlayer((CHARACTERGUID)_Boss,_Char);
+SetFaction(_Boss,"AS_Godbroken");
+Proc_AS_BossMusic(_Boss);
+CharacterSetTemporaryHostileRelation(_Boss,_Char);
+EnterCombat(_Boss,_Char);
+Proc_StartDialog(1,_Dialog,_Boss,_Char);
+
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+IsTagged(_Char,"AS_GERALD",1)
+THEN
+ApplyStatus(_Char,"AS_WILLPOWER_UP",0.0);
+ApplyStatus(_Char,"AS_WILLPOWER_UP",0.0);
+
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+IsTagged(_Char,"AS_MOIRA",1)
+THEN
+ApplyStatus(_Char,"AS_WILLPOWER_UP",0.0);
+ApplyStatus(_Char,"AS_WILLPOWER_UP",0.0);
+ApplyStatus(_Char,"AS_WILLPOWER_UP",0.0);
+ApplyStatus(_Char,"AS_WILLPOWER_UP",0.0);
+
+IF
+TextEventSet("AS_Boss_Gerald")
+THEN
+IterateParties("AS_TestGerald");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_TestGerald")
+AND
+CharacterIsPlayer(_Char,1)
+AND
+GetRegion(_Char,_Region)
+AND
+DB_AS_Bosses(_Boss,_Region,_Max,_)
+AND
+NOT DB_AS_BossLinkedToPlayer((CHARACTERGUID)_Boss,_)		// Check the boss ain't already linked to somebody first
+AND
+CharacterIsDead(_Boss,0)
+THEN
+TeleportTo(_Boss,_Char,"AS_BossTeleport",0,1,1);
+DB_AS_BossLinkedToPlayer(_Boss,_Char);
+CharacterStatusText(_Char,"Got test boss Gerald event!");
+
+// If a boss left combat, set it back to neutral NPC
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+THEN
+SetFaction(_Char,"Neutral NPC");
+
+// Generic boss behaviour
+
+// Retreating
+// Remove retreat status if any of the removal statuses are applied
+IF
+CharacterStatusApplied(_Char,_Status,_)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+AND
+DB_AS_BossPreventRetreat(_Status)
+THEN
+RemoveStatus(_Char,"AS_GODBROKEN_RETREATING");
+
+// Do retreat if conditions met
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+HasActiveStatus(_Char,"AS_GODBROKEN_RETREATING",1)
+AND
+DB_AS_GetBossRetreat(_Char,_X,_Y,_Z)
+THEN
+LeaveCombat(_Char);
+SetFaction(_Char,"Neutral NPC");
+CharacterSetImmortal(_Char,1);
+CharacterUseSkillAtPosition(_Char,"Jump_EnemyTacticalRetreat",_X,_Y,_Z,1,1);
+
+IF
+CharacterUsedSkillAtPosition(_Char,_,_,_,"Jump_EnemyTacticalRetreat",_,_)
+AND
+IsTagged(_Char,"AS_MOIRA",1)
+AND
+DB_AS_MoiraZombies((CHARACTERGUID)_Zomb)
+THEN
+CharacterDieImmediate(_Zomb,0,"Piercing");
+NOT DB_AS_MoiraZombies(_Zomb);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+DB_AS_GetBossRetreat(_Char,_X,_Y,_Z)
+THEN
+CharacterSetImmortal(_Char,1);
+CharacterUseSkillAtPosition(_Char,"Jump_EnemyTacticalRetreat",_X,_Y,_Z,1,1);
+RemoveStatus(_Char,"AS_GODBROKEN_RETREATING");
+ProcObjectTimer(_Char,"AS_TurnBossInvisible",9000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_TurnBossInvisible")
+AND
+CharacterIsDead(_Char,0)
+THEN
+SetVisible(_Char,0);
+
+IF
+CharacterStatusApplied(_Char,"AS_GODBROKEN_RETREATING",_)
+AND
+Random(5,_Rand)
+AND
+IntegerSum(_Rand,1,_Val)
+AND
+DB_AS_BossRetreat(_Val,_Char,_Text)     // Note this will only work on the field, due to use of specific character GUID
+THEN
+CharacterStatusText(_Char,_Text);
+
+
+
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+THEN
+CharacterSetImmortal(_Char,0);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_Bosses(_Char,_,_,_)
+AND
+CharacterGetHitpointsPercentage(_Char,_Per)
+AND
+HasActiveStatus(_Char,"AS_GODBROKEN_RETREATING",0)
+AND
+_Per <= 33.0
+THEN
+ApplyStatus(_Char,"AS_GODBROKEN_RETREATING",-1.0,0);
+
+
+// Unique boss behaviour
+
+// --------------------------------------
+// Gerald
+// --------------------------------------
+
+
+// Boss banter
+PROC
+AS_Kalavinka_BossBanter((CHARACTERGUID)_Char,(STRING)_Name,(STRING)_Event)
+AND
+CharacterIsDead(_Char,0)    // Let's not have Gerald taunt people while he's dead, no?
+AND
+Random(6,_Rand)
+AND
+IntegerSum(_Rand,1,_Val)
+AND
+DB_AS_Banter(_Val,_Text,_Event,_Name)
+AND
+StringConcatenate("<font size='22px'>",_Text,_Text1)
+AND
+StringConcatenate(_Text1,"</font>",_Output)
+AND
+ObjectGetFlag(_Char,"AS_BossBanterBlacklist",0)
+THEN
+CharacterStatusText(_Char,_Output);
+ObjectSetFlag(_Char,"AS_BossBanterBlacklist");
+ProcObjectTimer(_Char,"AS_BossBanterBlacklistRemove",1000);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_BossBanterBlacklistRemove")
+THEN
+ObjectClearFlag(_Char,"AS_BossBanterBlacklist");
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_BossTag(_Tag,_Bossname)
+AND
+IsTagged(_Char,_Tag,1)
+AND
+HasActiveStatus(_Char,"FLANKED",0)
+AND
+QRY_CharacterIsNotDisabled(_Char)
+THEN
+AS_Kalavinka_BossBanter(_Char,_Bossname,"START");
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_BossTag(_Tag,_Bossname)
+AND
+IsTagged(_Char,_Tag,1)
+AND
+HasActiveStatus(_Char,"FLANKED",0)
+AND NOT
+QRY_CharacterIsNotDisabled(_Char)
+THEN
+AS_Kalavinka_BossBanter(_Char,_Bossname,"DISABLED");
+
+IF
+CharacterUsedSkillOnTarget(_Char,(CHARACTERGUID)_Target,_,_,_)
+AND
+DB_AS_BossTag(_Tag,_Bossname)
+AND
+IsTagged(_Char,_Tag,1)
+AND
+CharacterIsEnemy(_Char,_Target,1)
+THEN
+AS_Kalavinka_BossBanter(_Char,_Bossname,"TARGET");
+
+IF
+CharacterKilledBy(_Victim,_,(CHARACTERGUID)_Boss)
+AND
+CharacterIsPlayer(_Victim,1)
+AND
+IsTagged(_Victim,"SUMMON",0)
+AND
+DB_AS_BossTag(_Tag,_Bossname)
+AND
+IsTagged(_Boss,_Tag,1)
+THEN
+AS_Kalavinka_BossBanter(_Boss,_Bossname,"KILL");
+
+IF
+CharacterMissedBy(_Victim,_,_Char)
+AND
+DB_AS_BossTag(_Tag,_Bossname)
+AND
+IsTagged(_Char,_Tag,1)
+THEN
+AS_Kalavinka_BossBanter(_Char,_Bossname,"MISS");
+
+// GERALD UNIQUE: Cast Disperse when flanked
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+IsTagged(_Char,"AS_GERALD",1)
+AND
+HasActiveStatus(_Char,"FLANKED",1)
+THEN
+CharacterUseSkill((CHARACTERGUID)_Char,"Shout_AS_Disperse",_Char,0,0,0);
+
+// GERALD UNIQUE: gain grenades at turn start
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+IsTagged(_Char,"AS_GERALD",1)
+THEN
+SetVarInteger(_Char,"AS_Gerald_GrenadesToGet",2);
+SetStoryEvent(_Char,"AS_Gerald_GetGrenades");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_Gerald_GetGrenades")
+AND
+GetVarInteger(_Char,"AS_Gerald_GrenadesToGet",_Val)
+AND
+_Val > 0
+AND
+IntegerSubtract(_Val,1,_New)
+AND
+Random(10,_Ran)
+AND
+IntegerSum(_Ran,1,_Rand)
+AND
+DB_AS_GeraldNade(_Item,_Rand)
+THEN
+SetVarInteger(_Char,"AS_Gerald_GrenadesToGet",_New);
+ItemTemplateAddTo(_Item,_Char,1);
+SetStoryEvent(_Char,"AS_Gerald_GetGrenades");
+
+
+// GERALD UNIQUE banter: Disperse cast
+IF
+CharacterUsedSkill(_Char,"Shout_AS_Disperse",_,_)
+AND
+IsTagged(_Char,"AS_GERALD",1)
+THEN
+AS_Kalavinka_BossBanter(_Char,"GERALD","DISPERSE");
+
+// If hurting self, send dialog
+IF
+CharacterReceivedDamage(_Char,_,(CHARACTERGUID)_Source)
+AND
+ObjectGetFlag(_Char,"AS_IsTurn",1)
+AND
+_Char == _Source
+AND
+DB_AS_BossTag(_Tag,_Bossname)
+AND
+IsTagged(_Char,_Tag,1)
+THEN
+AS_Kalavinka_BossBanter(_Char,_Bossname,"SELFDAMAGE");
+
+// --------------------------------------
+// Moira
+// --------------------------------------
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+IsTagged(_Char,"AS_MOIRA",1)
+AND
+QRY_CharacterIsNotDisabled(_Char)
+AND
+HasActiveStatus(_Char,"MUTED",0)
+THEN
+CharacterRemoveSkill(_Char,"Target_AS_Raise_Dead");
+CharacterAddSkill(_Char,"Target_AS_Raise_Dead");
+CharacterUseSkill(_Char,"Target_AS_Raise_Dead_Free",_Char,1,1,1);
+
+IF
+CharacterStatusApplied(_Char,"SUMMONING_ABILITY",_Applier)
+AND
+IsTagged(_Char,"AS_MOIRA_ZOMBIE",1)
+AND
+IsTagged(_Applier,"AS_MOIRA",1)
+THEN
+DB_AS_MoiraZombies(_Char);
+
+IF
+CharacterStatusApplied(_Char,"SUMMONING_ABILITY",_Applier)
+AND
+IsTagged(_Char,"AS_MOIRA_ZOMBIE",1)
+AND
+CharacterGetEquippedWeapon(_Char,_Item)
+AND
+CharacterGetLevel(_Char,_Lvl)
+THEN
+ItemLevelUpTo((ITEMGUID)_Item,_Lvl);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+IsTagged(_Char,"AS_MOIRA",1)
+AND
+DB_AS_MoiraZombies((CHARACTERGUID)_Zomb)
+THEN
+CharacterDieImmediate(_Zomb,0,"Piercing");
+NOT DB_AS_MoiraZombies(_Zomb);
+
+IF
+CharacterStatusApplied(_Char,"SUMMONING_ABILITY",_)
+AND
+IsTagged(_Char,"AS_MOIRA_ZOMBIE",1)
+THEN
+ProcObjectTimer(_Char,"AS_ApplyMeatShield",200);
+
+/*
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ApplyMeatShield")
+THEN
+ApplyStatus(_Char,"AS_MEAT_SHIELD",-1.0);
+*/
+
+IF
+CharacterDied(_Char)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+CharacterIsSummon(_Char,0)
+AND
+DB_AS_Bosses((CHARACTERGUID)_Boss,_,_,_)
+AND
+GetDistanceTo(_Char,_Boss,_Dist)
+AND
+_Dist <= 13.0
+AND
+QRY_CharacterIsNotDisabled(_Boss)
+AND
+HasActiveStatus(_Boss,"MUTED",0)
+AND
+IsTagged(_Boss,"AS_MOIRA",1)
+THEN
+CharacterUseSkill(_Boss,"Target_EnemySourceVampirism",_Char);
+
+
+
+IF
+CharacterLeveledUp(_Char)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+CharacterIsSummon(_Char,0)
+AND
+CharacterGetLevel(_Char,_Level)
+AND
+DB_AS_Bosses(_Boss,_,_,_)
+AND
+CharacterGetLevel((CHARACTERGUID)_Boss,_Lvl2)
+AND
+_Level > _Lvl2
+THEN
+//CharacterLevelUp((CHARACTERGUID)_Boss);
+CharacterLevelUpTo((CHARACTERGUID)_Boss,_Level);
+
+IF
+CharacterStatusApplied(_Char,"AS_ROTTING_GRASP",(CHARACTERGUID)_Causee)
+THEN
+DB_AS_RottenGrasp(_Char,_Causee);
+PROC_LoopBeamEffect("AS_BloodBeam",_Char,_Causee,"Dummy_BodyFX","Dummy_StatusFX","AS_GraspBeam","__ANY__");
+ApplyStatus(_Causee,"AS_ZOMBIE_EATER",-1.0);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_RottenGrasp(_Char,_Causee)
+AND
+GetDistanceTo(_Char,_Causee,_Dist)
+AND
+_Dist > 3.0
+THEN
+RemoveStatus(_Char,"AS_ROTTING_GRASP");
+
+IF
+CharacterReceivedDamage(_Char,_,_)
+AND
+DB_AS_RottenGrasp(_Char,_Causee)
+AND
+GetDistanceTo(_Char,_Causee,_Dist)
+AND
+_Dist > 3.0
+THEN
+RemoveStatus(_Char,"AS_ROTTING_GRASP");
+
+IF
+CharacterStatusRemoved(_Char,"AS_ROTTING_GRASP",_)
+AND
+DB_AS_RottenGrasp(_Char,_Causee)
+THEN
+NOT DB_AS_RottenGrasp(_Char,_Causee);
+PROC_StopLoopBeamEffect(_Char,"AS_GraspBeam");
+PROC_StopLoopBeamEffect(_Causee,"AS_GraspBeam");
+RemoveStatus(_Causee,"AS_ZOMBIE_EATER");
+
+IF
+CharacterDied(_Causee)
+AND
+DB_AS_RottenGrasp(_Char,_Causee)
+THEN
+RemoveStatus(_Char,"AS_ROTTING_GRASP");
+RemoveStatus(_Causee,"AS_ZOMBIE_EATER");
+
+IF
+CharacterUsedSkill(_Char,"Shout_BreakTheShackles",_,_)
+AND
+DB_AS_RottenGrasp(_Char,_Causee)
+AND
+HasActiveStatus(_Char,"AS_ROTTING_GRASP",1)
+THEN
+RemoveStatus(_Char,"AS_ROTTING_GRASP");
+
+EXITSECTION
+
+ENDEXITSECTION

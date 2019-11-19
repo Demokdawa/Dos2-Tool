@@ -1,0 +1,2 @@
+statusapply FROZEN
+[HistoryLimit]30

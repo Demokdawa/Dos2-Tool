@@ -1,0 +1,30 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+/*
+IF
+AttackedByObject((CHARACTERGUID)_Def,_,(CHARACTERGUID)_Atk,_,_)
+AND
+CharacterIsAlly(_Def,_Atk,0)
+AND
+GetDistanceTo(_Def,_Atk,_Dist)
+AND
+CharacterIsPlayer(_Def,_Val1)
+AND
+CharacterIsPlayer(_Atk,_Val2)
+AND
+IntegerProduct(_Val1,_Val2,_Players)
+AND
+_Players < 2
+AND
+_Dist > 13.0
+THEN
+EnterCombat(_Def,_Atk);
+*/
+
+EXITSECTION
+
+ENDEXITSECTION

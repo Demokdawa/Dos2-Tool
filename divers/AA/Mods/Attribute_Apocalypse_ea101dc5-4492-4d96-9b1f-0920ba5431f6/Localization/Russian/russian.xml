@@ -1,0 +1,140 @@
+<contentList>
+	<content contentuid="h18f97d5bg9a79g4917g809dgb0ac7a5ec302">Сила повышает урон, а также позволяет поднимать и переносить тяжелые предметы.</content>
+	<content contentuid="h6a3639d1g294eg49cegb235gdbeb9defcf12">Ловкость: [1][2]&lt;br&gt;</content>
+	<content contentuid="h75391bafg8744g4441g9b1egf52f182f96fc">За каждое очко повышает скорость движения на 0.4м, дальность атаки на 0.5м и точность на 2%. </content>
+	<content contentuid="h89894c92gd301g4292g8cf0gd8cd159d70d8">Телосложение снижено</content>
+	<content contentuid="h33d41553g12cag401eg8c71g640d3d654054">Решимость</content>
+	<content contentuid="h5f3f6bdagdcd6g4d7agbd92g2a56eac26fd1">Решимость: [1][2]&lt;br&gt;</content>
+	<content contentuid="h8e8351e9gc40ag4e4cgaebfgc810a27ffff8">Решимость</content>
+	<content contentuid="hbe8b28b6g4cfcg4bfag9214gadaae68895c7">Решимость снижена</content>
+	<content contentuid="hfbc938ceg297fg4232ga11dg3fe44985b9f8">Решимость</content>
+	<content contentuid="h6b67efcagf943g43a1g959eg36f9ecc42e7e">За каждое очко восстанавливает 1.5% Здоровья в ход и увеличивает максимум Силы воли за каждые 4 очка.</content>
+	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Дальность: [1]&lt;br&gt;Воодушевление увеличивает Силу, Ловкость, Решимость и Телосложение на 1.</content>
+	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Дальность: [1]&lt;br&gt;Воодушевление увеличивает Силу, Ловкость, Решимость и Телосложение на 1.</content>
+	<content contentuid="hea9cf9e9gb7f0g4cc0ga3d7gdd7516bc04bb">Базовых ячеек: [1].Дополнительных ячеек от Интеллекта: +[2].</content>
+	<content contentuid="hc66f272bgd297g41ffga78dgb9c17c739b6e">Интеллект: [1][2]&lt;br&gt;</content>
+	<content contentuid="hbde985cfgb1c4g4bb6g9a61gbec72c9b4ed6">[1] дает [2] дополнительных единицы Интеллекта.</content>
+	<content contentuid="hbadf03e5gcc3ag40adg973fg1da29a1412ed">Интеллект</content>
+	<content contentuid="hb32b7463gd19dg4458gbb2cg5a52c32ad160">Интеллект</content>
+	<content contentuid="h9b04e0bdg9e05g4d65gb834g7129a80a3d1f">Интеллект</content>
+	<content contentuid="h97835495g425fg414dga4e6g93ba7e8d3d55">[Проверка Интеллекта]</content>
+	<content contentuid="h8d2cecb4g5be0g4fafg8b9bga446ca226c92">Интеллект</content>
+	<content contentuid="h8565e761ge486g467aga4cfg17344874f1ab">Интеллект</content>
+	<content contentuid="h659301cfg7377g4404g8b83g448758d621a3">[1] дает вам +[2] Интеллекта.</content>
+	<content contentuid="h256557fbg1d49g45d9g8690gb86b39d2a135">&lt;font color="#5ac8b4"&gt;урон тьмой&lt;/font&gt;</content>
+	<content contentuid="h5f74f24cg7845g4b13gb40ag72f88b4688d1">За каждое очко дает дополнительную ячейку памяти и дополнительное использование способности "Cooldown Reset", за каждые 2 очка.</content>
+	<content contentuid="hd19be63age056g49c7ga8d9g391180b153a0">Мудрость: [1][2]&lt;br&gt;</content>
+	<content contentuid="h0f1053bbg8ac4g461fg9179g6f28b9d091bd">Мудрость</content>
+	<content contentuid="h14f0a142ga4bdg4acbg8478g678fbf2aa815">Мудрость</content>
+	<content contentuid="h2b03f6f9gbf5dg4f51g9b98gf01243633ed3">Мудрость</content>
+	<content contentuid="h4ced8e7fg66f7g4a8bg9dc2g051ceb292826">Мудрость снижена</content>
+	<content contentuid="h6d2cd8aeg4e09g4003ga57cg3fea3a0f5502">За каждое очко длительность ваших эффектов повышается на 10%, а эффективность ваших исцеляющих эффектов — на 5%. Также помогает замечать ловушки и спрятанные сокровища.</content>
+	<content contentuid="h03d68693g35e7g4721ga1b3g9f9882f08b12">Уклонение</content>
+	<content contentuid="h768669d0g02adg48f7g901eg83068a96bf19">[1] дает 10% шанс уклониться от атаки за очко.</content>
+	<content contentuid="hdda30cb9g17adg433ag9071g867e97c09c3a">Отталкивание</content>
+	<content contentuid="h54f2ea13g97dbg4b86g9d13geeb81186faca">[1] ваши атаки в бою отталкивают противников на 2м за очко. Эффект можно включать и отключать по желанию.</content>
+	<content contentuid="ha74334b1gd56bg49c2g8738g44da4decd00a">Сила Истока</content>
+	<content contentuid="h751cb9fcgcc15g485fg80dag96d013bb5fff">[1] за каждое очко дает дополнительное использование способности "Source Replenishment", что восстанавливает 1 очко Истока.</content>
+	<content contentuid="h256557fbg1d49g45d9g8690gb86b39d2a135">урон пустотой</content>
+	<content contentuid="h3fb5cd5ag9ec8g4746g8f9cg03100b26bd3a">Похищение жизни</content>
+	<content contentuid="h206ce4abg4f84g4b2dg934aga0d96a602f2c">[1] исцеляет на 15% от нанесенного урона за очко.</content>
+	<content contentuid="h5241e098gbfa7g4091gb6eaga7a3a61683ce">[1] позволяет изучать навыки ветра и грозы.&lt;br /&gt;&lt;br /&gt;&lt;font color="#786bcb"&gt;Способность Мастера 6 уровня: Сила Шторма &lt;/font&gt;&lt;br /&gt;Наложение эффекта "Шок" на цель под эффектом "Шок" или "Влага" позволяет сбросить время восстановление следующего используемого заклинания.</content>
+	<content contentuid="he4bae728g9ec0g482cgaa22g21796d72983f">[1] позволяет изучать навыки огня.&lt;br /&gt;&lt;br /&gt;&lt;font color="#dd6123"&gt;Способность Мастера 6 уровня: Погребальный Костер&lt;/font&gt;&lt;br /&gt;Ваши эффекты горения становятся Некропламенем. Вы получаете +5% урона за каждого противника охваченного вашим Некропламенем. Эффект суммируется до 5 раз.</content>
+	<content contentuid="hc5c3b4a8g0f31g45deg873ag413f99d89910">[1] позволяет изучать навыки земли и яда.&lt;br /&gt;&lt;br /&gt;&lt;font color="#7c3e00"&gt;Способность Мастера 6 уровня: Дрожь земли &lt;/font&gt;&lt;br /&gt;Применение навыков вызывает сейсмические волны, которые наносят урон и замедляют врагов.</content>
+	<content contentuid="he52dcf72g081eg4f4fgb24fg692f73242b73">[1] позволяет изучать навыки черной магии, дающей власть над жизнью и смертью.&lt;br /&gt;&lt;br /&gt;&lt;font color="#b723c9"&gt;Способность Мастера 6 уровня: Владыка Смерти&lt;/font&gt;&lt;br /&gt;Пораженные вами враги, с запасом здоровья менее 15% мгновенно умирают.</content>
+	<content contentuid="hbac7843eg0419g4685ga4d6g5aab9302a18a">[1] позволяет изучать навыки воды и льда, среди которых немало навыков исцеления.&lt;br /&gt;&lt;br /&gt;&lt;font color="#4695da"&gt;Способность Мастера 6 уровня: Абсолютный Ноль&lt;/font&gt;&lt;br /&gt;Ваши эффекты исцеления убирают все эффекты снижения Силы воли. Ваши эффекты исцеления, Охлаждения и Влаги игнорируют и убирают эффекты Некропламени, Горения и Тепла.</content>
+	<content contentuid="h60a27d9cg35fag451cga251gbd01c84d033b">[1] позволяет изучать мощные навыки ближнего боя и разные грязные трюки.&lt;br /&gt;&lt;br /&gt;&lt;font color="#629493"&gt;Способность Мастера 6 уровня: Торговец Смертью;/font&gt;&lt;br /&gt;Ваши критические атаки и удары в спину снижают вражеские сопротивления на 15% на 3 хода. Эффект суммируется до 3 раз.</content>
+	<content contentuid="hae8649cfg3688g43b4gb137gdae29b32492e">[1] позволяет изучать особые навыки ближнего боя и защитные техники.&lt;br /&gt;&lt;br /&gt;&lt;font color="#d42411"&gt;Способность Мастера 6 уровня: Упоение битвой;/font&gt;&lt;br /&gt; Получение урона в размере более 5% от максимального запаса здоровья вызывает мощный рассекающий удар, поражающий противников поблизости. Для срабатывания требуется оружие ближнего боя.</content>
+	<content contentuid="hde85b3faga9aag4420g9089gc7e6eee20084">[1] позволяет изучать навыки превращения.&lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Пассивный навык: Перевертыш&lt;/font&gt;&lt;br /&gt;Дает одно бесплатное очко качеств за каждое вложенное очко.&lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Способность Мастера 6 уровня: Эволюция&lt;/font&gt;&lt;br /&gt;Все превращения длятся бесконечно.</content>
+	<content contentuid="h8256bf13gb4cag4662gaafegb5724b210c92">[1] дает  +2 инициативы за очко, а также бонусы к Улконению, Скорости и Сопротивлениям всем союзникам в радиусе 13м.</content>
+	<content contentuid="h3a0e0946g2b6bg49d4g93c2g9e61ee4910cd">[1] позволяет изучать навыки дальнего боя и техники выживания.&lt;br /&gt;&lt;br /&gt;&lt;font color="#2ba500"&gt;Способность Мастера 6 уровня: Соколиный глаз&lt;/font&gt;&lt;br /&gt; Вы никогда не промахиваетесь. Первая базовая атака за ход возвращает возвращает ОД.</content>
+	<content contentuid="h1d6340c5g7f22g4db4ga12agae3143d9a292">[1] позволяет изучать навыки призыва демонических тварей и загадочную магиюдаеть возможность использовать способности призыва и загадочную магию чужого измерения.&lt;br /&gt;&lt;br /&gt;&lt;font color="#7f25d4"&gt;Способность Мастера 6 уровня: Владыка Сверхъестественного;/font&gt;&lt;br /&gt;Вы можете призывать дополнительное существо.</content>
+	<content contentuid="h1bae56a9ga45fg431fg80bfg2afbef03c1d2">[1] восстанавливает 1 Силу воли за очко, когда вы освобождаетесь от эффектов понижея Силы воли.</content>
+	<content contentuid="hded47ed1gcc2eg4ce8g9277g5ee6b7204293">[1] отражает полученный урон атакующему.</content>
+	<content contentuid="h8f2b04a3g7fe4g4eb9g9b29gdf28318d1c6e"></content>
+	<content contentuid="h557cbae3g3a24g4da6gae81g9bc11c7d7b20"></content>
+	<content contentuid="hc39ddc5dgd298g4fbcg97cfg1c721e8fa72f"></content>
+	<content contentuid="h414d6fb1g056fg4735ga293gac9f5ba97246"></content>
+	<content contentuid="hb5a9207dgd762g415cga078g375a99eef0bf"></content>
+	<content contentuid="h0a8b0b59g5da9g483fg86a3g59afce30dbb7"></content>
+	<content contentuid="h4e0465f1gc30ag4900ga58fg0bf8a48c4a37"></content>	
+	<content contentuid="ha4b72525g51d5g434cgbdf9g3a4ec57319aa"></content>	
+	<content contentuid="h9b41cb85g38c7g42ffgae55g66d1c0311ce7"></content>
+	<content contentuid="h39c71414ged12g45bdg9880ge0b13ec7206a"></content>
+	<content contentuid="h075cdd30g57e6g4738g9068ge71dff923b82"></content>
+	<content contentuid="h49b9da32gdb42g4772ga68dgd155a02fb246">+[1] очко = +1 ячейка памяти, +0.5 использований "Cooldown Reset".</content>
+	<content contentuid="hb924258ag2cf7g4c11gaf4eg8b7de303c197">Бонусы увеличиваются с уровнем.</content>
+	<content contentuid="hf91f9ad6gd2e3g4fe1g8230g16aa8a97ee59"></content>
+	<content contentuid="hd5dd26e5gadc6g40d9ga0c6g2ae909cbc842"></content>
+	<content contentuid="h2cf88fbdg14d6g4d46g80afge5f6a1afe4ef"></content>
+	<content contentuid="h5241adddga9f5g42e3gb032g49bb4ca899b3"></content>
+	<content contentuid="h2443a42egd7abg4116g95b4g8036050c3bd3"></content>
+	<content contentuid="h9b56cad2g1e5fg40c0gaa03g1b6588b101b6"></content>
+	<content contentuid="hc4400964gcf4bg429cg882cg9e90ba8cf0ce"></content>
+	<content contentuid="h9b56cad2g1e5fg40c0gaa03g1b6588b101b6"></content>
+	<content contentuid="hcaa6c292g90ccg41a3g9186g6913a8af0656"></content>
+	<content contentuid="h46770f2agdbb8g47eag9e0eg65ac47bde918">[1] позволяет вам начинать каждый раунд с максимальным количеством ОД, но Сила воли больше не защищает вас от эффектов.</content>
+	<content contentuid="h5fb2ef9cg4258g446eg9522gd6be58f3ab23">Поддержка</content>
+	<content contentuid="h04248accg2cc5g4798g9d22g1de1e1846b54">Восстанавливает [1] равное нанесенному урону.</content>
+	<content contentuid="h71b09f9fg285fg4532gab16g1c7640864141">Урон основан на уровне персонажа и получает бонусы от Силы.</content>
+	<content contentuid="ha4cfd852g52f1g4079g8919gd392ac8ade1a">Урон основан на атаке персонажа и получает бонусы от Силы.</content>
+	<content contentuid="hd8bbf9a7g2ecag4674g88bdg1610c1fb2b4a">Урон может быть снижен на [1]</content>
+	<content contentuid="hf9f740eegedb2g4ff7g94f3gd36736304474">Характеристики призываемых существ зависят от уровня призывателя и его качеств.</content>
+	<content contentuid="h9a4b810cg2aa9g4e33gb8d6gcb8741d412f4">Охотничьи навыки предназначены для лучников и следопытов. Ловкость увеличивает &apos; дальность действия этих навыков, а Сила — урон. Чтобы освоить навык, прочтите книгу.</content>
+	<content contentuid="h00d71466g0fd5g4e76g8a3bgb69a2f203cd8">Навыки из группы "Военное дело" предназначены для войнов. Для некоторых из них высокое значение Силы особенно важно. Чтобы освоить навык, прочтите книгу.</content>
+	<content contentuid="h8aa9cb44g404dg4d9dgba24g125291f2ca65">Призыв личного элементаля, тип которого совпадает с типом поверхности, на которую он призван. Способности инкарната можно усиливать. Если умение «Призывание» достигло 6 уровня, на ваш зов откликнется колоссальный инкарнат-воитель.</content>
+	<content contentuid="h34f3a0e4g7722g4d5fg97f8gd9b67a582c32">Черносерд</content>
+	<content contentuid="h493986c9g104eg4517g9c49g90cee026cd6c">Персонажи с талантом [1] получают урон от всех форм исцеления, включая зелья, но получают 60% Похищения жизни. Не могут быть благословлены. В бою, их навык "Благословление" меняется на "Проклятие".</content>
+	<content contentuid="hd8c70f78g43eeg44c9g81f2gcf16132b1e21">Храбрец</content>
+	<content contentuid="hcb8f9837gdf0fg4a01ga7d6g5ed522b74189">Персонажи-Храбрецы не могут бежать из боя и являются приоритетной целью в ближнем бою. Атаки по возможности против них вызывают мгновенную контр-атаку.</content>
+	<content contentuid="h90812fdfg4f53g49afg8a97g42aefdeb508c">[1] дает всем навыкам магии шанс крит. удара, равный вашему показателю шанса крит. удара. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Этот талант по-умолчанию включен у всех персонажей во время боя.&lt;/font&gt;</content>
+	<content contentuid="ha323378egb5f6g451cg858dged752a3540ca">[1] позволяет проводить атаки по возможности. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Этот талант по-умолчанию включен у всех персонажей во время боя.&lt;/font&gt;</content>
+	<content contentuid="h91a3adcbg43d8g4d85ga819gffe52d51a629">[1] дает вашему персонажу возможность бесплатного передвижения на эквивалент [2] ОД каждый ход. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Этот талант по-умолчанию включен у всех персонажей во время боя.&lt;/font&gt;</content>
+	<content contentuid="hf9a4b3bbgddefg469fg8170ga44988007e2a">[1] позволяет исцеляться от яда, но обычое исцеление наносит вам урон.</content>
+	<content contentuid="h53f1f4d5gf664g4cb3gac8dgb4fbd2651d51">[1] увеличивает длительность некоторых эффектов на один ход. Влияет на горение, отравление, кровотечение, некропламя, кислоту, удушье, путы, желание смерти, оковы боли и разрыв сухожилия.</content>
+	<content contentuid="hdadd9969g6bd6g41dcgb943g0b297855c48d">Гидрософистические навыки — это заклинания, основанные на стихии воды. Высокое значение Силы увеличивает урон этих навыков. Чтобы выучить навык, прочтите книгу.</content>	
+	<content contentuid="hce4fa62bgf76dg448bg965bg573fe490ace6">Следующий уровень [1]: [1] Силы воли восстановлено.</content>
+	<content contentuid="hf9b07ea6gde9fg4848ga603g3548d25c0918">Уровень [1]: восстанавливает [1] Силы воли.</content>
+	<content contentuid="hb034efe9g235bg44c9g9307g65a6d96c90e6">Следующий уровень [1]: +[1]0% Уклонения.</content>
+	<content contentuid="ha23ceefdg2365g476cg98d0g3df72fdafc92">Уровень [1]: +[1]0% Уклонения.</content>
+	<content contentuid="h7c3e5ae5g9892g4475gb2b4g9c6545c0c3cf">Следующий уровень [1]: +[1]*2м Отталкивания при атаке.</content>
+	<content contentuid="h2ea37099g75b8g4156gb3beg5b52ced2aa40">Уровень [1]: +[1]*2м Отталкивания при атаке.</content>
+	<content contentuid="hfb3f09bdg790cg47bfg9ab8gbdd57bee4f3d">Следующий уровень [1]: Дополнительные 15% Похищения жизни за уровень.</content>
+	<content contentuid="h8286b417g71e0g4acfg9616gea03ade99268">Уровень [1]: 15% Похищения жизни за уровень.</content>
+	<content contentuid="h09954a1cgd9e9g47b7g8dd1g0157c1473eba">Следующий уровень [1]: +[1] ход(а).</content>
+	<content contentuid="h659d2e02gfca4g4e30g832fg7b2f039adfb7">Уровень [1]: +[1] ход(а).</content>
+	<content contentuid="h9437181dg238eg47a5g8572g9b0331fa3c52">Следующий уровень [1]: Вы получаете +[2] к Инициативе, ваши союзники получают +[2]% к Уклонению и +[3]% ко всем сопротивлениям.</content>
+	<content contentuid="h609604e5g6a27g4154gaa8cg2255868e4dbc"></content>
+	<content contentuid="h1a9b3902gfdc5g4936gaa8ega6b2c22ebf43">Уровень [1]: Вы получаете +[2] к Инициативе, ваши союзники получают +[2]% к Уклонению и +[3]% ко всем сопротивлениям.</content>
+	<content contentuid="hbaf5c48eg86eeg4947gb884g6508d4dbd1fe">[1] дает +[2] к максимуму ОД, +[3] к восстановлению ОД, +[4]% Здоровья, +[5]% Физической брони, +[6]% Магической брони и удваивает очки вложенные в качества (до максимума в 20) и боевые умения (до максимума в 6), пока у вас не больше одного спутника. Если в вашей группе оказывается больше двух участников, действие временно приостанавливается.</content>
+	<content contentuid="he6e92b9bg7e24g4bf0g8bdag9d7a8c3a8c85">Малое зелье Мудрости</content>
+	<content contentuid="h180890f0g7493g4c58g97a7g0ddd791704bf">Зелье Глупости.</content>
+	<content contentuid="h37b9af4fg7b02g44a5gb6c5gb48b6cfca0a4">Среднее зелье Мудрости.</content>
+	<content contentuid="h42974c6dg5d3eg4599g9682g6ab4232644a1">Больше зелье Мудрости.</content>
+	<content contentuid="h962896e1gd695g4a14g91e4g8653934ab1a9">Зелье Постоянной Мудрости.</content>
+	<content contentuid="h2284147ag95d8g4630gab6ag5508205213af">Веер Клинков</content>
+	<content contentuid="h1f7301f2g8b29g460bgb0adgb9d31277db79">Книга навыка Веер Клинков</content>
+	<content contentuid="h421ea4e4g65d1g46dagb94fg66bd0a375426">Пересадка Плоти</content>
+	<content contentuid="h724661bbg2390g433bgb147g34ccd534fc1f">Свиток "Пересадка Плоти"</content>
+	<content contentuid="h7caba7dfgfdddg4570g8aedgb76d86d48600">Книга навыка "Пересадка Плоти"</content>
+	<content contentuid="hd8656341g2c58g4c5fg98f6g9cd654abc451">Пересадка Плоти</content>
+	<content contentuid="h6ee4fd05gf8e2g40bbg8d9eg3afd7ae17fa3">Книга навыка "Элементальное оружие"</content>
+	<content contentuid="hbcab4a97g8038g4533g95edg11a3fb966b07">Сила Воли увеличена. Атакуемые враги будут Охлаждены.</content>
+	<content contentuid="hd980a2a1gc33eg4810gafc8g07f55ba70245">Равноправие</content>
+	<content contentuid="hfc8981a1g8f84g49c8ga8b4g17564a836c45">Все полученные вами эффекты также накладываются на персонажей в двух метрвах от вас.</content>
+	<content contentuid="h81ca938fg5ef4g452agb093g1294e2f0718b">[1] восстанавливает ваше здоровье, если вы стоите на крови. Также восстанавливает небольшое количество здоровья, когда поблизости кто-нибудь умирает.</content>
+	<content contentuid="hf3893f8fg20c5g4078ga83cgef8783082103">[1] возвращает использованные книги навыков. Один раз за ход, использование двух навыков одной школы подряд восстанавливает 1 ОД.</content>
+	<content contentuid="h70fe2b7cg2c09g403ag9dd2g82b757e0d39c">Академик</content>
+	<content contentuid="hed23d18dg2775g49e7g909bgffcb93b19f78">Свиток "Восстановление Рептилии"</content>
+	<content contentuid="h480eb6ebgfa27g4a1agb3dcgf68623cc3f2c">Книга навыка "Восстановление Рептилии"</content>
+	<content contentuid="hf3cd8067g36c0g4b48ga4dfg361f33579b43">[1] снижает стоимость использования гранат и свитков на [2] ОД, если в вашей левой руке нет предмета. Кроме того, первая смена снаряжения за ход не стоит ОД.</content>
+	<content contentuid="h42b4c1e3g7c07g400dg8924g2807a024e6bb">[1] позволяет говорить с животными. Дикие звери иногда будут приходить на помощь в бою.</content>
+	<content contentuid="h49426677g68f9g4467g947cg68fad9de4af8">[1] увеличивает запас здоровья на [2]% и все сопротивления (включая физические) на 2% за каждый уровень Военного дела.</content>	
+	<content contentuid="hc453e399ge1f5g41f1gaeabgcdd4de833c63">[1] дает дополнительно [2]% [3], но также дает [4]% снижения сопротивления к [5]. Демон дает дополнительно +3% сопротивления к огню каждый раз, когда использован навык Пирокинетики, тогда как Ледяной король дает иммунитет к охлаждению, заморозке и подскальзыванию.</content>
+	<content contentuid="h00f565c4g6178g424fgb031g41a2c12bf85d">[1] дает вам [2]% Уклонения при использовании двух предметов оружия. При этом, уклонение от атаки на близкой дистанции вызывает контр-атаку.</content>
+	<content contentuid="hb6ef5200g4cd4g48dag8006gac3dc3e8aa51">Атаки в скрытном режиме накладывают истощение и наносят на [2]% больше урона. Активация скрытности становится на [3] ОД дешевле.</content>
+	<content contentuid="h6f77e8f2g044eg44a8gacb8g64457aac8c8f">[1] увеличивает дальность действия навыков и свитков на [2]м. Увеличивает ваш урон на 10%. Если в радиусе 4 метров от вас находится противник — ваш урон снижается на 20%.</content>
+	<content contentuid="hfb6e0d6aga98fg4398g979agcc71ba1ec1e0">Эффективная стрельба</content>
+	<content contentuid="h6a4d6da0g29cfg44ecg8913g5a0a76cf1bbd">[1] дает [2]% шанс вернуть особую стрелу после выстрела и дополнительный [2]% шанс повторить выстрел особой стрелой. Повторный выстрел не расходует особую стрелу.</content>
+	<content contentuid="hd29d87cbga2f2g42eeg837cg910c0b0fa8d8">Пересадка Плоти</content>
+</contentList>

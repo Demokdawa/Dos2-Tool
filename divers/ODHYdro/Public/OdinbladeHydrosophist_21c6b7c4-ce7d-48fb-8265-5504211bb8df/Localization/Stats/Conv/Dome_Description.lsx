@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="1" build="0" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Blow a giant bubble at target location, lasting 2 turns. &lt;br&gt;&lt;br&gt;Whilst in the bubble, &lt;font color=&quot;#88a25b&quot;&gt;allies&lt;/font&gt; become &lt;font color=&quot;#4197e2&quot;&gt;Wet&lt;/font&gt; and gain &lt;font color=&quot;#dbdbdb&quot;&gt;Deflecting&lt;/font&gt;, providing [1] and deflecting all projectiles back to their origin. &lt;br&gt;&lt;br&gt;Whilst in the bubble, &lt;font color=&quot;#aa3938&quot;&gt;enemies&lt;/font&gt; become &lt;font color=&quot;#4197e2&quot;&gt;Dampened&lt;/font&gt;, reducing &lt;font color=&quot;#c80030&quot;&gt;damage dealt by [2]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Dome_OdinWater_PrismaticBubble_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Conjure a whirlpool at target location for 3 turns. &lt;br&gt;&lt;br&gt;Whilst in the whirlpool, &lt;font color=&quot;#88a25b&quot;&gt;allies&lt;/font&gt; become &lt;font color=&quot;#4197e2&quot;&gt;Wet&lt;/font&gt; and gain &lt;font color=&quot;#40b606&quot;&gt; 30% Movement Speed&lt;/font&gt; and &lt;font color=&quot;#40b606&quot;&gt;15% Dodging&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Whilst in the bubble, &lt;font color=&quot;#aa3938&quot;&gt;enemies&lt;/font&gt; become &lt;font color=&quot;#4197e2&quot;&gt;Wet&lt;/font&gt; and have &lt;font color=&quot;#c80030&quot;&gt;-30% Movement Speed&lt;/font&gt; and &lt;font color=&quot;#c80030&quot;&gt;-15% Dodging&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Dome_OdinWater_Whirlpool_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

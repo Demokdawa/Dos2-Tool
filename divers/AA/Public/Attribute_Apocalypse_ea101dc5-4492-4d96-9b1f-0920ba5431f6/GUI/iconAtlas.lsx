@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="4" build="1" />
+    <region id="IconUVList">
+        <node id="root">
+            <children>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Acclimatize" type="22" />
+                    <attribute id="U1" value="0.875977" type="6" />
+                    <attribute id="U2" value="0.999023" type="6" />
+                    <attribute id="V1" value="0.500977" type="6" />
+                    <attribute id="V2" value="0.624023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Aeromasteryzap" type="22" />
+                    <attribute id="U1" value="0.875977" type="6" />
+                    <attribute id="U2" value="0.999023" type="6" />
+                    <attribute id="V1" value="0.875977" type="6" />
+                    <attribute id="V2" value="0.999023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Aerostack1" type="22" />
+                    <attribute id="U1" value="0.250977" type="6" />
+                    <attribute id="U2" value="0.374023" type="6" />
+                    <attribute id="V1" value="0.250977" type="6" />
+                    <attribute id="V2" value="0.374023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Aerostack2" type="22" />
+                    <attribute id="U1" value="0.375977" type="6" />
+                    <attribute id="U2" value="0.499023" type="6" />
+                    <attribute id="V1" value="0.250977" type="6" />
+                    <attribute id="V2" value="0.374023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Aerostack3" type="22" />
+                    <attribute id="U1" value="0.500977" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.875977" type="6" />
+                    <attribute id="V2" value="0.999023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Aerostack4" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.875977" type="6" />
+                    <attribute id="V2" value="0.999023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Aerostack5" type="22" />
+                    <attribute id="U1" value="0.750977" type="6" />
+                    <attribute id="U2" value="0.874023" type="6" />
+                    <attribute id="V1" value="0.875977" type="6" />
+                    <attribute id="V2" value="0.999023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Aerotheurge" type="22" />
+                    <attribute id="U1" value="0.750977" type="6" />
+                    <attribute id="U2" value="0.874023" type="6" />
+                    <attribute id="V1" value="0.250977" type="6" />
+                    <attribute id="V2" value="0.374023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Blackhearted" type="22" />
+                    <attribute id="U1" value="0.250977" type="6" />
+                    <attribute id="U2" value="0.374023" type="6" />
+                    <attribute id="V1" value="0.125977" type="6" />
+                    <attribute id="V2" value="0.249023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_BloodBond" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.124023" type="6" />
+                    <attribute id="V1" value="0.250977" type="6" />
+                    <attribute id="V2" value="0.374023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_ChaosBarrage" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.125977" type="6" />
+                    <attribute id="V2" value="0.249023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_ChaosDemon" type="22" />
+                    <attribute id="U1" value="0.750977" type="6" />
+                    <attribute id="U2" value="0.874023" type="6" />
+                    <attribute id="V1" value="0.125977" type="6" />
+                    <attribute id="V2" value="0.249023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Claustrophobia" type="22" />
+                    <attribute id="U1" value="0.250977" type="6" />
+                    <attribute id="U2" value="0.374023" type="6" />
+                    <attribute id="V1" value="0.750977" type="6" />
+                    <attribute id="V2" value="0.874023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_DeathclawNew" type="22" />
+                    <attribute id="U1" value="0.375977" type="6" />
+                    <attribute id="U2" value="0.499023" type="6" />
+                    <attribute id="V1" value="0.750977" type="6" />
+                    <attribute id="V2" value="0.874023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Disperse" type="22" />
+                    <attribute id="U1" value="0.750977" type="6" />
+                    <attribute id="U2" value="0.874023" type="6" />
+                    <attribute id="V1" value="0.500977" type="6" />
+                    <attribute id="V2" value="0.624023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Eldritch" type="22" />
+                    <attribute id="U1" value="0.875977" type="6" />
+                    <attribute id="U2" value="0.999023" type="6" />
+                    <attribute id="V1" value="0.625977" type="6" />
+                    <attribute id="V2" value="0.749023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Froze" type="22" />
+                    <attribute id="U1" value="0.500977" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.750977" type="6" />
+                    <attribute id="V2" value="0.874023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Geomancer" type="22" />
+                    <attribute id="U1" value="0.875977" type="6" />
+                    <attribute id="U2" value="0.999023" type="6" />
+                    <attribute id="V1" value="0.250977" type="6" />
+                    <attribute id="V2" value="0.374023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Heart" type="22" />
+                    <attribute id="U1" value="0.875977" type="6" />
+                    <attribute id="U2" value="0.999023" type="6" />
+                    <attribute id="V1" value="0.125977" type="6" />
+                    <attribute id="V2" value="0.249023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Huntsman" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.124023" type="6" />
+                    <attribute id="V1" value="0.375977" type="6" />
+                    <attribute id="V2" value="0.499023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Hurlspear1" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.750977" type="6" />
+                    <attribute id="V2" value="0.874023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Hydrosophist" type="22" />
+                    <attribute id="U1" value="0.125977" type="6" />
+                    <attribute id="U2" value="0.249023" type="6" />
+                    <attribute id="V1" value="0.375977" type="6" />
+                    <attribute id="V2" value="0.499023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_KnockbackOff" type="22" />
+                    <attribute id="U1" value="0.500977" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.500977" type="6" />
+                    <attribute id="V2" value="0.624023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_KnockbackOn" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.500977" type="6" />
+                    <attribute id="V2" value="0.624023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Low_Blow" type="22" />
+                    <attribute id="U1" value="0.125977" type="6" />
+                    <attribute id="U2" value="0.249023" type="6" />
+                    <attribute id="V1" value="0.250977" type="6" />
+                    <attribute id="V2" value="0.374023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Mass_Hysteria" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.124023" type="6" />
+                    <attribute id="V1" value="0.500977" type="6" />
+                    <attribute id="V2" value="0.624023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Matron" type="22" />
+                    <attribute id="U1" value="0.375977" type="6" />
+                    <attribute id="U2" value="0.499023" type="6" />
+                    <attribute id="V1" value="0.500977" type="6" />
+                    <attribute id="V2" value="0.624023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Mock" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.124023" type="6" />
+                    <attribute id="V1" value="0.125977" type="6" />
+                    <attribute id="V2" value="0.249023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Necromancer" type="22" />
+                    <attribute id="U1" value="0.250977" type="6" />
+                    <attribute id="U2" value="0.374023" type="6" />
+                    <attribute id="V1" value="0.375977" type="6" />
+                    <attribute id="V2" value="0.499023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Nightsinger" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.250977" type="6" />
+                    <attribute id="V2" value="0.374023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Petpal_Off" type="22" />
+                    <attribute id="U1" value="0.125977" type="6" />
+                    <attribute id="U2" value="0.249023" type="6" />
+                    <attribute id="V1" value="0.125977" type="6" />
+                    <attribute id="V2" value="0.249023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Petpal_On" type="22" />
+                    <attribute id="U1" value="0.500977" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.250977" type="6" />
+                    <attribute id="V2" value="0.374023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Poison_Bolt" type="22" />
+                    <attribute id="U1" value="0.250977" type="6" />
+                    <attribute id="U2" value="0.374023" type="6" />
+                    <attribute id="V1" value="0.875977" type="6" />
+                    <attribute id="V2" value="0.999023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Polymorph" type="22" />
+                    <attribute id="U1" value="0.375977" type="6" />
+                    <attribute id="U2" value="0.499023" type="6" />
+                    <attribute id="V1" value="0.375977" type="6" />
+                    <attribute id="V2" value="0.499023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Pyrokinetic" type="22" />
+                    <attribute id="U1" value="0.500977" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.375977" type="6" />
+                    <attribute id="V2" value="0.499023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_RaiseDead" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.124023" type="6" />
+                    <attribute id="V1" value="0.875977" type="6" />
+                    <attribute id="V2" value="0.999023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_ReptileRegrowth" type="22" />
+                    <attribute id="U1" value="0.125977" type="6" />
+                    <attribute id="U2" value="0.249023" type="6" />
+                    <attribute id="V1" value="0.500977" type="6" />
+                    <attribute id="V2" value="0.624023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Scoundrel" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.375977" type="6" />
+                    <attribute id="V2" value="0.499023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Slipstream" type="22" />
+                    <attribute id="U1" value="0.375977" type="6" />
+                    <attribute id="U2" value="0.499023" type="6" />
+                    <attribute id="V1" value="0.125977" type="6" />
+                    <attribute id="V2" value="0.249023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_SourceDisruption" type="22" />
+                    <attribute id="U1" value="0.375977" type="6" />
+                    <attribute id="U2" value="0.499023" type="6" />
+                    <attribute id="V1" value="0.875977" type="6" />
+                    <attribute id="V2" value="0.999023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_SourceInfused" type="22" />
+                    <attribute id="U1" value="0.125977" type="6" />
+                    <attribute id="U2" value="0.249023" type="6" />
+                    <attribute id="V1" value="0.750977" type="6" />
+                    <attribute id="V2" value="0.874023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Status_Sacrifice" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.124023" type="6" />
+                    <attribute id="V1" value="0.750977" type="6" />
+                    <attribute id="V2" value="0.874023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Summoner" type="22" />
+                    <attribute id="U1" value="0.750977" type="6" />
+                    <attribute id="U2" value="0.874023" type="6" />
+                    <attribute id="V1" value="0.375977" type="6" />
+                    <attribute id="V2" value="0.499023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Thorns" type="22" />
+                    <attribute id="U1" value="0.500977" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.125977" type="6" />
+                    <attribute id="V2" value="0.249023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Voidglide" type="22" />
+                    <attribute id="U1" value="0.250977" type="6" />
+                    <attribute id="U2" value="0.374023" type="6" />
+                    <attribute id="V1" value="0.500977" type="6" />
+                    <attribute id="V2" value="0.624023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="AS_Warfare" type="22" />
+                    <attribute id="U1" value="0.875977" type="6" />
+                    <attribute id="U2" value="0.999023" type="6" />
+                    <attribute id="V1" value="0.375977" type="6" />
+                    <attribute id="V2" value="0.499023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="CDR" type="22" />
+                    <attribute id="U1" value="0.875977" type="6" />
+                    <attribute id="U2" value="0.999023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="FuneralPyre_1" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.124023" type="6" />
+                    <attribute id="V1" value="0.625977" type="6" />
+                    <attribute id="V2" value="0.749023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="FuneralPyre_2" type="22" />
+                    <attribute id="U1" value="0.125977" type="6" />
+                    <attribute id="U2" value="0.249023" type="6" />
+                    <attribute id="V1" value="0.625977" type="6" />
+                    <attribute id="V2" value="0.749023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="FuneralPyre_3" type="22" />
+                    <attribute id="U1" value="0.250977" type="6" />
+                    <attribute id="U2" value="0.374023" type="6" />
+                    <attribute id="V1" value="0.625977" type="6" />
+                    <attribute id="V2" value="0.749023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="FuneralPyre_4" type="22" />
+                    <attribute id="U1" value="0.375977" type="6" />
+                    <attribute id="U2" value="0.499023" type="6" />
+                    <attribute id="V1" value="0.625977" type="6" />
+                    <attribute id="V2" value="0.749023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="FuneralPyre_5" type="22" />
+                    <attribute id="U1" value="0.500977" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.625977" type="6" />
+                    <attribute id="V2" value="0.749023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="Sallowplague" type="22" />
+                    <attribute id="U1" value="0.750977" type="6" />
+                    <attribute id="U2" value="0.874023" type="6" />
+                    <attribute id="V1" value="0.625977" type="6" />
+                    <attribute id="V2" value="0.749023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="ulti_necro" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.625977" type="6" />
+                    <attribute id="V2" value="0.749023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="willpower1" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.124023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="willpower2" type="22" />
+                    <attribute id="U1" value="0.125977" type="6" />
+                    <attribute id="U2" value="0.249023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="willpower3" type="22" />
+                    <attribute id="U1" value="0.250977" type="6" />
+                    <attribute id="U2" value="0.374023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="willpower4" type="22" />
+                    <attribute id="U1" value="0.375977" type="6" />
+                    <attribute id="U2" value="0.499023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="willpower5" type="22" />
+                    <attribute id="U1" value="0.500977" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="willpower6" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="willpower7" type="22" />
+                    <attribute id="U1" value="0.750977" type="6" />
+                    <attribute id="U2" value="0.874023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
+            </children>
+        </node>
+    </region>
+    <region id="TextureAtlasInfo">
+        <node id="root">
+            <children>
+                <node id="TextureAtlasIconSize">
+                    <attribute id="Height" value="64" type="4" />
+                    <attribute id="Width" value="64" type="4" />
+                </node>
+                <node id="TextureAtlasPath">
+                    <attribute id="Path" value="Assets/Textures/Icons/iconAtlas.dds" type="20" />
+                    <attribute id="UUID" value="0b743ab0-ea40-4f87-b8f5-06e81622a33c" type="22" />
+                </node>
+                <node id="TextureAtlasTextureSize">
+                    <attribute id="Height" value="512" type="4" />
+                    <attribute id="Width" value="512" type="4" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

@@ -1,0 +1,13 @@
+INIT
+	CHARACTER:__Me
+
+	
+
+EVENTS
+
+EVENT Chaos_Exists
+
+ON
+	OnInit()
+ACTIONS
+	CharacterApplyStatus(__Me,AS_CHAOS_VISUAL,-1,1)

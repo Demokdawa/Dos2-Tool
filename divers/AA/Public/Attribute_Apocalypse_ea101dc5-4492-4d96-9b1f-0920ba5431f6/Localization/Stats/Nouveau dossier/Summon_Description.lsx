@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Raise a walking construct of bones which can consume corpses to restore Vitality and receive a stacking Damage buff." type="28" handle="h0824082fgccb3g4996gb5b3gd4d4a458fbfa" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_BonePile_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Summon an extremely fragile creature of chaotic magic to deal heavy damage from afar." type="28" handle="hf3d5ff0cgc9e3g49eeg9c4dg2787ff36b47c" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_AS_ChaosElemental_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Offer your lifeblood to summon a Parasitic Heart to this plane, sacrificing &lt;font color=&quot;a60228&quot;&gt;half of your current Vitality&lt;/font&gt; to summon a demon that heals allies by tormenting foes." type="28" handle="h653e4737g16e0g452bgaac7gb646fe3223cb" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_AS_Heart_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Summon a demon of pain and torment to this realm, terrorizing foes in an area." type="28" handle="hf865322eg2513g41e2gb325g9363551e2ea6" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_AS_Nightsinger_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Conjure two linked gateways that allow any character to instantly travel between them up to four times." type="28" handle="h9b495f07g2a82g4c9fg9813gc35d65fde70c" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_PlanarGateway_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Open an interdimensional rift to summon a powerful Eldritch Gatekeeper. After a turn passes, the Gatekeeper will emerge and instantly kill a random nearby character, whether friend or foe." type="28" handle="h8256775ag1cdeg4a14ga660g090ed0707bef" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Summon_AS_BigDemon_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

@@ -1,0 +1,151 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+/*
+IF
+CharacterUsedItem((CHARACTERGUID)_Char,_Item)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+ObjectGetFlag(_Char,"AS_ItemBoost",0)
+THEN
+ObjectSetFlag(_Char,"AS_ItemBoost");
+RemoveStatus(_Char,"AS_ITEMBOOST");
+CharacterAddAttribute(_Char,"Strength",10);
+CharacterAddAttribute(_Char,"Wits",10);
+ApplyStatus(_Char,"AS_ITEMBOOST",-1.0);
+ProcObjectTimerCancel(_Char,"AS_ITEMSTATBOOSTREMOVE");
+ProcObjectTimer(_Char,"AS_ITEMSTATBOOSTREMOVE",100);
+
+IF
+CharacterStatusRemoved(_Char,"AS_ITEMBOOST",_)
+THEN
+CharacterAddAttribute(_Char,"Strength",-10);
+CharacterAddAttribute(_Char,"Wits",-10);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ITEMSTATBOOSTREMOVE")
+AND
+HasActiveStatus(_Char,"AS_ITEMBOOST",0)
+AND
+CharacterGetAttribute(_Char,"Strength",_Str)
+AND
+_Str >= 10
+AND
+CharacterGetAttribute(_Char,"Wits",_Wits)
+AND
+_Wits >= 10
+THEN
+CharacterAddAttribute(_Char,"Strength",-10);
+CharacterAddAttribute(_Char,"Wits",-10);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ITEMSTATBOOSTREMOVE")
+THEN
+RemoveStatus(_Char,"AS_ITEMBOOST");
+ObjectClearFlag(_Char,"AS_ItemBoost");
+
+IF
+CharacterStartAttackPosition(_,_,_,_,_Char)
+THEN
+RemoveStatus(_Char,"AS_ITEMBOOST");
+*/
+
+
+/*
+PROC
+Proc_FTJ_PullWithermooreSpear((CHARACTERGUID)_Player)
+AND
+CharacterGetAttribute(_Player,"Strength",_Str)
+AND
+_Str < 4
+THEN
+CharacterLookAt(_Player,ITEMGUID_S_FTJ_WPN_FluffySpear_56442ff7-1ba9-4f44-9bdf-b6a4a2bb13f6,1);
+Proc_StartDialog(1,"FTJ_SpearLowStrength",_Player);
+
+
+PROC
+Proc_StartDialog(1,"FTJ_SpearLowStrength",_Player)
+AND
+CharacterGetAttribute((CHARACTERGUID)_Player,"Strength",_Str)
+AND
+_Str > 4
+THEN
+DB_NOOP();
+
+
+PROC
+Proc_FTJ_PullWithermooreSpear((CHARACTERGUID)_Player)
+AND
+CharacterGetAttribute(_Player,"Strength",_Str)
+AND
+_Str >= 4
+AND
+QRY_FTJ_PulledWithermooreSpear(_Player)
+THEN
+Proc_RC_FTJ_FluffyFreed();
+CharacterLookAt(_Player,ITEMGUID_S_FTJ_WPN_FluffySpear_56442ff7-1ba9-4f44-9bdf-b6a4a2bb13f6,1);
+SetOnStage(RC_FTJ_FluffySpear_56442ff7-1ba9-4f44-9bdf-b6a4a2bb13f6,0);
+
+IF
+DB_Sees(_Char,RC_FTJ_Fluffy_cbc0f26c-b9b4-428e-851e-e1921c1dda38)
+AND
+GlobalGetFlag("FTJ_FluffyFreedFromSpear",0)
+AND NOT
+HasActiveStatus(RC_FTJ_Fluffy_cbc0f26c-b9b4-428e-851e-e1921c1dda38,"PETRIFIED",1)
+THEN
+ApplyStatus(RC_FTJ_Fluffy_cbc0f26c-b9b4-428e-851e-e1921c1dda38,"PETRIFIED",-1.0);
+*/
+// Braccus pants
+/*
+IF
+CharacterEnteredTrigger((CHARACTERGUID)_Player, TRIGGERGUID_S_FTJ_BraccusArmor_Lowerbody_Box_a7fe7da6-1517-4b2b-b925-eac3136efda1)
+AND
+GlobalGetFlag("FTJ_FoundBraccusArmor_Lowerbody", 0)
+AND
+ObjectGetFlag(_Player, "FTJ_SpottedBraccusShrine", 0)
+AND
+CharacterIsInCombat(_Player, 0)
+AND
+CharacterGetAttribute(_Player, "Wits", _Wits)
+AND
+_Wits >= 5
+THEN
+ObjectSetFlag(_Player, "FTJ_SpottedBraccusShrine");
+Proc_StartDialog(1, "FTJ_AD_SpottedBraccusShrine", _Player);
+
+
+IF
+CharacterUsedItem((CHARACTERGUID)_Player,ITEMGUID_S_FTJ_PhylacteryBraccusShrine_001_0ebf6929-3649-4226-8043-52c3892442b4)
+AND
+GlobalGetFlag("FTJ_FoundBraccusArmor_Lowerbody", 0)
+AND
+ObjectGetFlag(_Player, "FTJ_SpottedBraccusShrine", 0)
+AND
+CharacterGetAttribute(_Player, "Wits", _Wits)
+AND
+_Wits >= 5
+THEN
+ObjectSetFlag(_Player, "FTJ_SpottedBraccusShrine");
+Proc_StartDialog(0, "FTJ_InspectBraccusShrine", ITEMGUID_S_FTJ_PhylacteryBraccusShrine_001_0ebf6929-3649-4226-8043-52c3892442b4, _Player);
+
+
+QRY
+QRY_CheckPlayerStat(_Char,"Wits",_Val)
+AND
+CharacterGetAttribute(_Char,"Wits",_PlayerStat)
+AND
+IntegerSubtract(_Val,10,_Total)
+AND
+_PlayerStat >= _Total
+THEN
+DB_NOOP(1);
+*/
+
+
+EXITSECTION
+
+ENDEXITSECTION

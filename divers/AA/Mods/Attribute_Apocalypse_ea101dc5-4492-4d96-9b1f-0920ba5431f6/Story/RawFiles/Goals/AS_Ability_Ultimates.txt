@@ -1,0 +1,55 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+IF
+CharacterUsedSkillOnTarget(_Char,(CHARACTERGUID)_Target,"Target_AS_Necro_Ulti",_,_)
+THEN
+DB_AS_NecroUlti(_Char,_Target);
+CharacterResurrect(_Target);
+ObjectSetFlag(_Target,"AS_NecroGhoul");
+
+IF
+CharacterResurrected(_Target)
+AND
+ObjectGetFlag(_Target,"AS_NecroGhoul",1)
+AND
+GetVarInteger(_Target,"AS_Willpower",_OldWil)
+THEN
+SetVarInteger(_Target,"AS_Ghoul_OldWil",_OldWil);
+SetVarInteger(_Target,"AS_Willpower",0);
+SetStoryEvent(_Target,"AS_DoGhoul");
+
+IF
+StoryEvent((CHARACTERGUID)_Target,"AS_DoGhoul")
+AND
+DB_AS_NecroUlti(_Char,_Target)
+THEN
+ApplyStatus(_Target,"CHARMED",-1.0,1,_Char);
+SetStoryEvent(_Target,"AS_Ghoul_ResetWil");
+NOT DB_AS_NecroUlti(_Char,_Target);
+
+IF
+StoryEvent((CHARACTERGUID)_Target,"AS_DoGhoul")
+AND
+CharacterIsPlayer(_Target,0)
+AND
+CharacterGetDisplayName(_Target,_Display,_)
+AND
+StringConcatenate("Ghoul ",_Display,_Out)
+THEN
+CharacterSetCustomName(_Target,_Out);
+
+IF
+StoryEvent((CHARACTERGUID)_Target,"AS_Ghoul_ResetWil")
+AND
+GetVarInteger(_Target,"AS_Ghoul_OldWil",_Val)
+THEN
+SetVarInteger(_Target,"AS_Willpower",_Val);
+SetStoryEvent(_Target,"AS_SetUpWill");
+
+EXITSECTION
+
+ENDEXITSECTION

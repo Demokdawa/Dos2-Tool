@@ -1,0 +1,1685 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_ArcaneStitch("Target_ArcaneStitch");
+DB_ArcaneStitch("Target_EnemyArcaneStitch");
+DB_ArcaneStitch("Target_EnemyArcaneStitch_Puppet");
+
+DB_AS_GuardianAngel("GUARDIAN_ANGEL_AURA","GUARDIAN_ANGEL_AURAEFF");
+DB_AS_GuardianAngel("AS_MEAT_SHIELD","AS_MEAT_SHIELDEFF");
+
+
+// NPC One-liners for Identity Theft Suspicion mechanic
+DB_SuspicionLine(1,"Something's not quite right...");
+DB_SuspicionLine(2,"You look strange...");
+DB_SuspicionLine(3,"Are you hiding something from me?");
+DB_SuspicionLine(4,"Hmmmm...");
+DB_SuspicionLine(5,"Hold on a minute...");
+
+DB_Suspicion2Line(1,"I knew it! Traitor!");
+DB_Suspicion2Line(2,"What the hell?! Die, freak!");
+DB_Suspicion2Line(3,"Your treachery ends here!");
+DB_Suspicion2Line(4,"Shape-shifting snake! I'll end you!");
+DB_Suspicion2Line(5,"Deceitful scum!");
+
+// Valid surfaces to be standing on for Slipstream
+/*
+DB_Slipstream("SurfaceWaterElectrified");
+DB_Slipstream("SurfaceWaterElectrifiedBlessed");
+DB_Slipstream("SurfaceWaterElectrifiedCursed");
+DB_Slipstream("SurfaceWater");
+DB_Slipstream("SurfaceBlessed");
+DB_Slipstream("SurfaceCursed");
+
+DB_SlipstreamSkills("Target_AS_Slipstream");
+DB_SlipstreamSkills("Target_AS_Slipstreamfake");
+*/
+
+// DB of skin statuses, their corresponding surfaces and their ideal lifetimes
+DB_AS_FleshSacrifice("FIRE_SKIN","SurfaceFire",18.0);
+DB_AS_FleshSacrifice("ICE_SKIN","SurfaceWaterFrozen",12.0);
+DB_AS_FleshSacrifice("POISON_SKIN","SurfacePoison",-1.0);
+DB_AS_FleshSacrifice("ELECTRIC_SKIN","SurfaceWaterElectrified",12.0);
+
+// DB of statuses that should automatically trigger Sebille's Break the Shackles
+/*
+DB_AS_BreakShackles("KNOCKED_DOWN");
+DB_AS_BreakShackles("PETRIFIED");
+DB_AS_BreakShackles("CHARMED");
+DB_AS_BreakShackles("STUNNED");
+DB_AS_BreakShackles("FEAR");
+DB_AS_BreakShackles("CHICKEN");
+DB_AS_BreakShackles("SLEEPING");
+DB_AS_BreakShackles("MADNESS");
+DB_AS_BreakShackles("TAUNTED");
+*/
+KBSECTION
+// Misc Bless fix
+
+IF
+CharacterStatusApplied(_Char,"BLESSED",_)
+THEN
+RemoveStatus(_Char,"DISARMED");
+RemoveStatus(_Char,"MUTED");
+
+// ------------------------------------------------------------------------------------------------
+// ------------------------
+// Default skills
+// ------------------------
+// ------------------------------------------------------------------------------------------------
+
+// ------------------------
+// Adrenaline 
+// ------------------------
+
+IF
+ObjectTurnStarted(_Char)
+THEN
+SetVarInteger(_Char,"AS_UsedAdrenaline",0);
+
+IF
+CharacterUsedSkill(_Char,"Shout_Adrenaline",_,_)
+AND
+GetVarInteger(_Char,"AS_UsedAdrenaline",_Val)
+AND
+IntegerProduct(_Val,-1,_Negat)
+AND
+IntegerSum(_Val,1,_NewVal)
+THEN
+SetVarInteger(_Char,"AS_UsedAdrenaline",_NewVal);
+CharacterAddActionPoints(_Char,_Negat);
+
+
+
+// ------------------------
+// Arcane Stitch
+// ------------------------
+
+IF
+CharacterUsedSkillOnTarget(_,(CHARACTERGUID)_Char,_Skill,_,_)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+DB_ArcaneStitch(_Skill)
+THEN
+SetStoryEvent(_Char,"AS_SetUpWill");
+
+// ------------------------
+// Bone Cage -> Graft Flesh
+// ------------------------
+
+// If someone used an Odinblade Necro skill, this means his mod is active. Not 100% reliable for picking up whether the mod is, but damn useful.
+IF
+CharacterUsedSkill(_Char,_Skill,_,_)
+AND
+StringContains(_Skill,"OdinNECRO",1)
+THEN
+GlobalSetFlag("AS_OdinNecro_IsActive");
+
+IF
+CharacterUsedSkill(_Char,_Skill,_,_)
+AND
+StringContains(_Skill,"Shout_BoneCage",_Val1)
+AND
+StringContains(_Skill,"Shout_EnemyBoneCage",_Val2)
+AND
+IntegerSum(_Val1,_Val2,_IsBone)
+AND
+_IsBone > 0
+//AND
+//GlobalGetFlag("AS_OdinNecro_IsActive",1)
+THEN
+CharacterUseSkill(_Char,"Shout_AS_DebugBoneCage",_Char,1,1,1);
+
+// ------------------------
+// Death Wish
+// ------------------------
+
+IF
+CharacterStatusApplied(_Char,"DEATH_WISH",_)
+AND
+GetStatusTurns(_Char,"DEATH_WISH",_Turns)
+AND
+IntegerProduct(_Turns,6,_TTurns)
+AND
+Real(_TTurns,_RTurns)
+THEN
+ApplyStatus(_Char,"AS_DEATHWISHDEFICIT",_RTurns,1);
+
+IF
+CharacterStatusRemoved(_Char,"DEATH_WISH",_)
+THEN
+RemoveStatus(_Char,"AS_DEATHWISHDEFICIT");
+
+// ------------------------
+// Flaming Tongues (now ignites nearby enemies on turn start)
+// ------------------------
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+HasActiveStatus(_Char,"FLAMING_TONGUES",1)
+THEN
+ApplyStatus(_Char,"AS_FLAMINGTONGUE_AOE",0.0,1);
+
+IF
+CharacterStatusAttempt((CHARACTERGUID)_Char,"AS_FLAMINGTONGUE_IGNITE",_Causee)
+THEN
+ApplyStatus((CHARACTERGUID)_Char,"BURNING",12.0,0,_Causee);
+
+// ------------------------
+// Flesh Sacrifice (changes to make blood types correspond to skins)
+// ------------------------
+
+IF
+SkillCast(_Char,"Shout_FleshSacrifice",_,_)
+AND
+GetPosition(_Char,_X,_Y,_Z)
+AND
+DB_AS_FleshSacrifice(_Status,_Surface,_Time)
+AND
+HasActiveStatus(_Char,_Status,1)
+THEN
+CreateSurfaceAtPosition(_X,_Y,_Z,_Surface,1.0,_Time);
+
+// ------------------------
+// Ironhide -> Rust
+// ------------------------
+
+IF
+CharacterStatusApplied(_Char,"WET",_)
+AND
+HasActiveStatus(_Char,"AS_IRON_SKIN",1)
+AND
+GetStatusTurns(_Char,"AS_IRON_SKIN",_Turns)
+AND
+IntegerProduct(_Turns,3,_Out)
+AND
+Real(_Out,_RTurns)
+THEN
+RemoveStatus(_Char,"AS_IRON_SKIN");
+ApplyStatus(_Char,"AS_RUST_SKIN",_RTurns,1);
+
+
+IF
+CharacterStatusApplied(_Char,"CHILLED",_)
+AND
+HasActiveStatus(_Char,"AS_IRON_SKIN",1)
+AND
+GetStatusTurns(_Char,"AS_IRON_SKIN",_Turns)
+AND
+IntegerProduct(_Turns,3,_Out)
+AND
+Real(_Out,_RTurns)
+THEN
+RemoveStatus(_Char,"AS_IRON_SKIN");
+ApplyStatus(_Char,"AS_RUST_SKIN",_RTurns,1);
+
+
+
+
+IF
+CharacterStatusApplied(_Char,"AS_IRON_SKIN",_)
+AND
+HasActiveStatus(_Char,"WET",1)
+AND
+GetStatusTurns(_Char,"AS_IRON_SKIN",_Turns)
+AND
+IntegerProduct(_Turns,6,_Out)
+AND
+Real(_Out,_RTurns)
+THEN
+RemoveStatus(_Char,"AS_IRON_SKIN");
+ApplyStatus(_Char,"AS_RUST_SKIN",_RTurns,1);
+
+
+IF
+CharacterStatusApplied(_Char,"AS_IRON_SKIN",_)
+AND
+HasActiveStatus(_Char,"CHILLED",1)
+AND
+GetStatusTurns(_Char,"AS_IRON_SKIN",_Turns)
+AND
+IntegerProduct(_Turns,3,_Out)
+AND
+Real(_Out,_RTurns)
+THEN
+RemoveStatus(_Char,"AS_IRON_SKIN");
+ApplyStatus(_Char,"AS_RUST_SKIN",_RTurns,1);
+
+// ------------------------
+// Mass Thornmail -> Mass Overgrowth
+// ------------------------
+
+
+
+// ------------------------
+// Deathclaw / Death's Grasp
+// ------------------------
+
+IF
+CharacterStatusApplied(_Char,"AS_DEATHCLAWED",(CHARACTERGUID)_Applier)
+THEN
+ProcObjectTimer(_Char,"AS_RemoveDeathClaw",1300);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_RemoveDeathClaw")
+AND
+GetPosition(_Char,_X,_Y,_Z)
+THEN
+TeleportToPosition(_Char,_X,_Y,_Z,"AS_FixingPositionsForDeathClaw",0,1);
+RemoveStatus(_Char,"AS_DEATHCLAWED");
+GlobalClearFlag("AS_DEATHCLAWBL");
+
+IF
+CharacterStatusApplied(_Char,"AS_DEATHCLAWED",(CHARACTERGUID)_Applier)
+AND
+GlobalGetFlag("AS_DEATHCLAWBL",0)
+AND
+GetPosition(_Applier,_X,_Y,_Z)
+AND
+TemporaryCharacterCreateAtPosition(_X,_Y,_Z,"AS_InvisDummy_c26be780-157f-4771-b51b-6c2e857ad6e5",0,_Clone)
+THEN
+SetVisible(_Clone,0);
+//CharacterMoveToPosition(_Clone,_X,_Y,_Z,1,"AS_FixingDeathclawDummyPosition");
+ProcSetInvulnerable(_Clone,1);
+SetStoryEvent((CHARACTERGUID)_Clone,"AS_DEATHCLAWSHOUT");
+ProcObjectTimer(_Clone,"AS_KillOffClone",2500);
+GlobalSetFlag("AS_DEATHCLAWBL");
+
+IF
+StoryEvent((CHARACTERGUID)_Clone,"AS_DEATHCLAWSHOUT")
+THEN
+CharacterUseSkill(_Clone,"Shout_AS_DEATHCLAWEDSKILL",_Clone,1,1,1);
+
+// ------------------------
+// Overpower
+// ------------------------
+
+// If caster Willpower > enemy Willpower, instantly remove all enemy Willpower
+IF
+CharacterStatusAttempt((CHARACTERGUID)_Target,"OVERPOWER",(CHARACTERGUID)_Caster)
+AND
+GetVarInteger(_Caster,"AS_Willpower",_Wil1)
+AND
+GetVarInteger(_Target,"AS_Willpower",_Wil2)
+AND
+_Wil1 > _Wil2
+THEN
+SetVarInteger(_Target,"AS_Willpower",0);
+SetStoryEvent(_Target,"AS_SetWillpowerStatus");
+ApplyStatus(_Target,"KNOCKED_DOWN",6.0,1,_Caster);
+
+// ------------------------
+// Shields Up
+// ------------------------
+
+/*
+IF
+CharacterStatusApplied((CHARACTERGUID)_Char,"AS_SHIELDED",_)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Wil)
+AND
+IntegerSum(_Wil,1,_NewWil)
+AND
+IntegerMin(_NewWil,7,_Min)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Min);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+*/
+
+// If under effects of safeguard, let's encourage the AI not to bother attacking the target.
+IF
+CharacterStatusApplied(_Char,"AS_SAFEGUARD",_Causee)
+AND
+IsTagged(_Char,"AI_UNPREFERRED_TARGET",0)
+THEN
+SetTag(_Char,"AI_UNPREFERRED_TARGET");
+
+IF
+CharacterStatusRemoved(_Char,"AS_SAFEGUARD",_Causee)
+AND
+IsTagged(_Char,"AI_UNPREFERRED_TARGET",1)
+THEN
+ClearTag(_Char,"AI_UNPREFERRED_TARGET");
+
+// Separately but similar: Willpower up
+IF
+CharacterStatusApplied((CHARACTERGUID)_Char,"AS_WILLPOWER_UP",_)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Wil)
+AND
+IntegerSum(_Wil,1,_NewWil)
+AND
+IntegerMin(_NewWil,7,_Min)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Min);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+
+
+// ------------------------
+// Sucker Punch
+// ------------------------
+
+IF
+CharacterStatusApplied(_Char,"AS_SUCKERPUNCH",(CHARACTERGUID)_Causee)
+THEN
+CharacterCharacterSetEvent(_Char,_Causee,"AS_SuckerPunch");
+
+// ------------------------
+// Evoke Parasitic Heart
+// ------------------------
+
+IF
+CharacterUsedSkill(_Char,"Summon_AS_Heart",_,_)
+THEN
+SetStoryEvent(_Char,"AS_GetHpHeart");
+
+IF
+StoryEvent(_Char,"AS_HeartTakeDamage")
+THEN
+ProcObjectTimer(_Char,"AS_HeartDamageTimer",1100);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_HeartDamageTimer")
+AND
+GetVarInteger(_Char,"AS_CurrentHP",_Val)
+AND
+_Val > 1
+AND
+IntegerDivide(_Val,2,_Perct)
+THEN
+ApplyDamage(_Char,_Perct,"Piercing");
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_HeartDamageTimer")
+AND
+GetVarInteger(_Char,"AS_CurrentHP",_Val)
+AND NOT
+_Val > 1
+THEN
+ApplyDamage(_Char,1,"Piercing");
+
+// ------------------------
+// Evoke Parasitic Heart - Blood Bond (and Soul Mate visuals)
+// ------------------------
+
+IF
+CharacterStatusApplied(_Char,"HEAL_SHARING",(CHARACTERGUID)_Caster)
+AND
+GetStatusTurns(_Char,"HEAL_SHARING",_Turns)
+AND
+IntegerProduct(_Turns,6,_TTurns)
+AND
+Real(_TTurns,_RTurns)
+AND
+String(_Char,_String)
+AND
+StringConcatenate(_String,"Soul",_Out)
+THEN
+DB_AS_HEALSHARING(_Char,_Caster);
+ApplyStatus(_Char,"AS_SOULMATE_VISUAL",_RTurns,1);
+ApplyStatus(_Caster,"AS_SOULBOND_TIMER",_RTurns,1);
+PROC_LoopBeamEffect("RS3_FX_GP_Status_SoulMate_Beam_01",_Caster,_Char,"Dummy_StatusFX","Dummy_BodyFX",_Out,"__ANY__");
+//PlayBeamEffect(_Caster,_Char,"RS3_FX_GP_Status_SoulMate_Beam_01","root","root");
+
+IF
+CharacterStatusApplied(_Char,"AS_HEAL_SHARING",(CHARACTERGUID)_Caster)
+AND
+GetStatusTurns(_Char,"AS_HEAL_SHARING",_Turns)
+AND
+IntegerProduct(_Turns,6,_TTurns)
+AND
+Real(_TTurns,_RTurns)
+AND
+String(_Char,_String)
+AND
+StringConcatenate(_String,"Blood",_Out)
+THEN
+DB_AS_BLOODSHARING(_Char,_Caster);
+ApplyStatus(_Char,"AS_BLOODBOND_VISUAL",_RTurns,1);
+ApplyStatus(_Caster,"AS_BLOODBOND_TIMER",_RTurns,1);
+PROC_LoopBeamEffect("AS_BloodBeam",_Caster,_Char,"Dummy_StatusFX","Dummy_BodyFX",_Out,"__ANY__");
+//PlayBeamEffect(_Caster,_Char,"RS3_FX_GP_Beams_Blood_01","root","root");
+
+IF
+CharacterStatusApplied(_Caster,"AS_BLOODBOND_TIMER",_)
+THEN
+ApplyStatus(_Caster,"AS_BLOODBOND_CASTER_VISUAL",-1.0,1);
+
+IF
+CharacterStatusRemoved(_Caster,"AS_BLOODBOND_TIMER",_)
+THEN
+RemoveStatus(_Caster,"AS_BLOODBOND_CASTER_VISUAL");
+
+IF
+CharacterStatusApplied(_Caster,"AS_SOULBOND_TIMER",_)
+THEN
+ApplyStatus(_Caster,"AS_SOULMATE_CASTER_VISUAL",-1.0,1);
+
+IF
+CharacterStatusRemoved(_Caster,"AS_SOULBOND_TIMER",_)
+THEN
+RemoveStatus(_Caster,"AS_SOULMATE_CASTER_VISUAL");
+
+IF
+CharacterStatusRemoved(_Char,"HEAL_SHARING",_)
+AND
+DB_AS_HEALSHARING(_Char,_Caster)
+AND
+String(_Char,_String)
+AND
+StringConcatenate(_String,"Soul",_Out)
+THEN
+RemoveStatus(_Char,"AS_SOULMATE_VISUAL");
+PROC_StopLoopBeamEffect(_Caster,_Out);
+NOT DB_AS_HEALSHARING(_Char,_Caster);
+
+IF
+CharacterStatusRemoved(_Caster,"HEAL_SHARING_CASTER",_)
+AND
+DB_AS_BLOODSHARING(_Char,_Caster)
+THEN
+RemoveStatus(_Char,"AS_HEAL_SHARING");
+
+IF
+CharacterStatusRemoved(_Char,"AS_HEAL_SHARING",_)
+AND
+DB_AS_BLOODSHARING(_Char,_Caster)
+AND
+String(_Char,_String)
+AND
+StringConcatenate(_String,"Blood",_Out)
+THEN
+RemoveStatus(_Char,"AS_BLOODBOND_VISUAL");
+PROC_StopLoopBeamEffect(_Caster,_Out);
+NOT DB_AS_BLOODSHARING(_Char,_Caster);
+
+
+// Failsafe. Probably unnecessary.
+IF
+CharacterStatusAttempt(_Caster,"DYING",_)
+AND
+DB_AS_BLOODSHARING(_Char,_Caster)
+AND
+String(_Char,_String)
+AND
+StringConcatenate(_String,"Blood",_Out)
+AND
+String(_Char,_String2)
+AND
+StringConcatenate(_String2,"Soul",_Out2)
+THEN
+PROC_StopLoopBeamEffect(_Caster,_Out);
+PROC_StopLoopBeamEffect(_Caster,_Out2);
+
+// ------------------------
+// Invoke Nightsinger Demon / Matron of Agony
+// ------------------------
+
+IF
+CharacterVitalityChanged(_Char,0)
+AND
+IsTagged(_Char,"DEMON",1)
+AND
+IsTagged(_Char,"DEMONS",1)
+AND
+IsTagged(_Char,"FEMALE",1)
+AND
+IsTagged(_Char,"SUMMON",1)
+AND
+GetPosition(_Char,_X,_Y,_Z)
+THEN
+PlayEffectAtPosition("RS3_FX_Items_Animated_Teleport_Out_Attachment_01",_X,_Y,_Z);
+SetVisible(_Char,0);
+
+IF
+CharacterStatusApplied(_Char,"SUMMONING_ABILITY",_)
+AND
+IsTagged(_Char,"DEMON",1)
+AND
+IsTagged(_Char,"DEMONS",1)
+AND
+IsTagged(_Char,"FEMALE",1)
+AND
+IsTagged(_Char,"SUMMON",1)
+THEN
+PlayEffect(_Char,"AS_Matron_FadeIn");
+ApplyStatus(_Char,"AS_DISABLEMOVE",-1.0,1);
+ProcObjectTimer(_Char,"AS_Nightsingercanmove",1700);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_Nightsingercanmove")
+THEN
+RemoveStatus(_Char,"AS_DISABLEMOVE");
+
+IF
+CharacterUsedSkillAtPosition(_Char,_X,_Y,_Z,"Jump_AS_Nightsinger_Jump",_,_)
+THEN
+DB_AS_TeleportDemon(_Char,_X,_Y,_Z);
+ProcObjectTimer(_Char,"AS_NightsingerjumpFX",1750);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_NightsingerjumpFX")
+AND
+DB_AS_TeleportDemon(_Char,_X,_Y,_Z)
+THEN
+TeleportToPosition(_Char,_X,_Y,_Z,"AS_Noop",0,1);
+PlayEffectAtPosition("RS3_FX_Skills_Void_Cast_VoidGlide_Root_01",_X,_Y,_Z);
+PlayEffectAtPosition("RS3_FX_Char_Enemies_CurseDive_Landing_Root_01",_X,_Y,_Z);
+ApplyStatus(_Char,"AS_CURSEAURATEMP",-1.0,1);
+ObjectSetFlag(_Char,"AS_Don'tCurseMe");
+ProcObjectTimer(_Char,"AS_ResetDontCurse",100);
+
+IF
+CharacterStatusApplied(_Char,"AS_CURSETEMP",_Causee)
+AND
+ObjectGetFlag(_Char,"AS_Don'tCurseMe",0)
+THEN
+ApplyStatus(_Char,"CURSED",12.0,1,_Causee);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_ResetDontCurse")
+THEN
+ObjectClearFlag(_Char,"AS_Don'tCurseMe");
+RemoveStatus(_Char,"AS_CURSEAURATEMP");
+
+// ------------------------
+// Invoke Nightsinger Demon - Mass Hysteria
+// ------------------------
+
+IF
+CharacterStatusApplied(_Char,"AS_HYSTERIA",_Causee)
+AND
+GetStatusTurns(_Char,"AS_HYSTERIA",_Turns)
+AND
+IntegerProduct(_Turns,6,_TTurns)
+AND
+Real(_TTurns,_RTurns)
+THEN
+ApplyStatus(_Char,"MADNESS",_RTurns,1,_Causee);
+
+IF
+CharacterStatusApplied(_Char,"AS_HYSTERIA",_Causee)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val > 0
+THEN
+RemoveStatus(_Char,"AS_HYSTERIA");
+
+IF
+CharacterLearnedSkill(_Char,"Target_AS_Enemy_Hysteria")
+AND
+CharacterHasSkill(_Char,"Target_AS_Mass_Hysteria",1)
+THEN
+CharacterRemoveSkill(_Char,"Target_AS_Enemy_Hysteria");
+
+// ------------------------
+// Scoundrel / Hydrosophist Skill
+// Slipstream
+// ------------------------
+
+IF
+CharacterUsedSkillAtPosition(_Char,_X,_Y,_Z,"Target_AS_Slipstream",_,_)
+AND
+GetPosition(_Char,_X2,_Y2,_Z2)
+THEN
+DB_AS_SlipstreamLoc(_Char,_X,_Y,_Z);
+CreateSurfaceAtPosition(_X2,_Y2,_Z2,"SurfaceWater",2.0,-1.0);
+PlayEffectAtPosition("AS_Slipstream_Disappear",_X2,_Y2,_Z2);
+SetVisible(_Char,0);
+ProcObjectTimer(_Char,"AS_Slipstreamtimer",1000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_Slipstreamtimer")
+AND
+DB_AS_SlipstreamLoc(_Char,_X,_Y,_Z)
+THEN
+TeleportToPosition(_Char,_X,_Y,_Z,"",0,0);	
+CreateSurfaceAtPosition(_X,_Y,_Z,"SurfaceWater",2.0,-1.0);
+PlayEffectAtPosition("AS_Slipstream_Disappear",_X,_Y,_Z);
+SetVisible(_Char,1);
+CreateSurface(_Char,"SurfaceWater",3.0,-1.0);
+NOT DB_AS_SlipstreamLoc(_Char,_X,_Y,_Z);
+
+// Cooldown period
+/*
+IF
+CharacterUsedSkillAtPosition(_Char,_X,_Y,_Z,"Target_AS_Slipstream",_,_)
+THEN
+ObjectSetFlag(_Char,"AS_SlipstreamOnCooldown");
+
+IF
+CharacterUsedSkillAtPosition(_Char,_X,_Y,_Z,"Target_AS_Slipstream",_,_)
+AND
+CharacterIsInCombat(_Char,0)
+THEN
+ProcObjectTimer(_Char,"AS_SlipstreamCooldownTimer",6000);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_SlipstreamCooldownTimer")
+THEN
+ObjectClearFlag(_Char,"AS_SlipstreamOnCooldown");
+
+IF
+ObjectTurnEnded(_Char)
+THEN
+ObjectClearFlag(_Char,"AS_SlipstreamOnCooldown");
+
+IF
+ObjectEnteredCombat(_Char,_)
+THEN
+ObjectClearFlag(_Char,"AS_SlipstreamOnCooldown");
+
+IF
+ObjectFlagCleared("AS_SlipstreamOnCooldown",_Char,_)
+THEN
+ProcObjectTimer(_Char,"AS_Slipstreamtimer",1);
+
+
+
+
+
+IF
+CharacterStatusAttempt(_Char,"INSURFACE",_)
+AND
+DB_SlipstreamSkills(_Skill)
+AND
+CharacterHasSkill(_Char,_Skill,1)
+AND
+GetSurfaceGroundAt(_Char,_Surface)
+AND
+DB_Slipstream(_Surface)
+THEN
+ApplyStatus(_Char,"AS_CANSLIPSTREAM",-1.0,1);
+ProcObjectTimer(_Char,"AS_SlipstreamLoop",100);
+
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_SlipstreamLoop")
+AND
+GetSurfaceGroundAt(_Char,_Surface)
+AND
+DB_Slipstream(_Surface)
+THEN
+ProcObjectTimer(_Char,"AS_SlipstreamLoop",100);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_SlipstreamLoop")
+AND
+GetSurfaceGroundAt(_Char,_Surface)
+AND
+NOT DB_Slipstream(_Surface)
+THEN
+RemoveStatus(_Char,"AS_CANSLIPSTREAM");
+
+
+IF
+CharacterStatusAttempt(_Char,"INSURFACE",_)
+AND
+GetSurfaceGroundAt(_Char,_Surface)
+AND
+NOT DB_Slipstream(_Surface)
+THEN
+RemoveStatus(_Char,"AS_CANSLIPSTREAM");
+
+IF
+CharacterStatusApplied(_Char,"AS_CANSLIPSTREAM",_)
+AND
+CharacterHasSkill(_Char,"Target_AS_Slipstreamfake",1)
+THEN
+CharacterRemoveSkill(_Char,"Target_AS_Slipstreamfake");
+CharacterAddSkill(_Char,"Target_AS_Slipstream",0);
+
+IF
+CharacterStatusRemoved(_Char,"AS_CANSLIPSTREAM",_)
+AND
+ObjectGetFlag(_Char,"AS_SlipstreamOnCooldown",0)
+AND
+CharacterHasSkill(_Char,"Target_AS_Slipstream",1)
+THEN
+CharacterRemoveSkill(_Char,"Target_AS_Slipstream");
+CharacterAddSkill(_Char,"Target_AS_Slipstreamfake",0);
+*/
+
+// ------------------------
+// Scoundrel / Warfare Skill
+// Low Blow
+// ------------------------
+
+IF
+CharacterUsedSkillOnTarget(_Char,_,"Target_AS_LowBlow",_,_)
+THEN
+ApplyStatus(_Char,"AS_GUARANTEECRIT",-1.0,1);
+ProcObjectTimer(_Char,"AS_RemoveLowBlowCrit",1000);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_RemoveLowBlowCrit")
+THEN
+RemoveStatus(_Char,"AS_GUARANTEECRIT");
+
+// ------------------------
+// Scoundrel / Polymorph Skill
+// Identity Theft
+// ------------------------
+
+IF
+CharacterUsedSkillOnTarget(_Char,(CHARACTERGUID)_Target,"Target_AS_IdentityTheft",_,_)
+THEN
+DB_AS_IdentityTheft(_Char,_Target);
+ProcObjectTimer(_Char,"AS_IdentityTheftTimer",1000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_IdentityTheftTimer")
+AND
+DB_AS_IdentityTheft(_Char,_Target)
+AND
+GetTemplate(_Char,_Template)
+AND
+GetFaction(_Target,_Faction)
+AND
+CharacterGetRelationToCharacter(_Char,_Target,_Int1)
+AND
+CharacterGetRelationToCharacter(_Target,_Char,_Int2)
+AND
+GetPosition(_Target,_X,_Y,_Z)
+AND
+TemporaryCharacterCreateAtPosition(_X,_Y,_Z,_Template,0,_Clone)
+AND
+CharacterGetDisplayName(_Char,_,_Str2)
+THEN
+SetVisible(_Clone,0);
+CharacterDieImmediate(_Clone,0,"DoT");
+SetOnStage(_Clone,0);
+DB_AS_IdentityOldName(_Char,_Str2);
+DB_AS_IdentityTarget(_Char,_Clone);
+DB_AS_IdentityOldRelationToFaction(_Char,_Faction,_Int1);
+DB_AS_IdentityOldRelationToFaction2(_Char,_Faction,_Int2);
+CharacterSetRelationFactionToIndivFaction(_Faction,_Char,100);
+CharacterSetRelationIndivFactionToFaction(_Char,_Faction,100);
+ApplyStatus(_Char,"AS_Disguise",18.0,1);
+//ApplyStatus(_Char,"AS_SHAPESHIFTFAKE",18.0,1);
+CharacterTransformFromCharacter(_Clone,_Char,0,0,0,0,0,0,1);
+CharacterCharacterSetEvent(_Char,_Target,"AS_CopyChar");
+//CharacterSetCustomName(_Clone,_Str2);
+NOT DB_AS_IdentityTheft(_Char,_Target);
+
+/*
+CharacterAddToParty(_Target,_Char);
+CharacterMakePlayer(_Target,_Char);
+CharacterRemoveFromParty(_Char);
+*/
+
+IF
+CharacterCharacterEvent(_Clone,_Char,"AS_CopyChar")
+AND
+GetTemplate(_Char,_Template)
+THEN
+CharacterCharacterSetEvent(_Clone,_Char,"AS_CopyCharVis");
+
+IF
+CharacterCharacterEvent(_Clone,_Char,"AS_CopyCharVis")
+THEN
+//CharacterTransformFromCharacter(_Clone,_Char,0,0,0,0,0,0,0);
+CharacterTransformAppearanceTo(_Clone,_Char,0,0);
+
+IF
+CharacterStatusRemoved(_Char,"AS_Disguise",_)
+THEN
+CharacterTransform(_Char,"GameMaster_Monsters_Demon_Norm_Tormentor_73d277ee-6d79-44bf-9fb3-c5623c2daeb8",0,0,0,0,0,1,0);
+SetStoryEvent(_Char,"AS_ResetDisguise");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_ResetDisguise")
+AND
+DB_AS_IdentityOldRelationToFaction(_Char,_Faction,_Int1)
+AND
+DB_AS_IdentityOldRelationToFaction2(_Char,_Faction,_Int2)
+AND
+DB_AS_IdentityTarget(_Char,_Clone)
+AND
+DB_AS_IdentityOldName(_Char,_Str2)
+THEN
+CharacterSetRelationIndivFactionToFaction(_Char,_Faction,_Int1);
+CharacterSetRelationFactionToIndivFaction(_Faction,_Char,_Int2);
+CharacterTransformFromCharacter(_Char,_Clone,0,0,0,0,0,0,0);
+//CharacterSetCustomName(_Char,_Str2);
+NOT DB_AS_IdentityOldRelationToFaction(_Char,_Faction,_Int1);
+NOT DB_AS_IdentityOldRelationToFaction2(_Char,_Faction,_Int2);
+NOT DB_AS_IdentityTarget(_Char,_Clone);
+NOT DB_AS_IdentityOldName(_Char,_Str2);
+//CharacterTransformAppearanceTo(_Char,_Char,0,0);
+//CharacterTransform(_Char,_Template,0,1,0,0,0,1,0);
+SetStoryEvent(_Clone,"AS_KillClone");
+PlayEffect(_Char,"RS3_FX_GP_ScriptedEvent_Ambushers_Smoke_01","root");
+
+IF
+StoryEvent((CHARACTERGUID)_Clone,"AS_KillClone")
+THEN
+CharacterDieImmediate(_Clone,0,"DoT");
+SetOnStage(_Clone,0);
+
+IF
+CharacterStartAttackObject(_,_,(CHARACTERGUID)_Char)
+AND
+HasActiveStatus(_Char,"AS_Disguise",1)
+THEN
+RemoveStatus(_Char,"AS_Disguise");
+
+IF
+SkillCast(_Char,_,_,_)
+AND
+HasActiveStatus(_Char,"AS_Disguise",1)
+THEN
+RemoveStatus(_Char,"AS_Disguise");
+
+
+IF
+CharacterStatusApplied(_Char,"AS_Disguise",_)
+THEN
+ApplyStatus(_Char,"AS_SUSPICIONAURA",-1.0,1);
+
+IF
+CharacterStatusRemoved(_Char,"AS_Disguise",_)
+THEN
+RemoveStatus(_Char,"AS_SUSPICIONAURA");
+
+IF
+CharacterStatusApplied(_Char,"AS_SUSPICION",(CHARACTERGUID)_Causee)
+AND
+DB_AS_IdentityOldRelationToFaction(_Causee,_Faction,_Int1)			// Not relevant, just gives us the faction name we're thieving identity from.
+AND
+GetFaction(_Char,_Fact2)
+AND
+_Fact2 == _Faction
+THEN
+SetStoryEvent(_Char,"AS_PlaySuspicionReaction");
+DB_SuspiciousOf(_Causee,_Char);
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_PlaySuspicionReaction")
+AND
+Random(5,_Rand)
+AND
+IntegerSum(_Rand,1,_Out)
+AND
+DB_SuspicionLine(_Out,_Line)
+THEN
+CharacterStatusText(_Char,_Line);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_PlaySuspicionReaction")
+AND
+ObjectGetFlag(_Char,"AS_IsTurn",0)
+AND
+DB_SuspiciousOf(_Causee,_Char)
+THEN
+ProcFaceCharacter(_Char,_Causee);
+
+
+IF
+CharacterStatusRemoved(_Char,"AS_SUSPICION",_)
+AND
+DB_SuspiciousOf(_Causee,_Char)
+AND
+GetDistanceTo(_Char,_Causee,_Dist)
+AND
+_Dist > 5.0
+THEN
+NOT DB_SuspiciousOf(_Causee,_Char);
+SetStoryEvent(_Causee,"AS_CheckSuspecteds");
+
+
+IF
+DB_SuspiciousOf(_Causee,_Char)
+AND
+ObjectGetFlag(_Causee,"AS_IsSuspected",0)
+AND
+PlayLoopEffect(_Causee,"AS_SuspicionAura_Low","root",_Handle)
+THEN
+ApplyStatus(_Causee,"AS_SUSPECTED",-1.0,1);
+DB_DisguiseAura(_Causee,_Handle);
+ObjectSetFlag(_Causee,"AS_IsSuspected");
+
+
+IF
+StoryEvent((CHARACTERGUID)_Causee,"AS_CheckSuspecteds")
+AND
+NOT DB_SuspiciousOf(_Causee,_)
+AND
+DB_DisguiseAura(_Causee,_Handle)
+THEN
+ObjectClearFlag(_Causee,"AS_IsSuspected");
+StopLoopEffect(_Handle);
+RemoveStatus(_Causee,"AS_SUSPECTED");
+
+
+IF
+ObjectTurnStarted(_Char)
+THEN
+SetStoryEvent(_Char,"AS_CheckSuspicionEnd");
+
+IF
+ObjectTurnEnded(_Char)
+THEN
+SetStoryEvent(_Char,"AS_CheckSuspicionEnd");
+
+// If char begins or ends turn while someone is suspicious of them, remove their disguise!
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckSuspicionEnd")
+AND
+DB_SuspiciousOf(_Char,_Anybody)
+THEN
+PlayEffect(_Char,"AS_SuspicionAura_High","root");
+RemoveStatus(_Char,"AS_Disguise");
+
+
+IF
+CharacterStatusRemoved((CHARACTERGUID)_Char,"AS_Disguise",_)
+AND
+HasActiveStatus(_Char,"AS_Disguise",0)
+AND
+CharacterIsInCombat(_Char,0)
+AND
+DB_SuspiciousOf(_Char,_Anybody)
+THEN
+PlayEffect(_Char,"AS_SuspicionAura_High","root");
+DB_AS_MakeHostileTheft(_Char,_Anybody);
+ProcObjectTimer(_Char,"AS_HostileFreakoutTimer",20);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_HostileFreakoutTimer")
+AND
+DB_AS_MakeHostileTheft(_Char,_Anybody)
+THEN
+CharacterSetTemporaryHostileRelation(_Anybody,_Char);
+SetStoryEvent(_Anybody,"AS_ReactToSuspectReveal");
+
+
+
+IF
+CharacterStatusRemoved(_Char,"AS_Disguise",_)
+AND
+DB_SuspiciousOf(_Char,_Anybody)
+THEN
+NOT DB_SuspiciousOf(_Char,_Anybody);
+
+IF
+CharacterStatusRemoved(_Char,"AS_Disguise",_)
+THEN
+RemoveStatus(_Char,"AS_SUSPECTED");
+ObjectClearFlag(_Char,"AS_IsSuspected");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_ReactToSuspectReveal")
+AND
+Random(5,_Rand)
+AND
+IntegerSum(_Rand,1,_Out)
+AND
+DB_Suspicion2Line(_Out,_Line)
+THEN
+CharacterStatusText(_Char,_Line);
+
+
+// ------------------------
+// Warfare / Huntsman Skill
+// Hurl Spear
+// ------------------------
+
+IF
+CharacterStatusAttempt(_Char,"AS_SPEAR",(CHARACTERGUID)_Source)
+AND
+GetPosition(_Char,_X,_Y,_Z)
+AND
+CharacterGetAbility(_Char,"Ranged",_Val)
+AND
+IntegerProduct(_Val,50,_Out)
+AND
+IntegerSum(700,_Out,_Sum)       // Scale the timer with points in Ranged.
+THEN
+CharacterCharacterSetEvent(_Char,_Source,"AS_ThrowSpear");
+DB_AS_SpearOldPos(_Char,_X,_Y,_Z);
+DB_AS_SpearSource(_Char,_Source);
+ProcObjectTimer(_Char,"AS_SpearTimer",_Sum);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_SpearTimer")
+AND
+ObjectGetFlag(_Char,"AS_KnockbackDisabled",0)
+AND
+CharacterGetAbility(_Char,"Ranged",_Val)
+AND
+IntegerProduct(_Val,2,_Extra)
+AND
+Real(_Extra,_RealExtra)
+AND
+RealSum(5.0,_RealExtra,_Distance)
+AND
+DB_AS_SpearOldPos(_Char,_X,_Y,_Z)
+AND
+DB_AS_SpearSource(_Char,_Source)
+AND
+GetDistanceToPosition(_Char,_X,_Y,_Z,_Dist)
+AND
+_Dist <= _Distance
+THEN
+PlayEffect(_Char,"RS3_FX_Skills_Earth_Pindown_Impact_01","root");
+ApplyStatus(_Char,"CRIPPLED",6.0,1,_Source);
+
+// Clear DBs
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_SpearTimer")
+AND
+DB_AS_SpearOldPos(_Char,_X,_Y,_Z)
+AND
+DB_AS_SpearSource(_Char,_Source)
+THEN
+NOT DB_AS_SpearOldPos(_Char,_X,_Y,_Z);
+NOT DB_AS_SpearSource(_Char,_Source);
+
+// ------------------------
+// Necromancer / Huntsman Skill
+// Spinal Column
+// ------------------------
+
+
+// ------------------------
+// Hydrosophist / Pyrokinetic Skill
+// Absorb Heat
+// ------------------------
+
+IF
+ObjectTurnEnded((CHARACTERGUID)_Char)
+AND
+HasActiveStatus(_Char,"AS_HEATBOOST",1)
+THEN
+RemoveStatus(_Char,"AS_HEATBOOST");
+
+IF
+CharacterStatusApplied((CHARACTERGUID)_Char,"AS_HEATBOOST",_)
+AND
+CharacterIsInCombat(_Char,0)
+THEN
+RemoveStatus(_Char,"AS_HEATBOOST");
+
+IF
+CharacterStatusApplied(_Char,"AS_DOUSE",_)
+THEN
+RemoveStatus(_Char,"BURNING");
+RemoveStatus(_Char,"NECROFIRE");
+RemoveStatus(_Char,"CHILLED");
+RemoveStatus(_Char,"WET");
+RemoveStatus(_Char,"FROZEN");
+
+// ------------------------------------------------------------------------------------------------
+// ------------------------
+// Origin skills
+// ------------------------
+// ------------------------------------------------------------------------------------------------
+
+// ------------------------
+// Sebille - Break the Shackles
+// ------------------------
+/*
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+GetVarInteger(_Char,"AS_ShacklesCooldown",_Val)
+AND
+_Val > 0
+AND
+CharacterHasSkill(_Char,"Shout_BreakTheShackles",1)
+AND
+IntegerSubtract(_Val,1,_New)
+THEN
+SetVarInteger(_Char,"AS_ShacklesCooldown",_New);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+CharacterHasSkill(_Char,"Shout_BreakTheShackles",1)
+AND NOT
+GetVarInteger(_Char,"AS_ShacklesCooldown",_)
+THEN
+SetVarInteger(_Char,"AS_ShacklesCooldown",0);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_BreakShackles(_Status)
+AND
+CharacterHasSkill(_Char,"Shout_BreakTheShackles",1)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+CharacterGetSourcePoints(_Char,_Amount)
+AND
+_Amount > 0
+AND
+GetVarInteger(_Char,"AS_ShacklesCooldown",_Val)
+AND
+_Val == 0
+THEN
+RemoveStatus(_Char,_Status);
+SetStoryEvent(_Char,"AS_AutoBreakShackles");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_AutoBreakShackles")
+AND
+ObjectGetFlag(_Char,"AS_BL_AutoBreakShackles",0)
+THEN
+ObjectSetFlag(_Char,"AS_BL_AutoBreakShackles");
+CharacterUseSkill(_Char,"Shout_BreakTheShackles",_Char,0,0,1);
+ProcObjectTimer(_Char,"AS_Reset_BL_AutoBreakShackles",200);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_Reset_BL_AutoBreakShackles")
+THEN
+ObjectClearFlag(_Char,"AS_BL_AutoBreakShackles");
+*/
+/*
+IF
+CharacterUsedSkill(_Char,"Shout_BreakTheShackles",_,_)
+THEN
+CharacterAddActionPoints(_Char,2);
+SetVarInteger(_Char,"AS_ShacklesCooldown",2);
+*/
+
+// ------------------------
+// Reptile Regrowth
+// ------------------------
+
+IF
+CharacterStatusAttempt(_Char,"STEEL_SKIN",_)
+THEN
+RemoveStatus(_Char,"DECAYING_TOUCH");
+RemoveStatus(_Char,"CRIPPLED");
+RemoveStatus(_Char,"DISARMED");
+
+// ------------------------
+// Red Prince - Demonic Stare
+// ------------------------
+
+// Demonic Stare victim
+IF
+CharacterUsedSkillOnTarget(_Char,(CHARACTERGUID)_Tar,"Target_DemonicStare",_,_)
+AND
+GetVarInteger(_Tar,"AS_Willpower",_Wil2)
+AND
+_Wil2 > 0
+AND
+IntegerSubtract(_Wil2,1,_NewWil2)
+THEN
+SetVarInteger(_Tar,"AS_Willpower",_NewWil2);
+ProcObjectTimer(_Tar,"AS_DemonicStareTimer1",800);
+ProcObjectTimer(_Char,"AS_DemonicStareTimer2",800);
+
+PROC
+ProcObjectTimerFinished(_Tar,"AS_DemonicStareTimer1")
+THEN
+SetStoryEvent(_Tar,"AS_SetWillpowerStatus");
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_DemonicStareTimer2")
+THEN
+SetStoryEvent(_Char,"AS_IncWillpower1");
+
+
+// Demonic Stare attacker
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_IncWillpower1")
+AND
+GetVarInteger(_Char,"AS_Willpower",_Wil1)
+AND
+IntegerSum(_Wil1,1,_NewWil1)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_NewWil1);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+
+
+
+
+// ------------------------
+// Summoning Tier 5 - Eldritch Portal/Eldritch Gatekeeper
+// ------------------------
+
+// If not boss, instant kill.
+IF
+CharacterStatusApplied(_Char,"AS_PORTALDAMAGE",(CHARACTERGUID)_Causee)
+AND
+IsBoss(_Char,0)
+THEN
+ApplyDamage(_Char,99999,"Shadow",_Causee);
+
+// If boss, deal heavy damage instead
+IF
+CharacterStatusApplied(_Char,"AS_PORTALDAMAGE",(CHARACTERGUID)_Causee)
+AND
+IsBoss(_Char,1)
+AND
+CharacterGetLevel(_Char,_Level)
+AND
+IntegerProduct(_Level,40,_Damage)
+THEN
+ApplyDamage(_Char,_Damage,"Shadow",_Causee);
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetUpPortal")
+THEN
+ProcObjectTimer(_Char,"AS_PortalTimer",100);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_PortalTimer")
+THEN
+SetStoryEvent(_Char,"AS_PortalTimerDone");
+
+IF
+StoryEvent(_Char,"AS_PortalTimerDone")
+THEN
+ProcObjectTimer(_Char,"AS_EldritchTimer1",7000);
+
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_EldritchTimer1")
+AND
+CharacterIsInCombat(_Char,0)
+AND
+DB_AS_EldritchPortal(_Char,_Item)
+THEN
+ObjectClearFlag(_Char,"AS_GuardianNotReady");
+ObjectSetFlag(_Char,"AS_GuardianReady");
+PlayAnimation(_Char,"spawn");
+EndTurn(_Char);
+ProcObjectTimer(_Char,"AS_EldritchTimer2",7000);
+
+IF
+ObjectFlagSet("AS_GuardianReady",(CHARACTERGUID)_Char,_)
+AND
+DB_AS_EldritchPortal(_Char,_Item)
+AND
+GetPosition(_Item,_X,_Y,_Z)
+THEN
+PlayEffectAtPosition("AS_Eldritch2_Apply",_X,_Y,_Z);
+ApplyStatus(_Item,"AS_ELDRITCH2_VIS",-1.0,1);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_EldritchTimer2")
+AND
+CharacterIsInCombat(_Char,0)
+THEN
+SetStoryEvent(_Char,"AS_BeginPortalSequence");
+
+
+
+IF
+CharacterItemEvent(_Char,_Item,"AS_LockEldritchPortal")
+THEN
+DB_AS_EldritchPortal(_Char,_Item);
+ProcObjectTimer(_Item,"AS_PortalFailsafe",2000);
+
+IF
+CharacterStatusApplied(_Char,"SUMMONING_ABILITY",(CHARACTERGUID)_Causee)
+THEN
+DB_AS_SummonedBy(_Char,_Causee);
+
+IF
+CharacterStatusRemoved(_Char,"SUMMONING_ABILITY",_)
+AND
+DB_AS_SummonedBy(_Char,_Causee)
+THEN
+NOT DB_AS_SummonedBy(_Char,_Causee);
+
+
+
+IF
+CharacterItemEvent(_Char,_Item,"AS_LockEldritchPortal")
+AND
+DB_AS_SummonedBy(_Char,_Causee)
+THEN
+DB_AS_PortalCreator(_Item,_Causee);
+
+// RNG SACRIFICE
+
+IF
+CharacterStatusApplied(_Char,"AS_SACRIFICE",(CHARACTERGUID)_Causee)
+AND
+GetVarInteger(_Causee,"AS_SACRIFICECOUNT",_Val)
+AND
+IntegerSum(_Val,1,_Sum)
+THEN
+DB_AS_SACRIFICEBY(_Sum,_Causee,_Char);
+SetVarInteger(_Causee,"AS_SACRIFICECOUNT",_Sum);
+
+IF
+CharacterStatusApplied(_Char,"AS_SACRIFICE",(CHARACTERGUID)_Causee)
+AND NOT
+GetVarInteger(_Causee,"AS_SACRIFICECOUNT",_)
+THEN
+DB_AS_SACRIFICEBY(1,_Causee,_Char);
+SetVarInteger(_Causee,"AS_SACRIFICECOUNT",1);
+
+IF
+CharacterStatusRemoved(_Char,"AS_SACRIFICE",_)
+THEN
+ProcObjectTimer(_Char,"AS_CleanUpSacrificees",4000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_CleanUpSacrificees")
+AND
+DB_AS_SACRIFICEBY(_Any,_Thing,_Char)
+THEN
+NOT DB_AS_SACRIFICEBY(_Any,_Thing,_Char);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SacrificeRandom")
+AND
+GetVarInteger(_Char,"AS_SACRIFICECOUNT",_Val)
+AND
+Random(_Val,_Out)
+AND
+DB_AS_SACRIFICEBY(_Val,_Char,_Anybody)
+THEN
+ApplyStatus(_Anybody,"AS_CHOSENSACRIFICE",-1.0);
+//ApplyStatus(_Anybody,"AS_ELDRITCH_VISUAL",-1.0);
+ProcObjectTimer(_Anybody,"AS_ResetSacrificeChosen",5000);
+ProcObjectTimer(_Char,"AS_CleanupSacrifices",5000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ResetSacrificeChosen")
+THEN
+RemoveStatus(_Char,"AS_CHOSENSACRIFICE");
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_CleanupSacrifices")
+AND
+DB_AS_SACRIFICEBY(_Val,_Char,_Anybody)
+THEN
+NOT DB_AS_SACRIFICEBY(_Val,_Char,_Anybody);
+SetVarInteger(_Char,"AS_SACRIFICECOUNT",0);
+
+
+IF
+CharacterStatusApplied(_Char,"AS_CHOSENSACRIFICE",_)
+THEN
+DB_NOOP();
+//PlaySound(_Char,"RC_Scripted_GiantSpider_Appear");
+
+
+
+// END OF RNG SACRIFICE
+
+IF
+CharacterDied((CHARACTERGUID)_Char)
+AND
+DB_AS_PortalCreator(_Item,_Char)
+THEN
+ItemDestroy(_Item);
+
+
+
+
+
+IF
+CharacterDied((CHARACTERGUID)_Char)
+AND
+DB_AS_EldritchPortal(_Char,_Item)
+THEN
+ItemDestroy(_Item);
+
+IF
+StoryEvent(_Item,"AS_SetupPortalFailsafe")
+THEN
+ProcObjectTimer(_Item,"AS_PortalFailsafe",2000);
+
+/*
+PROC
+ProcObjectTimerFinished((ITEMGUID)_Item,"AS_PortalFailsafe")
+AND
+NOT DB_AS_EldritchPortal(_,_Item)
+AND
+ObjectGetFlag(_Item,"AS_PortalDying",0)
+THEN
+ObjectSetFlag(_Item,"AS_PortalDying");
+SetVisible(_Item,0);
+ProcObjectTimer(_Item,"AS_DestroyItem",3000);
+*/
+
+PROC
+ProcObjectTimerFinished((ITEMGUID)_Item,"AS_PortalFailsafe")
+AND
+DB_AS_EldritchPortal(_Char,_Item)
+AND
+ObjectExists(_Char,0)
+AND
+ObjectGetFlag(_Item,"AS_PortalDying",0)
+THEN
+NOT DB_AS_EldritchPortal(_Char,_Item);
+ItemDestroy(_Item);
+
+
+PROC
+ProcObjectTimerFinished((ITEMGUID)_Item,"AS_PortalFailsafe")
+AND
+DB_AS_EldritchPortal(_Char,_Item)
+AND
+CharacterIsDead(_Char,1)
+AND
+ObjectGetFlag(_Item,"AS_PortalDying",0)
+THEN
+NOT DB_AS_EldritchPortal(_Char,_Item);
+ItemDestroy(_Item);
+
+
+PROC
+ProcObjectTimerFinished((ITEMGUID)_Item,"AS_PortalFailsafe")
+THEN
+ProcObjectTimer(_Item,"AS_PortalFailsafe",2000);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+ObjectGetFlag(_Char,"AS_GuardianReady",1)
+THEN
+SetStoryEvent(_Char,"AS_BeginPortalSequence");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_BeginPortalSequence")
+AND
+DB_AS_EldritchPortal(_Char,(ITEMGUID)_Item)
+AND
+GetPosition(_Char,_X,_Y,_Z)
+THEN
+ObjectClearFlag(_Char,"AS_GuardianReady");
+SetStoryEvent(_Char,"AS_SacrificeRandom");
+CharacterUseSkill(_Char,"Shout_AS_PortalDetonate",_Char,1,1,1);
+PlayEffectAtPosition("RS3_FX_GP_Impacts_LaunchUndeadVoid_01",_X,_Y,_Z);
+ProcObjectTimer(_Char,"AS_PortalEatFX",1000);
+ProcObjectTimer(_Item,"AS_DestroyPortal",2000);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_PortalEatFX")
+AND
+GetPosition(_Char,_X,_Y,_Z)
+THEN
+PlayEffectAtPosition("AS_Portal_Explode",_X,_Y,_Z);
+
+IF
+StoryEvent(_Char,"AS_CleanupPortal")
+THEN
+ProcObjectTimer(_Char,"AS_DestroyPortal",10);
+
+PROC
+ProcObjectTimerFinished((ITEMGUID)_Item,"AS_DestroyPortal")
+AND
+DB_AS_EldritchPortal(_Char,(ITEMGUID)_Item)
+THEN
+SetStoryEvent(_Char,"AS_InitiateEldritch");
+
+PROC
+ProcObjectTimerFinished((ITEMGUID)_Item,"AS_DestroyPortal")
+AND
+DB_AS_EldritchPortal(_Char,(ITEMGUID)_Item)
+THEN
+SetVisible(_Item,0);
+ProcObjectTimer(_Item,"AS_DestroyItem",3000);
+NOT DB_AS_EldritchPortal(_Char,_Item);
+
+
+
+PROC
+ProcObjectTimerFinished((ITEMGUID)_Item,"AS_DestroyItem")
+THEN
+ItemDestroy(_Item);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+ObjectGetFlag(_Char,"AS_GuardianNotReady",1)
+THEN
+ObjectClearFlag(_Char,"AS_GuardianNotReady");
+ObjectSetFlag(_Char,"AS_GuardianReady");
+PlayAnimation(_Char,"spawn");
+EndTurn(_Char);
+
+IF
+CharacterStatusApplied(_Char,"AS_AI_OVERRIDE",(CHARACTERGUID)_Causee)
+THEN
+RemoveStatus(_Causee,"AS_HOSTILEPLS");
+CharacterSetTemporaryHostileRelation(_Char,_Causee);
+
+
+
+
+// Guardian Angel effects
+IF
+CharacterStatusApplied(_Char,_Status,_)
+AND
+DB_AS_GuardianAngel(_Status,_Effect)
+THEN
+ApplyStatus(_Char,_Effect,-1.0);
+
+IF
+CharacterStatusRemoved(_Char,_Status,_)
+AND
+DB_AS_GuardianAngel(_Status,_Effect)
+THEN
+RemoveStatus(_Char,_Effect);
+
+IF
+CharacterStatusApplied(_Char,"GUARDIAN_ANGEL",_Causee)
+AND
+IsTagged(_Causee,"AS_MOIRA_ZOMBIE",1)
+THEN
+ApplyStatus(_Char,"AS_MEAT_SHIELDRECIPIENTEFF",-1.0);
+
+IF
+CharacterStatusApplied(_Char,"GUARDIAN_ANGEL",_Causee)
+AND
+IsTagged(_Causee,"AS_MOIRA_ZOMBIE",0)
+THEN
+ApplyStatus(_Char,"GUARDIAN_ANGEL_EFF",-1.0);
+
+IF
+CharacterStatusRemoved(_Char,"GUARDIAN_ANGEL",_Causee)
+AND
+HasActiveStatus(_Char,"GUARDIAN_ANGEL",0)
+THEN
+RemoveStatus(_Char,"AS_MEAT_SHIELDRECIPIENTEFF");
+RemoveStatus(_Char,"GUARDIAN_ANGEL_EFF");
+
+
+
+
+
+// Invisibility - fail if too close to an enemy
+IF
+CharacterStatusApplied(_Char,"AS_INVISIBLEFAIL",(CHARACTERGUID)_Causee)
+THEN
+RemoveStatus(_Causee,"INVISIBLE");
+//ProcFaceCharacter(_Char,_Causee);
+PlayEffect(_Char,"AS_Invisibility_Discovered","Dummy_OverheadFX");
+CharacterStatusText(_Causee,"<font size='18px'>Invisibility revealed!</font>");
+
+IF
+CharacterResurrected(_Char)
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+SetStoryEvent(_Char,"AS_RessSickness");
+
+//CharacterStatusText(_Char,"Got ress");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RessSickness")
+AND
+CharacterHasTalent(_Char,"ResurrectToFullHealth",1)
+THEN
+ApplyStatus(_Char,"AS_RESSSICK2",18.0,1);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_RessSickness")
+AND
+CharacterHasTalent(_Char,"ResurrectToFullHealth",0)
+THEN
+ApplyStatus(_Char,"AS_RESSSICK",18.0,1);
+
+IF
+CharacterStatusApplied(_Char,"AS_RESSSICK",_)
+THEN
+SetTag(_Char,"AS_BLOCK_RESURRECTION");
+
+IF
+CharacterStatusApplied(_Char,"AS_RESSSICK2",_)
+THEN
+SetTag(_Char,"AS_BLOCK_RESURRECTION");
+
+IF
+CharacterStatusRemoved(_Char,"AS_RESSSICK",_)
+AND
+CharacterIsDead(_Char,0)
+THEN
+SetTag(_Char,"AS_BLOCK_RESURRECTION");
+ProcObjectTimerCancel(_Char,"AS_CanResurrect");
+ProcObjectTimer(_Char,"AS_CanResurrect",1000);
+
+IF
+CharacterStatusRemoved(_Char,"AS_RESSSICK2",_)
+AND
+CharacterIsDead(_Char,0)
+THEN
+SetTag(_Char,"AS_BLOCK_RESURRECTION");
+ProcObjectTimerCancel(_Char,"AS_CanResurrect");
+ProcObjectTimer(_Char,"AS_CanResurrect",1000);
+
+IF
+CharacterDied(_Char)
+AND
+IsTagged(_Char, "AS_BLOCK_RESURRECTION", 1)
+THEN
+ProcObjectTimer(_Char,"AS_CancelResurrectionIdol",300);
+ProcObjectTimerCancel(_Char,"AS_CanResurrect");
+ProcObjectTimer(_Char,"AS_CanResurrect",2000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_CancelResurrectionIdol")
+THEN
+ProcObjectTimerCancel(_Char,"ResurrectionIdol");
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_CanResurrect")
+THEN
+ClearTag(_Char, "BLOCK_RESURRECTION");
+ClearTag(_Char, "AS_BLOCK_RESURRECTION");
+
+
+EXITSECTION
+
+ENDEXITSECTION

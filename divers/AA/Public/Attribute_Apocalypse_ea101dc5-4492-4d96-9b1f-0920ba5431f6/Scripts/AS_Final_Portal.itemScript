@@ -1,0 +1,12 @@
+INIT
+	CHARACTER:__Me
+
+	
+EVENTS
+
+EVENT OnInitiation
+
+ON
+	OnInit()
+ACTIONS
+	CharacterEvent(__Me,"AS_SetupPortalFailsafe")

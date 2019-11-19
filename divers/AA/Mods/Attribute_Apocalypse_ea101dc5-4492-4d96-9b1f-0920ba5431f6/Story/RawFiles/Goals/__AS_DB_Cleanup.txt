@@ -1,0 +1,59 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+//LeaderUpdater_Register_Mod("Divine_War", "Kalavinka", "0.6.8.1");
+//LeaderUpdater_Register_ActiveGoal("Divine_War", "Kalavinka", "LLWEAPONEX_ZZZ_Updater");
+
+KBSECTION
+/*
+IF
+GameStarted(_Level, _)
+AND
+IsGameLevel(_Level, 1)
+AND
+LeaderUpdater_QRY_ModUpdateNeeded("Divine_War", "Kalavinka", "0.6.8.1")
+THEN
+LeaderUpdater_Register_Mod("Divine_War", "Kalavinka", "0.6.8.1");
+*/
+
+// Cleanup DBs on version change
+/*
+PROC
+LeaderUpdater_ModUpdated("Divine_War", "Kalavinka", (STRING)_PastVersion, (STRING)_NewVersion)
+AND
+LeaderLib_StringExt_QRY_VersionIsLessThan(_PastVersion, 0, 6, 8, 1)
+THEN
+SysClear("DB_AS_Bosses", 4);
+SysClear("DB_AS_BossRetreat", 3);
+SysClear("DB_AS_BossesEquip", 2);
+SysClear("DB_AS_BossPreventRetreat",2);
+SysClear("DB_AS_GeraldTags",2);
+SysClear("DB_AS_Banter",4);
+SysClear("DB_AS_WP_Statuses",1);
+SysClear("DB_AS_AuraStatusAppliedBy",3);
+SysClear("DB_AS_WillpowerRemoved",2);
+SysClear("DB_AS_WillpowerImmune",2);
+SysClear("DB_AS_WP_TempImmune_Status",1);
+SysClear("DB_AS_WPImmuneBL",1);
+SysClear("DB_AS_DefaultTalents",1);
+*/
+
+
+
+IF
+GameStarted(_Level, _)
+AND
+IsGameLevel(_Level, 1)
+THEN
+IterateParties("AS_CleanupTimers");
+
+// Cleanup Object Timers
+IF
+StoryEvent(_Char,"AS_CleanupTimers")
+THEN
+ProcObjectTimerCancel(_Char,"AS_CheckAttrTimer");
+
+EXITSECTION
+
+ENDEXITSECTION

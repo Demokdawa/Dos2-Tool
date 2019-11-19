@@ -1,0 +1,279 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// Manual override for some skills that get lost occasionally
+DB_AS_CDR_OVERRIDE("Target_SingleHandedAttack");
+DB_AS_CDR_OVERRIDE("Target_HeavyAttack");
+DB_AS_CDR_OVERRIDE("Target_DualWieldingAttack");
+DB_AS_CDR_OVERRIDE("Shout_RecoverArmour");
+DB_AS_CDR_OVERRIDE("Projectile_StaffOfMagus");
+DB_AS_CDR_OVERRIDE("Target_Bless");
+
+// Skills that should NOT reset cooldown.
+// To ensure the mod plays intuitively, this should not include skills for balance purposes.
+//          Apr 2019 update: exception to the above rule is once-per-combat skills.
+DB_AS_CDR_BLACKLIST("Shout_AS_ResetAp");
+DB_AS_CDR_BLACKLIST("Shout_AS_SourceAp");
+KBSECTION
+
+
+IF
+SkillActivated(_Char,_Any)
+THEN
+NOT DB_AS_CharLearnedSkills(_Char,_Any);		// Just so we don't get duplicates.
+DB_AS_CharLearnedSkills(_Char,_Any);
+
+IF
+SkillDeactivated(_Char,_Any)
+AND
+DB_AS_CharLearnedSkills(_Char,_Any)
+THEN
+NOT DB_AS_CharLearnedSkills(_Char,_Any);
+
+
+
+
+
+// Same but for Source Gain
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+CharacterGetAbility(_Char,"SingleHanded",_Stat)
+AND
+_Stat > 0
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+CharacterAddSkill(_Char,"Shout_AS_SourceAp",0);
+SetVarInteger(_Char,"AS_SourcerySkill",_Stat);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+CharacterRemoveSkill(_Char,"Shout_AS_SourceAp");
+
+IF
+SkillCast(_Char,"Shout_AS_SourceAp",_,_)
+AND
+GetVarInteger(_Char,"AS_SourcerySkill",_Stat)
+AND
+IntegerSubtract(_Stat,1,_Res)
+AND
+IntegertoString(_Res,_Display)	// Convert that value to a string so we can use it 
+AND
+StringConcatenate("Remaining uses: <font color='#91f4f6'>",_Display,_String)
+THEN
+SetVarInteger(_Char,"AS_SourcerySkill",_Res);
+SetStoryEvent(_Char,"AS_CheckShouldRemoveApSource");			// Call the check if we should remove the Source Replenish ability (i.e. we've used it enough times)
+CharacterStatusText(_Char,_String);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckShouldRemoveApSource")
+AND
+GetVarInteger(_Char,"AS_SourcerySkill",_Val)
+AND NOT
+_Val > 0
+THEN
+CharacterRemoveSkill(_Char,"Shout_AS_SourceAp");
+
+
+
+
+
+
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+THEN
+SetStoryEvent(_Char,"AS_SetupIntellect");
+
+// Hotfix OFF
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetupIntellect")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+CharacterGetAttribute(_Char,"Memory",_Stat)
+AND
+IntegerSubtract(_Stat,10,_Mem)
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+CharacterAddSkill(_Char,"Shout_AS_ResetAp",0);
+SetVarInteger(_Char,"AS_EffectiveSkill",_Mem);
+
+// Hotfix ON
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetupIntellect")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",1)
+AND
+CharacterGetAttribute(_Char,"Memory",_Stat)
+AND
+IntegerSubtract(_Stat,10,_Mem)
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+CharacterAddSkill(_Char,"Shout_AS_ResetAp",0);
+SetVarInteger(_Char,"AS_EffectiveSkill",_Mem);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+CharacterRemoveSkill(_Char,"Shout_AS_ResetAp");
+RemoveStatus(_Char,"AS_RESETCD");
+
+
+
+
+// The actual cooldown reset handler
+IF
+SkillCast(_Char,_Any,_,_)
+AND
+HasActiveStatus(_Char,"AS_RESETCD",1)
+AND
+DB_AS_CharLearnedSkills(_Char,_Any)
+AND
+NOT DB_AS_CDR_BLACKLIST(_Any)
+THEN
+DB_AS_ResetCooldown(_Char,_Any);
+ProcObjectTimer(_Char,"AS_ResetCooldownAfterDelay",1000);
+
+// For summons
+IF
+SkillCast(_Char,_Any,_,_)
+AND
+HasActiveStatus(_Char,"AS_RESETCD",1)
+AND
+IsTagged(_Char,"SUMMON",1)
+AND
+NOT DB_AS_CDR_BLACKLIST(_Any)
+THEN
+DB_AS_ResetCooldown(_Char,_Any);
+ProcObjectTimer(_Char,"AS_ResetCooldownAfterDelay",1000);
+
+// The actual cooldown reset handler
+IF
+SkillCast(_Char,_Any,_,_)
+AND
+HasActiveStatus(_Char,"AS_RESETCD",1)
+AND
+DB_AS_CDR_OVERRIDE(_Any)
+THEN
+DB_AS_ResetCooldown(_Char,_Any);
+ProcObjectTimer(_Char,"AS_ResetCooldownAfterDelay",1000);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ResetCooldownAfterDelay")
+AND
+DB_AS_ResetCooldown(_Char,_Any)
+THEN
+RemoveStatus(_Char,"AS_RESETCD");
+SetStoryEvent(_Char,"AS_NotifyOfCdr");
+CharacterRemoveSkill(_Char,_Any);
+CharacterAddSkill(_Char,_Any,0);
+NOT DB_AS_ResetCooldown(_Char,_Any);
+
+
+// Override, for invincibility
+IF
+SkillCast(_Char,"Shout_AS_ResetAp",_,_)
+THEN
+ProcObjectTimer(_Char,"AS_CheckForCd",200);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_CheckForCd")
+AND
+NOT HasActiveStatus(_Char,"AS_RESETCD",1)
+THEN
+ObjectSetFlag(_Char,"AS_RESETCD_OVERRIDE");
+CharacterStatusText(_Char,"<font color='#91f4f6'>Reset Cooldown</font>");
+
+IF
+SkillCast(_Char,_Any,_,_)
+AND
+ObjectGetFlag(_Char,"AS_RESETCD_OVERRIDE",1)
+AND
+DB_AS_CDR_OVERRIDE(_Any)
+THEN
+DB_AS_ResetCooldown(_Char,_Any);
+ProcObjectTimer(_Char,"AS_ResetCooldownAfterDelay",1000);
+ObjectClearFlag(_Char,"AS_RESETCD_OVERRIDE");
+
+IF
+SkillCast(_Char,_Any,_,_)
+AND
+ObjectGetFlag(_Char,"AS_RESETCD_OVERRIDE",1)
+AND
+DB_AS_CharLearnedSkills(_Char,_Any)
+AND
+NOT DB_AS_CDR_BLACKLIST(_Any)
+THEN
+DB_AS_ResetCooldown(_Char,_Any);
+ProcObjectTimer(_Char,"AS_ResetCooldownAfterDelay",1000);
+ObjectClearFlag(_Char,"AS_RESETCD_OVERRIDE");
+
+IF
+CharacterStatusApplied(_Char,"AS_RESETCD",_)
+THEN
+ObjectClearFlag(_Char,"AS_RESETCD_OVERRIDE");
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+THEN
+ObjectClearFlag(_Char,"AS_RESETCD_OVERRIDE");
+
+
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_NotifyOfCdr")
+AND
+ObjectGetFlag(_Char,"AS_CDR_NotifyBL",0)
+THEN
+CharacterStatusText(_Char,"<font color='#91f4f6'>Cooldown reset!</font>");
+ObjectSetFlag(_Char,"AS_CDR_NotifyBL");
+ProcObjectTimer(_Char,"AS_CDR_ResetNotifyBL",100);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_CDR_ResetNotifyBL")
+THEN
+ObjectClearFlag(_Char,"AS_CDR_NotifyBL");
+
+
+IF
+SkillCast(_Char,"Shout_AS_ResetAp",_,_)
+AND
+GetVarInteger(_Char,"AS_EffectiveSkill",_Stat)
+AND
+IntegerDivide(_Stat,2,_Count)		// Divide the effectiveskill value by 2 - this is our remaining cooldown reset uses
+AND
+IntegertoString(_Count,_Display)	// Convert that value to a string so we can use it 
+AND
+StringConcatenate("Remaining uses: <font color='#91f4f6'>",_Display,_String)
+AND
+GetVarInteger(_Char,"AS_EffectiveSkill",_Stat)
+AND
+IntegerSubtract(_Stat,2,_Res)
+THEN
+SetVarInteger(_Char,"AS_EffectiveSkill",_Res);
+SetStoryEvent(_Char,"AS_CheckShouldRemoveResetCd");			// Call the check if we should remove the reset CD ability (i.e. we've used it enough times)
+CharacterStatusText(_Char,_String);
+
+
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckShouldRemoveResetCd")
+AND
+GetVarInteger(_Char,"AS_EffectiveSkill",_Val)
+AND NOT
+_Val >= 0
+THEN
+CharacterRemoveSkill(_Char,"Shout_AS_ResetAp");
+EXITSECTION
+
+ENDEXITSECTION

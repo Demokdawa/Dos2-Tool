@@ -1,0 +1,4 @@
+addSkill Summon_AS_BigDemon
+magemana
+addSkill Shout_AS_PortalDetonate
+[HistoryLimit]30

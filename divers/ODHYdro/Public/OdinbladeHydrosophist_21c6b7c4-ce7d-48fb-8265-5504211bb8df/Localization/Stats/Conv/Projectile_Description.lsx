@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Spray a beam of bubbles, dealing a total of [2]. &lt;br&gt;&lt;br&gt;Creates a &lt;font color=&quot;#4197e2&quot;&gt;Water surface&lt;/font&gt; upon impact." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinWater_Bubblebeam_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Spray a beam of 12 bubbles, each dealing [1] and setting &lt;font color=&quot;#188ede&quot;&gt;Wet&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Creates a &lt;font color=&quot;#188ede&quot;&gt;Water surface&lt;/font&gt; upon impact." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinWater_Bubblebeam_Stats_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Command a stream of water to bounce between up to 6 &lt;font color=&quot;#88a25b&quot;&gt;allies&lt;/font&gt; or &lt;font color=&quot;#aa3938&quot;&gt;enemies&lt;/font&gt;: &lt;br&gt;&lt;br&gt;&lt;font color=&quot;#88a25b&quot;&gt;Ally&lt;/font&gt;: Restores [1]. &lt;br&gt;&lt;br&gt;&lt;font color=&quot;#aa3938&quot;&gt;Enemy&lt;/font&gt;: Deals [2]. &lt;br&gt;&lt;br&gt;Leaves a &lt;font color=&quot;#4197e2&quot;&gt;water surface&lt;/font&gt; and sets &lt;font color=&quot;#4197e2&quot;&gt;Wet&lt;/font&gt; upon hitting a character." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ChainHeal_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Shoot a shard of ice, piercing through characters for [1]. &lt;br&gt;&lt;br&gt;The shard &lt;font color=&quot;#cfecff&quot;&gt;Chills&lt;/font&gt; enemies and creates a small &lt;font color=&quot;#cfecff&quot;&gt;ice surface&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Hitting a &lt;font color=&quot;#cfecff&quot;&gt;Chilled&lt;/font&gt; or &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt; enemy with this skill applies &lt;font color=&quot;#cfecff&quot;&gt;Hypothermia&lt;/font&gt; for 2 turns, dealing [3] each turn and reducing &lt;font color=&quot;#4197e2&quot;&gt;Water Resistance by [4]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinWater_IceShard_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Shoot a shard of ice, piercing through characters for [1]. &lt;br&gt;&lt;br&gt;The shard &lt;font color=&quot;#cfecff&quot;&gt;Chills&lt;/font&gt; enemies and creates a small &lt;font color=&quot;#cfecff&quot;&gt;ice surface&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Hitting a &lt;font color=&quot;#cfecff&quot;&gt;Chilled&lt;/font&gt; or &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt; enemy with this skill applies &lt;font color=&quot;#cfecff&quot;&gt;Hypothermia&lt;/font&gt; for 2 turns, dealing [3] each turn and reducing &lt;font color=&quot;#4197e2&quot;&gt;Water Resistance by [4]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinWater_Summon_IceShard_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Shoot an icy projectiles at each of 3 targets, dealing [1]. &lt;br&gt;&lt;br&gt;Each icicle &lt;font color=&quot;#cfecff&quot;&gt;Chills&lt;/font&gt; targets and creates a small &lt;font color=&quot;#cfecff&quot;&gt;ice surface&lt;/font&gt; upon impact. &lt;br&gt;&lt;br&gt;Hitting a &lt;font color=&quot;#cfecff&quot;&gt;Chilled&lt;/font&gt; or &lt;font color=&quot;#cfecff&quot;&gt;Frozen&lt;/font&gt; enemy with this skill applies &lt;font color=&quot;#cfecff&quot;&gt;Hypothermia&lt;/font&gt; for 2 turns, dealing [2] each turn and reducing &lt;font color=&quot;#4197e2&quot;&gt;Water Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_IceFan_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Ride atop your trident, dealing [1] and &lt;font color=&quot;#4197e2&quot;&gt;Wetting&lt;/font&gt; characters upon arrival. &lt;br&gt;&lt;br&gt;Upon landing, all characters are slightly pushed away from you." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinWater_TridentGlide_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Throw your shield, dealing [2] + [1] (based on current &lt;font color='#188ede'&gt;Magic Armour&lt;/font&gt;) to the target. The shield bounces to an additional target." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinWater_AegisAssault_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

@@ -1,0 +1,727 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_AS_ArmorStatuses("AS_FakeArmorStr");
+DB_AS_ArmorStatuses("AS_FakeArmorInt");
+DB_AS_ArmorStatuses("AS_FakeArmorFin");
+
+DB_AS_Gods((CHARACTERGUID)S_RC_DW_Meistr_God1_b72eed9a-e178-4e6b-b425-13c177e9a9ae);
+DB_AS_Gods((CHARACTERGUID)S_RC_DW_Meistr_God2_8b5641e3-606c-49e9-9e29-59e688049d88);
+DB_AS_Gods((CHARACTERGUID)S_RC_DW_Meistr_God3_233040fc-0f84-4c4c-acbe-f9a4cad8ac29);
+DB_AS_Gods((CHARACTERGUID)S_RC_DW_Meistr_God4_027f3423-2845-4a61-a506-f0ef4df1f693);
+
+
+// GLO - Saheila
+DB_AS_TacticianSkills((CHARACTERGUID)S_GLO_Saheila_fcacdf08-b05f-4333-b0e0-ddf29c13d8e0,"Projectile_EnemyPyroclasticRock"); 
+
+// GLO - Windego. Give the poor girl a buff!
+DB_AS_TacticianSkills((CHARACTERGUID)S_GLO_Windego_d783285f-d3be-4cba-8333-db8976cef182,"Zone_EnemyLaserRay"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_GLO_Windego_d783285f-d3be-4cba-8333-db8976cef182,"Target_EnemyFlamingCrescendo"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_GLO_Windego_d783285f-d3be-4cba-8333-db8976cef182,"Target_EnemyFireWhip"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_GLO_Windego_d783285f-d3be-4cba-8333-db8976cef182,"Target_EnemyHaste"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_GLO_Windego_d783285f-d3be-4cba-8333-db8976cef182,"Shout_EnemyFlamingTongues"); 
+
+// GLO - Alexandar
+DB_AS_TacticianSkills((CHARACTERGUID)S_GLO_Alexandar_03e6345f-1bd3-403c-80e2-a443a74f6349,"Target_EnemyRestoration"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_GLO_Alexandar_03e6345f-1bd3-403c-80e2-a443a74f6349,"Target_EnemyCleanseWounds"); 
+
+// FJ - Elf Camp
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SkepticSoldier_9dc4da24-9cd5-43cc-a01c-6923b59bd066,"Target_EnemyElementalArrowheads"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SkepticSoldier_9dc4da24-9cd5-43cc-a01c-6923b59bd066,"Shout_EnemySparkingSwings"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Skeptic_Elf_001_d8902155-d0e3-4dfe-b6dd-d90fd5606f50,"Shout_EnemyMendMetal"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Skeptic_Elf_001_d8902155-d0e3-4dfe-b6dd-d90fd5606f50,"Target_EnemyGagOrder"); 
+
+// FJ - Frogs
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_FrogAmbush_Ranged_02_ffae5e44-ac8a-4f43-ab14-2e684b60d87b,"Projectile_EnemyPoisonDart"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_FrogAmbush_Ranged_03_18d2b17c-a400-4e1d-991f-d1cbb44cfac4,"Projectile_EnemyPoisonDart"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_FrogAmbush_Ranged_02_ffae5e44-ac8a-4f43-ab14-2e684b60d87b,"Target_EnemyCorrosiveTouch"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_FrogAmbush_Ranged_03_18d2b17c-a400-4e1d-991f-d1cbb44cfac4,"Target_EnemyCorrosiveTouch"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_FrogAmbush_Melee_01_747af1e4-d204-4564-9a50-9f1955dd4723,"Target_EnemyShockingTouch"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_FrogAmbush_Melee_01_747af1e4-d204-4564-9a50-9f1955dd4723,"ProjectileStrike_EnemyDazingBolt"); 
+
+// FJ - Turtles
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SpikedTurtle_01_abd3afae-a6e5-452c-a94a-db57826dd082,"Projectile_EnemyIceFan"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SpikedTurtle_01_abd3afae-a6e5-452c-a94a-db57826dd082,"Rain_EnemyWater"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SpikedTurtle_01_abd3afae-a6e5-452c-a94a-db57826dd082,"Shout_SteelSkin"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SpikedTurtle_04_f37cb16e-027e-4a21-8504-d6cab12d9098,"Projectile_EnemyIceFan"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SpikedTurtle_04_f37cb16e-027e-4a21-8504-d6cab12d9098,"Rain_EnemyWater"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SpikedTurtle_04_f37cb16e-027e-4a21-8504-d6cab12d9098,"Shout_SteelSkin"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SpikedTurtle_03_fb4618f9-9c61-4640-a32c-e4735783e878,"Target_EnemyFortify"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SpikedTurtle_03_fb4618f9-9c61-4640-a32c-e4735783e878,"Shout_EnemyReactiveArmor"); 
+
+// FJ - Crocs
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_TeleporteQuestrCroc_002_6be95689-ab8f-4edf-ba46-77a068594a19,"Shout_SteelSkin"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_TeleporteQuestrCroc_001_bc1a10a1-51b6-42c5-b517-827565f6512b,"Shout_SteelSkin"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_TeleporteQuestrCroc_003_7cf7d4d4-de1a-4ac7-999a-1f128fac3789,"Shout_SteelSkin"); 
+
+// FJ - Gate Magisters
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_002_098c299c-a7a1-4857-9ab5-fb01849a68ae,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_002_098c299c-a7a1-4857-9ab5-fb01849a68ae,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_002_098c299c-a7a1-4857-9ab5-fb01849a68ae,"Projectile_EnemyBouncingShield");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_002_098c299c-a7a1-4857-9ab5-fb01849a68ae,"Shout_EnemyDeflectiveBarrier");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_003_7db795c9-9e63-40ab-a2f9-21b46fdb0c74,"Target_EnemyRockSpikes");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_003_7db795c9-9e63-40ab-a2f9-21b46fdb0c74,"Target_FirstAidEnemy");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_003_7db795c9-9e63-40ab-a2f9-21b46fdb0c74,"Shout_EnemyMendMetal");
+
+
+// FJ - Magister Yarrow
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GheistDaughter_7511c722-d6fa-4236-ab56-e68018362861,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GheistDaughter_7511c722-d6fa-4236-ab56-e68018362861,"Shout_EnemyOilyCarapace"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GheistDaughter_7511c722-d6fa-4236-ab56-e68018362861,"Projectile_EnemyPyroclasticRock");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GheistDaughter_7511c722-d6fa-4236-ab56-e68018362861,"Target_EnemyFortify");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GheistDaughter_7511c722-d6fa-4236-ab56-e68018362861,"Target_EnemyCripplingBlow");
+// FJ - Bottle Top
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_002_e3ec4f83-ddef-4f10-8c71-5a022b571dad,"Target_EnemyBloatedCorpse"); 
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_002_e3ec4f83-ddef-4f10-8c71-5a022b571dad,"MultiStrike_EnemyVault");
+// FJ - Ralvo
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_001_94131f94-2152-49f2-8ee2-9832263eec05,"Shout_EnemyIgnition");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_001_94131f94-2152-49f2-8ee2-9832263eec05,"Rush_EnemyBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_001_94131f94-2152-49f2-8ee2-9832263eec05,"Target_EnemyCripplingBlow");
+// FJ - Slug
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_003_75c00f7f-f7ff-4227-bbe8-fe2a28fcb11c,"Rush_EnemyBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_003_75c00f7f-f7ff-4227-bbe8-fe2a28fcb11c,"Target_EnemyGagOrder");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_003_75c00f7f-f7ff-4227-bbe8-fe2a28fcb11c,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_Brute_003_75c00f7f-f7ff-4227-bbe8-fe2a28fcb11c,"Cone_EnemyGroundSmash");
+// FJ - Shakedown Human Male
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ShakedownDwarf_0991b582-8305-4259-8280-a55bbe32a1b6,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ShakedownDwarf_0991b582-8305-4259-8280-a55bbe32a1b6,"Rush_EnemyBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ShakedownDwarf_0991b582-8305-4259-8280-a55bbe32a1b6,"Cone_EnemyGroundSmash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ShakedownDwarf_0991b582-8305-4259-8280-a55bbe32a1b6,"Shout_SteelSkin");
+// FJ - Shakedown Human Female
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_002_6d445f10-dec4-4026-9d9f-5b1c3fcd3e94,"MultiStrike_EnemyVault");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_002_6d445f10-dec4-4026-9d9f-5b1c3fcd3e94,"Shout_EnemyAdrenaline");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_002_6d445f10-dec4-4026-9d9f-5b1c3fcd3e94,"Target_EnemyCorruptedBlade");
+// FJ - Blacksmith (usually neutral, someone might attack her though)
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoBlacksmith_175b32ec-f6a1-4aa1-9028-d02d593f092c,"Summon_EnemyTotemFromSurface");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoBlacksmith_175b32ec-f6a1-4aa1-9028-d02d593f092c,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoBlacksmith_175b32ec-f6a1-4aa1-9028-d02d593f092c,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoBlacksmith_175b32ec-f6a1-4aa1-9028-d02d593f092c,"Target_FirstAidEnemy");
+// FJ - Magister Borris
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_004_d11296d9-833f-4070-9fa7-44ac606aedb8,"Projectile_EnemyBouncingShield");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_004_d11296d9-833f-4070-9fa7-44ac606aedb8,"Shout_EnemyWhirlwind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_004_d11296d9-833f-4070-9fa7-44ac606aedb8,"Target_EnemyEnrage");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_004_d11296d9-833f-4070-9fa7-44ac606aedb8,"Cone_EnemyGroundSmash");
+// FJ - Female Shield Magister who hangs out with Borris
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_001_ee5789f4-9320-493f-8fa1-a4ec1b8177f2,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_001_ee5789f4-9320-493f-8fa1-a4ec1b8177f2,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_001_ee5789f4-9320-493f-8fa1-a4ec1b8177f2,"Projectile_EnemyBouncingShield");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_001_ee5789f4-9320-493f-8fa1-a4ec1b8177f2,"Shout_EnemyDeflectiveBarrier");
+// FJ - both archers near Borris
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_006_4c568459-0d25-4a1b-926f-20b8a85b900c,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_006_4c568459-0d25-4a1b-926f-20b8a85b900c,"Target_FirstAidEnemy");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_006_4c568459-0d25-4a1b-926f-20b8a85b900c,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_006_4c568459-0d25-4a1b-926f-20b8a85b900c,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_005_76f7ca78-4799-4e55-9b00-ff3b3cd2066b,"Target_FirstAidEnemy");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_005_76f7ca78-4799-4e55-9b00-ff3b3cd2066b,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_GhettoGuard_005_76f7ca78-4799-4e55-9b00-ff3b3cd2066b,"Target_EnemyReactionShot");
+// FJ - Magister Moon Tourism
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_PatrolMagister_002_9f2fb476-2a2a-408a-88f2-628518b4deba,"Target_FirstAidEnemy");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_PatrolMagister_002_9f2fb476-2a2a-408a-88f2-628518b4deba,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_PatrolMagister_002_9f2fb476-2a2a-408a-88f2-628518b4deba,"Projectile_EnemyPinDown");
+// FJ - Magister Moon Tourism's Shitty Dog
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_PatrolMagister_001_99972d67-0efe-42f9-af2b-d8e3249e0af0,"Target_AS_EnemyKneeBreaker");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_PatrolMagister_001_99972d67-0efe-42f9-af2b-d8e3249e0af0,"Target_EnemySerratedEdge");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_PatrolMagister_001_99972d67-0efe-42f9-af2b-d8e3249e0af0,"Projectile_CatFlight");
+// FJ - Griff's Camp - Butter
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_004_eab494d8-4c9e-47f1-afb4-30815e1ea68c,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_004_eab494d8-4c9e-47f1-afb4-30815e1ea68c,"Target_FirstAidEnemy");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_004_eab494d8-4c9e-47f1-afb4-30815e1ea68c,"Projectile_EnemyPiercingShot");
+// FJ - Griff's Camp - Hilda (the scoundrel trader)
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_BlackMarketDealer_7ecdfdd5-fb22-411d-9c19-0f6f62123671,"Target_EnemyGagOrder");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_BlackMarketDealer_7ecdfdd5-fb22-411d-9c19-0f6f62123671,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_BlackMarketDealer_7ecdfdd5-fb22-411d-9c19-0f6f62123671,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_BlackMarketDealer_7ecdfdd5-fb22-411d-9c19-0f6f62123671,"Projectile_EnemyPinDown");
+// FJ - Griff's Camp - the guy who casts Favourable Wind
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_003_59fc99da-4c46-41d1-a467-1edbf5615921,"Rain_EnemyWater");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_003_59fc99da-4c46-41d1-a467-1edbf5615921,"Projectile_EnemyLightningBolt");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_003_59fc99da-4c46-41d1-a467-1edbf5615921,"ProjectileStrike_EnemyDazingBolt");
+// FJ - Griff's Camp - The useless knife idiot
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_005_6cad1eb7-7d14-45e0-af87-0ea519aa5887,"MultiStrike_EnemyVault");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_005_6cad1eb7-7d14-45e0-af87-0ea519aa5887,"Shout_EnemyAdrenaline");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_005_6cad1eb7-7d14-45e0-af87-0ea519aa5887,"Target_EnemyGagOrder");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_005_6cad1eb7-7d14-45e0-af87-0ea519aa5887,"Target_AS_EnemyKneeBreaker");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoGuard_005_6cad1eb7-7d14-45e0-af87-0ea519aa5887,"Target_EnemyCripplingBlow");
+// FJ - one of the chapel swordsmen
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_002_090d7104-97f7-4603-a114-47dceaf021e5,"Target_EnemyTentacleLash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_002_090d7104-97f7-4603-a114-47dceaf021e5,"Shout_SteelSkin");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_002_090d7104-97f7-4603-a114-47dceaf021e5,"Target_EnemyChickenTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_002_090d7104-97f7-4603-a114-47dceaf021e5,"Shout_EnemyChameleonSkin");
+// FJ - chapel - one brave boi
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_005_d5ea5e99-2406-4bb9-b2df-5fd975f1b63e,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_005_d5ea5e99-2406-4bb9-b2df-5fd975f1b63e,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_005_d5ea5e99-2406-4bb9-b2df-5fd975f1b63e,"Projectile_EnemyBouncingShield");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_005_d5ea5e99-2406-4bb9-b2df-5fd975f1b63e,"Shout_EnemyDeflectiveBarrier");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_005_d5ea5e99-2406-4bb9-b2df-5fd975f1b63e,"Target_EnemyRestoration");
+// FJ - chapel - an archer
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_004_8f330be0-a442-408f-850e-c7fd94e74ada,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_004_8f330be0-a442-408f-850e-c7fd94e74ada,"Target_EnemyTentacleLash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_004_8f330be0-a442-408f-850e-c7fd94e74ada,"Projectile_EnemyPinDown");
+// FJ - chapel - an archer that looks significant but isn't
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_001_068d4518-9b23-4e2c-a160-8d978d1f78ff,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_001_068d4518-9b23-4e2c-a160-8d978d1f78ff,"Projectile_EnemyLaunchOilBlob");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_001_068d4518-9b23-4e2c-a160-8d978d1f78ff,"Shout_EnemyWings");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_001_068d4518-9b23-4e2c-a160-8d978d1f78ff,"Projectile_EnemyPinDown");
+// FJ - chapel - another archer
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_003_b5cb12b2-f347-4415-95ac-8d5ac4fc464b,"Target_EnemyMosquitoSwarm");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_003_b5cb12b2-f347-4415-95ac-8d5ac4fc464b,"Target_EnemyShacklesOfPain");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_ChapelMagister_003_b5cb12b2-f347-4415-95ac-8d5ac4fc464b,"Jump_EnemyTacticalRetreat");
+
+// FJ - Docks - Big Knight guy
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_004_97492757-bbe8-42d8-af6d-35ca0ae96d36,"Jump_EnemyPhoenixDive");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_004_97492757-bbe8-42d8-af6d-35ca0ae96d36,"Rush_EnemyBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_004_97492757-bbe8-42d8-af6d-35ca0ae96d36,"Cone_EnemyGroundSmash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_004_97492757-bbe8-42d8-af6d-35ca0ae96d36,"Shout_EnemyDeflectiveBarrier");
+// FJ - Docks - Magister Dayva, electric caster
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_005_55c5c79e-2260-40bd-ab1d-c2d05fe31d45,"ProjectileStrike_EnemyDazingBolt");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_005_55c5c79e-2260-40bd-ab1d-c2d05fe31d45,"Rain_EnemyWater");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_005_55c5c79e-2260-40bd-ab1d-c2d05fe31d45,"Teleportation_EnemyFreeFall");
+// FJ - Docks - Tank/Healer
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_002_14581b6d-9423-4e2c-8d19-8f1b222ab760,"Projectile_EnemyIceFan");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_002_14581b6d-9423-4e2c-8d19-8f1b222ab760,"Target_EnemyFortify");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_002_14581b6d-9423-4e2c-8d19-8f1b222ab760,"Target_EnemyCripplingBlow");
+// FJ - Docks - Ranger
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_001_d6a4e8d9-67bc-4961-95ce-c7016357ea64,"Target_EnemyElementalArrowheads");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_001_d6a4e8d9-67bc-4961-95ce-c7016357ea64,"Target_EnemyHaste");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_001_d6a4e8d9-67bc-4961-95ce-c7016357ea64,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_001_d6a4e8d9-67bc-4961-95ce-c7016357ea64,"Projectile_EnemyPinDown");
+// FJ - Docks - Other Ranger, Wayfarer?
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_001_d6a4e8d9-67bc-4961-95ce-c7016357ea64,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_HarbourMagister_001_d6a4e8d9-67bc-4961-95ce-c7016357ea64,"Projectile_EnemyPiercingShot");
+// FJ - Orivand Encounter - Hydrosophist
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_AnkhPriestess_dfca80ec-cd31-48ed-abfc-801514f1bd8e,"Rain_EnemyWater");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_AnkhPriestess_dfca80ec-cd31-48ed-abfc-801514f1bd8e,"Projectile_EnemyChainHeal");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_AnkhPriestess_dfca80ec-cd31-48ed-abfc-801514f1bd8e,"Shout_EnemyFrostAura");
+// FJ - Orivand Encounter - Pyrokinetic
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_AnkhPriest_f06d709f-335c-4c34-b959-9ae753bc7d68,"Projectile_EnemyFireball");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_AnkhPriest_f06d709f-335c-4c34-b959-9ae753bc7d68,"Shout_EnemyFlamingTongues");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_AnkhPriest_f06d709f-335c-4c34-b959-9ae753bc7d68,"Zone_EnemyLaserRay");
+// FJ - Orivand Encounter - both shield guards
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CourtRoomGuard_001_c51d581d-9245-431f-a1eb-88adc8149827,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CourtRoomGuard_002_bb9fd6c4-4231-44ac-a24d-5955dc300147,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CourtRoomGuard_001_c51d581d-9245-431f-a1eb-88adc8149827,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CourtRoomGuard_002_bb9fd6c4-4231-44ac-a24d-5955dc300147,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CourtRoomGuard_001_c51d581d-9245-431f-a1eb-88adc8149827,"Target_EnemyEnrage");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CourtRoomGuard_002_bb9fd6c4-4231-44ac-a24d-5955dc300147,"Target_EnemyEnrage");
+// FJ - Kniles Encounter - Dwarf monk with spear
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SilentMonk_002_01343cec-09ab-48eb-9226-ce6b2880a6c0,"Shout_EnemyWhirlwind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SilentMonk_002_01343cec-09ab-48eb-9226-ce6b2880a6c0,"Cone_EnemyGroundSmash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SilentMonk_002_01343cec-09ab-48eb-9226-ce6b2880a6c0,"Target_EnemyCripplingBlow");
+// FJ - Kniles Encounter - Human female monk with flare
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SilentMonk_010_aa03733a-861f-4814-8bf8-ba0c1cabb876,"Target_EnemyHaste");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SilentMonk_010_aa03733a-861f-4814-8bf8-ba0c1cabb876,"Shout_EnemyFlamingTongues");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SilentMonk_010_aa03733a-861f-4814-8bf8-ba0c1cabb876,"Target_EnemyCorruptedBlade");
+
+// FJ - Houndmaster Encounter - Sword+Shield Man
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_002_6d6b84bf-e940-4c28-a2b6-12516d049792,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_002_6d6b84bf-e940-4c28-a2b6-12516d049792,"Target_EnemyTentacleLash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_002_6d6b84bf-e940-4c28-a2b6-12516d049792,"Shout_EnemyBullHorns");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_002_6d6b84bf-e940-4c28-a2b6-12516d049792,"Shout_EnemyGuardianAngel");
+// FJ - Houndmaster Encounter - Houndmaster
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_001_402470db-ad49-4de7-8a60-7f69c8e5d26e,"Target_EnemyHarmony");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_001_402470db-ad49-4de7-8a60-7f69c8e5d26e,"Shout_EnemyWhirlwind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_001_402470db-ad49-4de7-8a60-7f69c8e5d26e,"Target_EnemyCripplingBlow");
+// FJ - Houndmaster Encounter - Female Archer - Now Wayfarer
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_004_2955b578-1a8e-4ecd-aa7f-5f084c428e25,"Projectile_EnemyPyroclasticRock");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_004_2955b578-1a8e-4ecd-aa7f-5f084c428e25,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_004_2955b578-1a8e-4ecd-aa7f-5f084c428e25,"Target_EnemyElementalArrowheads");
+// FJ - Houndmaster Encounter - Male Archer - Now Scoundrel Hunter
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_003_e8c14f56-b34a-41c3-adb3-dda318c5bdc1,"Rain_EnemyWater");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_003_e8c14f56-b34a-41c3-adb3-dda318c5bdc1,"Target_EnemyFrostyShell");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OlgoCellarMagister_003_e8c14f56-b34a-41c3-adb3-dda318c5bdc1,"Target_EnemyReactionShot");
+
+// SW - Undead Rogue, Geomancer and Soldier
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_A_Undead_Assassin_a54a04a3-8507-4a37-a8b6-068fd0ec8146,"Target_EnemyChickenTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_A_Undead_Melee_01_8b70b76c-24f8-4b3c-aae8-3c78c93ab2bb,"Rush_EnemyBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_A_Undead_Melee_01_8b70b76c-24f8-4b3c-aae8-3c78c93ab2bb,"Cone_EnemyGroundSmash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_A_Undead_Terra_01_7dee6a3d-ef4f-4281-a311-a65d483e13d1,"Shout_EnemyMendMetal");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_A_Undead_Terra_01_7dee6a3d-ef4f-4281-a311-a65d483e13d1,"Projectile_EnemyPoisonDart");
+
+// SW - Undead Ranger and the other guys
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Ranger_01_1195a59b-ba51-4662-afa7-7602b224cfc8,"Jump_EnemyTacticalRetreat");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Ranger_01_1195a59b-ba51-4662-afa7-7602b224cfc8,"Projectile_EnemyFlamingDaggers");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Ranger_01_1195a59b-ba51-4662-afa7-7602b224cfc8,"Target_EnemyElementalArrowheads");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Sword_9ee2fb19-5483-42a5-9037-c8147e9695fd,"Shout_EnemyAdrenaline");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Sword_9ee2fb19-5483-42a5-9037-c8147e9695fd,"Target_EnemyGagOrder");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Sword_9ee2fb19-5483-42a5-9037-c8147e9695fd,"Target_AS_EnemyKneeBreaker");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Ranger_02_5468e7d7-8f83-4245-94fc-7303c11612b5,"Projectile_EnemySkyShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Ranger_02_5468e7d7-8f83-4245-94fc-7303c11612b5,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Ranger_02_5468e7d7-8f83-4245-94fc-7303c11612b5,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SwampBuildup_B_Undead_Ranger_02_5468e7d7-8f83-4245-94fc-7303c11612b5,"Target_EnemyElementalArrowheads");
+
+// SW - Undead battle royale + Deep Dweller
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Melee_02_8644ff57-7eb3-4ed7-a496-00e977227b53,"Target_EnemyGagOrder");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Melee_02_8644ff57-7eb3-4ed7-a496-00e977227b53,"Target_EnemyCorruptedBlade");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Melee_02_8644ff57-7eb3-4ed7-a496-00e977227b53,"Target_EnemySerratedEdge");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Melee_01_961c827b-43d1-43c8-8553-6d1d4c8e8aed,"Target_EnemyTentacleLash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Melee_01_961c827b-43d1-43c8-8553-6d1d4c8e8aed,"Shout_EnemyBullHorns");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Melee_01_961c827b-43d1-43c8-8553-6d1d4c8e8aed,"Shout_EnemyWings");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Mage_01_5cf41c21-bfed-499e-a6fe-6eda7c24b118,"Target_EnemyVacuumTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Mage_01_5cf41c21-bfed-499e-a6fe-6eda7c24b118,"Teleportation_EnemyFreeFall");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Ranger_01_e8ad5533-b8f0-4c55-a261-4192f5cf1e48,"Projectile_EnemyPyroclasticRock");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Ranger_01_e8ad5533-b8f0-4c55-a261-4192f5cf1e48,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Ranger_01_e8ad5533-b8f0-4c55-a261-4192f5cf1e48,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Ranger_01_e8ad5533-b8f0-4c55-a261-4192f5cf1e48,"Target_EnemyElementalArrowheads");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Mage_02_2f619e60-5cfc-4323-a094-e285ea922903,"Rain_EnemyWater");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Mage_02_2f619e60-5cfc-4323-a094-e285ea922903,"Shout_EnemyGlobalCooling");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_VWBoss_Mage_02_2f619e60-5cfc-4323-a094-e285ea922903,"ProjectileStrike_EnemyHailStrike");
+
+// SW - a couple of fiery bois
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_BurningSkeleton2_11e95a85-9877-403f-944e-16b2c4e9a4b3,"Shout_EnemyFlamingTongues");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_BurningSkeleton2_11e95a85-9877-403f-944e-16b2c4e9a4b3,"Target_EnemyFlamingCrescendo");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_BurningSkeleton3_d53d04be-e7d7-4b37-8b93-2807921fb58a,"Target_EnemyElementalArrowheads");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_BurningSkeleton3_d53d04be-e7d7-4b37-8b93-2807921fb58a,"Target_EnemyFireWhip");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_BurningSkeleton1_0b0d054f-aba2-4fac-b89b-473f59cb085e,"Cone_AS_Enemy_Death_Claw");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_BurningSkeleton1_0b0d054f-aba2-4fac-b89b-473f59cb085e,"Target_EnemyMosquitoSwarm");
+
+// SW - The three necromancers
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_GuardUndead1_416ab3e9-0547-4dd3-b3b8-8b36f75707c1,"Rain_EnemyBlood");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_GuardUndead1_416ab3e9-0547-4dd3-b3b8-8b36f75707c1,"Target_EnemyMosquitoSwarm");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_GuardUndead1_416ab3e9-0547-4dd3-b3b8-8b36f75707c1,"Target_EnemyInfect");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_GuardUndead2_6fe11cab-3331-419b-8ce0-13672a97c915,"Cone_AS_Enemy_Death_Claw");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_GuardUndead2_6fe11cab-3331-419b-8ce0-13672a97c915,"Shout_EnemySupernova");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_GuardUndead2_6fe11cab-3331-419b-8ce0-13672a97c915,"Shout_EnemyFlamingTongues");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_GuardUndead3_8dadcdd9-08dc-4228-a741-35310b42c16e,"Teleportation_EnemyNetherswap");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_GuardUndead3_8dadcdd9-08dc-4228-a741-35310b42c16e,"Teleportation_EnemyFreeFall");
+
+// SW - Salamanders
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander2_e3812c55-7530-4d74-b79b-e8f3c91558a4,"Shout_EnemyVenomCoating");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander2_e3812c55-7530-4d74-b79b-e8f3c91558a4,"Target_EnemyCorrosiveTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander2_e3812c55-7530-4d74-b79b-e8f3c91558a4,"Shout_SteelSkin");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander3_62ac9493-260e-40bf-a615-5cdf475208d9,"Shout_SteelSkin");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander3_62ac9493-260e-40bf-a615-5cdf475208d9,"Target_EnemyBurningTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander3_62ac9493-260e-40bf-a615-5cdf475208d9,"Shout_EnemyFlamingTongues");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander3_62ac9493-260e-40bf-a615-5cdf475208d9,"Rush_IncarnateBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander1_26d2a05f-bd32-408c-adab-c01767271bbf,"Shout_SteelSkin");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander1_26d2a05f-bd32-408c-adab-c01767271bbf,"Target_EnemyBurningTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander1_26d2a05f-bd32-408c-adab-c01767271bbf,"Shout_EnemyFlamingTongues");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ShelterBackSalamander1_26d2a05f-bd32-408c-adab-c01767271bbf,"Rush_IncarnateBatteringRam");
+
+// SW - Blind Magister undead encounter
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton1_2c5d8d19-5be8-4079-bc08-a5a2592992d0,"Shout_EnemySparkingSwings");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton1_2c5d8d19-5be8-4079-bc08-a5a2592992d0,"Shout_EnemyWhirlwind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton1_2c5d8d19-5be8-4079-bc08-a5a2592992d0,"Shout_EnemyContamination");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton2_e0a7b56f-34a1-4213-85e4-85697f2cfb68,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton2_e0a7b56f-34a1-4213-85e4-85697f2cfb68,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton2_e0a7b56f-34a1-4213-85e4-85697f2cfb68,"Summon_EnemyTotem");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton3_f7d6972d-3071-411d-b3e9-f18524eb9d2c,"Shout_EnemyAdrenaline");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton3_f7d6972d-3071-411d-b3e9-f18524eb9d2c,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton3_f7d6972d-3071-411d-b3e9-f18524eb9d2c,"Target_EnemySerratedEdge");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton3_f7d6972d-3071-411d-b3e9-f18524eb9d2c,"Target_EnemyCorruptedBlade");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton3_f7d6972d-3071-411d-b3e9-f18524eb9d2c,"Target_EnemyChickenTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton3_f7d6972d-3071-411d-b3e9-f18524eb9d2c,"Target_EnemyTentacleLash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton4_89571d9e-b861-4706-9c2d-1b8c7d8329e4,"Shout_EnemySuperconductor");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton4_89571d9e-b861-4706-9c2d-1b8c7d8329e4,"Teleportation_EnemyNetherswap");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Cart_Skeleton4_89571d9e-b861-4706-9c2d-1b8c7d8329e4,"Shout_EnemyBlindingRadiance");
+
+
+
+// SW - Gareth and the Magisters
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister1_324e8aca-3b0b-430e-b8bb-2f6e9edac3fe,"Cone_AS_Enemy_Death_Claw");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister1_324e8aca-3b0b-430e-b8bb-2f6e9edac3fe,"Target_EnemyMosquitoSwarm");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister1_324e8aca-3b0b-430e-b8bb-2f6e9edac3fe,"Target_EnemyBloatedCorpse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister1_324e8aca-3b0b-430e-b8bb-2f6e9edac3fe,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister2_f278b94b-78ac-4cd7-9d8a-1c61e673ead3,"Target_FirstAidEnemy");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister2_f278b94b-78ac-4cd7-9d8a-1c61e673ead3,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister2_f278b94b-78ac-4cd7-9d8a-1c61e673ead3,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister2_f278b94b-78ac-4cd7-9d8a-1c61e673ead3,"Target_EnemyElementalArrowheads");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister2_f278b94b-78ac-4cd7-9d8a-1c61e673ead3,"Shout_EnemyAdrenaline");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister2_f278b94b-78ac-4cd7-9d8a-1c61e673ead3,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister3_34996c94-6294-45e7-9659-f6fce2a95ea5,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister3_34996c94-6294-45e7-9659-f6fce2a95ea5,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister3_34996c94-6294-45e7-9659-f6fce2a95ea5,"Projectile_EnemySkyShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister3_34996c94-6294-45e7-9659-f6fce2a95ea5,"Projectile_EnemySnipe");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister3_34996c94-6294-45e7-9659-f6fce2a95ea5,"Projectile_EnemyMark");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister3_34996c94-6294-45e7-9659-f6fce2a95ea5,"Projectile_EnemyBallisticShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister4_96f35d8a-d38a-4fc1-9b23-bdf4349a16ec,"Shout_EnemyWhirlwind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister4_96f35d8a-d38a-4fc1-9b23-bdf4349a16ec,"Projectile_EnemyBouncingShield");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister4_96f35d8a-d38a-4fc1-9b23-bdf4349a16ec,"Shout_EnemyDeflectiveBarrier");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister4_96f35d8a-d38a-4fc1-9b23-bdf4349a16ec,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister4_96f35d8a-d38a-4fc1-9b23-bdf4349a16ec,"Cone_EnemyGroundSmash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_CorneringMagister4_96f35d8a-d38a-4fc1-9b23-bdf4349a16ec,"Target_EnemyDecayingTouch");
+// Part 2
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister4_0a2cf9d4-6631-44c3-aea4-cc5a13f3419b,"Projectile_EnemyThrowDust");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister4_0a2cf9d4-6631-44c3-aea4-cc5a13f3419b,"Projectile_EnemyPyroclasticRock");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister4_0a2cf9d4-6631-44c3-aea4-cc5a13f3419b,"Shout_EnemyMendMetal");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister3_d584fdbb-1cfa-46d4-add2-5587eafd3e29,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister3_d584fdbb-1cfa-46d4-add2-5587eafd3e29,"Shout_EnemyDeflectiveBarrier");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister3_d584fdbb-1cfa-46d4-add2-5587eafd3e29,"Cone_EnemyGroundSmash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister3_d584fdbb-1cfa-46d4-add2-5587eafd3e29,"Target_EnemyGagOrder");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister2_d3091599-a583-44b8-8ce7-3b7e9d88fdaa,"Projectile_EnemyMark");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister2_d3091599-a583-44b8-8ce7-3b7e9d88fdaa,"Target_EnemyBurnMyEyes");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister2_d3091599-a583-44b8-8ce7-3b7e9d88fdaa,"Target_EnemyHaste");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister2_d3091599-a583-44b8-8ce7-3b7e9d88fdaa,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister1_51825365-42fd-4b0c-9f35-d21ae40833a3,"Shout_EnemySparkingSwings");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister1_51825365-42fd-4b0c-9f35-d21ae40833a3,"Shout_EnemyFlamingTongues");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_OutsideMagister1_51825365-42fd-4b0c-9f35-d21ae40833a3,"Target_EnemyFireWhip");
+
+// SW - Alexandar Boss Fight
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_FinalBattleMagister_000_c283e820-0166-4668-8ad4-842085d58de9,"Shout_EnemyMedusaHead");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_FinalBattleMagister_002_0b7282f6-a131-4441-a113-8f3ea62fa9e3,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_FinalBattleMagister_003_b5dd6af4-6b34-482e-bc0a-72bd6269aaf5,"Target_EnemyRestoration");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_FinalBattleMagister_003_b5dd6af4-6b34-482e-bc0a-72bd6269aaf5,"Projectile_EnemyChainHeal");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_FinalBattleMagister_001_165f1353-a916-4291-940a-293efbe8f187,"Target_EnemyGagOrder");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_FinalBattleMagister_001_165f1353-a916-4291-940a-293efbe8f187,"Target_EnemyChickenTouch");
+
+// SW - Radeka Boss Fight
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_Zombie_daa5de44-d3b9-47c3-aed5-9969ca29ce61,"ProjectileStrike_EnemyHailStrike");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_Zombie_daa5de44-d3b9-47c3-aed5-9969ca29ce61,"Rain_EnemyWater");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_Zombie_daa5de44-d3b9-47c3-aed5-9969ca29ce61,"Projectile_EnemyIceFan");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_Zombie_daa5de44-d3b9-47c3-aed5-9969ca29ce61,"Shout_EnemyGlobalCooling");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_Zombie_daa5de44-d3b9-47c3-aed5-9969ca29ce61,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_BloodZombie_04_b714cbca-6c44-4d4d-918c-50269f773584,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_BloodZombie_02_9d512d08-5e51-45ec-b06e-ff90fea7f6de,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_BloodZombie_03_5549433c-5dec-4701-9733-8fb06009dfff,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_Zombie_daa5de44-d3b9-47c3-aed5-9969ca29ce61,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_Witch_Zombie_daa5de44-d3b9-47c3-aed5-9969ca29ce61,"Target_EnemyCripplingBlow");
+
+// SW - Trompdoy's Illusions
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_001_d656548b-329c-4ce4-ae61-984feb732503,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_001_d656548b-329c-4ce4-ae61-984feb732503,"Rush_EnemyBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_001_d656548b-329c-4ce4-ae61-984feb732503,"Cone_EnemyGroundSmash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_003_f5b0ab9f-f99e-4360-b455-a2f7043349a8,"ProjectileStrike_EnemyHailStrike");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_003_f5b0ab9f-f99e-4360-b455-a2f7043349a8,"Projectile_EnemyIceFan");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_003_f5b0ab9f-f99e-4360-b455-a2f7043349a8,"Projectile_EnemyLightningBolt");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_002_0e5779db-8418-4be9-9fdf-7f52c38b67bc,"Projectile_EnemyMark");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_002_0e5779db-8418-4be9-9fdf-7f52c38b67bc,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_ChestRoomIllusionist_002_0e5779db-8418-4be9-9fdf-7f52c38b67bc,"Projectile_EnemyMultishot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase1_002_bf948008-5ba1-4573-84ff-4a81912d7848,"Projectile_EnemyBouncingShield");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase1_002_bf948008-5ba1-4573-84ff-4a81912d7848,"Target_EnemyTentacleLash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase1_001_68a47ec8-ac86-452a-a09a-518338b86b4f,"Shout_EnemyReactiveArmor");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase1_003_0ae5c9bb-9992-4764-9118-9f1377ce827d,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase1_003_0ae5c9bb-9992-4764-9118-9f1377ce827d,"Projectile_EnemyMark");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_003_90b0de69-fb7b-45a9-bc8c-af0fc5b7099e,"Target_EnemySerratedEdge");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_003_90b0de69-fb7b-45a9-bc8c-af0fc5b7099e,"Target_EnemyChickenTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_003_90b0de69-fb7b-45a9-bc8c-af0fc5b7099e,"Target_EnemyTentacleLash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_002_7f920fbe-5a22-40b9-9e9c-3989f2fa0aab,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_002_7f920fbe-5a22-40b9-9e9c-3989f2fa0aab,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_002_7f920fbe-5a22-40b9-9e9c-3989f2fa0aab,"Projectile_EnemySkyShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_002_7f920fbe-5a22-40b9-9e9c-3989f2fa0aab,"Projectile_EnemyPyroclasticRock");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_002_7f920fbe-5a22-40b9-9e9c-3989f2fa0aab,"Target_EnemyFortify");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_001_4efa5cda-f2fc-4adb-9dff-66a1a01a16c9,"Target_EnemyWormTremor");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_001_4efa5cda-f2fc-4adb-9dff-66a1a01a16c9,"Projectile_EnemyPoisonDart");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_SW_IllusionPhase2_001_4efa5cda-f2fc-4adb-9dff-66a1a01a16c9,"Target_EnemyCorrosiveTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_TrueIllusionist_a3b10150-1871-48a4-9d64-f51c84316b6d,"Jump_EnemyCloakAndDagger");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_TrueIllusionist_a3b10150-1871-48a4-9d64-f51c84316b6d,"Target_EnemyMagicShell");
+DB_AS_TacticianSkills((CHARACTERGUID)S_FTJ_TrueIllusionist_a3b10150-1871-48a4-9d64-f51c84316b6d,"Shout_EnemyBlindingRadiance");
+
+// REAPER'S COAST
+// RC - Volatile Voidling
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat6_555176fb-7adf-4b60-8549-8cedf209073b,"Shout_EnemySupernova");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat5_9c6d0ca3-42e0-4ff9-a60d-6a396103149d,"Shout_EnemySupernova");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat6_555176fb-7adf-4b60-8549-8cedf209073b,"Target_EnemyBurningTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat5_9c6d0ca3-42e0-4ff9-a60d-6a396103149d,"Target_EnemyBurningTouch");
+
+// RC - Viscous Voidling
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat4_87ba9148-d75e-4d31-a872-ca4fb6e8b6dd,"Jump_BonePileBurrow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat4_87ba9148-d75e-4d31-a872-ca4fb6e8b6dd,"Target_InsectCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat1_04d4d854-8474-4c32-887e-43f395508392,"Jump_BonePileBurrow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat1_04d4d854-8474-4c32-887e-43f395508392,"Target_InsectCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat3_eae4231d-28cc-4c99-833d-6e6680a48675,"Jump_BonePileBurrow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat3_eae4231d-28cc-4c99-833d-6e6680a48675,"Target_InsectCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat2_bede8cbd-a5c9-4bd0-9e48-43f3b41d5a32,"Jump_BonePileBurrow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Abduction_Combat2_bede8cbd-a5c9-4bd0-9e48-43f3b41d5a32,"Target_InsectCripplingBlow");
+
+// RC - Useless scared Dwarf
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Caravan_SurvivingDwarf_1c3759c4-284d-46e1-98e0-da880d9f3da8,"Target_EnemyCorruptedBlade");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Caravan_SurvivingDwarf_1c3759c4-284d-46e1-98e0-da880d9f3da8,"Shout_EnemyAdrenaline");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Caravan_SurvivingDwarf_1c3759c4-284d-46e1-98e0-da880d9f3da8,"Target_EnemyGagOrder");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Caravan_SurvivingDwarf_1c3759c4-284d-46e1-98e0-da880d9f3da8,"Jump_EnemyCloakAndDagger");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Caravan_SurvivingDwarf_1c3759c4-284d-46e1-98e0-da880d9f3da8,"Shout_EnemyWhirlwind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Caravan_SurvivingDwarf_1c3759c4-284d-46e1-98e0-da880d9f3da8,"Shout_EnemyChameleonSkin");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_Caravan_SurvivingDwarf_1c3759c4-284d-46e1-98e0-da880d9f3da8,"Target_EnemyTentacleLash");
+
+// RC - Front Magisters - Shield Guy
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_2_87a2ef8c-979e-4a64-aaef-46d319beb384,"Projectile_EnemyBouncingShield");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_2_87a2ef8c-979e-4a64-aaef-46d319beb384,"Target_EnemyEnrage");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_2_87a2ef8c-979e-4a64-aaef-46d319beb384,"Shout_EnemyGuardianAngel");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_2_87a2ef8c-979e-4a64-aaef-46d319beb384,"Target_EnemyFortify");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_2_87a2ef8c-979e-4a64-aaef-46d319beb384,"Target_EnemyCorruptedBlade");
+// Bow Magister
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_1_3137b5cc-f568-4f0b-9239-23accfdf8a5c,"Target_EnemyBurnMyEyes");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_1_3137b5cc-f568-4f0b-9239-23accfdf8a5c,"Target_EnemyHaste");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_1_3137b5cc-f568-4f0b-9239-23accfdf8a5c,"Projectile_EnemyThrowDust");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_1_3137b5cc-f568-4f0b-9239-23accfdf8a5c,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_Magister_1_3137b5cc-f568-4f0b-9239-23accfdf8a5c,"Shout_EnemyAdrenaline");
+// Silent Monk - Bow
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_SilentMonk1_56e943fb-f5c6-4ff2-8069-d564205a6c37,"Target_EnemyVacuum_SilentMonk");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_SilentMonk1_56e943fb-f5c6-4ff2-8069-d564205a6c37,"Shout_EnemySmokeCover");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_SilentMonk1_56e943fb-f5c6-4ff2-8069-d564205a6c37,"Rain_EnemyWater");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_SilentMonk1_56e943fb-f5c6-4ff2-8069-d564205a6c37,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_SilentMonk1_56e943fb-f5c6-4ff2-8069-d564205a6c37,"Projectile_EnemyIceFan");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpoint_SilentMonk1_56e943fb-f5c6-4ff2-8069-d564205a6c37,"Projectile_BallisticShot");
+// Silent Monk - Sword
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpointt_SilentMonk2_39ed47a5-28a7-4ae4-afca-22b25a26b8dd,"Cone_EnemyGroundSmash");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpointt_SilentMonk2_39ed47a5-28a7-4ae4-afca-22b25a26b8dd,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Checkpointt_SilentMonk2_39ed47a5-28a7-4ae4-afca-22b25a26b8dd,"Rush_EnemyBatteringRam ");
+
+// RC - Executioner Ninyan Fight
+// Ninyan
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_8a8a83dd-de7b-42aa-8ab9-d4fc1e878126,"Shout_EnemyFavourableWind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_8a8a83dd-de7b-42aa-8ab9-d4fc1e878126,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_8a8a83dd-de7b-42aa-8ab9-d4fc1e878126,"Target_EnemyFreezingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_8a8a83dd-de7b-42aa-8ab9-d4fc1e878126,"Target_EnemyShockingTouch");
+// Silent Monk
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_SilentMonk_01_b4e39447-8186-4917-9cfa-766b825d3b13,"Projectile_EnemyFireball");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_SilentMonk_01_b4e39447-8186-4917-9cfa-766b825d3b13,"Shout_EnemySupernova");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_SilentMonk_01_b4e39447-8186-4917-9cfa-766b825d3b13,"Target_EnemyCannibalize");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_SilentMonk_01_b4e39447-8186-4917-9cfa-766b825d3b13,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_SilentMonk_01_b4e39447-8186-4917-9cfa-766b825d3b13,"Shout_EnemyGuardianAngel");
+// Dog
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Dog_0b06f838-aa4c-41ea-b603-1e53b4c9a631,"Rush_EnemyBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Dog_0b06f838-aa4c-41ea-b603-1e53b4c9a631,"Target_EnemyKneeBreaker");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Dog_0b06f838-aa4c-41ea-b603-1e53b4c9a631,"Target_EnemyCripplingBlow");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Dog_0b06f838-aa4c-41ea-b603-1e53b4c9a631,"Target_EnemyCorruptedBlade");
+// Ranger - tactical retreat + first aid
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_01_250064ff-1873-4303-b4b6-b914e8ef3b58,"Projectile_EnemyLaunchOilBlob");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_01_250064ff-1873-4303-b4b6-b914e8ef3b58,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_01_250064ff-1873-4303-b4b6-b914e8ef3b58,"Projectile_AS_EnemyHurlSpear");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_01_250064ff-1873-4303-b4b6-b914e8ef3b58,"Shout_EnemyChameleonSkin");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_01_250064ff-1873-4303-b4b6-b914e8ef3b58,"Shout_EnemyWings");
+
+// Ranger - marksman's fang, tactical retreat
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_02_44af3b64-f22b-4c2f-9b8c-3c1fa75b203e,"Target_EnemyBurnMyEyes");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_02_44af3b64-f22b-4c2f-9b8c-3c1fa75b203e,"Projectile_EnemyPyroclasticRock");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_02_44af3b64-f22b-4c2f-9b8c-3c1fa75b203e,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_02_44af3b64-f22b-4c2f-9b8c-3c1fa75b203e,"Target_EnemyReactionShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_MeistrGuard_Ranger_02_44af3b64-f22b-4c2f-9b8c-3c1fa75b203e,"Shout_EnemyContamination");
+
+// RC - Town - Silent Monk Knight
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_01_76b0a811-35f3-4c22-b31e-22f4b92ae0e1,"AS_Enemy_Death_Claw");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_01_76b0a811-35f3-4c22-b31e-22f4b92ae0e1,"Shout_EnemyWhirlwind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_01_76b0a811-35f3-4c22-b31e-22f4b92ae0e1,"Shout_EnemyReactiveArmor");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_01_76b0a811-35f3-4c22-b31e-22f4b92ae0e1,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_01_76b0a811-35f3-4c22-b31e-22f4b92ae0e1,"Target_EnemyCripplingBlow");
+// RC - Town - Ranged Magister 1, Marksman's Fang + First Aid
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Patrol_Magister_001_1643a994-6159-4132-b2ec-0307a35cf9bc,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Patrol_Magister_001_1643a994-6159-4132-b2ec-0307a35cf9bc,"Target_EnemySabotage");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Patrol_Magister_001_1643a994-6159-4132-b2ec-0307a35cf9bc,"Shout_EnemyAdrenaline");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Patrol_Magister_001_1643a994-6159-4132-b2ec-0307a35cf9bc,"Projectile_EnemyMultishot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_Patrol_Magister_001_1643a994-6159-4132-b2ec-0307a35cf9bc,"Target_EnemyReactionShot");
+// RC - Town Silent Monk Ranger
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_02_a2e1fd70-cd62-4b63-99f7-6290253b378d,"Projectile_AS_EnemyHurlSpear");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_02_a2e1fd70-cd62-4b63-99f7-6290253b378d,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_02_a2e1fd70-cd62-4b63-99f7-6290253b378d,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_02_a2e1fd70-cd62-4b63-99f7-6290253b378d,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_SilentWatcher_02_a2e1fd70-cd62-4b63-99f7-6290253b378d,"Projectile_EnemyBallisticShot");
+// RC - Town - Ranged Magister 2, assassinate
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_FishFactory_Guard3_8d257d1e-2887-40cf-bc3a-e07ef4651d5b,"Shout_EnemyChameleonSkin");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_FishFactory_Guard3_8d257d1e-2887-40cf-bc3a-e07ef4651d5b,"Target_FirstAidEnemy");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_FishFactory_Guard3_8d257d1e-2887-40cf-bc3a-e07ef4651d5b,"Summon_EnemyTotemFromSurface");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DW_FishFactory_Guard3_8d257d1e-2887-40cf-bc3a-e07ef4651d5b,"Target_EnemyHarmony");
+
+// RC - Bridge - Voidwoken
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_NoWings_03_e131e879-68fb-43f2-ae69-5110bea54905,"Cone_EnemyDrillwormBreath");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_NoWings_03_e131e879-68fb-43f2-ae69-5110bea54905,"Cone_EnemyCorrosiveSpray_Beetle");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_NoWings_03_e131e879-68fb-43f2-ae69-5110bea54905,"Projectile_EnemyAcidSpores");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_NoWings_03_e131e879-68fb-43f2-ae69-5110bea54905,"Projectile_EnemyFireball_Cursed_Insect");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_NoWings_01_9f5cc975-fbca-4383-aff8-837f527dd950,"Cone_EnemyDrillwormBreath");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_NoWings_01_9f5cc975-fbca-4383-aff8-837f527dd950,"Cone_EnemyCorrosiveSpray_Beetle");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_NoWings_01_9f5cc975-fbca-4383-aff8-837f527dd950,"Projectile_EnemyAcidSpores");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_NoWings_01_9f5cc975-fbca-4383-aff8-837f527dd950,"Projectile_EnemyFireball_Cursed_Insect");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_Wings_01_899212c1-3ba7-438d-981f-51ecf75c01a9,"Target_EnemyMosquitoSwarm");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_Wings_01_899212c1-3ba7-438d-981f-51ecf75c01a9,"Target_EnemyInfect");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_Wings_01_899212c1-3ba7-438d-981f-51ecf75c01a9,"Rain_EnemyBlood");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_DU_HeroicRescue_GiantInsect_Wings_01_899212c1-3ba7-438d-981f-51ecf75c01a9,"Target_EnemyBloatedCorpse");
+
+// RC - Ryker's Servants
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Gate_a4d2b334-2a9e-482b-84f3-98487f7f21d4,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Gate_a4d2b334-2a9e-482b-84f3-98487f7f21d4,"Target_EnemyCurse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Gate_a4d2b334-2a9e-482b-84f3-98487f7f21d4,"Target_EnemyBloatedCorpse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Gate_a4d2b334-2a9e-482b-84f3-98487f7f21d4,"MultiStrike_EnemyVault");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Gate_a4d2b334-2a9e-482b-84f3-98487f7f21d4,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Lizards_f042cb96-7bc8-46bc-ba5e-03552943e9b1,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Lizards_f042cb96-7bc8-46bc-ba5e-03552943e9b1,"Target_EnemyCurse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Lizards_f042cb96-7bc8-46bc-ba5e-03552943e9b1,"Target_EnemyBloatedCorpse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Lizards_f042cb96-7bc8-46bc-ba5e-03552943e9b1,"MultiStrike_EnemyVault");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Lizards_f042cb96-7bc8-46bc-ba5e-03552943e9b1,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Statue_db5b242a-f1b6-4285-9dda-0a18f56e01ea,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Statue_db5b242a-f1b6-4285-9dda-0a18f56e01ea,"Target_EnemyCurse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Statue_db5b242a-f1b6-4285-9dda-0a18f56e01ea,"Target_EnemyBloatedCorpse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Statue_db5b242a-f1b6-4285-9dda-0a18f56e01ea,"MultiStrike_EnemyVault");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Statue_db5b242a-f1b6-4285-9dda-0a18f56e01ea,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Portal_4969c9af-ed3f-4e2f-b16a-aefafbead99d,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Portal_4969c9af-ed3f-4e2f-b16a-aefafbead99d,"Target_EnemyCurse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Portal_4969c9af-ed3f-4e2f-b16a-aefafbead99d,"Target_EnemyBloatedCorpse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Portal_4969c9af-ed3f-4e2f-b16a-aefafbead99d,"MultiStrike_EnemyVault");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_Portal_4969c9af-ed3f-4e2f-b16a-aefafbead99d,"Projectile_EnemyChloroform");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_008_1b31dfc4-dbfa-44a2-8433-82d319bc688c,"Target_EnemyDecayingTouch");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_008_1b31dfc4-dbfa-44a2-8433-82d319bc688c,"Target_EnemyCurse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_008_1b31dfc4-dbfa-44a2-8433-82d319bc688c,"Target_EnemyBloatedCorpse");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_008_1b31dfc4-dbfa-44a2-8433-82d319bc688c,"MultiStrike_EnemyBlinkStrike");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_008_1b31dfc4-dbfa-44a2-8433-82d319bc688c,"Projectile_EnemyChloroform");
+// Caster servants
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_009_1a12f8ec-8a88-428c-a419-a10026cd09d8,"Summon_EnemyBoneTroll_Mini");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_009_1a12f8ec-8a88-428c-a419-a10026cd09d8,"Target_EnemyMosquitoSwarm");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_009_1a12f8ec-8a88-428c-a419-a10026cd09d8,"Target_EnemyInfect");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_009_1a12f8ec-8a88-428c-a419-a10026cd09d8,"Projectile_EnemyPoisonDart");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_012_77dbf87b-5021-42ef-b6e8-90c00cef1f16,"Summon_EnemyBoneTroll_Mini");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_012_77dbf87b-5021-42ef-b6e8-90c00cef1f16,"Target_EnemyMosquitoSwarm");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_012_77dbf87b-5021-42ef-b6e8-90c00cef1f16,"Target_EnemyInfect");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_012_77dbf87b-5021-42ef-b6e8-90c00cef1f16,"Target_EnemyCorrosiveTouch");
+
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_001_f4fafa1b-d6c7-4483-894c-66caebe9e6b1,"Rush_EnemyBatteringRam");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_001_f4fafa1b-d6c7-4483-894c-66caebe9e6b1,"Shout_EnemySparkingSwings");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_001_f4fafa1b-d6c7-4483-894c-66caebe9e6b1,"MultiStrike_EnemyBlinkStrike");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_001_f4fafa1b-d6c7-4483-894c-66caebe9e6b1,"Shout_EnemyWhirlwind");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_001_f4fafa1b-d6c7-4483-894c-66caebe9e6b1,"Shout_EnemyFlamingTongues");
+// Bow bodyguard
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_007_bac676aa-586f-4486-affb-6a9716ced419,"Target_EnemyMosquitoSwarm");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_007_bac676aa-586f-4486-affb-6a9716ced419,"Projectile_AS_EnemyHurlSpear");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_007_bac676aa-586f-4486-affb-6a9716ced419,"Projectile_EnemyPiercingShot");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_007_bac676aa-586f-4486-affb-6a9716ced419,"Projectile_EnemyRicochet");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_007_bac676aa-586f-4486-affb-6a9716ced419,"Projectile_EnemyPinDown");
+DB_AS_TacticianSkills((CHARACTERGUID)S_RC_GY_RykersBodyguard_007_bac676aa-586f-4486-affb-6a9716ced419,"Projectile_EnemyBallisticShot");
+
+KBSECTION
+// If the game starts and the difficulty is Tactician, start giving all appropriate characters their new skills!
+IF
+RegionStarted(_)
+AND
+IsHardcoreMode(1)
+AND
+DB_AS_TacticianSkills(_Char,_Skill)
+AND
+ObjectExists(_Char,1)
+THEN
+CharacterAddSkill(_Char,_Skill);
+
+// This needs to be done because some characters don't exist at game start. Hurr.
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+IsHardcoreMode(1)
+AND
+DB_AS_TacticianSkills(_Char,_Skill)
+THEN
+CharacterAddSkill(_Char,_Skill);
+
+// If a character is seen, check if they're an NPC and if they need armor stats setup. Then set them.
+
+IF
+DB_Sees(_Char1,_Char2)
+AND
+CharacterIsPlayer(_Char2,0)
+AND
+IsTagged(_Char2,"ORIGIN",0)	// Origin characters unanimously have their own gear, so don't fake-armour them.
+AND
+ObjectIsCharacter(_Char2,1)
+AND
+ObjectGetFlag(_Char2,"AS_NPCArmorSetUp",0)
+THEN
+SetStoryEvent(_Char2,"AS_NPCSetArmor");
+SetStoryEvent(_Char2,"AS_CheckForNullAttributes");
+SetVarInteger(_Char2,"AS_Willpower",0);
+
+// A small debug. Should fix Source Vamp not working on Lohse's 'god'.
+IF
+DB_Sees(_Char1,_Char2)
+AND
+DB_AS_Gods(_Char2)
+THEN
+CharacterAddSourcePoints(_Char2,1);
+
+
+// Do the same as above if the character enters combat
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+CharacterIsPlayer(_Char,0)
+AND
+ObjectGetFlag(_Char,"AS_NPCArmorSetUp",0)
+THEN
+SetStoryEvent(_Char,"AS_NPCSetArmor");
+
+
+
+IF
+CharacterDied(_Char)
+AND
+CharacterIsPlayer(_Char,0)
+THEN
+ObjectClearFlag(_Char,"AS_NPCArmorSetUp");
+
+IF
+CharacterResurrected(_Char)
+AND
+CharacterIsPlayer(_Char,0)
+THEN
+ProcObjectTimer(_Char,"AS_NPCArmorTimer",1500);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_NPCArmorTimer")
+THEN
+SetStoryEvent(_Char,"AS_NPCSetArmor");
+
+
+IF
+StoryEvent(_Char,"AS_NPCSetArmor")
+THEN
+RemoveStatus(_Char,"AS_FakeArmorStr");
+RemoveStatus(_Char,"AS_FakeArmorFin");
+RemoveStatus(_Char,"AS_FakeArmorInt");
+
+// Start with Str
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_NPCSetArmor")
+AND
+ObjectGetFlag(_Char,"AS_NPCArmorSetUp",0)
+AND
+CharacterGetAttribute(_Char,"Strength",_Str)
+AND
+CharacterGetAttribute(_Char,"Finesse",_Fin)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Int)
+AND
+_Str > _Int
+AND
+_Str > _Fin
+THEN
+ApplyStatus(_Char,"AS_FakeArmorStr",-1.0,1);
+ObjectSetFlag(_Char,"AS_NPCArmorSetUp");
+
+
+// Int
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_NPCSetArmor")
+AND
+ObjectGetFlag(_Char,"AS_NPCArmorSetUp",0)
+AND
+CharacterGetAttribute(_Char,"Strength",_Str)
+AND
+CharacterGetAttribute(_Char,"Finesse",_Fin)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Int)
+AND
+_Int > _Str
+AND
+_Int > _Fin
+THEN
+ApplyStatus(_Char,"AS_FakeArmorInt",-1.0,1);
+ObjectSetFlag(_Char,"AS_NPCArmorSetUp");
+
+
+// Finish with Fin if the others didn't apply
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_NPCSetArmor")
+AND
+ObjectGetFlag(_Char,"AS_NPCArmorSetUp",0)
+THEN
+ApplyStatus(_Char,"AS_FakeArmorFin",-1.0,1);
+ObjectSetFlag(_Char,"AS_NPCArmorSetUp");
+
+
+
+// Remove all of such armour from players
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+DB_AS_ArmorStatuses(_Status)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+RemoveStatus(_Char,_Status);
+EXITSECTION
+
+ENDEXITSECTION

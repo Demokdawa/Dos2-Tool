@@ -1,0 +1,44 @@
+new equipment "Summon_AS_Heart_Equip"
+add equipmentgroup
+add equipment entry "_Summon_AS_Heart"
+
+new equipment "Summon_AS_Chaos_Equip"
+add equipmentgroup
+add equipment entry "_Summon_AS_Chaos"
+
+new equipment "AS_Gerald_Boss"
+add equipmentgroup
+add equipment entry "_AS_Gerald_Sword"
+add equipmentgroup
+add equipment entry "GRN_Grenade_CursedMolotov_A"
+add equipmentgroup
+add equipment entry "GRN_Grenade_BlessedIce_A"
+add equipmentgroup
+add equipment entry "GRN_Grenade_CursedPoisonFlask_A"
+add equipmentgroup
+add equipment entry "GRN_Grenade_Tremor_A"
+add equipmentgroup
+add equipment entry "GRN_Grenade_ArmorPiercing_A"
+add equipmentgroup
+add equipment entry "SKILLBOOK_Godbroken_Gerald_Disperse"
+
+new equipment "AS_Moira_Boss"
+add equipmentgroup
+add equipment entry "_AS_Gerald_Sword"
+
+new equipment "AS_PetPal_Strong"
+add equipmentgroup
+add equipment entry "AS_PetPal_Strong"
+
+new equipment "AS_PetPal_Med"
+add equipmentgroup
+add equipment entry "AS_PetPal_Medium"
+
+new equipment "AS_PetPal_Weak"
+add equipmentgroup
+add equipment entry "AS_PetPal_Weak"
+
+new equipment "Summon_AS_Final_Equip"
+add equipmentgroup
+add equipment entry "Summon_AS_Final"
+

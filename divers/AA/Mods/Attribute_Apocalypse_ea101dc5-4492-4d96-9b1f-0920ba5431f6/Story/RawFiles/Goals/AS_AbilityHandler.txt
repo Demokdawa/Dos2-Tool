@@ -1,0 +1,151 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+
+
+
+// Acrobatics/DualWielding
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+GetVarInteger(_Char,"AS_LastAcro",_Last)
+AND
+CharacterGetAbility(_Char,"DualWielding",_Stat)
+AND
+_Stat != _Last
+AND		// Let's not go over 10. No status exists for that. Plus, how can you have more than 100% dodging chance? Pointless.
+IntegerMin(_Stat,10,_Min)
+AND
+IntegertoString(_Min,_StatStr)
+AND
+StringConcatenate("AS_ACRO",_StatStr,_Str)
+THEN
+SetVarInteger(_Char,"AS_LastAcro",_Stat);
+ApplyStatus(_Char,_Str,-1.0,1);	
+
+
+
+
+
+
+
+
+
+
+// Lifesteal/Twohanded
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+GetVarInteger(_Char,"AS_LastLifesteal",_Last)
+AND
+CharacterGetAbility(_Char,"TwoHanded",_Stat)
+AND
+_Stat != _Last
+THEN
+SetVarInteger(_Char,"AS_LastLifesteal",0);
+RemoveStatus(_Char,"AS_LIFESTEAL");
+SetStoryEvent(_Char,"AS_KalaDoSetLifesteal");
+
+
+
+IF
+StoryEvent(_Char,"AS_KalaDoSetLifesteal")
+AND
+CharacterGetAbility((CHARACTERGUID)_Char,"TwoHanded",_Stat)
+AND
+GetVarInteger(_Char,"AS_LastLifesteal",_LastStat)
+AND
+_Stat > _LastStat
+AND
+IntegerSubtract(_Stat, _LastStat, _Stacks)
+THEN
+SetVarInteger(_Char,"AS_LastLifesteal", _Stat);
+DB_AS_Lifesteal_Temp(_Char, _Stacks);
+
+IF
+DB_AS_Lifesteal_Temp(_Char, _Stacks)
+AND
+_Stacks > 0
+AND
+IntegerSubtract(_Stacks, 1, _NextStacks)
+THEN
+ApplyStatus(_Char,"AS_LIFESTEAL", -1.0, 1);
+NOT DB_AS_Lifesteal_Temp(_Char, _Stacks);
+DB_AS_Lifesteal_Temp(_Char, _NextStacks);
+
+IF
+DB_AS_Lifesteal_Temp(_Char, _Stacks)
+AND
+_Stacks <= 0
+THEN
+NOT DB_AS_Lifesteal_Temp(_Char, _Stacks);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Leadership - Initiative Boost
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+GetVarInteger(_Char,"AS_LastLeader",_Last)
+AND
+CharacterGetAbility(_Char,"Leadership",_Stat)
+AND
+_Stat != _Last
+THEN
+SetVarInteger(_Char,"AS_LastLeader",0);
+RemoveStatus(_Char,"AS_LEADERSHIPINIT");
+SetStoryEvent(_Char,"AS_KalaDoSetLeader");
+
+
+
+IF
+StoryEvent(_Char,"AS_KalaDoSetLeader")
+AND
+CharacterGetAbility((CHARACTERGUID)_Char,"Leadership",_Stat)
+AND
+GetVarInteger(_Char,"AS_LastLeader",_LastStat)
+AND
+_Stat > _LastStat
+AND
+IntegerSubtract(_Stat, _LastStat, _Stacks)
+THEN
+SetVarInteger(_Char,"AS_LastLeader", _Stat);
+DB_AS_Leader_Temp(_Char, _Stacks);
+
+IF
+DB_AS_Leader_Temp(_Char, _Stacks)
+AND
+_Stacks > 0
+AND
+IntegerSubtract(_Stacks, 1, _NextStacks)
+THEN
+ApplyStatus(_Char,"AS_LEADERSHIPINIT", -1.0, 1);
+NOT DB_AS_Leader_Temp(_Char, _Stacks);
+DB_AS_Leader_Temp(_Char, _NextStacks);
+
+IF
+DB_AS_Leader_Temp(_Char, _Stacks)
+AND
+_Stacks <= 0
+THEN
+NOT DB_AS_Leader_Temp(_Char, _Stacks);
+EXITSECTION
+
+ENDEXITSECTION

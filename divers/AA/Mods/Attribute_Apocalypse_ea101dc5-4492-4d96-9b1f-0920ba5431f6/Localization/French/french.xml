@@ -1,0 +1,141 @@
+<contentList>
+	<content contentuid="h18f97d5bg9a79g4917g809dgb0ac7a5ec302">Strength increases your damage and allows you to lift and carry heavier items.</content>
+	<content contentuid="h6a3639d1g294eg49cegb235gdbeb9defcf12">Finesse: [1][2]&lt;br&gt;</content>
+	<content contentuid="h75391bafg8744g4441g9b1egf52f182f96fc">Increases your movement speed by 0.3m and attack range by 0.5m per point. Also grants 2% accuracy per point. </content>
+	<content contentuid="h89894c92gd301g4292g8cf0gd8cd159d70d8">Finesse Lowered</content>
+	<content contentuid="h33d41553g12cag401eg8c71g640d3d654054">Resolve</content>
+	<content contentuid="h5f3f6bdagdcd6g4d7agbd92g2a56eac26fd1">Resolve: [1][2]&lt;br&gt;</content>
+	<content contentuid="h8e8351e9gc40ag4e4cgaebfgc810a27ffff8">Resolve</content>
+	<content contentuid="hbe8b28b6g4cfcg4bfag9214gadaae68895c7">Resolve Lowered</content>
+	<content contentuid="hfbc938ceg297fg4232ga11dg3fe44985b9f8">Resolve</content>
+	<content contentuid="h6b67efcagf943g43a1g959eg36f9ecc42e7e">Regenerates 1.5% Vitality each turn per point and increases maximum Willpower by 1 for every 5 points.</content>
+	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Range: [1]&lt;br&gt;Encouraged boosts target&apos;s Strength, Finesse, Resolve and Constitution stats by 1.</content>
+	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Range: [1]&lt;br&gt;Encouraged boosts target&apos;s Strength, Finesse, Resolve and Constitution stats by 1.</content>
+	<content contentuid="hea9cf9e9gb7f0g4cc0ga3d7gdd7516bc04bb">Base slots: [1]. Extra slots from Intellect: +[2].</content>
+	<content contentuid="hc66f272bgd297g41ffga78dgb9c17c739b6e">Intellect: [1][2]&lt;br&gt;</content>
+	<content contentuid="hbde985cfgb1c4g4bb6g9a61gbec72c9b4ed6">[1] gives you [2] extra points in your Intellect attribute.</content>
+	<content contentuid="hbadf03e5gcc3ag40adg973fg1da29a1412ed">Intellect</content>
+	<content contentuid="hb32b7463gd19dg4458gbb2cg5a52c32ad160">Intellect</content>
+	<content contentuid="h9b04e0bdg9e05g4d65gb834g7129a80a3d1f">Intellect</content>
+	<content contentuid="h97835495g425fg414dga4e6g93ba7e8d3d55">[Intellect Check]</content>
+	<content contentuid="h8d2cecb4g5be0g4fafg8b9bga446ca226c92">Intellect</content>
+	<content contentuid="h8565e761ge486g467aga4cfg17344874f1ab">Intellect</content>
+	<content contentuid="h659301cfg7377g4404g8b83g448758d621a3">[1] gives you +[2] Intellect.</content>
+	<content contentuid="h256557fbg1d49g45d9g8690gb86b39d2a135">&lt;font color="#5ac8b4"&gt;shadow damage&lt;/font&gt;</content>
+	<content contentuid="h5f74f24cg7845g4b13gb40ag72f88b4688d1">Grants you an additional skill slot per point, and gives an additional use of Cooldown Reset in combat per every 2 points.</content>
+	<content contentuid="hd19be63age056g49c7ga8d9g391180b153a0">Wisdom: [1][2]&lt;br&gt;</content>
+	<content contentuid="h0f1053bbg8ac4g461fg9179g6f28b9d091bd">Wisdom</content>
+	<content contentuid="h14f0a142ga4bdg4acbg8478g678fbf2aa815">Wisdom</content>
+	<content contentuid="h2b03f6f9gbf5dg4f51g9b98gf01243633ed3">Wisdom</content>
+	<content contentuid="h4ced8e7fg66f7g4a8bg9dc2g051ceb292826">Wisdom Lowered</content>
+	<content contentuid="h6d2cd8aeg4e09g4003ga57cg3fea3a0f5502">Extends your status effect durations on other characters by 10% and boosts your healing effects by 5% of Vitality restored per point. Also helps you perceive traps and hidden items.</content>
+	<content contentuid="h03d68693g35e7g4721ga1b3g9f9882f08b12">Evasion</content>
+	<content contentuid="h768669d0g02adg48f7g901eg83068a96bf19">[1] increases Dodging by 10% per point.</content>
+	<content contentuid="hdda30cb9g17adg433ag9071g867e97c09c3a">Knockback</content>
+	<content contentuid="h54f2ea13g97dbg4b86g9d13geeb81186faca">[1] causes your attacks during combat to knock enemies back by 2m per point. May be toggled at will.</content>
+	<content contentuid="ha74334b1gd56bg49c2g8738g44da4decd00a">Sourcery</content>
+	<content contentuid="h751cb9fcgcc15g485fg80dag96d013bb5fff">[1] grants one use of Source Replenishment per point, which restores 1 Source Point.</content>
+	<content contentuid="h256557fbg1d49g45d9g8690gb86b39d2a135">void damage</content>
+	<content contentuid="h3fb5cd5ag9ec8g4746g8f9cg03100b26bd3a">Lifesteal</content>
+	<content contentuid="h206ce4abg4f84g4b2dg934aga0d96a602f2c">[1] regenerates 15% of your damage dealt as Vitality per level.</content>
+	<content contentuid="h5241e098gbfa7g4091gb6eaga7a3a61683ce">[1] grants the wielder the power to wield wind and electricity through a variety of spells.&lt;br /&gt;&lt;br /&gt;&lt;font color="#786bcb"&gt;Level 6 Mastery Talent: Gale Force&lt;/font&gt;&lt;br /&gt;Shocking a Wet or Shocked target causes your next used skill to reset its cooldown.</content>
+	<content contentuid="he4bae728g9ec0g482cgaa22g21796d72983f">[1] grants access to destructive fire spells and various skills with beneficial effects.&lt;br /&gt;&lt;br /&gt;&lt;font color="#dd6123"&gt;Level 6 Mastery Talent: Funeral Pyre&lt;/font&gt;&lt;br /&gt;Gain +5% damage for every enemy currently suffering from a Necrofire effect applied by you. Stacks up to 5 times. Your Burning effects instead become Necrofire.</content>
+	<content contentuid="hc5c3b4a8g0f31g45deg873ag413f99d89910">[1] grants access to skills that manipulate the earth, bolster defenses and conjure poison.&lt;br /&gt;&lt;br /&gt;&lt;font color="#7c3e00"&gt;Level 6 Mastery Talent: Aftershock&lt;/font&gt;&lt;br /&gt;Your first skill each turn generates a seismic shock around the area of impact, damaging nearby enemies and knocking them down.</content>
+	<content contentuid="he52dcf72g081eg4f4fgb24fg692f73242b73">[1] grants the wielder power over life and death through black magic. &lt;br /&gt;&lt;br /&gt;&lt;font color="#b723c9"&gt;Level 6 Mastery Talent: Death Lord&lt;/font&gt;&lt;br /&gt;Enemies you reduce to 15% Vitality or below perish instantly.</content>
+	<content contentuid="hbac7843eg0419g4685ga4d6g5aab9302a18a">[1] grants access to water and ice-based magic, as well as a variety of healing spells.&lt;br /&gt;&lt;br /&gt;&lt;font color="#4695da"&gt;Level 6 Mastery Talent: Absolute Zero&lt;/font&gt;&lt;br /&gt;Your healing effects cleanse all Willpower-reducing status effects. Additionally, your Chilled, Wet and healing effects bypass and remove Necrofire, Burning and Warm.</content>
+	<content contentuid="h60a27d9cg35fag451cga251gbd01c84d033b">[1] grants access to high damage single-target melee-based attacks and various cunning tricks.&lt;br /&gt;&lt;br /&gt;&lt;font color="#629493"&gt;Level 6 Mastery Talent: Death-Dealer&lt;/font&gt;&lt;br /&gt;Your Critical Hits and Backstab Criticals reduce enemy resistances by 15% for 3 turns, stacking up to 3 times.</content>
+	<content contentuid="hae8649cfg3688g43b4gb137gdae29b32492e">[1] grants access to special close-combat skills and defensive utility.&lt;br /&gt;&lt;br /&gt;&lt;font color="#d42411"&gt;Level 6 Mastery Talent: Total Warfare&lt;/font&gt;&lt;br /&gt;Taking damage over 5% max Vitality with a melee weapon equipped triggers an almighty cleave that strikes all nearby foes.</content>
+	<content contentuid="hde85b3faga9aag4420g9089gc7e6eee20084">[1] grants access to a versatile array of shape-shifting skills.&lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Passive: Protean&lt;/font&gt;&lt;br /&gt;Each point invested in [1] grants an additional Attribute point.&lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Level 6 Mastery Talent: Evolution&lt;/font&gt;&lt;br /&gt;All transformations last forever, including elemental skin.</content>
+	<content contentuid="h8256bf13gb4cag4662gaafegb5724b210c92">[1] grants you +2 Initiative per point and grants Dodging, Movement and Resistance bonuses to all allies in a 13m radius.</content>
+	<content contentuid="h3a0e0946g2b6bg49d4g93c2g9e61ee4910cd">[1] grants access to bow-based weapon skills and a number of survival tricks.&lt;br /&gt;&lt;br /&gt;&lt;font color="#2ba500"&gt;Level 6 Mastery Talent: Eagle-Eye&lt;/font&gt;&lt;br /&gt;You never miss, gaining a permanent +999% accuracy. Your first basic attack per turn also refunds its Action Point cost.</content>
+	<content contentuid="h1d6340c5g7f22g4db4ga12agae3143d9a292">[1] grants access to fiendish Summoning spells and mysterious extraplanar magic.&lt;br /&gt;&lt;br /&gt;&lt;font color="#7f25d4"&gt;Level 6 Mastery Talent: Eldritch Ruler&lt;/font&gt;&lt;br /&gt;Increases Summon limit by 1.</content>
+	<content contentuid="h1bae56a9ga45fg431fg80bfg2afbef03c1d2">[1] restores 1 Willpower per point upon removal or expiry of a Willpower-draining effect.</content>
+	<content contentuid="hded47ed1gcc2eg4ce8g9277g5ee6b7204293">[1] reflects damage received to your attacker.</content>
+	<content contentuid="h8f2b04a3g7fe4g4eb9g9b29gdf28318d1c6e"></content>
+	<content contentuid="h557cbae3g3a24g4da6gae81g9bc11c7d7b20"></content>
+	<content contentuid="hc39ddc5dgd298g4fbcg97cfg1c721e8fa72f"></content>
+	<content contentuid="h414d6fb1g056fg4735ga293gac9f5ba97246"></content>
+	<content contentuid="hb5a9207dgd762g415cga078g375a99eef0bf"></content>
+	<content contentuid="h0a8b0b59g5da9g483fg86a3g59afce30dbb7"></content>
+	<content contentuid="h4e0465f1gc30ag4900ga58fg0bf8a48c4a37"></content>	
+	<content contentuid="ha4b72525g51d5g434cgbdf9g3a4ec57319aa"></content>	
+	<content contentuid="h9b41cb85g38c7g42ffgae55g66d1c0311ce7"></content>
+	<content contentuid="h39c71414ged12g45bdg9880ge0b13ec7206a"></content>
+	<content contentuid="h075cdd30g57e6g4738g9068ge71dff923b82"></content>
+	<content contentuid="h49b9da32gdb42g4772ga68dgd155a02fb246">+[1] point = +1 Slot, +0.5 Cooldown Reset uses.</content>
+	<content contentuid="hb924258ag2cf7g4c11gaf4eg8b7de303c197">Bonuses increase per level.</content>
+	<content contentuid="hf91f9ad6gd2e3g4fe1g8230g16aa8a97ee59"></content>
+	<content contentuid="hd5dd26e5gadc6g40d9ga0c6g2ae909cbc842"></content>
+	<content contentuid="h2cf88fbdg14d6g4d46g80afge5f6a1afe4ef"></content>
+	<content contentuid="h5241adddga9f5g42e3gb032g49bb4ca899b3"></content>
+	<content contentuid="h2443a42egd7abg4116g95b4g8036050c3bd3"></content>
+	<content contentuid="h9b56cad2g1e5fg40c0gaa03g1b6588b101b6"></content>
+	<content contentuid="hc4400964gcf4bg429cg882cg9e90ba8cf0ce"></content>
+	<content contentuid="h9b56cad2g1e5fg40c0gaa03g1b6588b101b6"></content>
+	<content contentuid="hcaa6c292g90ccg41a3g9186g6913a8af0656"></content>
+	<content contentuid="h46770f2agdbb8g47eag9e0eg65ac47bde918">With [1], you start every combat round with Maximum AP, but do not benefit from Willpower.</content>
+	<content contentuid="h5fb2ef9cg4258g446eg9522gd6be58f3ab23">Utility</content>
+	<content contentuid="h04248accg2cc5g4798g9d22g1de1e1846b54">Restore [1] equal to damage dealt.</content>
+	<content contentuid="h71b09f9fg285fg4532gab16g1c7640864141">Damage is based on your level and receives bonus from Strength.</content>
+	<content contentuid="ha4cfd852g52f1g4079g8919gd392ac8ade1a">Damage is based on your attack and receives a bonus from Strength.</content>
+	<content contentuid="hd8bbf9a7g2ecag4674g88bdg1610c1fb2b4a">Damage may be reduced by resistances.</content>
+	<content contentuid="hf9f740eegedb2g4ff7g94f3gd36736304474">The stats of the summons will depend on the caster's level and attributes.</content>
+	<content contentuid="h9a4b810cg2aa9g4e33gb8d6gcb8741d412f4">Huntsman skills advance archers and rangers. A high level of Finesse improves these skills&apos; reach, while Strength improves their damage. Read this book to learn this skill.</content>
+	<content contentuid="h00d71466g0fd5g4e76g8a3bgb69a2f203cd8">Warfare skills are skills for warriors. High Strength improves some of these skills. Read this book to learn this skill.</content>
+	<content contentuid="h8aa9cb44g404dg4d9dgba24g125291f2ca65">Conjure a personal elemental that matches the ground surface it&apos;s summoned onto. Your Incarnate can be buffed with Infusions. Once you hit Summoning ability level of 5, a colossal Incarnate Champion will answer your summons!</content>
+	<content contentuid="h34f3a0e4g7722g4d5fg97f8gd9b67a582c32">Black-Hearted</content>
+	<content contentuid="h493986c9g104eg4517g9c49g90cee026cd6c">[1] characters suffer damage from all healing effects - including potions - but gain 50% Lifesteal. They cannot benefit from Blessed. In combat, their Bless skill also becomes its opposite...</content>
+	<content contentuid="hd8c70f78g43eeg44c9g81f2gcf16132b1e21">Braveheart</content>
+	<content contentuid="hcb8f9837gdf0fg4a01ga7d6g5ed522b74189">Characters with Braveheart are considered a priority target by enemies in melee, but cannot flee from combat. In addition, attacks of opportunity provoke immediate retaliation from Braveheart.</content>
+	<content contentuid="h90812fdfg4f53g49afg8a97g42aefdeb508c">[1] gives all magical skills a critical chance equal to your critical chance score. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;This talent is added to all characters during combat by default.&lt;/font&gt;</content>
+	<content contentuid="ha323378egb5f6g451cg858dged752a3540ca">[1] gives you the ability to perform attacks of opportunity. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;This talent is added to all characters during combat by default.&lt;/font&gt;</content>
+	<content contentuid="h91a3adcbg43d8g4d85ga819gffe52d51a629">[1] permits your character [2] AP worth of free movement per turn. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;This talent is added to all characters during combat by default.&lt;/font&gt;</content>
+	<content contentuid="hf9a4b3bbgddefg469fg8170ga44988007e2a">[1] lets you heal from poison, but regular healing will damage you instead.</content>
+	<content contentuid="h53f1f4d5gf664g4cb3gac8dgb4fbd2651d51">With [1], the duration of damage statuses caused by you is extended by one turn. Burning, Poisoned, Bleeding, Necrofire, Acid, Suffocating, Entangled, Death Wish, Shackles of Pain and Ruptured Tendons are affected by this talent.</content>
+	<content contentuid="hdadd9969g6bd6g41dcgb943g0b297855c48d">Hydrosophist skills are Water-based magic spells. High Strength improves these skills' damage. Read this book to learn this skill.</content>	
+	<content contentuid="hce4fa62bgf76dg448bg965bg573fe490ace6">Next Level [1]: [1] Willpower restored.</content>
+	<content contentuid="hf9b07ea6gde9fg4848ga603g3548d25c0918">Level [1]: restores [1] Willpower.</content>
+	<content contentuid="hb034efe9g235bg44c9g9307g65a6d96c90e6">Next Level [1]: +[1]0% Dodging.</content>
+	<content contentuid="ha23ceefdg2365g476cg98d0g3df72fdafc92">Level [1]: +[1]0% Dodging.</content>
+	<content contentuid="h7c3e5ae5g9892g4475gb2b4g9c6545c0c3cf">Next Level [1]: +[1]*2m Knockback on attacks.</content>
+	<content contentuid="h2ea37099g75b8g4156gb3beg5b52ced2aa40">Level [1]: +[1]*2m Knockback on attacks.</content>
+	<content contentuid="hfb3f09bdg790cg47bfg9ab8gbdd57bee4f3d">Next Level [1]: Another 15% Lifesteal per level.</content>
+	<content contentuid="h8286b417g71e0g4acfg9616gea03ade99268">Level [1]: 15% Lifesteal per level.</content>
+	<content contentuid="h09954a1cgd9e9g47b7g8dd1g0157c1473eba">Next Level [1]: +[1] use.</content>
+	<content contentuid="h659d2e02gfca4g4e30g832fg7b2f039adfb7">Level [1]: +[1] use.</content>
+	<content contentuid="h9437181dg238eg47a5g8572g9b0331fa3c52">Next Level [1]: You gain +[2] Initiative, allies gain +[2]% Dodging and +[3]% to all resistances.</content>
+	<content contentuid="h609604e5g6a27g4154gaa8cg2255868e4dbc"></content>
+	<content contentuid="h1a9b3902gfdc5g4936gaa8ega6b2c22ebf43">Level [1]: You gain +[2] Initiative, allies gain +[2]% Dodging and +[3]% to all resistances.</content>
+	<content contentuid="hbaf5c48eg86eeg4947gb884g6508d4dbd1fe">[1] provides +[2] Max AP, +[3] Recovery AP, +[4]% Vitality and doubles invested points in attributes - up to a maximum of 20 - and combat abilities - up to a maximum of 6 - while you are adventuring solo or with at most one companion. This bonus is temporarily removed while there are more than two members in the current party.</content>
+	<content contentuid="he6e92b9bg7e24g4bf0g8bdag9d7a8c3a8c85">Minor Wisdom Potion</content>
+	<content contentuid="h180890f0g7493g4c58g97a7g0ddd791704bf">Foolishness Potion</content>
+	<content contentuid="h37b9af4fg7b02g44a5gb6c5gb48b6cfca0a4">Medium Wisdom Potion</content>
+	<content contentuid="h42974c6dg5d3eg4599g9682g6ab4232644a1">Large Wisdom Potion</content>
+	<content contentuid="h962896e1gd695g4a14g91e4g8653934ab1a9">Permanent Wisdom Potion</content>
+	<content contentuid="h2284147ag95d8g4630gab6ag5508205213af">Fan of Blades</content>
+	<content contentuid="h1f7301f2g8b29g460bgb0adgb9d31277db79">Fan of Blades Skillbook</content>
+	<content contentuid="h421ea4e4g65d1g46dagb94fg66bd0a375426">Graft Flesh</content>
+	<content contentuid="h724661bbg2390g433bgb147g34ccd534fc1f">Graft Flesh Scroll</content>
+	<content contentuid="h7caba7dfgfdddg4570g8aedgb76d86d48600">Graft Flesh Skillbook</content>
+	<content contentuid="hd8656341g2c58g4c5fg98f6g9cd654abc451">Graft Flesh</content>
+	<content contentuid="h6ee4fd05gf8e2g40bbg8d9eg3afd7ae17fa3">Elemental Weapons Skillbook</content>
+	<content contentuid="hbcab4a97g8038g4533g95edg11a3fb966b07">Willpower increased. Attacking enemies will become Chilled.</content>
+	<content contentuid="hd980a2a1gc33eg4810gafc8g07f55ba70245">Egalitarian</content>
+	<content contentuid="hfc8981a1g8f84g49c8ga8b4g17564a836c45">[1] equally distributes statuses you successfully receive to all other characters within 2m.</content>
+	<content contentuid="h81ca938fg5ef4g452agb093g1294e2f0718b">[1] absorbs blood surfaces to heal you and restores a small amount of Vitality when any nearby character dies.</content>
+	<content contentuid="hf3893f8fg20c5g4078ga83cgef8783082103">[1] refunds used skillbooks. Once per turn, using two skills of the same school in a row restores 1 Action Point.</content>
+	<content contentuid="h70fe2b7cg2c09g403ag9dd2g82b757e0d39c">Academic</content>
+	<content contentuid="hed23d18dg2775g49e7g909bgffcb93b19f78">Reptile Regrowth Scroll</content>
+	<content contentuid="h480eb6ebgfa27g4a1agb3dcgf68623cc3f2c">Reptile Regrowth Skillbook</content>
+	<content contentuid="hf3cd8067g36c0g4b48ga4dfg361f33579b43">[1] reduces the cost of using grenades and scrolls by [2] AP when your offhand is free. Additionally, your first equipment change per turn costs nothing.</content>
+	<content contentuid="h42b4c1e3g7c07g400dg8924g2807a024e6bb">[1] enables you to talk to animals. Beasts of the wild will occasionally come to your aid when you strike a foe.</content>
+	<content contentuid="h49426677g68f9g4467g947cg68fad9de4af8">[1] gives you +[2]% extra Vitality and +2% to all Resistances (including physical) for every point in Warfare.</content>	
+	<content contentuid="hc453e399ge1f5g41f1gaeabgcdd4de833c63">A character with [1] has an extra [2]% [3], but takes a [4]% penalty to [5]. Demon gives an additional +3% Fire Resistance each time a Pyrokinetic spell is cast, while Ice King gives immunity to Chilled, Frozen and Slipping.</content>
+	<content contentuid="h00f565c4g6178g424fgb031g41a2c12bf85d">[1] gives you [2]% Dodging while dual wielding. When missed by an attack in close range, you retaliate.</content>
+	<content contentuid="hb6ef5200g4cd4g48dag8006gac3dc3e8aa51">While sneaking, [1] increases attack damage by [2]% and causes attacks to inflict Atrophy. Also reduces cost of entering sneak mode by [3] AP.</content>
+	<content contentuid="h6f77e8f2g044eg44a8gacb8g64457aac8c8f">[1] increases the range of skills and scrolls by [2]m and boosts your damage by 10%. Enemy characters within 4 meters decrease your damage by 20%, however.</content>
+	<content contentuid="hfb6e0d6aga98fg4398g979agcc71ba1ec1e0">Arrow Efficiency</content>
+	<content contentuid="h6a4d6da0g29cfg44ecg8913g5a0a76cf1bbd">[1] gives you [2]% chance to recover a special arrow after shooting it, and a separate [2]% chance to immediately repeat a special arrow attack.</content>
+	<content contentuid="hd29d87cbga2f2g42eeg837cg910c0b0fa8d8">Grafted Flesh</content>
+	<content contentuid="h7c768edbgea39g47f7g8b0cg61fde6b89c28">Applies Slowed.</content>
+</contentList>

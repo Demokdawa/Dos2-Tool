@@ -1,0 +1,169 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// DEBUG
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_IfPlayer_ResetAttributes")
+AND
+CharacterIsInCombat(_Char,0)
+AND
+CharacterIsPlayer(_Char,1)
+THEN
+CharacterSetRelationFactionToIndivFaction("Neutral NPC",_Char,50);
+CharacterSetRelationIndivFactionToFaction(_Char,"Neutral NPC",50);
+
+/*
+IF
+SkillActivated(_Char,_Skill)
+THEN
+CharacterStatusText(_Char,_Skill);
+*/
+
+/*
+
+IF
+SkillCast(_Char,_Skill,_,_)
+THEN
+CharacterStatusText(_Char,_Skill);
+
+IF
+SkillCast(_Char,_Skill,_,_)
+AND
+CharacterHasSkill(_Char,"Shout_RecoverArmour",1)
+THEN
+CharacterStatusText(_Char,"I have it");
+
+IF
+CharacterLearnedSkill(_Char,"Shout_RecoverArmour")
+THEN
+CharacterStatusText(_Char,"Learned");
+*/
+
+IF
+TextEventSet("RETRIFAKE")
+THEN
+IterateParties("Retrifake");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"Retrifake")
+THEN
+ApplyStatus(_Char,"RETRIFAKE",100.0,1,_Char);
+
+IF
+TextEventSet("REPAIR")
+THEN
+IterateParties("Repairup");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"Repairup")
+THEN
+ApplyStatus(_Char,"REPAIRUP",100.0,1,_Char);
+
+IF
+TextEventSet("1hp")
+THEN
+IterateParties("1hp");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"1hp")
+THEN
+CharacterSetHitpointsPercentage(_Char,1.0);
+
+
+IF
+TextEventSet("doheal")
+THEN
+IterateParties("ASKALA_doheal");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"ASKALA_doheal")
+THEN
+ApplyStatus(_Char,"FIRST_AID",0.0,0,_Char);
+
+
+IF
+TextEventSet("dosust")
+THEN
+IterateParties("ASKALA_dosust");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"ASKALA_dosust")
+THEN
+ApplyStatus(_Char,"AA_SustenanceHeal",0.0,0,_Char);
+
+
+
+
+
+/*
+
+IF
+CharacterStatusApplied(_Char,_Any,(CHARACTERGUID)_Healer)
+AND
+QRY_IsHealingStatus(_Any)
+AND
+GetHealStat(_Any,_Str)
+AND
+CharacterGetAttribute(_Healer,"Wits",_Wits)
+AND
+_Wits > 0							// Prevent the 1 damage extravaganza against decaying/undead characters
+AND
+_Any != "AA_SustenanceHeal"			// Prevent infinite loop
+AND
+_Any != "AA_SustenanceHealNecro"	// Prevent infinite loop
+AND
+_Any != "AA_SustainSelfHeal"
+AND
+_Any != "HEAL"
+AND
+_Any != "LIFESTEAL"
+AND
+_Any != "REGENERATION"				// Prevent Regen getting cloned - this is the base status, which we should ignore, as opposed to the new overwriting status.
+AND
+_Any != "VAMPIRIC_TOUCH"			// Prevent healing off of spell lifesteal. It takes the fun out of it!
+AND
+_Any != "HOLY_WATER"				// Trust me, we do not want this healing.
+AND
+NOT DB_AS_Sustain_Temp_Blacklist(_Char,_Any)
+THEN
+CharacterCharacterSetEvent((CHARACTERGUID)_Char,(CHARACTERGUID)_Healer,"AS_KalaDoSetRegen");
+ProcObjectTimer((CHARACTERGUID)_Char,"AS_TriggerRegenBonusHeal",10);
+RemoveStatus(_Char,"AS_REGEN");
+DB_AS_Sustain_Temp_Blacklist(_Char,_Any);
+ProcObjectTimer(_Char,"AS_ResetTempSustainBL",80);
+//CharacterStatusText(_Char,"Got healing status");
+//CharacterStatusText(_Char,_Any);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ResetTempSustainBL")
+AND
+DB_AS_Sustain_Temp_Blacklist(_Char,_Any)
+THEN
+NOT DB_AS_Sustain_Temp_Blacklist(_Char,_Any);
+
+
+IF
+TextEventSet("EffectTest")
+THEN
+IterateParties("EffTest");
+
+IF
+StoryEvent(_Char,"EffTest")
+THEN
+PlayEffect(_Char,"Willpower1","root");
+
+IF
+TextEventSet("AS_TestLevelTo12")
+THEN
+IterateParties("AS_LevelTo12");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_LevelTo12")
+THEN
+CharacterLevelUpTo(_Char,12);
+*/
+EXITSECTION
+
+ENDEXITSECTION

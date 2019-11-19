@@ -1,0 +1,141 @@
+<contentList>
+	<content contentuid="h18f97d5bg9a79g4917g809dgb0ac7a5ec302">Fuerza incrementa tu daño y te permite llevar encima objetos más pesados.</content>
+	<content contentuid="h6a3639d1g294eg49cegb235gdbeb9defcf12">Pericia: [1][2]&lt;br&gt;</content>
+	<content contentuid="h75391bafg8744g4441g9b1egf52f182f96fc">Incrementa tu velocidad de movimiento en 0.3m y tu rango de ataque en 0.5m por punto. También obtienes 2% de precisión por punto. </content>
+	<content contentuid="h89894c92gd301g4292g8cf0gd8cd159d70d8">Pericia reducida</content>
+	<content contentuid="h33d41553g12cag401eg8c71g640d3d654054">Resolución</content>
+	<content contentuid="h5f3f6bdagdcd6g4d7agbd92g2a56eac26fd1">Resolución: [1][2]&lt;br&gt;</content>
+	<content contentuid="h8e8351e9gc40ag4e4cgaebfgc810a27ffff8">Resolución</content>
+	<content contentuid="hbe8b28b6g4cfcg4bfag9214gadaae68895c7">Resolución reducida</content>
+	<content contentuid="hfbc938ceg297fg4232ga11dg3fe44985b9f8">Resolución</content>
+	<content contentuid="h6b67efcagf943g43a1g959eg36f9ecc42e7e">Regenera 1.5% de Vitalidad cada turno por punto e incrementa el máximo de Fuerza de Voluntad en 1 por cada 5 puntos.</content>
+	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Rango: [1]&lt;br&gt;Alentado incrementa las estadísticas de&apos;s Fuerza, Pericia, Resolución y Constitución del objetivo en 1.</content>
+	<content contentuid="hb3b97aa6g8debg41a7g81a9g137f49b59f7f">Rango: [1]&lt;br&gt;Alentado incrementa las estadísticas de&apos;s Fuerza, Pericia, Resolución y Constitución del objetivo en 1.</content>
+	<content contentuid="hea9cf9e9gb7f0g4cc0ga3d7gdd7516bc04bb">Ranuras base: [1]. Ranuras extras de Intelecto: +[2].</content>
+	<content contentuid="hc66f272bgd297g41ffga78dgb9c17c739b6e">Intelecto: [1][2]&lt;br&gt;</content>
+	<content contentuid="hbde985cfgb1c4g4bb6g9a61gbec72c9b4ed6">[1] te otorga [2] puntos extra en tu atributo de Intelecto.</content>
+	<content contentuid="hbadf03e5gcc3ag40adg973fg1da29a1412ed">Intelecto</content>
+	<content contentuid="hb32b7463gd19dg4458gbb2cg5a52c32ad160">Intelecto</content>
+	<content contentuid="h9b04e0bdg9e05g4d65gb834g7129a80a3d1f">Intelecto</content>
+	<content contentuid="h97835495g425fg414dga4e6g93ba7e8d3d55">[Comprobar Intelecto]</content>
+	<content contentuid="h8d2cecb4g5be0g4fafg8b9bga446ca226c92">Intelecto</content>
+	<content contentuid="h8565e761ge486g467aga4cfg17344874f1ab">Intelecto</content>
+	<content contentuid="h659301cfg7377g4404g8b83g448758d621a3">[1] te otorga +[2] Intelecto.</content>
+	<content contentuid="h256557fbg1d49g45d9g8690gb86b39d2a135">&lt;font color="#5ac8b4"&gt;daño de sombra&lt;/font&gt;</content>
+	<content contentuid="h5f74f24cg7845g4b13gb40ag72f88b4688d1">Te otorga una ranura de habilidad adicional por punto, y te otorga un uso adicional de Reinicio de Enfriamiento en combate por cada 2 puntos.</content>
+	<content contentuid="hd19be63age056g49c7ga8d9g391180b153a0">Sabiduría: [1][2]&lt;br&gt;</content>
+	<content contentuid="h0f1053bbg8ac4g461fg9179g6f28b9d091bd">Sabiduría</content>
+	<content contentuid="h14f0a142ga4bdg4acbg8478g678fbf2aa815">Sabiduría</content>
+	<content contentuid="h2b03f6f9gbf5dg4f51g9b98gf01243633ed3">Sabiduría</content>
+	<content contentuid="h4ced8e7fg66f7g4a8bg9dc2g051ceb292826">Sabiduría reducida</content>
+	<content contentuid="h6d2cd8aeg4e09g4003ga57cg3fea3a0f5502">Cada punto en Sabiduría otorga +2% Probabilidad de impacto crítico e incrementa tus efectos de curación en 5% de Vitalidad restaurada. También te ayuda a percibir trampas y objetos ocultos.</content>
+	<content contentuid="h03d68693g35e7g4721ga1b3g9f9882f08b12">Evasión</content>
+	<content contentuid="h768669d0g02adg48f7g901eg83068a96bf19">[1] incrementa Esquiva en 10% por punto.</content>
+	<content contentuid="hdda30cb9g17adg433ag9071g867e97c09c3a">Empuje</content>
+	<content contentuid="h54f2ea13g97dbg4b86g9d13geeb81186faca">[1] causa que tus ataques durante el combate puedan empujar 2m a los enemigos por punto. Puede ser activado a voluntad.</content>
+	<content contentuid="ha74334b1gd56bg49c2g8738g44da4decd00a">Brujería</content>
+	<content contentuid="h751cb9fcgcc15g485fg80dag96d013bb5fff">[1] otorga un uso de Rellenar Fuente por punto, el cuál restaura 1 Punto de Fuente.</content>
+	<content contentuid="h256557fbg1d49g45d9g8690gb86b39d2a135">daño de vacío</content>
+	<content contentuid="h3fb5cd5ag9ec8g4746g8f9cg03100b26bd3a">Robo de vida</content>
+	<content contentuid="h206ce4abg4f84g4b2dg934aga0d96a602f2c">[1] Regenera 15% de tu daño inflingido como Vitalidad.</content>
+	<content contentuid="h5241e098gbfa7g4091gb6eaga7a3a61683ce">[1] otorga al portador el poder de empuñar viento y electricidad a través de una variedad de hechizos.&lt;br /&gt;&lt;br /&gt;&lt;font color="#786bcb"&gt;Talento de Maestría de Nivel 6: Fuerza de vendaval&lt;/font&gt;&lt;br /&gt;Electrificar a un objetivo Mojado o Conmocionado causa que la siguiente habilidad que uses reinicie su enfriamiento.</content>
+	<content contentuid="he4bae728g9ec0g482cgaa22g21796d72983f">[1] otorga acceso a hechizos destructivos de fuego y variedad de habilidades con efectos beneficiosos.&lt;br /&gt;&lt;br /&gt;&lt;font color="#dd6123"&gt;Talento de Maestría de Nivel 6: Pira funeraria&lt;/font&gt;&lt;br /&gt;Gana +5% de daño cada vez que un enemigo sufra de un efecto de Necrofuego aplicado por tí. Se acumula hasta 5 veces. Tus efectos de fuego se convierten en Necrofuego en su lugar.</content>
+	<content contentuid="hc5c3b4a8g0f31g45deg873ag413f99d89910">[1] otorga acceso a hechizos que manipulan la tierra, refuerzan defensas y conjuran veneno.&lt;br /&gt;&lt;br /&gt;&lt;font color="#7c3e00"&gt;Talento de Maestría de Nivel 6: Temblor&lt;/font&gt;&lt;br /&gt;Tu primer hechizo cada turno genera un choque sísmico alrededor de la zona de impacto, dañando enemigos cercanos y derribándolos.</content>
+	<content contentuid="he52dcf72g081eg4f4fgb24fg692f73242b73">[1] otorga al portador poder sobre la vida y la muerte a través de magia negra. &lt;br /&gt;&lt;br /&gt;&lt;font color="#b723c9"&gt;Talento de Maestría de Nivel de 6: Señor de la Muerte&lt;/font&gt;&lt;br /&gt;Los enemigos que dañes por debajo del 15% de Vitalidad perecerán al instante.</content>
+	<content contentuid="hbac7843eg0419g4685ga4d6g5aab9302a18a">[1] otorga acceso a magia basada en agua y hielo, como también una variedad de hechizos de curación.&lt;br /&gt;&lt;br /&gt;&lt;font color="#4695da"&gt;Talento de Maestría de Nivel 6&lt;/font&gt;&lt;br /&gt;Tus efectos de curación eliminan todos los efectos de estado que bajen tu Fuerza de Voluntad. Adicionalmente, tus efectos de Enfriado, Mojado y curación sobrepasan y eliminan los efectos de Necrofuego, Quemado y Caliente.</content>
+	<content contentuid="h60a27d9cg35fag451cga251gbd01c84d033b">[1] otorga acceso a ataques a corta distancia de gran daño a un sólo objetivo y una variedad de trucos astutos.&lt;br /&gt;&lt;br /&gt;&lt;font color="#629493"&gt;Talento de Maestría de Nivel 6: Traficante de la Muerte&lt;/font&gt;&lt;br /&gt;Tus golpes críticos y puñaladas críticas reducen las resistencias de los enemigos en un 15% por 3 turnos, que se acumulan hasta 3 veces.</content>
+	<content contentuid="hae8649cfg3688g43b4gb137gdae29b32492e">[1] otorga acceso a hechizos especiales de combate cuerpo a cuerpo y utilidad defensiva.&lt;br /&gt;&lt;br /&gt;&lt;font color="#d42411"&gt;Talento de Maestría de Nivel 6: Contienda total&lt;/font&gt;&lt;br /&gt;Recibiendo daño sobre el 5% de tu vitalidad con un arma cuerpo a cuerpo equipada activa un corte todopoderoso que golpea a todos los enemigos cercanos. No se beneficia de los efectos de Robo de vida.</content>
+	<content contentuid="hde85b3faga9aag4420g9089gc7e6eee20084">[1] otorga acceso a una versátil colección de hechizos cambiaformas.&lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Pasivo: Proteico&lt;/font&gt;&lt;br /&gt;Cada punto invertido en [1] otorga un punto de Atributo adicional.&lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Talento de Maestría de Nivel 6: Evolución&lt;/font&gt;&lt;br /&gt;Todas las transformaciones son permanentes, incluyendo Piel elemental.</content>
+	<content contentuid="h8256bf13gb4cag4662gaafegb5724b210c92">[1] te otorga +2 de Iniciativa por punto y otorga Esquiva, Movimiento y bonos de Resistencia a todos los aliados en un radio de 13m.</content>
+	<content contentuid="h3a0e0946g2b6bg49d4g93c2g9e61ee4910cd">[1] otorga acceso a hechizos de armas basadas en arcos y un número de trucos de supervivencia.&lt;br /&gt;&lt;br /&gt;&lt;font color="#2ba500"&gt;Talento de Maestría Nivel 6: Ojo de águila&lt;/font&gt;&lt;br /&gt;Nunca fallas, ganando de manera permanente +999% de precisión. Tu primer ataque básico por turno devuelve su coste de Puntos de Acción.</content>
+	<content contentuid="h1d6340c5g7f22g4db4ga12agae3143d9a292">[1] otorga acceso a diabólicos hechizos de Invocación y una misteriosa magia extraplanar.&lt;br /&gt;&lt;br /&gt;&lt;font color="#7f25d4"&gt;Talento de Maestría de Nivel 6: Gobernante Eldritch&lt;/font&gt;&lt;br /&gt;Incrementa el límite de invocaciones en 1.</content>
+	<content contentuid="h1bae56a9ga45fg431fg80bfg2afbef03c1d2">[1] restaura 1 de Fuerza de Voluntad por punto hasta que se elimine o expire un efecto de drenado de Fuerza de Voluntad.</content>
+	<content contentuid="hded47ed1gcc2eg4ce8g9277g5ee6b7204293">[1] refleja el daño recibido a tu atacante.</content>
+	<content contentuid="h8f2b04a3g7fe4g4eb9g9b29gdf28318d1c6e"></content>
+	<content contentuid="h557cbae3g3a24g4da6gae81g9bc11c7d7b20"></content>
+	<content contentuid="hc39ddc5dgd298g4fbcg97cfg1c721e8fa72f"></content>
+	<content contentuid="h414d6fb1g056fg4735ga293gac9f5ba97246"></content>
+	<content contentuid="hb5a9207dgd762g415cga078g375a99eef0bf"></content>
+	<content contentuid="h0a8b0b59g5da9g483fg86a3g59afce30dbb7"></content>
+	<content contentuid="h4e0465f1gc30ag4900ga58fg0bf8a48c4a37"></content>	
+	<content contentuid="ha4b72525g51d5g434cgbdf9g3a4ec57319aa"></content>	
+	<content contentuid="h9b41cb85g38c7g42ffgae55g66d1c0311ce7"></content>
+	<content contentuid="h39c71414ged12g45bdg9880ge0b13ec7206a"></content>
+	<content contentuid="h075cdd30g57e6g4738g9068ge71dff923b82"></content>
+	<content contentuid="h49b9da32gdb42g4772ga68dgd155a02fb246">+[1] punto = +1 ranura, +0.5 usos de Reinicio de Enfriamiento.</content>
+	<content contentuid="hb924258ag2cf7g4c11gaf4eg8b7de303c197">Los bonos incrementan por nivel.</content>
+	<content contentuid="hf91f9ad6gd2e3g4fe1g8230g16aa8a97ee59"></content>
+	<content contentuid="hd5dd26e5gadc6g40d9ga0c6g2ae909cbc842"></content>
+	<content contentuid="h2cf88fbdg14d6g4d46g80afge5f6a1afe4ef"></content>
+	<content contentuid="h5241adddga9f5g42e3gb032g49bb4ca899b3"></content>
+	<content contentuid="h2443a42egd7abg4116g95b4g8036050c3bd3"></content>
+	<content contentuid="h9b56cad2g1e5fg40c0gaa03g1b6588b101b6"></content>
+	<content contentuid="hc4400964gcf4bg429cg882cg9e90ba8cf0ce"></content>
+	<content contentuid="h9b56cad2g1e5fg40c0gaa03g1b6588b101b6"></content>
+	<content contentuid="hcaa6c292g90ccg41a3g9186g6913a8af0656"></content>
+	<content contentuid="h46770f2agdbb8g47eag9e0eg65ac47bde918">Con [1], empiezas el combate cada ronda con el máximo de PA, pero no recibes beneficio de la Fuerza de Voluntad.</content>
+	<content contentuid="h5fb2ef9cg4258g446eg9522gd6be58f3ab23">Utilidad</content>
+	<content contentuid="h04248accg2cc5g4798g9d22g1de1e1846b54">Restaura [1] equivalente al daño realizado.</content>
+	<content contentuid="h71b09f9fg285fg4532gab16g1c7640864141">El daño se basa en tu nivel y recibe bonos de Fuerza.</content>
+	<content contentuid="ha4cfd852g52f1g4079g8919gd392ac8ade1a">El daño se basa en tu ataque y recibe bonos de Fuerza.</content>
+	<content contentuid="hd8bbf9a7g2ecag4674g88bdg1610c1fb2b4a">El daño puede ser reducido por las resistencias.</content>
+	<content contentuid="hf9f740eegedb2g4ff7g94f3gd36736304474">Las estadísticas de las invocaciones dependerán del nivel y atributos del invocador.</content>
+	<content contentuid="h9a4b810cg2aa9g4e33gb8d6gcb8741d412f4">Las habilidades de Cazador avanza a los arqueros y tiradores. Un nivel alto de Pericia mejorará el alcance de las&apos; habilidades, mientras que la Fuerza mejorará su daño. Lee este libro para aprender esta habilidad.</content>
+	<content contentuid="h00d71466g0fd5g4e76g8a3bgb69a2f203cd8">Las habilidades de Contienda son para guerreros. Fuerza alta mejora alguna de estas habilidades. Lee este libro para aprender esta habilidad.</content>
+	<content contentuid="h8aa9cb44g404dg4d9dgba24g125291f2ca65">Conjuta un elemental personal que coincide con la superficie de tierra en la queConjure a personal elemental that matches the ground surface it&apos;es invocado. Tu Reencarnado puede ser mejorado con Infusiones. Cuando tu habilidad de Invocación llega a nivel 6, un Reencarnado Colosal atenderá a tus invocaciones.</content>
+	<content contentuid="h34f3a0e4g7722g4d5fg97f8gd9b67a582c32">De corazón negro</content>
+	<content contentuid="h493986c9g104eg4517g9c49g90cee026cd6c">Los personajes [1] sufren daño de todos los efectos de curación - incluyendo pociones - poero ganan 50% de Robo de vida. No se pueden beneficiar de Bendecir. En combate, Bendecir se convierte en su opuesto...</content>
+	<content contentuid="hd8c70f78g43eeg44c9g81f2gcf16132b1e21">Corazón valiente</content>
+	<content contentuid="hcb8f9837gdf0fg4a01ga7d6g5ed522b74189">Los personajes con un Corazón valiente son considerados un objetivo prioritario por los objetivos en rango cuerpo a cuerpo, pero no pueden escapar del combate. Adicionalmente, los ataques de oportunidad provocan represalias inmediatas de Corazón valiente.</content>
+	<content contentuid="h90812fdfg4f53g49afg8a97g42aefdeb508c">[1] otorga a todas los hechizos mágicos una probabilidad de crítico equivalente a tu cantidad de probabilidad de crítico. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Este talento es añadido automáticamente a todos los personajes al iniciar el combate.&lt;/font&gt;</content>
+	<content contentuid="ha323378egb5f6g451cg858dged752a3540ca">[1] te otorga la habilidad de realizar ataques de oportunidad. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Este talento es añadido automáticamente a todos los personajes al iniciar el combate.&lt;/font&gt;</content>
+	<content contentuid="h91a3adcbg43d8g4d85ga819gffe52d51a629">[1] permite a tu personaje permits your character [2] PA de movimiento gratuito por turno. &lt;br /&gt;&lt;br /&gt;&lt;font color="#f7ba14"&gt;Este talento es añadido automáticamente a todos los personajes al iniciar el combate..&lt;/font&gt;</content>
+	<content contentuid="hf9a4b3bbgddefg469fg8170ga44988007e2a">[1] te permite curarte con veneno, pero la curación regular te hará daño en su lugar.</content>
+	<content contentuid="h53f1f4d5gf664g4cb3gac8dgb4fbd2651d51">Con [1], la duración de los estados de daño causados por tí se extienden en 1 turno. Quemado, Envenenado, Hemorragia, Necrofuego, Ácido, Sofocado, Enredado, Deseo de muerte, Cadenas de Dolor y Tendones rotos son afectados por este talento.</content>
+	<content contentuid="hdadd9969g6bd6g41dcgb943g0b297855c48d">Las habilidades de Hidrosofista son hechizos mágicos basados en agua. Fuerza alta incrementará el daño de estas habilidades. Lee este libro para aprender esta habilidad.</content>	
+	<content contentuid="hce4fa62bgf76dg448bg965bg573fe490ace6">Siguiente nivel [1]: [1] Fuerza de Voluntad restaurada.</content>
+	<content contentuid="hf9b07ea6gde9fg4848ga603g3548d25c0918">Nivel [1]: restaura [1] Fuerza de Voluntad.</content>
+	<content contentuid="hb034efe9g235bg44c9g9307g65a6d96c90e6">Siguiente nivel [1]: +[1]0% Esquiva.</content>
+	<content contentuid="ha23ceefdg2365g476cg98d0g3df72fdafc92">Nivel [1]: +[1]0% Esquiva.</content>
+	<content contentuid="h7c3e5ae5g9892g4475gb2b4g9c6545c0c3cf">Siguiente nivel [1]: +[1]*2m Empuje en ataques.</content>
+	<content contentuid="h2ea37099g75b8g4156gb3beg5b52ced2aa40">Nivel [1]: +[1]*2m Empuje en ataques.</content>
+	<content contentuid="hfb3f09bdg790cg47bfg9ab8gbdd57bee4f3d">Siguiente nivel [1]: Otro 15% Robo de vida por nivel.</content>
+	<content contentuid="h8286b417g71e0g4acfg9616gea03ade99268">Nivel [1]: 15% Robo de vida por nivel.</content>
+	<content contentuid="h09954a1cgd9e9g47b7g8dd1g0157c1473eba">Siguiente nivel [1]: +[1] uso.</content>
+	<content contentuid="h659d2e02gfca4g4e30g832fg7b2f039adfb7">Nivel [1]: +[1] uso.</content>
+	<content contentuid="h9437181dg238eg47a5g8572g9b0331fa3c52">Siguiente nivel [1]: Ganas +[2] Iniciativa, los aliados ganan +[2]% Esquiva y +[3]% a todas sus resistencias.</content>
+	<content contentuid="h609604e5g6a27g4154gaa8cg2255868e4dbc"></content>
+	<content contentuid="h1a9b3902gfdc5g4936gaa8ega6b2c22ebf43">Nivel [1]: Ganas +[2] Iniciativa, los aliados ganan +[2]% Esquiva y +[3]% a todas sus resistencias.</content>
+	<content contentuid="hbaf5c48eg86eeg4947gb884g6508d4dbd1fe">[1] otorga +[2] Max PA, +[3] Recuperación de PA, +[4]% Vitalidad y dobla los puntos invertidos en Atributos - hasta un máximo de 20 - y las Habilidades de Combate - hasta un máximo de 6 - cuando estás de aventura en solitario o máximo con un compañero. Este bonus es removido temporalmente cuando hay más de 2 miembros de equipo.</content>
+	<content contentuid="he6e92b9bg7e24g4bf0g8bdag9d7a8c3a8c85">Poción de Sabiduría menor</content>
+	<content contentuid="h180890f0g7493g4c58g97a7g0ddd791704bf">Poción de estupidez</content>
+	<content contentuid="h37b9af4fg7b02g44a5gb6c5gb48b6cfca0a4">Poción de Sabiduría mediana</content>
+	<content contentuid="h42974c6dg5d3eg4599g9682g6ab4232644a1">Poción de Sabiduría grande</content>
+	<content contentuid="h962896e1gd695g4a14g91e4g8653934ab1a9">Poción de Sabiduría permanente</content>
+	<content contentuid="h2284147ag95d8g4630gab6ag5508205213af">Abanico de espadas</content>
+	<content contentuid="h1f7301f2g8b29g460bgb0adgb9d31277db79">Libro de habilidades: Abanico de espadas</content>
+	<content contentuid="h421ea4e4g65d1g46dagb94fg66bd0a375426">Carne de injerto</content>
+	<content contentuid="h724661bbg2390g433bgb147g34ccd534fc1f">Pergamino: Carne de injerto</content>
+	<content contentuid="h7caba7dfgfdddg4570g8aedgb76d86d48600">Libro de habilidades: Carne de injerto</content>
+	<content contentuid="hd8656341g2c58g4c5fg98f6g9cd654abc451">Carne de injerto</content>
+	<content contentuid="h6ee4fd05gf8e2g40bbg8d9eg3afd7ae17fa3">Libro de habilidades: Armas elementales</content>
+	<content contentuid="hbcab4a97g8038g4533g95edg11a3fb966b07">Fuerza de Voluntad incrementada. Los enemigos atacados estarán Enfriados.</content>
+	<content contentuid="hd980a2a1gc33eg4810gafc8g07f55ba70245">Igualitario</content>
+	<content contentuid="hfc8981a1g8f84g49c8ga8b4g17564a836c45">[1] distribuye de forma equivalente los estados que recibes a todos los personajes en 3m.</content>
+	<content contentuid="h81ca938fg5ef4g452agb093g1294e2f0718b">[1] absorbe superficies de sangre para curarte y recupera una pequeña cantidad de Vitalidad cuando un personaje cercano muera.</content>
+	<content contentuid="hf3893f8fg20c5g4078ga83cgef8783082103">[1] devuelve los libros de hechizos usados. En combate, usando tres hechizos de la misma escuela seguidos recupera 1 Punto de Acción.</content>
+	<content contentuid="h70fe2b7cg2c09g403ag9dd2g82b757e0d39c">Académico</content>
+	<content contentuid="hed23d18dg2775g49e7g909bgffcb93b19f78">Pergamino: Recrecimiento Reptil</content>
+	<content contentuid="h480eb6ebgfa27g4a1agb3dcgf68623cc3f2c">Libro de habilidades: Recrecimiento Reptil</content>
+	<content contentuid="hf3cd8067g36c0g4b48ga4dfg361f33579b43">[1] reduce el coste de usar granadas y pergaminos en [2] PA cuando tu mano torpe está libre. Adicionalmente, tu primer cambio de equipo por turno no cuesta nada.</content>
+	<content contentuid="h42b4c1e3g7c07g400dg8924g2807a024e6bb">[1] te permite hablar con animales. Las bestias de la naturaleza de manera ocasional vendrán a tu ayuda cuando golpees a un enemigo.</content>
+	<content contentuid="h49426677g68f9g4467g947cg68fad9de4af8">[1] te otorga +[2]% de Vitalidad extra y +2% a todas las resistencias (incluyendo física) por cada punto en Contienda.</content>	
+	<content contentuid="hc453e399ge1f5g41f1gaeabgcdd4de833c63">Un personaje con [1] tiene un extra [2]% [3], pero recibe una penalización de [4]% a [5]. Demonio otorga adicionalmente un +3% de Resistencia al fuego cada vez que un hechizo de Piroquinético es usado, mientras que Rey de hielo otorga inmunidad a Enfriado, Congelado y Resbalar.</content>
+	<content contentuid="h00f565c4g6178g424fgb031g41a2c12bf85d">[1] te otorga [2]% Esquiva mientras lleves dos armas. Cuando te fallan un ataque, tomas represalias.</content>
+	<content contentuid="hb6ef5200g4cd4g48dag8006gac3dc3e8aa51">Cuando vas en sigilo, [1] incrementa el daño de ataque en [2]% y hace que tus ataques causen Atrofiado. También reduce el coste de sigilo en [3] PA.</content>
+	<content contentuid="h6f77e8f2g044eg44a8gacb8g64457aac8c8f">[1] incrementa el rango de las habilidades y hechizos en [2]m y aumenta tu daño un 20%. Los personajes enemigos en 4 metros reducen tu daño un 40%, sin embargo.</content>
+	<content contentuid="hfb6e0d6aga98fg4398g979agcc71ba1ec1e0">Eficiencia de flechas</content>
+	<content contentuid="h6a4d6da0g29cfg44ecg8913g5a0a76cf1bbd">[1] te otorga [2]% de probabilidad para recuperar flechas especiales tras dispararlas, y de manera separada un [2]% de probabilidad para repetir un disparo de flecha especial.</content>
+	<content contentuid="hd29d87cbga2f2g42eeg837cg910c0b0fa8d8">Carne de injerto</content>
+	<content contentuid="h7c768edbgea39g47f7g8b0cg61fde6b89c28">Aplica Ralentizado.</content>
+</contentList>

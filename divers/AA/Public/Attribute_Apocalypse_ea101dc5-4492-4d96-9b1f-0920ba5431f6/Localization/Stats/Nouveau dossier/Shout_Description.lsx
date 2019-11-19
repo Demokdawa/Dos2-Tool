@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="4" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Cause your next skill to instantly come off cooldown." type="28" handle="hae127741g16a5g46c0ga710ga0183fede9cb" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_ResetAp_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Generate 1 Source point." type="28" handle="h8cc4dc87gbbadg471agb69cg37ccaf05e8c6" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_SourceAp_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Remove the following negative statuses from yourself: Slowed, Crippled, Chilled, Shocked, Silenced, Suffocating, Disarmed, Diseased, Infectious Diseased, Shackles of Pain." type="28" handle="h2c85fddeg6473g441bg9800g8da9a9ecc457" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_BreakTheShackles_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Gain Safeguard Aura, sharply reducing damage taken by nearby allies." type="28" handle="h4d3a63d9gb946g4f42g9916gbb3e28ea085a" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_RecoverArmour_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Gain 2 Constitution and another 2 Constitution for every corpse in the area around you." type="28" handle="h25fe4dd2g5415g4729g9c42g96bb294e99c3" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_BoneCage_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Gain 2 Constitution and another 2 Constitution for every corpse in the area around you." type="28" handle="h6c1aa8f0gf39ag4a3fg9d3dg112362c478b1" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_DebugBoneCage_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Regenerate nearby non-Undead allies' Vitality. Undead and Decaying enemies receive damage." type="28" handle="hb72429d7g18c7g4286g803fge796cf398c89" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_FrostAura_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal damage based on your current Vitality ([1]) in a wave of metal spikes to everyone in the area, including yourself." type="28" handle="h883f8a32gf34eg4dddgadc4g418c9f12cf2f" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_ReactiveArmor_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Imbue nearby allies' with life, increasing their Vitality by 15% for 2 turns." type="28" handle="h525d3fb7gde57g4033g845ag211b729faced" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_MendMetal_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Gain 2 Action Points immediately, but lose 2 Action Points next turn. Any Action Points over your maximum are lost and every successive use during a single turn decreases the amount gained by 1." type="28" handle="h18a113d5g203eg46d9gb63eg46a878b088e1" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_Adrenaline_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Projectiles that hit you or explode in a 2m radius around you are reflected back at the caster. This does not prevent original projectile effects." type="28" handle="hed641e3bgaa56g430fgaf16g990488839e9a" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_DeflectiveBarrier_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Nearby allies redirect [1]% of received damage to you." type="28" handle="h8f37e2c6g4bbbg4654gb01eg23b80e4728be" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_GuardianAngel_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Spider legs burst from your back. You can create web surfaces in an area to entangle other characters. You will become Hasted rather than Enwebbed when walking across webs. Incompatible with Wings." type="28" handle="h00582294g996bg4649gac28g220681f4591e" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_SpiderLegs_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Flaming Tongues protect you, immediately attacking approaching enemies and burning those who simply linger too close." type="28" handle="heeca20d1gfd27g43e3ga2d1g6ed61efa93fc" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_FlamingTongues_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="An aura that adds [1] to all weapon attacks for nearby allies." type="28" handle="h91f8871fg2dbbg4dedg956eg0a571b90f85a" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_FireBrand_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Set Chilled on enemies around you and deal [1] damage. Freeze all susceptible surfaces." type="28" handle="he0718ad6g8c00g48c5gbbf3g055cc383a3e6" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_GlobalCooling_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Sets off a chain reaction that causes ice areas to explode into water puddles, dealing water damage and setting Chilled." type="28" handle="h0146a705g9f42g4cacg80c8g74787bdc35e1" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_IceBreaker_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Poison erupts from the caster in a circular wave, dealing [1] and forming poison clouds. Gives immunity to poison and earth damage for one turn." type="28" handle="h29480663ga1eeg49b6g81d0gc54f534f9dee" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_PoisonWave_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Remove poison surfaces and clouds. Gain poison damage bonus to all weapon attacks dependent upon the size of poison area cleared." type="28" handle="h49d90c6bg39a2g4b62g91bbg2bdb2515d2c4" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_SiphonPoison_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Grants you the power to blend in with any environment as if Invisible." type="28" handle="h5403d0f9g155ag4a37gb87bga55d574fb204" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_ChameleonSkin_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Consume Frozen surfaces around you and convert them to Vitality over 2 turns. Cleanses and grants immunity to Decaying, Diseased and Frozen." type="28" handle="h34857e90g53deg41fega1f1g12abb914ca1c" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_Cryotherapy_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Creates a bubble of clean air around your head, allowing you to ignore effects of cloud surfaces. Provides immunity to Suffocating and Silenced." type="28" handle="ha1c8c09eg0037g438fgb209gc5306cb83d5f" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_BreathingBubble_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="The earth itself laments your plight, crying curative tears which heal all allies that move close to you for aid." type="28" handle="h2f659d99g6dd4g4c9egbf29g12b8b747e1b8" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_HealingTears_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Snakes grow out of your head, giving you a Petrifying aura and the Petrifying Visage skill. Incompatible with Bull Horns." type="28" handle="hf8a9d94eg96d8g4b87g90a7g82e1ad239054" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_MedusaHead_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Consume Oil surfaces around you and convert them to Vitality over 2 turns. Cleanses and grants immunity to Slowed, Shocked and Frozen." type="28" handle="h72d41b33g0d58g49bcga864g94be68b436c0" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OilyCarapace_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Create a smoke cloud around you, hiding you from sight." type="28" handle="hb404941dg9aeeg4a17g9f52ga51c93b6b7fa" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_SmokeCover_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Receive Sparkstriker status. This causes your melee attacks to create a Spark projectile that bounces off the initial target to hit the closest enemy." type="28" handle="h0f224621g1203g44bfgb45eg13cc9d1b60a9" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_SparkingSwings_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Explode, creating fire surfaces and dealing [1] in a large area around you (except areas blocked by obstacles)." type="28" handle="he0094d0bg0fa7g4135gbe79g820b7f57c61b" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_Supernova_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Taunt the enemies around you. Provoke and tease them so that they want to attack you." type="28" handle="hc651d24eg08fcg4394gb5f0g85f196cfa45d" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_Taunt_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Coat your weapons with poison, adding [1] to your weapon skills and attacks." type="28" handle="hb61f91c2gfbf4g47edg913dgce6861602246" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_VenomCoating_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Sprout temporary wings to fly when you move, allowing you to ignore ground surfaces. Incompatible with Spider Legs." type="28" handle="h3bdda1f4g875ag4b2agb45bgef1374a5fb45" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_Wings_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Perform a whirlwind attack, hitting enemies around you for [1]." type="28" handle="h4906dd15g3063g445fg94c3g11c2c82dfea9" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_Whirlwind_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Link your Vitality to all nearby allies, healing them when you receive healing." type="28" handle="hbf690765g9ea7g489dg9484ga714e85d49af" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_Heart_Bond_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Set Vampiric Hunger on every ally around you, adding [1]% Life Steal. Life Steal heals you in proportion to the damage you deal to Vitality." type="28" handle="h6581d935g1896g49f2gaf3ag37c7373f7033" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_VampiricHungerAura_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Gain 1 Action Point immediately and a [2]% damage boost for 2 turns at the cost of [1]% Vitality. Any Action Points over your maximum are lost." type="28" handle="hd604106eg1196g4de9g9f73g55638f6f82d1" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_FleshSacrifice_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="You get immunity to fire, but lowered resistance to water. You bleed fire." type="28" handle="he5ebfc51g40a0g42beg979dg0f05a51de671" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_FlamingSkin_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="You get immunity to water, but lowered resistance to fire. You bleed ice." type="28" handle="h1a5a2703ge2ccg4923g8f08gf794420bb6df" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_IceSkin_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="You get immunity to poison and earth, but lowered resistance to air. You bleed poison." type="28" handle="h12002e9ege879g4b0eg8cf0g68ad31011055" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_PoisonousSkin_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="You get immunity to electricity, but lowered resistance to poison and earth damage. You bleed electrified water." type="28" handle="h22ce23a5g7fa2g4fb9ga3d8g20c3b235e224" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_JellyfishSkin_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Guide your allies with blustering winds, allowing them to move around you without restraint." type="28" handle="h278e3d50g04d2g4c55gb1b1g83516d78d6bf" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_FavourableWind_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Regenerate lost limbs, slowly replenishing Vitality. Removes Atrophy, Crippled and Decaying." type="28" handle="hd71876c2g4aeag4c95g890eg05b93b923dc0" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_SteelSkin_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Disable Knockback." type="28" handle="h0641f975g4340g43fcgac57g33be188bf00c" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_KnockbackOff_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Enable Knockback." type="28" handle="h9180f4e2g94d1g4ac6g805bg8dc82e9cc279" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_KnockbackOn_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Heal yourself and allies around you. Create a water puddle beneath every target. Remove Necrofire, Burning, Diseased, Decaying, Poisoned, Bleeding, Suffocation and Acid." type="28" handle="h879fed6egdd03g4452g9dc7g7595aeb3e431" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_MassCleanseWounds_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal [1] to all nearby enemies and knock them flying back." type="28" handle="h92482788gba9eg48cegbfbcg96e2502bd04f" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_Disperse_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Perform a whirlwind attack, hitting enemies around you for [1]." type="28" handle="h3454b4a0g98c6g410cg803bgec6ba2eb0f6c" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_AlmightyCleave_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal [1] to enemies around you; then creates cursed static clouds on the edges of the spell." type="28" handle="he0f1059dg8393g438eg84e1g2419992aeefb" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_ElectricFence_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Spread debilitating plague to all nearby enemies, drastically reducing their stats." type="28" handle="he26cb6caged4ag471bgb2a2g39ccfe7f434d" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_SpreadingPlague_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal [1] damage in a 5m radius and gain an aura that sets Silence and Suffocating on enemies." type="28" handle="ha1c7b755g19b2g4eacg8b3bgdc95e24a3b6d" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_VacuumAura_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Disable Pet Pal's creature summons, which are currently enabled." type="28" handle="h27668268g9a5dg4e50ga210g77f9388b9930" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_PetpalOff_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Enable Pet Pal's creature summons, which are currently disabled." type="28" handle="hf32bf13fg260eg4222ga820ge11dafb22ef8" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_PetpalOn_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Taunt the enemies around you. Provoke and tease them so that they want to attack you." type="28" handle="hfba99b16gaed3g48dcg8a37gc9f044460c53" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_AS_MorningPerson_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

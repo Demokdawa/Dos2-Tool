@@ -1,0 +1,900 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_AS_Willpower("AS_WP1");
+DB_AS_Willpower("AS_WP2");
+DB_AS_Willpower("AS_WP3");
+DB_AS_Willpower("AS_WP4");
+DB_AS_Willpower("AS_WP5");
+DB_AS_Willpower("AS_WP6");
+DB_AS_Willpower("AS_WP7");
+
+// Unfinished - Willpower replenish effects
+/*
+DB_AS_WillpowerFX(1,"RS3_FX_GP_Impacts_Arena_PillarLight_01_Red");
+DB_AS_WillpowerFX(2,"RS3_FX_GP_Impacts_Arena_PillarLight_01_Orange");
+DB_AS_WillpowerFX(3,"RS3_FX_GP_Impacts_Arena_PillarLight_01_Gold");
+DB_AS_WillpowerFX(1,"RS3_FX_GP_Impacts_Arena_PillarLight_01_Red");
+DB_AS_WillpowerFX(1,"RS3_FX_GP_Impacts_Arena_PillarLight_01_Red");
+DB_AS_WillpowerFX(1,"RS3_FX_GP_Impacts_Arena_PillarLight_01_Red");
+*/
+
+// Statuses to decrease Willpower (should only be mod statuses for compatibility)
+SysClear("DB_AS_WP_Statuses",1);
+SysClear("DB_AS_OLD_WP_Statuses",1);
+SysClear("DB_AS_Special_Statuses",1);
+//DB_AS_WP_Statuses("FROZEN");
+//DB_AS_WP_Statuses("STUNNED");
+//DB_AS_WP_Statuses("FEAR");
+//DB_AS_WP_Statuses("PETRIFIED");
+//DB_AS_WP_Statuses("CHARMED");
+//DB_AS_WP_Statuses("INFECTIOUS_DISEASED");
+//DB_AS_WP_Statuses("DISEASED");
+//DB_AS_WP_Statuses("KNOCKED_DOWN");
+//DB_AS_WP_Statuses("CHICKEN");
+//DB_AS_WP_Statuses("SLEEPING");
+//DB_AS_WP_Statuses("CRIPPLED");
+//DB_AS_WP_Statuses("BLIND");
+//DB_AS_WP_Statuses("CURSED");
+//DB_AS_WP_Statuses("ENTANGLED");
+//DB_AS_WP_Statuses("MADNESS");
+//DB_AS_WP_Statuses("MUTED");
+//DB_AS_WP_Statuses("SHACKLES_OF_PAIN");
+//DB_AS_WP_Statuses("DISARMED");
+//DB_AS_WP_Statuses("DAZED");
+//DB_AS_WP_Statuses("DRAIN");
+DB_AS_WP_Statuses("AS_MODDED_DUMMY_CCSTATUS");
+DB_AS_WP_Statuses("OdinWater_DEEPFREEZE");
+DB_AS_WP_Statuses("OdinNECRO_TRANSFIXED");
+//DB_AS_WP_Special_Statuses("DECAYING_TOUCH");
+//DB_AS_WP_Special_Statuses("BLIND");
+DB_AS_WP_Special_Statuses("AS_NULL");
+
+// Just for reference
+DB_AS_OLD_WP_Statuses("FROZEN");
+DB_AS_OLD_WP_Statuses("STUNNED");
+DB_AS_OLD_WP_Statuses("FEAR");
+DB_AS_OLD_WP_Statuses("PETRIFIED");
+DB_AS_OLD_WP_Statuses("CHARMED");
+//DB_AS_OLD_WP_Statuses("INFECTIOUS_DISEASED");
+DB_AS_OLD_WP_Statuses("OdinNECRO_TRANSFIXED");
+DB_AS_OLD_WP_Statuses("KNOCKED_DOWN");
+DB_AS_OLD_WP_Statuses("MADNESS");
+DB_AS_OLD_WP_Statuses("CHICKEN");
+DB_AS_OLD_WP_Statuses("SLEEPING");
+/*
+DB_AS_OLD_WP_Statuses("DISEASED");
+DB_AS_OLD_WP_Statuses("CRIPPLED");
+DB_AS_OLD_WP_Statuses("BLIND");
+DB_AS_OLD_WP_Statuses("CURSED");
+DB_AS_OLD_WP_Statuses("ENTANGLED");
+DB_AS_OLD_WP_Statuses("MUTED");
+DB_AS_OLD_WP_Statuses("SHACKLES_OF_PAIN");
+DB_AS_OLD_WP_Statuses("DISARMED");
+DB_AS_OLD_WP_Statuses("DAZED");
+DB_AS_OLD_WP_Statuses("DRAIN");
+DB_AS_OLD_WP_Statuses("DECAYING_TOUCH");
+*/
+
+// Debug - statuses that should end your turn immediately, fuck yo knockback shenanigans
+DB_AS_Status_EndsTurn("KNOCKED_DOWN");
+DB_AS_Status_EndsTurn("STUNNED");
+DB_AS_Status_EndsTurn("FROZEN");
+DB_AS_Status_EndsTurn("PETRIFIED");
+
+
+// Statuses NOT to trigger immunity, as they have their own immunity statuses
+// DB_AS_WPImmuneBL("DECAYING_TOUCH");
+DB_AS_WPImmuneBl("AS_NULL");
+
+//DB_AS_WP_TempImmune_Status("AS_DECAYIMMUNE");
+DB_AS_WP_TempImmune_Status("AS_BLINDIMMUNE");
+DB_AS_WP_TempImmune_Status("AS_NULL");
+
+// Fake statuses from aura - and their corresponding real statuses.
+// Real statuses added for -1 if fake status applied
+// Real statuses also added for -1 if real status removed and has fake status
+// Real statuses removed if fake status is removed and char doesn't have a non-"-1" duration version of the real status
+DB_AS_AuraStatuses("AS_FAKE_PETRIFIED","PETRIFIED");
+DB_AS_AuraStatuses("AS_FAKE_FEAR","FEAR");
+DB_AS_AuraStatuses("AS_FAKE_MUTED","MUTED");
+DB_AS_AuraStatuses("AS_FAKE_VACUUM","MUTED");
+DB_AS_AuraStatuses("AS_FAKE_BLIND","BLIND");
+KBSECTION
+
+IF
+GameStarted(_,_)
+THEN
+NOT DB_AS_WP_Statuses("INFECTIOUS_DISEASED");
+NOT DB_AS_WP_Statuses("DISEASED");
+NOT DB_AS_WP_Statuses("SLEEPING");
+NOT DB_AS_WP_Statuses("CRIPPLED");
+NOT DB_AS_WP_Statuses("BLIND");
+NOT DB_AS_WP_Statuses("CURSED");
+NOT DB_AS_WP_Statuses("ENTANGLED");
+NOT DB_AS_WP_Statuses("MUTED");
+NOT DB_AS_WP_Statuses("SHACKLES_OF_PAIN");
+NOT DB_AS_WP_Statuses("DISARMED");
+NOT DB_AS_WP_Statuses("DAZED");
+NOT DB_AS_WP_Statuses("DRAIN");
+NOT DB_AS_WP_Special_Statuses("DECAYING_TOUCH");
+NOT DB_AS_WP_Special_Statuses("BLIND");
+
+// To avoid bugs with retrieving WP values, set characters' WP to 0 if they don't have an available value
+IF
+DB_Sees(_,_Char)
+AND
+NOT GetVarInteger(_Char,"AS_Willpower",_)
+THEN
+SetVarInteger(_Char,"AS_Willpower",0);
+
+// Quickie for debug - if a character starts turn with a turn-ending status, end their turn.
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_Status_EndsTurn(_Status)
+AND
+HasActiveStatus(_Char,_Status,1)
+THEN
+EndTurn(_Char);
+
+// Remove Willpower-resisted statuses at turn start if a character has them and has Willpower
+IF
+ObjectTurnStarted(_Char)
+AND
+DB_AS_WP_Statuses(_Status)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Wil)
+AND
+_Wil > 0
+THEN
+RemoveStatus(_Char,_Status);
+
+// Apply a blank name status - purely to prevent excessive WILLPOWER I WILLPOWER I WILLPOWER I WILLPOWER I over everyone's heads at combat start
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+CharacterHasTalent(_Char,"Raistlin",0)			// No WP for Glass Cannons
+THEN
+ApplyStatus(_Char,"AS_WWWWW",0.0,1);
+SetStoryEvent(_Char,"AS_SetUpWill");
+
+// NON HOTFIX PLAYER CHARACTER
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetUpWill")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+CharacterHasTalent(_Char,"Raistlin",0)			// No WP for Glass Cannons
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Level1)
+AND
+IntegerSubtract(_Level1,10,_Level)
+//AND
+//CharacterGetLevel(_Char,_Level)               // Old
+AND
+IntegerDivide(_Level,5,_ToWil)
+AND
+IntegerSum(_ToWil,1,_Wil)
+AND
+IntegerMin(_Wil,7,_Min)
+AND
+IntegerMax(_Min,0,_Max)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Max);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+ProcObjectTimer(_Char,"AS_ForWillpower_CheckStillInCombat",500); // Just a failsafe if they somehow get Willpower set up despite not being in combat.
+
+// Non Hotfix NPC
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetUpWill")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",0)
+AND
+CharacterIsPlayer(_Char,0)
+AND
+CharacterHasTalent(_Char,"Raistlin",0)			// No WP for Glass Cannons
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Level1)
+AND
+IntegerSubtract(_Level1,10,_Level)
+//AND
+//CharacterGetLevel(_Char,_Level)               // Old
+AND
+IntegerDivide(_Level,5,_ToWil)
+AND
+IntegerDivide(_ToWil,2,_Quo)
+AND
+IntegerSum(_Quo,1,_Wil)
+AND
+IntegerMin(_Wil,7,_Min)
+AND
+IntegerMax(_Min,1,_Max)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Max);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+ProcObjectTimer(_Char,"AS_ForWillpower_CheckStillInCombat",500); // Just a failsafe if they somehow get Willpower set up despite not being in combat.
+
+
+
+
+// Hotfix Player Character
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetUpWill")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",1)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+CharacterHasTalent(_Char,"Raistlin",0)			// No WP for Glass Cannons
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Level1)
+AND
+IntegerSubtract(_Level1,0,_Level)
+//AND
+//CharacterGetLevel(_Char,_Level)               // Old
+AND
+IntegerDivide(_Level,5,_ToWil)
+AND
+IntegerSum(_ToWil,1,_Wil)
+AND
+IntegerMin(_Wil,7,_Min)
+AND
+IntegerMax(_Min,0,_Max)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Max);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+ProcObjectTimer(_Char,"AS_ForWillpower_CheckStillInCombat",500); // Just a failsafe if they somehow get Willpower set up despite not being in combat.
+
+// Hotfix NPC
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetUpWill")
+AND
+GlobalGetFlag("AS_Hotfix_Enabled",1)
+AND
+CharacterIsPlayer(_Char,0)
+AND
+CharacterHasTalent(_Char,"Raistlin",0)			// No WP for Glass Cannons
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Level1)
+AND
+IntegerSubtract(_Level1,0,_Level)
+//AND
+//CharacterGetLevel(_Char,_Level)               // Old
+AND
+IntegerDivide(_Level,5,_ToWil)
+AND
+IntegerDivide(_ToWil,2,_Quo)
+AND
+IntegerSum(_Quo,1,_Wil)
+AND
+IntegerMin(_Wil,7,_Min)
+AND
+IntegerMax(_Min,1,_Max)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Max);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+ProcObjectTimer(_Char,"AS_ForWillpower_CheckStillInCombat",500); // Just a failsafe if they somehow get Willpower set up despite not being in combat.
+
+
+
+
+// Just a failsafe if they somehow get Willpower set up despite not being in combat.
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ForWillpower_CheckStillInCombat")
+AND
+CharacterIsInCombat(_Char,0)
+AND
+DB_AS_Willpower(_Status)
+THEN
+RemoveStatus(_Char,_Status);
+SetVarInteger(_Char,"AS_Willpower",0);
+
+
+IF
+CharacterStatusApplied(_Char,"SUMMONING",_)
+THEN
+ProcObjectTimer(_Char,"AS_WillDelay",100);
+
+// For summons - they seem to need a delay and a separate event for some reason.
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_WillDelay")
+AND
+CharacterIsInCombat(_Char,1)
+THEN
+SetStoryEvent(_Char,"AS_SetUpWill");
+SetStoryEvent(_Char,"AS_LearnCombatTalents");
+SetStoryEvent(_Char,"AS_SetupIntellect");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetWillpowerStatus")
+AND
+GetVarInteger(_Char,"AS_Willpower",_Wil)
+AND
+_Wil > 0
+AND
+_Wil < 8
+AND
+IntegertoString(_Wil,_Val)
+AND
+StringConcatenate("AS_WP",_Val,_Status)
+THEN
+ApplyStatus(_Char,_Status,-1.0,1);
+ObjectClearFlag(_Char,"AS_WPDISABLED");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetWillpowerStatus")
+AND
+GetVarInteger(_Char,"AS_Willpower",_Wil)
+AND NOT
+_Wil > 0
+AND
+DB_AS_Willpower(_Status)
+THEN
+RemoveStatus(_Char,_Status);
+ObjectSetFlag(_Char,"AS_WPDISABLED");
+
+
+
+
+
+// Remove all willpower statuses once out of combat
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+DB_AS_Willpower(_Status)
+THEN
+RemoveStatus(_Char,_Status);
+SetVarInteger(_Char,"AS_Willpower",0);
+
+
+// If a character is immunity flagged to a status, don't let it reapply.
+IF
+CharacterStatusAttempt(_Char,_Status,_)
+AND
+DB_AS_WillpowerImmune(_Char,_Status)
+AND
+NOT DB_AS_WPImmuneBL(_Status)
+THEN
+RemoveStatus(_Char,_Status);
+
+
+
+
+// Conditions to remove immunities
+IF
+SkillCast(_Char,_,_,_)
+AND
+DB_AS_WillpowerImmune(_Char,_Status)
+THEN
+NOT DB_AS_WillpowerImmune(_Char,_Status);
+
+IF
+SkillCast(_Char,_,_,_)
+AND
+DB_AS_WP_TempImmune_Status(_Status)
+THEN
+RemoveStatus(_Char,_Status);
+
+IF
+CharacterStartAttackObject(_,_,_Char)
+AND
+DB_AS_WillpowerImmune(_Char,_Status)
+THEN
+NOT DB_AS_WillpowerImmune(_Char,_Status);
+
+
+IF
+CharacterStartAttackObject(_,_,_Char)
+AND
+DB_AS_WP_TempImmune_Status(_Status)
+THEN
+RemoveStatus(_Char,_Status);
+
+
+IF
+ObjectTurnEnded((CHARACTERGUID)_Char)
+AND
+DB_AS_WillpowerImmune(_Char,_Status)
+THEN
+NOT DB_AS_WillpowerImmune(_Char,_Status);
+
+IF
+ObjectTurnEnded((CHARACTERGUID)_Char)
+AND
+DB_AS_WP_TempImmune_Status(_Status)
+THEN
+RemoveStatus(_Char,_Status);
+
+
+
+
+
+
+
+
+IF
+CharacterStatusAttempt(_Char,_Status,_)
+AND
+NOT DB_AS_WillpowerImmune(_Char,_Status)	// Check the character isn't temporarily immune to it
+AND
+DB_AS_WP_Statuses(_Status)					// If the status is whitelisted for willpower to resist
+AND
+GetStatusTurns(_Char,_Status,_Turn)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val > 0
+AND
+IntegerSubtract(_Val,1,_NewWp)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_NewWp);
+RemoveStatus(_Char,_Status);
+DB_AS_WillpowerRemoved(_Char,_Status);
+SetStoryEvent(_Char,"AS_CheckWillpowerRemoval");
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+PlayEffect(_Char,"RS3_FX_GP_Combat_Hit_MagicalArmor_01","root");
+PlayEffect(_Char,"RS3_FX_GP_Combat_Hit_Overlay_MagicalArmor_01","root");
+
+IF
+CharacterStatusAttempt(_Char,"AS_WILLPOWER_DOWN",_)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val > 0
+AND
+IntegerSubtract(_Val,1,_NewWp)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_NewWp);
+RemoveStatus(_Char,"AS_WILLPOWER_DOWN");
+SetStoryEvent(_Char,"AS_CheckWillpowerRemoval");
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+PlayEffect(_Char,"RS3_FX_GP_Combat_Hit_MagicalArmor_01","root");
+PlayEffect(_Char,"RS3_FX_GP_Combat_Hit_Overlay_MagicalArmor_01","root");
+
+
+// Repeat of status whitelist check - designed for Black Heart exception for Decaying Touch, so Decaying Touch only depletes normies' Willpower
+IF
+CharacterStatusAttempt(_Char,_Status,_)
+AND
+NOT DB_AS_WillpowerImmune(_Char,_Status)	// Check the character isn't temporarily immune to it
+AND
+DB_AS_WP_Special_Statuses(_Status)			// If the status is whitelisted for willpower to resist
+AND
+CharacterHasTalent(_Char,"LivingArmor",0)	// Only if char does NOT have black hearted
+AND
+GetStatusTurns(_Char,_Status,_Turn)
+AND
+_Turn > -1
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val > 0
+AND
+IntegerSubtract(_Val,1,_NewWp)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_NewWp);
+RemoveStatus(_Char,_Status);
+DB_AS_WillpowerRemoved(_Char,_Status);
+SetStoryEvent(_Char,"AS_CheckWillpowerRemoval");
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+PlayEffect(_Char,"RS3_FX_GP_Combat_Hit_MagicalArmor_01","root");
+PlayEffect(_Char,"RS3_FX_GP_Combat_Hit_Overlay_MagicalArmor_01","root");
+
+
+// Prior to below, add decaying immunity if decaying touch removed
+/*
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckWillpowerRemoval")
+AND
+CharacterHasTalent(_Char,"LivingArmor",0)					// Only if the character doesn't have Black-hearted!
+AND
+DB_AS_WillpowerRemoved(_Char,"DECAYING_TOUCH")
+THEN
+ApplyStatus(_Char,"AS_DECAYIMMUNE",-1.0,1);
+*/
+
+/* // No longer needed, blind not resisted by WP
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckWillpowerRemoval")
+AND
+DB_AS_WillpowerRemoved(_Char,"BLIND")
+THEN
+ApplyStatus(_Char,"AS_BLINDIMMUNE",-1.0,1);
+*/
+
+// If willpower removed a status and it's the character's current turn (not even attack of opportunity, 
+// make them immune to it (i.e. so decaying won't reapply six trillion times from walking over cursed blood)
+// Immunity is currently removed by: attacking, casting a skill, ending turn
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckWillpowerRemoval")
+AND
+DB_AS_WillpowerRemoved(_Char,_Status)
+AND
+ObjectGetFlag(_Char,"AS_IsReallyTurn",1)
+THEN
+NOT DB_AS_WillpowerRemoved(_Char,_Status);
+DB_AS_WillpowerImmune(_Char,_Status);
+
+
+
+
+
+
+
+
+
+
+
+IF
+CharacterStatusRemoved((CHARACTERGUID)_Char,_Status,_)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+DB_AS_OLD_WP_Statuses(_Status)					// If the status is whitelisted for willpower to resist
+AND
+ObjectGetFlag(_Char,"AS_WPDISABLED",1)		// If no willpower status currently active
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val == 0
+AND
+IntegerSum(_Val,1,_NewWp)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Resolve)
+AND
+IntegerDivide(_Resolve,5,_ToWil)
+AND
+IntegerSum(_ToWil,1,_WilMax)
+AND
+CharacterGetAbility(_Char,"Perseverance",_Pers)
+AND
+IntegerMin(_Pers,_WilMax,_Min)
+AND
+ObjectGetFlag(_Char,"AS_TempPerseveranceBlacklist",0)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Min);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+
+IF
+CharacterStatusApplied((CHARACTERGUID)_Char,"AS_WILLPOWER_REGEN",_)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Int)
+AND
+IntegerDivide(_Int,5,_Resolve)
+AND
+IntegerSum(_Resolve,1,_MaxWil)
+AND
+_Val < _MaxWil
+AND
+IntegerSum(_Val,1,_NewWp)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_NewWp);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+
+// Pseudo-perseverance for NPCs
+IF
+CharacterStatusRemoved((CHARACTERGUID)_Char,_Status,_)
+AND
+CharacterIsPlayer(_Char,0)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+DB_AS_OLD_WP_Statuses(_Status)					// If the status is whitelisted for willpower to resist
+AND
+ObjectGetFlag(_Char,"AS_WPDISABLED",1)		    // If no willpower status currently active
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val == 0
+AND
+IntegerSum(_Val,1,_NewWp)
+AND
+CharacterGetAttribute(_Char,"Intelligence",_Resolve)
+AND
+IntegerDivide(_Resolve,5,_ToWil)
+AND
+IntegerSum(_ToWil,1,_WilMax)
+AND
+CharacterGetAbility(_Char,"Perseverance",_Pers)
+AND
+_Pers < 1
+AND
+IntegerMin(1,_WilMax,_Min)
+AND
+ObjectGetFlag(_Char,"AS_TempPerseveranceBlacklist",0)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Min);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+PlayEffect(_Char,"RS3_FX_GP_Impacts_Arena_PillarLight_01_Red","Dummy_Root");
+PlaySound(_Char,"Status_Heal_Impact");
+
+
+
+
+
+
+// Handling for willpower boosts from statuses
+
+// Bless
+IF
+CharacterStatusApplied(_Char,"BLESSED",_)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Wil)
+AND
+IntegerSum(_Wil,1,_NewWil)
+AND
+IntegerMin(_NewWil,7,_Min)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Min);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+
+
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+HasActiveStatus(_Char,"BLESSED",1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Wil)
+AND
+IntegerSum(_Wil,1,_NewWil)
+AND
+IntegerMin(_NewWil,7,_Min)
+THEN
+SetVarInteger(_Char,"AS_Willpower",_Min);
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+
+
+
+
+
+// Auras
+
+IF
+ObjectEnteredCombat(_Char,_)
+THEN
+ObjectSetFlag(_Char,"AS_RecentlyEnteredCombat");
+ProcObjectTimer(_Char,"AS_ResetRecentEntered",50);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ResetRecentEntered")
+THEN
+ObjectClearFlag(_Char,"AS_RecentlyEnteredCombat");
+SetStoryEvent(_Char,"AS_SetWillpowerStatus");
+
+
+
+IF
+CharacterStatusApplied(_Char,_Real,(CHARACTERGUID)_Applier)
+AND
+DB_AS_AuraStatuses(_,_Real)
+THEN
+DB_AS_AuraStatusAppliedBy(_Char,_Real,_Applier);
+
+IF
+CharacterStatusRemoved(_Char,_Real,_)
+AND
+DB_AS_AuraStatusAppliedBy(_Char,_Real,_Applier)
+THEN
+NOT DB_AS_AuraStatusAppliedBy(_Char,_Real,_Applier);
+
+
+// If the character received a real version of a fake status, has the fake status and has Willpower, removing the real status.
+IF
+CharacterStatusApplied(_Char,_Real,(CHARACTERGUID)_Applier)
+AND
+DB_AS_AuraStatuses(_Fake,_Real)
+AND
+HasActiveStatus(_Char,_Fake,1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val > 0
+THEN
+ObjectSetFlag(_Char,"AS_TempPerseveranceBlacklist");
+RemoveStatus(_Char,_Real);
+
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+AND
+DB_AS_AuraStatuses(_Fake,_Real)
+AND
+HasActiveStatus(_Char,_Real,1)
+AND
+HasActiveStatus(_Char,_Fake,1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val > 0
+THEN
+ObjectSetFlag(_Char,"AS_TempPerseveranceBlacklist");
+RemoveStatus(_Char,_Real);
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_AuraStatuses(_Fake,_Real)
+AND
+HasActiveStatus(_Char,_Real,1)
+AND
+HasActiveStatus(_Char,_Fake,1)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val > 0
+THEN
+ObjectSetFlag(_Char,"AS_TempPerseveranceBlacklist");
+RemoveStatus(_Char,_Real);
+
+// Reset temporary Perseverance Blacklist
+IF
+ObjectFlagSet("AS_TempPerseveranceBlacklist",_Char,_)
+THEN
+ProcObjectTimer(_Char,"AS_TempPerseveranceBlacklistTimer",20);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_TempPerseveranceBlacklistTimer")
+THEN
+ObjectClearFlag(_Char,"AS_TempPerseveranceBlacklist");
+
+
+IF
+CharacterStatusApplied(_Char,_Fake,(CHARACTERGUID)_Applier)
+AND
+ObjectGetFlag(_Char,"AS_RecentlyEnteredCombat",0)
+AND
+DB_AS_AuraStatuses(_Fake,_Real)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val < 1
+THEN
+ApplyStatus(_Char,_Real,-1.0,0,_Applier);
+
+IF
+CharacterStatusRemoved(_Char,_Real,_)
+AND
+ObjectGetFlag(_Char,"AS_RecentlyEnteredCombat",0)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val < 1
+AND
+DB_AS_AuraStatuses(_Fake,_Real)
+AND
+HasActiveStatus(_Char,_Fake,1)
+AND
+HasActiveStatus(_Char,_Real,0)
+THEN
+ApplyStatus(_Char,_Real,-1.0,0);
+
+IF
+CharacterStatusRemoved(_Char,_Fake,_)
+AND
+DB_AS_AuraStatuses(_Fake,_Real)
+AND
+GetStatusTurns(_Char,_Real,_Turns)
+AND NOT
+_Turns > -1
+THEN
+RemoveStatus(_Char,_Real);
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetWillpowerStatus")
+AND
+DB_AS_Willpower(_Willpower)
+AND
+ObjectGetFlag(_Char,"AS_RecentlyEnteredCombat",0)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val < 1
+AND
+DB_AS_AuraStatuses(_Fake,_Real)
+AND
+HasActiveStatus(_Char,_Fake,1)
+AND
+HasActiveStatus(_Char,_Real,0)
+THEN
+ApplyStatus(_Char,_Real,-1.0,0);
+
+// Source Vampirism - for no Willpower only
+IF
+CharacterStatusApplied((CHARACTERGUID)_Def,"AS_FAKEDRAIN",_Char)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val < 1
+THEN
+ApplyStatus(_Def,"DRAIN",0.0,1,_Char);
+
+IF
+CharacterDied(_Char)
+THEN
+SetVarInteger(_Char,"AS_Willpower",0);
+
+
+
+
+// Some debug stuff, for some reason cursed frozen goes through Willpower - workaround
+IF
+CharacterStatusApplied(_Char,"FROZEN",_)
+AND
+GetVarInteger(_Char,"AS_Willpower",_Val)
+AND
+_Val > 0
+THEN
+RemoveStatus(_Char,"FROZEN");
+
+// Naughty naughty statuses that frequently tend to repeat get cooldown periods:
+// Whenever I stop being lazy, I'll probably update all WP statuses to this sytem
+
+
+// Decaying
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetDecayCooldown")
+AND
+ObjectGetFlag(_Char,"AS_Decay_Cooldown",1)
+THEN
+ProcObjectTimerCancel(_Char,"AS_WPStatus_CDTimer");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetDecayCooldown")
+THEN
+ObjectSetFlag(_Char,"AS_Decay_Cooldown");
+ProcObjectTimer(_Char,"AS_WPStatus_CDTimer",1000);
+
+// Blind
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetBlindCooldown")
+AND
+ObjectGetFlag(_Char,"AS_Blind_Cooldown",1)
+THEN
+ProcObjectTimerCancel(_Char,"AS_WPStatus_CDTimer");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_SetBlindCooldown")
+THEN
+ObjectSetFlag(_Char,"AS_Blind_Cooldown");
+ProcObjectTimer(_Char,"AS_WPStatus_CDTimer",1000);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_WPStatus_CDTimer")
+THEN
+ObjectClearFlag(_Char,"AS_Decay_Cooldown");
+ObjectClearFlag(_Char,"AS_Blind_Cooldown");
+
+
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+DB_AS_Willpower(_Status)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+CharacterIsInCombat(_Char,0)
+THEN
+SetVarInteger(_Char,"AS_Willpower",0);
+RemoveStatus(_Char,"AS_Willpower");
+
+
+
+EXITSECTION
+
+ENDEXITSECTION
+
+
+

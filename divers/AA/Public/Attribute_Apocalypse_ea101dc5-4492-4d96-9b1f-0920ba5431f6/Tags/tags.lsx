@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="4" build="1" />
+    <region id="Tags">
+        <node id="root">
+            <children>
+                <node id="Tag">
+                    <attribute id="Description" value="This is used for the Nightsinger Demon. Did somebody say terrible hacks? This one is used to apply the proper fading effect upon death." type="23" />
+                    <attribute id="Name" value="AS_NIGHTSINGER" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="This is used for unique boss weapons, found for the levelup event." type="23" />
+                    <attribute id="Name" value="AS_BOSS_UNIQUE" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Dialog" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Used for Gerald&apos;s unique sword." type="23" />
+                    <attribute id="Name" value="AS_GERALD_SWORD" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Dialog" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Used for Gerald, the boss." type="23" />
+                    <attribute id="Name" value="AS_GERALD" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Dialog" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Used for characters summoned with Divine War&apos;s Pet Pal talent." type="23" />
+                    <attribute id="Name" value="AS_PETPAL" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Used for the dummy that&apos;ll switch to a Pet Pal summon." type="23" />
+                    <attribute id="Name" value="AS_PETPAL_DUMMY" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Used for AS&apos; Dummies." type="23" />
+                    <attribute id="Name" value="AS_DUMMY" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Used for Moira, the boss." type="23" />
+                    <attribute id="Name" value="AS_MOIRA" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Dialog" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Raise Dead zombies." type="23" />
+                    <attribute id="Name" value="AS_MOIRA_ZOMBIE" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Hydrosophist Mastery dummy." type="23" />
+                    <attribute id="Name" value="AS_HYDRO_DUMMY" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

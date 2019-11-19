@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="1" build="0" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Sacrifice your lifeblood to bring an ally back to life. Deals [1] damage to you and resurrects an ally with maximum Vitality." type="28" handle="h3b41ffa4ga5dbg4b96g9773g4e050fc17380" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Teleportation_LastRites_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Target two circular areas. Swap surfaces and clouds." type="28" handle="ha6ef8180ge776g422fga870g4dd35e08b2b1" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Teleportation_SwapGround_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Make two characters switch places. One of the characters can be you." type="28" handle="h9d02c292gbbe0g4108g8c22geeffc4de63cc" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Teleportation_Netherswap_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Teleport a target character or item to a point of your choosing." type="28" handle="hc0aaedcbg4bc5g4086gbb3cg5a9fa7622e13" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Teleportation_FreeFall_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

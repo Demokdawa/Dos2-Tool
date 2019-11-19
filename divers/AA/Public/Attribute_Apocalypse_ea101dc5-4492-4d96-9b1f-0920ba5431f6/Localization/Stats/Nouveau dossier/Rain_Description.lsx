@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Create blood surfaces. Set Bleeding on enemies. Douse fire surfaces." type="28" handle="h45d0ff11gc49dg444cg81f7g146ef3866681" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Rain_Blood_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

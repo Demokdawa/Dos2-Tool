@@ -1,0 +1,63 @@
+INIT
+	CHARACTER:__Me
+
+	
+
+EVENTS
+
+EVENT Enable
+
+ON 
+	OnCharacterEvent(__Me,"AS_InitiateEldritch")
+ACTIONS
+	SetVisible(__Me,1)
+	SetInvulnerable(__Me,0)
+	CharacterRemoveStatus(__Me,AS_IMMOBILE)
+	CharacterRemoveStatus(__Me,AS_SACRIFICEAURA)
+	CharacterRemoveStatus(__Me,AS_ELDRITCHPORTAL_VISUAL)
+	CharacterApplyStatus(__Me,AS_ELDRITCH_VISUAL,-1,1)
+	CharacterApplyStatus(__Me,AS_ELDRITCH_VISUAL,-1,1)
+	CharacterPlayEffect(__Me,AS_Summon_Eldritch_Impact,"root")
+
+EVENT OnPortalTimer
+VARS
+	ITEM: _Item
+ON
+	OnCharacterEvent(__Me,"AS_PortalTimerDone")
+ACTIONS
+	SpawnItem(AS_Portal_3dd0d808-9524-49cf-9e4a-6bfb981a47f7,__Me,_Item)
+	CharacterItemEvent(__Me,_Item,"AS_LockEldritchPortal")
+	ItemApplyStatus(_Item,AS_ELDRITCHPORTAL_VISUAL,-1,1)
+
+EVENT OnInitiation
+VARS
+	FLOAT3: _Position
+	ITEM: _Item
+	INT64: _Eff
+ON
+	OnInit()
+ACTIONS
+IF "c1"
+	GetPosition(__Me,_Position)
+THEN
+	SetVisible(__Me,0)
+	SetInvulnerable(__Me,1)
+	SetFlag(__Me,"AS_GuardianNotReady")
+	CharacterEvent(__Me,"AS_SetUpPortal")
+	CharacterApplyStatus(__Me,AS_IMMOBILE,-1,1)
+	CharacterApplyStatus(__Me,AS_HOSTILEPLS,-1,1)
+	CharacterApplyStatus(__Me,AS_SACRIFICEAURA,-1,1)
+ENDIF
+
+EVENT OnDied
+
+ON
+	OnDie(__Me,_,_,_)
+ACTIONS
+	CharacterPlayEffect(__Me,AS_Eldritch_Entry,root)
+	PlaySound(__Me,"Skill_Air_Apportation_Impact")
+	IF "!c1"
+		HasFlag(__Me,"AS_GuardianReady")
+	THEN
+		CharacterEvent(__Me,"AS_CleanupPortal")
+	ENDIF

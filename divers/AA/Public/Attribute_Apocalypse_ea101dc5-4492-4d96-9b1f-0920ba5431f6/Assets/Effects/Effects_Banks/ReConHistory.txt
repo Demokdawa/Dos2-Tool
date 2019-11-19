@@ -1,0 +1,31 @@
+statusapply BLESSED
+statusapply BLESSED
+statusapply BLESSED
+statusapply BLESSED
+statusapply BLESSED
+statusapply BLESSED
+oe AS_Boss_Gerald
+magemana
+oe AS_Boss_Gerald
+oe AS_Boss_Gerald
+oe AS_Boss_Gerald
+addSkill Target_EnemyResurrect 
+addSkill Teleportation_ResurrectScroll 
+oe AS_Boss_Gerald
+addPlayerCharacter Trailer_Humans_Male_Ifan_99b405eb-729b-42d1-940d-2019a79d2d44 
+addPlayerCharacter Trailer_Humans_Male_Ifan_99b405eb-729b-42d1-940d-2019a79d2d44 
+addPlayerCharacter Trailer_Humans_Male_Ifan_99b405eb-729b-42d1-940d-2019a79d2d44 
+addPlayerCharacter AS_RaiseDead_Zombie_da503ccc-f5ce-4866-9199-7ca7d8c6fa8f 
+addPlayerCharacter AS_RaiseDead_Zombie_da503ccc-f5ce-4866-9199-7ca7d8c6fa8f 
+addPlayerCharacter AS_RaiseDead_Zombie_da503ccc-f5ce-4866-9199-7ca7d8c6fa8f 
+addPlayerCharacter AS_RaiseDead_Zombie_da503ccc-f5ce-4866-9199-7ca7d8c6fa8f 
+addPlayerCharacter AS_RaiseDead_Zombie_da503ccc-f5ce-4866-9199-7ca7d8c6fa8f 
+addSkill Shout_EnemyGlobalCooling 
+nocooldowns
+addSkill Shout_EnemyChameleonSkin 
+spawnItem Quest_Resurrection_Idol_6b70e6e1-855e-4295-b79b-d87ebd6bd4af 
+spawnItem Scroll_Skill_Source_Resurrect_60180909-ee47-4d1c-b81c-e43bd8fdce1e 
+addPlayerCharacter Trailer_Humans_Male_Ifan_99b405eb-729b-42d1-940d-2019a79d2d44 
+addPlayerCharacter Trailer_Humans_Male_Ifan_99b405eb-729b-42d1-940d-2019a79d2d44 
+addExp 100000
+[HistoryLimit]30

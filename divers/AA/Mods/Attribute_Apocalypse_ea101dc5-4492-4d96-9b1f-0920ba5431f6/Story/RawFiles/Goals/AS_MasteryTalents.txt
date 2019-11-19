@@ -1,0 +1,1341 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_AS_AlmightyCleaveString("<font color='#d42411' size='24px'>Almighty Cleave</font>");
+
+DB_AS_Mastery("AirSpecialist","AS_MASTERY_AERO");
+DB_AS_Mastery("WaterSpecialist","AS_MASTERY_HYDRO");
+DB_AS_Mastery("EarthSpecialist","AS_MASTERY_GEO");
+DB_AS_Mastery("FireSpecialist","AS_MASTERY_PYRO");
+DB_AS_Mastery("RogueLore","AS_MASTERY_SCOUNDREL");
+DB_AS_Mastery("RangerLore","AS_MASTERY_HUNTSMAN");
+DB_AS_Mastery("Necromancy","AS_MASTERY_DEATH");
+DB_AS_Mastery("Summoning","AS_MASTERY_SUMMON");
+DB_AS_Mastery("WarriorLore","AS_MASTERY_WARFARE");
+DB_AS_Mastery("Polymorph","AS_MASTERY_POLYMORPH");
+
+
+// Statuses that count as Ignited in Pyro mastery Cataclysm
+DB_AS_PyroStatus("BURNING");
+DB_AS_PyroStatus("NECROFIRE");
+
+// Polymorph's Evolution - extend these statuses:
+SysClear("DB_AS_PolymorphMastery",2);
+DB_AS_PolymorphMastery("Shout_BullHorns","HORNS");
+DB_AS_PolymorphMastery("Shout_Wings","WINGS");
+DB_AS_PolymorphMastery("Shout_SpiderLegs","SPIDER_LEGS");
+DB_AS_PolymorphMastery("Shout_MedusaHead","MEDUSA_HEAD");
+DB_AS_PolymorphMastery("Shout_SteelSkin","STEEL_SKIN");
+DB_AS_PolymorphMastery("Shout_IceSkin","ICE_SKIN");
+DB_AS_PolymorphMastery("Shout_FlamingSkin","FIRE_SKIN");
+DB_AS_PolymorphMastery("Shout_JellyfishSkin","ELECTRIC_SKIN");
+DB_AS_PolymorphMastery("Shout_PoisonousSkin","POISON_SKIN");
+DB_AS_PolymorphMastery("Shout_CursedBlood","CURSEDBLOOD");		// From J0K3_R's expanded hybrid skills mod
+NOT DB_AS_PolymorphMastery("Shout_JellyfishSkin","POISON_SKIN");
+NOT DB_AS_PolymorphMastery("Shout_PoisonousSkin","ELECTRIC_SKIN");
+
+
+// Geomancer's Seismic Shock - blacklist certain skills
+
+// Scoundrel's Death-Dealer: Statuses, with corresponding numbers for setting up the integer count on an object
+DB_AS_RogueDealer("AS_ROGUE_VULN1",1);
+DB_AS_RogueDealer("AS_ROGUE_VULN2",2);
+DB_AS_RogueDealer("AS_ROGUE_VULN3",3);
+DB_AS_RogueDealer("AS_ROGUE_VULN4",4);
+DB_AS_RogueDealer("AS_ROGUE_VULN5",5);
+KBSECTION
+// --------------------------------
+// All Masteries
+// --------------------------------
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+DB_AS_Mastery(_Mastery,_Status)
+AND
+HasActiveStatus(_Char,_Status,0)
+AND
+IsTagged(_Char,"SUMMON",0)
+AND
+CharacterIsPlayer(_Char,1)
+AND
+CharacterGetAbility(_Char,_Mastery,_Val)
+AND
+_Val >= 6
+THEN
+ApplyStatus(_Char,_Status,-1.0,1);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+DB_AS_Mastery(_Mastery,_Status)
+AND
+HasActiveStatus(_Char,_Status,1)
+AND
+CharacterGetAbility(_Char,_Mastery,_Val)
+AND NOT
+_Val >= 6
+THEN
+RemoveStatus(_Char,_Status);
+
+// --------------------------------
+// Aerotheurge Mastery: Static Battery (fuck Gale Force)
+// --------------------------------
+
+IF
+CharacterStatusAttempt(_Char,"SHOCKED",_)
+AND
+DB_AS_Mastery("AirSpecialist",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,1)
+THEN
+RemoveStatus(_Char,"SHOCKED");
+CharacterStatusText(_Char,"<font color='#786bcb'>Shock Absorbed!</font>");
+
+IF
+CharacterStatusApplied(_Char,_Mastery,_)
+AND
+DB_AS_Mastery("AirSpecialist",_Mastery)
+THEN
+DB_AS_AirMasters(_Char);
+SetVarInteger(_Char,"AS_StaticStacks",0);
+
+IF
+CharacterStatusRemoved(_Char,_Mastery,_)
+AND
+DB_AS_Mastery("AirSpecialist",_Mastery)
+THEN
+NOT DB_AS_AirMasters(_Char);
+
+/*
+IF
+CharacterStatusApplied(_Any,_Status,_)
+AND
+DB_AS_AirStatuses(_Status)
+AND
+DB_AS_AirMasters(_Char)
+AND
+CombatGetIDForCharacter(_Char,_Id1)
+AND
+CombatGetIDForCharacter(_Any,_Id2)
+AND
+_Id1 == _Id2
+AND
+GetVarInteger(_Char,"AS_StaticStacks",_Val)
+AND
+IntegerSum(_Val,1,_New1)
+AND
+IntegerMin(_New1,5,_New)
+THEN
+SetVarInteger(_Char,"AS_StaticStacks",_New);
+SetStoryEvent(_Char,"AS_SetupStaticStacks");
+*/
+
+IF
+StoryEvent((CHARACTERGUID)_Any,"AS_Debug_Shocktest")
+AND
+ObjectGetFlag(_Any,"AS_BlacklistAeroProc",0)
+AND
+DB_AS_AirMasters(_Char)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+CharacterIsInCombat(_Any,1)
+AND
+ObjectGetFlag(_Char,"AS_StaticBlacklist",0)
+AND
+CombatGetIDForCharacter(_Char,_Id1)
+AND
+CombatGetIDForCharacter(_Any,_Id2)
+AND
+_Id1 == _Id2
+AND
+GetVarInteger(_Char,"AS_StaticStacks",_Val)
+AND
+IntegerSum(_Val,1,_New1)
+AND
+IntegerMin(_New1,5,_New)
+THEN
+ObjectSetFlag(_Any,"AS_BlacklistAeroProc");
+ProcObjectTimerCancel(_Any,"AS_BlacklistAeroTimer");
+ProcObjectTimer(_Any,"AS_BlacklistAeroTimer",2000);
+SetVarInteger(_Char,"AS_StaticStacks",_New);
+SetStoryEvent(_Char,"AS_SetupStaticStacks");
+
+IF
+CharacterStatusApplied(_Char,"SHOCKED",_)
+THEN
+SetStoryEvent(_Char,"AS_Debug_Shocktest");
+
+
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_BlacklistAeroTimer")
+THEN
+ObjectClearFlag(_Char,"AS_BlacklistAeroProc");
+
+
+
+IF
+StoryEvent(_Char,"AS_SetupStaticStacks")
+AND
+GetVarInteger(_Char,"AS_StaticStacks",_Val)
+AND
+IntegertoString(_Val,_NVal)
+AND
+StringConcatenate("AS_STATICSTACK",_NVal,_New)
+THEN
+ApplyStatus(_Char,_New,-1.0);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+AND
+DB_AS_AirMasters(_Char)
+THEN
+SetVarInteger(_Char,"AS_StaticStacks",0);
+SetStoryEvent(_Char,"AS_SetupStaticStacks");
+
+IF
+CharacterUsedSkillAtPosition(_Char,_X,_Y,_Z,"Target_AS_LightningStrike",_,_)
+AND
+GetVarInteger(_Char,"AS_StaticStacks",_Val)
+AND
+_Val > 0
+THEN
+DB_AS_LightningHere(_Char,_X,_Y,_Z);
+ProcObjectTimer(_Char,"AS_LightningStrikeLoop",1000);
+SetVarFloat3(_Char,"AS_LightningHerePls",_X,_Y,_Z);
+ObjectSetFlag(_Char,"AS_StaticBlacklist");
+
+IF
+CharacterUsedSkillOnTarget(_Char,(CHARACTERGUID)_Def,"Target_AS_LightningStrike",_,_)
+AND
+GetPosition(_Def,_X,_Y,_Z)
+AND
+GetVarInteger(_Char,"AS_StaticStacks",_Val)
+AND
+_Val > 0
+THEN
+DB_AS_LightningHere(_Char,_X,_Y,_Z);
+ProcObjectTimer(_Char,"AS_LightningStrikeLoop",1000);
+SetVarFloat3(_Char,"AS_LightningHerePls",_X,_Y,_Z);
+ObjectSetFlag(_Char,"AS_StaticBlacklist");
+
+
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_LightningStrikeLoop")
+AND
+GetVarInteger(_Char,"AS_StaticStacks",_Val)
+AND
+_Val > 0
+AND
+DB_AS_LightningHere(_Char,_X,_Y,_Z)
+AND
+IntegerSubtract(_Val,1,_Sub)
+THEN
+SetStoryEvent(_Char,"AS_LightningStrikeTrigger");
+SetVarInteger(_Char,"AS_StaticStacks",_Sub);
+ProcObjectTimer(_Char,"AS_LightningStrikeLoop",300);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_LightningStrikeLoop")
+AND
+GetVarInteger(_Char,"AS_StaticStacks",_Val)
+AND
+_Val == 0
+AND
+DB_AS_LightningHere(_Char,_X,_Y,_Z)
+THEN
+NOT DB_AS_LightningHere(_Char,_X,_Y,_Z);
+ObjectClearFlag(_Char,"AS_StaticBlacklist");
+SetStoryEvent(_Char,"AS_SetupStaticStacks");
+
+
+// --------------------------------
+// Geomancer Mastery: Aftershock
+// --------------------------------
+
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+AND
+DB_AS_Mastery("EarthSpecialist",_Status)
+AND
+HasActiveStatus(_Char,_Status,1)
+THEN
+ApplyStatus((CHARACTERGUID)_Char,"AS_AFTERSHOCK",-1.0);
+
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+THEN
+RemoveStatus(_Char,"AS_AFTERSHOCK");
+
+
+IF
+CharacterUsedSkillOnTarget(_Char,(CHARACTERGUID)_Target,_,_,_)
+AND
+HasActiveStatus(_Char,"AS_AFTERSHOCK",1)
+AND
+DB_AS_Mastery("EarthSpecialist",_Status)
+AND
+ObjectGetFlag(_Char,"AS_EarthShockCooldown",0)
+AND
+HasActiveStatus(_Char,_Status,1)
+THEN
+DB_AS_AfterShock(_Char,_Target);
+RemoveStatus(_Char,"AS_AFTERSHOCK");
+ProcObjectTimer(_Char,"AS_DoAfterShock",1100);
+ObjectSetFlag(_Char,"AS_EarthShockCooldown");
+
+IF
+CharacterUsedSkillAtPosition(_Char,_X,_Y,_Z,_,_,_)
+AND
+HasActiveStatus(_Char,"AS_AFTERSHOCK",1)
+AND
+DB_AS_Mastery("EarthSpecialist",_Status)
+AND
+ObjectGetFlag(_Char,"AS_EarthShockCooldown",0)
+AND
+HasActiveStatus(_Char,_Status,1)
+THEN
+DB_AS_AfterShockPos(_Char,_X,_Y,_Z);
+RemoveStatus(_Char,"AS_AFTERSHOCK");
+ProcObjectTimer(_Char,"AS_DoAfterShock",1100);
+ObjectSetFlag(_Char,"AS_EarthShockCooldown");
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_DoAfterShock")
+AND
+DB_AS_AfterShock(_Char,_Target)
+THEN
+PlayEffect(_Target,"AS_Aftershock","Dummy_Root");
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_DoAfterShock")
+AND
+DB_AS_AfterShockPos(_Char,_X,_Y,_Z)
+THEN
+PlayEffectAtPosition("AS_Aftershock",_X,_Y,_Z);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_DoAfterShock")
+AND
+DB_AS_AfterShock(_Char,_Target)
+AND
+DB_CombatCharacters(_Any,_)
+AND
+CharacterIsEnemy(_Char,_Any,1)
+AND
+GetDistanceTo(_Any,_Target,_Dist)
+AND
+_Dist < 4.5
+THEN
+ApplyStatus(_Any,"KNOCKED_DOWN",6.0,0,_Char);
+ApplyStatus(_Any,"AS_AFTERSHOCK_DMG",0.0,0,_Char);
+
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_DoAfterShock")
+AND
+DB_AS_AfterShockPos(_Char,_X,_Y,_Z)
+AND
+DB_CombatCharacters(_Any,_)
+AND
+CharacterIsEnemy(_Char,_Any,1)
+AND
+GetDistanceToPosition(_Any,_X,_Y,_Z,_Dist)
+AND
+_Dist < 4.5
+THEN
+ApplyStatus(_Any,"KNOCKED_DOWN",6.0,0,_Char);
+ApplyStatus(_Any,"AS_AFTERSHOCK_DMG",0.0,0,_Char);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_DoAfterShock")
+AND
+DB_AS_AfterShock(_Char,_Target)
+THEN
+NOT DB_AS_AfterShock(_Char,_Target);
+ObjectClearFlag(_Char,"AS_EarthShockCooldown");
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_DoAfterShock")
+AND
+DB_AS_AfterShockPos(_Char,_X,_Y,_Z)
+THEN
+NOT DB_AS_AfterShockPos(_Char,_X,_Y,_Z);
+ObjectClearFlag(_Char,"AS_EarthShockCooldown");
+
+
+// Old - Earthen Shell
+/*
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+THEN
+ApplyStatus(_Char,"AS_GEO_REMOVESHELL",0.0,1);	// Removes all statuses with same stack
+SetVarInteger(_Char,"AS_Earthen_Stacks",0);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+THEN
+ApplyStatus(_Char,"AS_GEO_REMOVESHELL",0.0,1);	// Removes all statuses with same stack
+SetVarInteger(_Char,"AS_Earthen_Stacks",0);
+
+IF
+CharacterReceivedDamage(_Char,_,_)
+AND
+GetVarInteger(_Char,"AS_Earthen_Stacks",_Val)
+AND
+_Val > 0
+THEN
+ApplyStatus(_Char,"AS_GEO_REMOVESHELL",0.0,1);	// Removes all statuses with same stack
+SetVarInteger(_Char,"AS_Earthen_Stacks",0);
+
+IF
+CharacterReceivedDamage(_Char,_Perct,(CHARACTERGUID)_Causee)
+AND
+DB_AS_Mastery("EarthSpecialist",_Mastery)
+AND
+HasActiveStatus(_Causee,_Mastery,1)
+AND
+GetVarInteger(_Causee,"AS_Earthen_Stacks",_Val)
+AND
+IntegerSum(_Perct,_Val,_Sum)
+AND
+IntegerMin(_Sum,50,_Min)
+THEN
+SetVarInteger(_Causee,"AS_Earthen_Stacks",_Min);
+DB_AS_Earthen_Temp(_Causee, _Min);
+
+IF
+DB_AS_Earthen_Temp(_Char, _Stacks)
+AND
+_Stacks > 0
+AND
+IntegertoString(_Stacks,_IntStr)
+AND
+StringConcatenate("AS_GEO_EARTHENSTACK",_IntStr,_Out)
+THEN
+ApplyStatus(_Char,_Out, -1.0, 1);
+NOT DB_AS_Earthen_Temp(_Char, _Stacks);
+*/
+
+
+// --------------------------------
+// Hydrosophist Mastery: Overflow
+// --------------------------------
+
+IF
+CharacterStatusApplied(_Char,_Any,(CHARACTERGUID)_Source)
+AND
+QRY_IsHealingStatus(_Any)
+AND
+_Any != "LIFESTEAL"
+AND
+_Any != "VAMPIRIC_TOUCH"
+AND
+CharacterIsInCombat(_Source,1)
+AND
+DB_AS_Mastery("WaterSpecialist",_Mastery)
+AND
+HasActiveStatus(_Source,_Mastery,1)
+AND
+ObjectGetFlag(_Char,"AS_VictimHydroBlacklist",0)
+AND
+ObjectGetFlag(_Source,"AS_SourceHydroBlacklist",0)
+AND
+GetPosition(_Char,_X,_Y,_Z)
+AND
+NOT DB_AS_HydroPoolBlacklist(_Source,_X,_Y,_Z)
+AND
+TemporaryCharacterCreateAtPosition(_X,_Y,_Z,"AS_HydroDummy_70a2cdd0-d08c-4f34-a90f-e9698d6da322",0,_Dummy)
+THEN
+CharacterMoveToPosition(_Dummy,_X,_Y,_Z,1,"AS_SetupHydroPoolEffect");
+SetVisible(_Dummy,0);
+ProcSetInvulnerable(_Dummy,1);
+DB_AS_Owner(_Dummy,_Source);
+DB_AS_HydroPools(_Source,_X,_Y,_Z,_Dummy);
+DB_AS_HydroPoolBlacklist(_Source,_X,_Y,_Z); // Prevent multiple in the same location
+ObjectSetFlag(_Char,"AS_VictimHydroBlacklist");
+ProcObjectTimerCancel(_Char,"AS_HydroVictimCooldown");
+ProcObjectTimer(_Char,"AS_HydroVictimCooldown",2000);
+
+
+IF
+CharacterReceivedDamage(_Char,_Perct,(CHARACTERGUID)_Source)
+AND
+ObjectGetFlag(_Source,"AS_IsTurn",1)
+AND
+_Perct > 0.0
+AND
+CharacterIsInCombat(_Source,1)
+AND
+DB_AS_Mastery("WaterSpecialist",_Mastery)
+AND
+HasActiveStatus(_Source,_Mastery,1)
+AND
+ObjectGetFlag(_Char,"AS_VictimHydroBlacklist",0)
+AND
+ObjectGetFlag(_Source,"AS_SourceHydroBlacklist",0)
+AND
+GetPosition(_Char,_X,_Y,_Z)
+AND
+NOT DB_AS_HydroPoolBlacklist(_Source,_X,_Y,_Z)
+AND
+TemporaryCharacterCreateAtPosition(_X,_Y,_Z,"AS_HydroDummy_70a2cdd0-d08c-4f34-a90f-e9698d6da322",0,_Dummy)
+THEN
+CharacterMoveToPosition(_Dummy,_X,_Y,_Z,1,"AS_SetupHydroPoolEffect");
+SetVisible(_Dummy,0);
+ProcSetInvulnerable(_Dummy,1);
+DB_AS_Owner(_Dummy,_Source);
+DB_AS_HydroPools(_Source,_X,_Y,_Z,_Dummy);
+DB_AS_HydroPoolBlacklist(_Source,_X,_Y,_Z);
+ObjectSetFlag(_Char,"AS_VictimHydroBlacklist");
+ProcObjectTimerCancel(_Char,"AS_HydroVictimCooldown");
+ProcObjectTimer(_Char,"AS_HydroVictimCooldown",2000);
+
+// This is just so Hydro pools don't proc on shitty little DoTs, which would be absurdly cheesy
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+THEN
+ObjectSetFlag(_Char,"AS_VictimHydroBlacklist");
+ProcObjectTimerCancel(_Char,"AS_HydroVictimCooldown");
+ProcObjectTimer(_Char,"AS_HydroVictimCooldown",200);
+
+
+
+IF
+StoryEvent((CHARACTERGUID)_Dummy,"AS_SetupHydroPoolEffect")
+AND
+GetPosition(_Dummy,_X,_Y,_Z)
+AND
+DB_AS_Owner(_Dummy,_Source)
+THEN
+SetVarFloat3(_Dummy,"AS_PoolLoc",_X,_Y,_Z);
+CharacterCharacterSetEvent(_Dummy,_Source,"AS_StartHydroVisual");
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_HydroVictimCooldown")
+THEN
+ObjectClearFlag(_Char,"AS_VictimHydroBlacklist");
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+THEN
+SetStoryEvent(_Char,"AS_TriggerPools");
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+THEN
+SetStoryEvent(_Char,"AS_TriggerPools");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_TriggerPools")
+THEN
+ObjectSetFlag(_Char,"AS_SourceHydroBlacklist");
+ProcObjectTimerCancel(_Char,"AS_SourceHydroCooldown");
+ProcObjectTimer(_Char,"AS_SourceHydroCooldown",1000);
+
+IF
+StoryEvent((CHARACTERGUID)_Source,"AS_TriggerPools")
+AND
+DB_AS_HydroPoolBlacklist(_Source,_X,_Y,_Z)
+THEN
+NOT DB_AS_HydroPoolBlacklist(_Source,_X,_Y,_Z);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_SourceHydroCooldown")
+THEN
+ObjectClearFlag(_Char,"AS_SourceHydroBlacklist");
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_SourceHydroCooldown")
+AND
+DB_AS_HydroPools(_Char,_X,_Y,_Z,_Dummy)
+THEN
+NOT DB_AS_HydroPools(_Char,_X,_Y,_Z,_Dummy);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_TriggerPools")
+AND
+DB_AS_HydroPools(_Char,_X,_Y,_Z,_Dummy)
+THEN
+ApplyStatus(_Dummy,"AS_HYDRO_HEALAURA",0.0);
+SetStoryEvent(_Dummy,"AS_KillPool");
+NOT DB_AS_HydroPools(_Char,_X,_Y,_Z,_Dummy);
+SetVarFloat3(_Dummy,"AS_PoolHere",_X,_Y,_Z);
+CharacterCharacterSetEvent(_Dummy,_Char,"AS_TriggerPoolsplosion");
+ProcObjectTimer(_Dummy,"AS_DisappearDummy",20);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Dummy,"AS_DisappearDummy")
+AND
+DB_AS_Owner(_Dummy,_Source)
+THEN
+NOT DB_AS_Owner(_Dummy,_Source);
+CharacterDieImmediate(_Dummy,0,"Piercing");
+SetOnStage(_Dummy,0);
+
+
+IF
+CharacterStatusApplied(_Char,"AS_HYDRO_HEALPROC",(CHARACTERGUID)_Dummy)
+AND
+DB_AS_Owner(_Dummy,_Source)
+AND
+CharacterIsAlly(_Char,_Source,1)
+THEN
+ApplyStatus(_Char,"AS_HYDRO_HEALEFF",0.0,1,_Source);
+ObjectSetFlag(_Char,"AS_VictimHydroBlacklist");
+ProcObjectTimerCancel(_Char,"AS_HydroVictimCooldown");
+ProcObjectTimer(_Char,"AS_HydroVictimCooldown",200);
+
+// If healing status applied, purge all willpower draining effects
+/*
+IF
+CharacterStatusAttempt(_Char,_Status,(CHARACTERGUID)_Causee)
+AND
+QRY_IsHealingStatus(_Status)
+AND
+DB_AS_Mastery("WaterSpecialist",_Mastery)
+AND
+HasActiveStatus(_Causee,_Mastery,1)
+AND
+DB_AS_OLD_WP_Statuses(_Status2)
+AND
+HasActiveStatus(_Char,_Status2,1)
+THEN
+RemoveStatus(_Char,_Status2);
+ObjectSetFlag(_Char,"AS_HydroMastery_RemovedSomething");
+SetStoryEvent(_Char,"AS_PlayHydroRemove");
+
+
+IF
+StoryEvent(_Char,"AS_PlayHydroRemove")
+AND 
+ObjectGetFlag(_Char,"AS_HydroEffectBL",0)
+THEN
+PlayEffect(_Char,"RS3_FX_Skills_Water_HealingTear_Impact_01","root");
+ObjectSetFlag(_Char,"AS_HydroEffectBL");
+ProcObjectTimer(_Char,"AS_HydroPurgeTimer",200);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_HydroPurgeTimer")
+AND
+ObjectGetFlag(_Char,"AS_HydroMastery_RemovedSomething",1)
+THEN
+ObjectClearFlag(_Char,"AS_HydroEffectBL");
+
+
+IF
+CharacterStatusAttempt(_Char,_Status,(CHARACTERGUID)_Causee)
+AND
+DB_AS_Mastery("WaterSpecialist",_Mastery)
+AND
+HasActiveStatus(_Causee,_Mastery,1)
+AND
+DB_AS_HydroStatus(_Status)
+AND
+DB_AS_HydroSurface(_Surface,_Response)
+AND
+GetPosition(_Char,_X,_Y,_Z)			// For whatever reason, CreateSurface never works, so we need CreateSurfaceAtPosition
+AND
+GetSurfaceGroundAt(_Char,_Sur)
+AND
+_Sur == _Surface
+THEN
+CreateSurfaceAtPosition(_X,_Y,_Z,_Response,1.0,0.0);
+
+IF
+CharacterStatusAttempt(_Char,_Status,(CHARACTERGUID)_Causee)
+AND
+DB_AS_Mastery("WaterSpecialist",_Mastery)
+AND
+HasActiveStatus(_Causee,_Mastery,1)
+AND
+DB_AS_HydroRemove(_Remove)
+AND
+HasActiveStatus(_Char,_Remove,1)
+AND
+DB_AS_HydroStatus(_Status)
+THEN
+DB_AS_HydroMasteryTemp(_Char,_Causee,_Status);
+ProcObjectTimer(_Char,"AS_HydroMasteryDelay",2);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_HydroMasteryDelay")
+AND
+DB_AS_HydroMasteryTemp(_Char,_Causee,_Status)
+THEN
+RemoveStatus(_Char,"NECROFIRE");
+RemoveStatus(_Char,"WARM");
+RemoveStatus(_Char,"BURNING");
+RemoveStatus(_Char,_Status);
+ApplyStatus(_Char,_Status,6.0,0,_Causee);
+NOT DB_AS_HydroMasteryTemp(_Char,_Causee,_Status);
+
+IF
+CharacterStatusApplied(_Char,_Any,(CHARACTERGUID)_Healer)
+AND
+DB_AS_Mastery("WaterSpecialist",_Mastery)
+AND
+HasActiveStatus(_Healer,_Mastery,1)
+AND
+QRY_IsHealingStatus(_Any)
+AND
+GetHealStat(_Any,_Str)
+AND
+_Any != "AA_SustainSelfHeal"
+AND
+_Any != "HEAL"
+AND
+_Any != "LIFESTEAL"
+AND
+_Any != "VAMPIRIC_TOUCH"
+AND
+DB_AS_HydroSurface(_Surface,_Response)
+AND
+GetPosition(_Char,_X,_Y,_Z)			// For whatever reason, CreateSurface never works, so we need CreateSurfaceAtPosition
+AND
+GetSurfaceGroundAt(_Char,_Sur)
+AND
+_Sur == _Surface
+THEN
+CreateSurfaceAtPosition(_X,_Y,_Z,_Response,1.0,0.0);
+
+
+IF
+CharacterStatusApplied(_Char,_Any,(CHARACTERGUID)_Healer)
+AND
+DB_AS_Mastery("WaterSpecialist",_Mastery)
+AND
+HasActiveStatus(_Healer,_Mastery,1)
+AND
+QRY_IsHealingStatus(_Any)
+AND
+GetHealStat(_Any,_Str)
+AND
+_Any != "AA_SustainSelfHeal"
+AND
+_Any != "HEAL"
+AND
+_Any != "LIFESTEAL"
+AND
+_Any != "VAMPIRIC_TOUCH"
+THEN
+RemoveStatus(_Char,"NECROFIRE");
+RemoveStatus(_Char,"WARM");
+RemoveStatus(_Char,"BURNING");
+*/
+
+// --------------------------------
+// Huntsman Mastery: Eagle-Eye
+// --------------------------------
+
+// Half of this talent is taken care of via potion stats.
+
+IF
+CharacterUsedSkill(_Char,_Any,_,_)
+AND
+StringContains(_Any,"Projectile",1)
+AND
+HasActiveStatus(_Char,"AS_MASTERY_HUNTSMAN",1)
+THEN
+DB_AS_HuntsmanMasteryProc(_Char,_Any);
+
+IF
+CharacterStatusAttempt(_Victim,"HIT",(CHARACTERGUID)_Char)
+AND
+DB_AS_HuntsmanMasteryProc(_Char,_Any)
+THEN
+NOT DB_AS_HuntsmanMasteryProc(_Char,_Any);
+SetStoryEvent(_Victim,"AS_HuntsmanProjectileBounce");
+DB_AS_HuntsmanProjectileProc(_Char,_Any,_Victim);
+SetStoryEvent(_Victim,"AS_FindNearestEnemy");
+
+
+
+IF
+StoryEvent((CHARACTERGUID)_Victim,"AS_HuntsmanProjectileBounce")
+AND
+DB_AS_HuntsmanProjectileProc(_Char,_Any,_Victim)
+AND
+CharacterGetLevel(_Char,_Lvl)
+THEN
+NOT DB_AS_HuntsmanProjectileProc(_Char,_Any,_Victim);
+SetVarInteger(_Char,"AS_CurrentLevel",_Lvl);
+DB_AS_HuntsmanTempTimer(_Char,_Victim);
+ProcObjectTimer(_Char,"AS_HuntsmanMasteryTimer",5);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_HuntsmanMasteryTimer")
+AND
+DB_AS_HuntsmanTempTimer(_Char,_Victim)
+THEN
+NOT DB_AS_HuntsmanTempTimer(_Char,_Victim);
+CharacterCharacterSetEvent(_Char,_Victim,"AS_ShootProjectileAt");
+
+
+// Thanks to LL for this:
+IF
+StoryEvent((CHARACTERGUID)_Enemy, "AS_FindNearestEnemy")
+AND
+DB_CombatCharacters(_Enemy, _CombatID)
+AND
+DB_CombatCharacters(_Char, _CombatID)
+AND
+_Char != _Enemy
+AND
+CharacterIsAlly(_Enemy, _Char, 1)
+AND
+GetDistanceTo(_Enemy, _Char, _Dist)
+THEN
+AS_EnemyFinder_FoundEnemy(_Enemy, _Char, _Dist);
+
+PROC
+AS_EnemyFinder_FoundEnemy((CHARACTERGUID)_Enemy, (CHARACTERGUID)_Char, (REAL)_Dist)
+AND
+NOT DB_AS_EnemyFinder_Temp_Closest(_Enemy, _, _)
+THEN
+DB_AS_EnemyFinder_Temp_Closest(_Enemy, _Char, _Dist);
+
+PROC
+AS_EnemyFinder_FoundEnemy((CHARACTERGUID)_Enemy, (CHARACTERGUID)_Char, (REAL)_Dist)
+AND
+DB_AS_EnemyFinder_Temp_Closest(_Enemy, _LastChar, _LastDist)
+AND
+_Dist < _LastDist
+THEN
+NOT DB_AS_EnemyFinder_Temp_Closest(_Enemy, _LastChar, _LastDist);
+DB_AS_EnemyFinder_Temp_Closest(_Enemy, _Char, _Dist);
+
+IF
+StoryEvent((CHARACTERGUID)_Enemy, "AS_FindNearestEnemy")
+AND
+DB_AS_EnemyFinder_Temp_Closest(_Enemy, _Char, _Dist)
+THEN
+NOT DB_AS_EnemyFinder_Temp_Closest(_Enemy, _Char, _Dist);
+CharacterCharacterSetEvent(_Enemy, _Char, "AS_FindNearestEnemy_Success");
+
+IF
+StoryEvent((CHARACTERGUID)_Enemy, "AS_FindNearestEnemy")
+AND
+NOT DB_AS_EnemyFinder_Temp_Closest(_Enemy, _, _)
+THEN
+SetStoryEvent(_Enemy, "AS_FindNearestEnemy_Failed");
+
+
+
+// --------------------------------
+// Necromancer Mastery: Death Lord
+// --------------------------------
+
+IF
+CharacterReceivedDamage(_Char,_,(CHARACTERGUID)_Source)
+AND
+HasActiveStatus(_Source,"AS_MASTERY_DEATH",1)
+AND
+CharacterGetHitpointsPercentage(_Char,_Perct)
+AND
+CharacterIsEnemy(_Char,_Source,1)
+AND
+_Perct <= 15.0
+THEN
+PlayEffect(_Char,"RS3_FX_Skills_Voodoo_Curse_Impact_01","root");
+DB_AS_DeathMasteryKill(_Char,_Source);
+ProcObjectTimer(_Char,"AS_Die",50);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_Die")
+AND
+DB_AS_DeathMasteryKill(_Char,_Source)
+THEN
+CharacterDie(_Char,1,"Piercing",_Source);
+NOT DB_AS_DeathMasteryKill(_Char,_Source);
+
+// --------------------------------
+// Polymorph Mastery: Evolution
+// --------------------------------
+
+IF
+CharacterStatusAttempt(_Char,_Status,_)
+AND
+DB_AS_Mastery("Polymorph",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,1)
+AND
+DB_AS_PolymorphMastery(_Skill,_Status)
+AND NOT
+DB_AS_TestBlackList(_Char,_Status)
+AND
+IsSkillActive(_Char,_Skill,1)
+THEN
+RemoveStatus(_Char,_Status);
+ApplyStatus(_Char,_Status,-1.0);
+DB_AS_TestBlackList(_Char,_Status);
+
+IF
+CharacterStatusApplied(_Char,_Status,_)
+AND
+DB_AS_TestBlackList(_Char,_Status)
+THEN
+NOT DB_AS_TestBlackList(_Char,_Status);
+
+IF
+SkillDeactivated((CHARACTERGUID)_Char,_Skill)
+AND
+CharacterIsInCombat(_Char,0)
+AND
+DB_AS_Mastery("Polymorph",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,1)
+AND
+DB_AS_PolymorphMastery(_Skill,_Status)
+THEN
+RemoveStatus(_Char,_Status);
+
+
+
+// ---------------------------------
+// Pyrokinetic Mastery: Funeral Pyre
+// ---------------------------------
+
+IF
+CharacterStatusApplied(_Char,_Status,_)
+AND
+DB_AS_PyroStatus(_Status)
+THEN
+ProcObjectTimerCancel(_Char,"AS_RemoveIgnitedFlag");
+ObjectSetFlag(_Char,"AS_Pyro_Ignited");
+
+IF
+CharacterStatusRemoved(_Char,_Status,_)
+AND
+DB_AS_PyroStatus(_Status)
+THEN
+ProcObjectTimer(_Char,"AS_RemoveIgnitedFlag",15);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_RemoveIgnitedFlag")
+AND
+HasActiveStatus(_Char,"BURNING",0)
+AND
+HasActiveStatus(_Char,"NECROFIRE",0)
+THEN
+ObjectClearFlag(_Char,"AS_Pyro_Ignited");
+
+IF
+CharacterStatusAttempt(_Char,_Status,(CHARACTERGUID)_Applier)
+AND
+DB_AS_Mastery("FireSpecialist",_Mastery)
+AND
+HasActiveStatus(_Applier,_Mastery,1)
+AND
+DB_AS_PyroStatus(_Status)
+AND
+ObjectGetFlag(_Char,"AS_Pyro_Ignited",1)
+AND
+ObjectGetFlag(_Char,"AS_PyroMasteryBlacklist",0)
+THEN
+CharacterCharacterSetEvent(_Applier,_Char,"AS_PyroExplosion");
+ObjectSetFlag(_Char,"AS_PyroMasteryBlacklist");
+ProcObjectTimerCancel(_Char,"AS_PyroMastery_BlacklistTimer");
+ProcObjectTimer(_Char,"AS_PyroMastery_BlacklistTimer",1600);
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_PyroMastery_BlacklistTimer")
+THEN
+ObjectClearFlag(_Char,"AS_PyroMasteryBlacklist");
+
+// Probably an unnecessary failsafe just in case
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+THEN
+ObjectClearFlag(_Char,"AS_PyroMasteryBlacklist");
+
+/*
+IF
+CharacterStatusAttempt(_Char,"BURNING",(CHARACTERGUID)_Causee)
+AND
+NOT DB_AS_FireMasteryBL(_Char)
+AND
+DB_AS_Mastery("FireSpecialist",_Mastery)
+AND
+HasActiveStatus(_Causee,_Mastery,1)
+AND
+CharacterGetAbility(_Causee,"SingleHanded",_Pts)		// We want to subtract Enchantment so it doesn't stack and give 2x duration bonus!
+AND
+GetStatusTurns(_Char,"BURNING",_Turns)
+AND
+IntegerSubtract(_Turns,_Pts,_STurns)
+AND
+IntegerProduct(_STurns,6,_TTurns)
+AND
+Real(_TTurns,_RTurns)
+AND
+GetPosition(_Char,_X,_Y,_Z)
+THEN
+ApplyStatus(_Char,"NECROFIRE",_RTurns,0,_Causee);
+CreateSurfaceAtPosition(_X,_Y,_Z,"SurfaceFireCursed",1.0,12.0);
+DB_AS_FireMasteryBL(_Char);
+ProcObjectTimer(_Char,"AS_ClearFireMasteryBlacklist",100);
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_ClearFireMasteryBlacklist")
+THEN
+NOT DB_AS_FireMasterYBL(_Char);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+DB_AS_Mastery("FireSpecialist",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,1)
+AND NOT
+GetVarInteger(_Char,"AS_NecrofireBoost",_)
+THEN
+SetVarInteger(_Char,"AS_NecrofireBoost",0);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckAttributes")
+AND
+DB_AS_Mastery("FireSpecialist",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,0)
+AND
+GetVarInteger(_Char,"AS_NecrofireBoost",_Val)
+AND
+_Val != 0
+THEN
+SetVarInteger(_Char,"AS_NecrofireBoost",0);
+
+IF
+CharacterStatusApplied(_Char,"NECROFIRE",(CHARACTERGUID)_Causee)
+AND
+DB_AS_Mastery("FireSpecialist",_Mastery)
+AND
+CharacterIsDead(_Char,0)
+AND
+CharacterIsDead(_Causee,0)
+AND
+HasActiveStatus(_Causee,_Mastery,1)
+AND
+GetVarInteger(_Causee,"AS_NecrofireBoost",_Val)
+AND
+IntegerSum(_Val,1,_Total)
+AND
+IntegerMin(_Total,5,_Min)
+AND
+IntegertoString(_Min,_StrNum)
+AND
+StringConcatenate("AS_FIREBOOST",_StrNum,_Status)
+THEN
+SetVarInteger(_Causee,"AS_NecrofireBoost",_Min);
+ApplyStatus(_Causee,_Status,-1.0,1);
+DB_AS_NecroPyreLinked(_Char,_Causee);
+
+IF
+CharacterStatusRemoved(_Char,"NECROFIRE",_)
+AND
+DB_AS_NecroPyreLinked(_Char,_Causee)
+AND
+GetVarInteger(_Causee,"AS_NecrofireBoost",_Val)
+AND
+IntegerSubtract(_Val,1,_Res)
+AND
+IntegerMax(_Res,0,_Max)
+AND
+IntegertoString(_Max,_StrNum)
+AND
+StringConcatenate("AS_FIREBOOST",_StrNum,_Status)
+THEN
+SetVarInteger(_Causee,"AS_NecrofireBoost",_Max);
+ApplyStatus(_Causee,_Status,-1.0,1);
+NOT DB_AS_NecroPyreLinked(_Char,_Causee);
+SetStoryEvent(_Char,"AS_CheckNecroPyre");
+
+IF
+CharacterDied(_Char)
+AND
+DB_AS_NecroPyreLinked(_Char,_Causee)
+AND
+GetVarInteger(_Causee,"AS_NecrofireBoost",_Val)
+AND
+IntegerSubtract(_Val,1,_Res)
+AND
+IntegerMax(_Res,0,_Max)
+AND
+IntegertoString(_Max,_StrNum)
+AND
+StringConcatenate("AS_FIREBOOST",_StrNum,_Status)
+THEN
+SetVarInteger(_Causee,"AS_NecrofireBoost",_Max);
+ApplyStatus(_Causee,_Status,-1.0,1);
+NOT DB_AS_NecroPyreLinked(_Char,_Causee);
+SetStoryEvent(_Char,"AS_CheckNecroPyre");
+
+IF
+CharacterDied(_Char)
+AND
+DB_AS_NecroPyreLinked(_Any,_Char)
+THEN
+SetVarInteger(_Char,"AS_NecrofireBoost",0);
+NOT DB_AS_NecroPyreLinked(_Any,_Char);
+
+
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_CheckNecroPyre")
+AND
+GetVarInteger(_Char,"AS_NecrofireBoost",_Val)
+AND
+IntegertoString(_Val,_StrNum)
+AND
+StringConcatenate("AS_FIREBOOST",_StrNum,_Status)
+THEN
+ApplyStatus(_Char,_Status,-1.0,1);
+*/
+
+// --------------------------------
+// Scoundrel Mastery: Death-Dealer
+// --------------------------------
+
+// Debug
+IF
+CharacterCriticalHitBy(_Def,_,_Char)
+THEN
+SetVarInteger(_Def,"AS_Rogue_VulnerableStacks",0);
+
+IF
+CharacterCriticalHitBy(_Def,_,_Char)
+AND
+CharacterGetAbility(_Char,"RogueLore",_Val)
+AND
+_Val >= 6
+AND
+ObjectGetFlag(_Def,"AS_BlacklistRogueMastery",0)		// Temp blacklist - prevent crit stacking with Flurry, for example
+AND
+DB_AS_RogueDealer(_Status,2)
+AND
+HasActiveStatus(_Def,_Status,1)
+THEN
+ApplyStatus(_Def,"AS_ROGUE_VULN3",18.0,1,_Char);
+ObjectSetFlag(_Def,"AS_BlacklistRogueMastery");
+ProcObjectTimer(_Def,"AS_RemoveBlacklistRogueMastery",1500);
+
+IF
+CharacterCriticalHitBy(_Def,_,_Char)
+AND
+CharacterGetAbility(_Char,"RogueLore",_Val)
+AND
+_Val >= 6
+AND
+ObjectGetFlag(_Def,"AS_BlacklistRogueMastery",0)		// Temp blacklist - prevent crit stacking with Flurry, for example
+AND
+DB_AS_RogueDealer(_Status,1)
+AND
+HasActiveStatus(_Def,_Status,1)
+THEN
+ApplyStatus(_Def,"AS_ROGUE_VULN2",18.0,1,_Char);
+ObjectSetFlag(_Def,"AS_BlacklistRogueMastery");
+ProcObjectTimer(_Def,"AS_RemoveBlacklistRogueMastery",1500);
+
+IF
+CharacterCriticalHitBy(_Def,_,_Char)
+AND
+ObjectGetFlag(_Def,"AS_BlacklistRogueMastery",0)		// Temp blacklist - prevent crit stacking with Flurry, for example
+AND
+DB_AS_Mastery("RogueLore",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,1)
+AND
+HasActiveStatus(_Def,"AS_ROGUE_VULN1",0)
+AND
+HasActiveStatus(_Def,"AS_ROGUE_VULN2",0)
+AND
+HasActiveStatus(_Def,"AS_ROGUE_VULN3",0)
+AND
+HasActiveStatus(_Def,"AS_ROGUE_VULN4",0)
+AND
+HasActiveStatus(_Def,"AS_ROGUE_VULN5",0)
+THEN
+ApplyStatus(_Def,"AS_ROGUE_VULN1",18.0,1,_Char);
+ObjectSetFlag(_Def,"AS_BlacklistRogueMastery");
+ProcObjectTimer(_Def,"AS_RemoveBlacklistRogueMastery",1500);
+
+
+
+PROC
+ProcObjectTimerFinished(_Def,"AS_RemoveBlacklistRogueMastery")
+THEN
+ObjectClearFlag(_Def,"AS_BlacklistRogueMastery");
+
+IF
+ObjectTurnStarted((CHARACTERGUID)_Char)
+THEN
+ObjectClearFlag(_Char,"AS_BlacklistRogueMastery");
+
+IF
+CharacterUsedSkill(_Char,_,_,_)
+THEN
+ObjectClearFlag(_Char,"AS_BlacklistRogueMastery");
+
+IF
+CharacterUsedSkillOnTarget(_,(CHARACTERGUID)_Char,_,_,_)
+THEN
+ObjectClearFlag(_Char,"AS_BlacklistRogueMastery");
+
+
+// --------------------------------
+// Summoning Mastery: Master Summoner
+// --------------------------------
+
+// No code needed - the potion stats do it all.
+
+// --------------------------------
+// Warfare Mastery: Total Warfare
+// --------------------------------
+
+IF
+CharacterReceivedDamage(_Char,_Pct,_)
+AND
+CharacterIsInCombat(_Char,1)
+AND
+DB_AS_Mastery("WarriorLore",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,1)
+AND
+HasActiveStatus(_Char,"KNOCKED_DOWN",0)
+AND
+HasActiveStatus(_Char,"STUNNED",0)
+AND
+HasActiveStatus(_Char,"CHICKEN",0)
+AND
+HasActiveStatus(_Char,"ZOMBIE_CHICKEN",0)
+AND
+HasActiveStatus(_Char,"SLEEPING",0)
+AND
+HasActiveStatus(_Char,"FROZEN",0)
+AND
+HasActiveStatus(_Char,"PETRIFIED",0)
+AND
+HasActiveStatus(_Char,"FEAR",0)
+AND
+CharacterIsIncapacitated(_Char,0)
+AND
+_Pct >= 5.0
+AND
+HasActiveStatus(_Char,"DISARMED",0)
+THEN
+SetStoryEvent(_Char,"AS_CheckCanCleave");       // Pass to gamescript to check if we have the AP to avoid issues
+
+IF
+CharacterUsedSkill(_Char,_,_,_)
+AND
+DB_AS_Mastery("WarriorLore",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,1)
+THEN
+ObjectSetFlag(_Char,"AS_CleaveBlacklist");
+ProcObjectTimerCancel(_Char,"AS_RemoveCleaveBlacklist");
+ProcObjectTimer(_Char,"AS_RemoveCleaveBlacklist",1200);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_DoCleave")
+AND
+ObjectGetFlag(_Char,"AS_CleaveBlacklist",0)
+AND
+DB_AS_AlmightyCleaveString(_String)
+THEN
+ApplyStatus(_Char,"AS_NOLIFESTEAL",-1.0);
+CharacterUseSkill(_Char,"Shout_AS_AlmightyCleave",_Char,1,1,1);
+CharacterStatusText(_Char,_String);
+ObjectSetFlag(_Char,"AS_CleaveBlacklist");
+ProcObjectTimerCancel(_Char,"AS_RemoveCleaveBlacklist");
+ProcObjectTimer(_Char,"AS_RemoveCleaveBlacklist",2200);
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_DoCleave")
+AND
+ObjectGetFlag(_Char,"AS_CleaveBlacklist",0)
+AND
+NOT DB_AS_AlmightyCleaveString(_)
+THEN
+ApplyStatus(_Char,"AS_NOLIFESTEAL",-1.0);
+CharacterUseSkill(_Char,"Shout_AS_AlmightyCleave",_Char,1,1,1);
+CharacterStatusText(_Char,"<font color='#d42411' size='24px'>Almighty Cleave</font>");
+ObjectSetFlag(_Char,"AS_CleaveBlacklist");
+ProcObjectTimerCancel(_Char,"AS_RemoveCleaveBlacklist");
+ProcObjectTimer(_Char,"AS_RemoveCleaveBlacklist",2200);
+
+
+
+PROC
+ProcObjectTimerFinished((CHARACTERGUID)_Char,"AS_RemoveCleaveBlacklist")
+THEN
+ObjectClearFlag(_Char,"AS_CleaveBlacklist");
+RemoveStatus(_Char,"AS_NOLIFESTEAL");
+
+IF
+StoryEvent((CHARACTERGUID)_Char,"AS_DoCleave")
+AND
+ObjectGetFlag(_Char,"AS_Cleave_RemoveAP",1)
+THEN
+CharacterAddActionPoints(_Char,-1);
+ObjectClearFlag(_Char,"AS_Cleave_RemoveAP");
+
+/* OLD - GRIT
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Char,_)
+THEN
+ApplyStatus(_Char,"AS_WARBOOST0",0.0,1);	// Removes all statuses with same stack
+SetVarInteger(_Char,"AS_Warfare_Damaged",0);
+
+IF
+ObjectLeftCombat((CHARACTERGUID)_Char,_)
+THEN
+ApplyStatus(_Char,"AS_WARBOOST0",0.0,1);	// Removes all statuses with same stack
+SetVarInteger(_Char,"AS_Warfare_Damaged",0);
+
+IF
+CharacterReceivedDamage(_Char,_Pct,_)
+AND
+DB_AS_Mastery("WarriorLore",_Mastery)
+AND
+HasActiveStatus(_Char,_Mastery,1)
+AND
+GetVarInteger(_Char,"AS_Warfare_Damaged",_Val)
+AND
+IntegerSum(_Val,_Pct,_Tot)
+AND
+IntegerMin(_Tot,25,_Min)
+AND
+IntegertoString(_Min,_Num)
+AND
+StringConcatenate("AS_WARBOOST",_Num,_Status)
+THEN
+ApplyStatus(_Char,_Status,-1.0,1);
+SetVarInteger(_Char,"AS_Warfare_Damaged",_Min);
+
+IF
+CharacterReceivedDamage(_Char,_Perct,(CHARACTERGUID)_Causee)
+AND
+DB_AS_Mastery("WarriorLore",_Mastery)
+AND
+HasActiveStatus(_Causee,_Mastery,1)
+AND
+ObjectGetFlag(_Causee,"AS_IsTurn",1)
+THEN
+ProcObjectTimer(_Causee,"AS_ResetWarfareStacks",1000);
+
+
+PROC
+ProcObjectTimerFinished(_Char,"AS_ResetWarfareStacks")
+THEN
+SetVarInteger(_Char,"AS_Warfare_Damaged",0);
+ApplyStatus(_Char,"AS_WARBOOST0",0.0,1);	// Removes all statuses with same stack
+*/
+EXITSECTION
+
+ENDEXITSECTION
