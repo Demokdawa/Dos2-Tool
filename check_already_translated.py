@@ -41,8 +41,7 @@ def check_lines():
             val = raw_val.group(1)
             if val == '':
                 text.append(line)
-            if val is not None:
-                pass
+            else:
                 check_for_existing(val, line)
         else:
             text.append(line)
