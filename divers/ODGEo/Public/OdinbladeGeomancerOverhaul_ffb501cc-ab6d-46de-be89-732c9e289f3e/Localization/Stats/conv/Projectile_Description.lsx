@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Thread a volley of enchanted rocks, dealing a total of [2] and &lt;font color='#C7A758'&gt;Petrifying&lt;/font&gt; the target." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinGEO_RockVolley_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Hurl a vial of tainted liquid, applying &lt;font color='#65C900'&gt;Poison&lt;/font&gt; to characters. &lt;br&gt;&lt;br&gt;&lt;font color='#aa3938'&gt;Undead enemies&lt;/font&gt; become &lt;font color='#B823CB'&gt;Corrupted&lt;/font&gt;, causing them to take damage from all &lt;font color='#65C900'&gt;poison sources&lt;/font&gt; and restore vitality from &lt;font color='#97FBFF'&gt;healing sources&lt;/font&gt; for 2 turns." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinGEO_CorruptingVial_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Thread a volley of enchanted rocks, dealing a total of [2] and &lt;font color='#C7A758'&gt;Petrifying&lt;/font&gt; the target." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinGEO_RockVolley_Stats_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Throw a rock filled with sticky oil, dealing [1] to all characters and creating an &lt;font color='#676464'&gt;Oil surface&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Characters also become &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, reducing &lt;font color='#7f3d00'&gt;Earth Resistance by [2]%&lt;/font&gt; and &lt;font color=&quot;#fe6e27&quot;&gt;Fire Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_PyroclasticRock_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Throw a poisonous dart, dealing [1] to all characters and creating a &lt;font color='#65C900'&gt;Poison surface&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Also &lt;font color='#65C900'&gt;Poisons&lt;/font&gt; hit characters." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_PoisonDartStart_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Launch 5 toxic spores, each dealing [1], creating a &lt;font color=&quot;#65C900&quot;&gt;Cursed Poison cloud&lt;/font&gt;, and applying &lt;font color='#65C900'&gt;Spore&lt;/font&gt;.  &lt;br&gt;&lt;br&gt;&lt;font color='#65C900'&gt;Spore&lt;/font&gt; reduces &lt;font color='#65C900'&gt;Poison Resistance by [2]%&lt;/font&gt; and &lt;font color='#7f3d00'&gt;Earth Resistance by [3]%&lt;/font&gt;. Also reduces &lt;font color=&quot;#c80030&quot;&gt;Movement Speed by [4]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_AcidSpores_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Oil-filled rocks crash into all nearby enemies, each dealing [1] and creating an &lt;font color='#676464'&gt;Oil surface&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Characters also become &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, reducing &lt;font color='#7f3d00'&gt;Earth Resistance by [2]%&lt;/font&gt; and &lt;font color=&quot;#fe6e27&quot;&gt;Fire Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_PyroclasticEruption_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Throw dust at target location, dealing [1] and &lt;font color='#dbdbdb'&gt;Blinding&lt;/font&gt; all characters. &lt;br&gt;&lt;br&gt;The dust also clears all &lt;font color='#dbdbdb'&gt;Surfaces&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_ThrowDust_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Blast dust at all nearby &lt;font color='#aa3938'&gt;enemies&lt;/font&gt;, dealing [1] and &lt;font color='#dbdbdb'&gt;Blinding&lt;/font&gt; them. &lt;br&gt;&lt;br&gt;The dust also clears all &lt;font color='#dbdbdb'&gt;Surfaces&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_DustBlast_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Hurl a ball of venom, dealing [1] to the target. &lt;br&gt;&lt;br&gt;Deals an additional [2] if the target is &lt;font color='#65C900'&gt;Poisoned&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_OdinGEO_VenomBurst_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Throw a rock filled with sticky oil, dealing [1] to all characters and creating an &lt;font color='#676464'&gt;Oil surface&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Characters also become &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, reducing &lt;font color='#7f3d00'&gt;Earth Resistance by [2]%&lt;/font&gt; and &lt;font color=&quot;#fe6e27&quot;&gt;Fire Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_PyroclasticRock_Summon_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Launch a toxic spore, dealing [1], creating a &lt;font color=&quot;#65C900&quot;&gt;Cursed Poison cloud&lt;/font&gt;, and applying &lt;font color='#65C900'&gt;Spore&lt;/font&gt;.  &lt;br&gt;&lt;br&gt;&lt;font color='#65C900'&gt;Spore&lt;/font&gt; reduces &lt;font color='#65C900'&gt;Poison Resistance by [2]%&lt;/font&gt; and &lt;font color='#7f3d00'&gt;Earth Resistance by [3]%&lt;/font&gt;. Also reduces &lt;font color=&quot;#c80030&quot;&gt;Movement Speed by [4]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Projectile_PlantAcidSpore_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

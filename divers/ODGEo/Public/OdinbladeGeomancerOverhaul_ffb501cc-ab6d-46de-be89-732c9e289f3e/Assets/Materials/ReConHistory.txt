@@ -1,0 +1,2 @@
+addSkill Summon_OdinGEO_ConjureEarthElemental
+[HistoryLimit]30

@@ -1,0 +1,12 @@
+new entry "OdinGEO_Earthbrand_Proc"
+type "StatusData"
+data "StatusType" "EFFECT"
+data "ForGameMaster" "No"
+data "InitiateCombat" "No"
+
+new entry "OdinGEO_VenomCoating_Proc"
+type "StatusData"
+data "StatusType" "EFFECT"
+data "ForGameMaster" "No"
+data "InitiateCombat" "No"
+

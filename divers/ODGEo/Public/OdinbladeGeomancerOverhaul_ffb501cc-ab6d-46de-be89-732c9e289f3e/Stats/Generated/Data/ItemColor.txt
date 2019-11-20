@@ -1,0 +1,6 @@
+new itemcolor "OdinGEO_01","FF696969","FF8B4513","FFBDB76B"
+
+new itemcolor "OdinGEO_02","FF121E1E","FF6B8E23","FF8FBC8F"
+
+new itemcolor "OdinGEO_03","3d3329","FF228B22","FF7CFC00"
+

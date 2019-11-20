@@ -1,0 +1,26 @@
+new ItemCombination "SKILLBOOK_Earth_Condense"
+data "RecipeCategory" "Grimoire"
+data "Type 1" "Category"
+data "Object 1" "SkillbookEarth"
+data "Transform 1" "Transform"
+data "Type 2" "Category"
+data "Object 2" "SkillbookPolymorph"
+data "Transform 2" "Consume"
+
+new ItemCombinationResult "SKILLBOOK_Earth_Condense_1"
+data "Result 1" "SKILLBOOK_Earth_OdinGEO_Sentinel"
+data "PreviewStatsID" "SKILLBOOK_Earth_OdinGEO_Sentinel"
+
+new ItemCombination "SKILLBOOK_Earth_VenomCoating"
+data "RecipeCategory" "Grimoire"
+data "Type 1" "Category"
+data "Object 1" "SkillbookEarth"
+data "Transform 1" "Transform"
+data "Type 2" "Category"
+data "Object 2" "SkillbookRogue"
+data "Transform 2" "Consume"
+
+new ItemCombinationResult "SKILLBOOK_Earth_VenomCoating_1"
+data "Result 1" "SKILLBOOK_Earth_OdinGEO_CorruptingVial"
+data "PreviewStatsID" "SKILLBOOK_Earth_OdinGEO_CorruptingVial"
+

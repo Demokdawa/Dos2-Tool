@@ -1,0 +1,177 @@
+INIT
+CHARACTER:%CorruptionSource
+
+EVENTS
+//SKILL -> POISON_WAVE
+EVENT OdinGeo_Skill_PoisonWave
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+FLOAT:_MagicArmour
+FLOAT:_PhysArmour
+
+ON
+	OnCharacterStatusApplied(_Character, OdinGEO_PROC_EARTHQUAKE)
+ACTIONS
+IF "((c1&c2)|(c3&c4))&c5"
+	CharacterGetStat(_MagicArmour, _Character, MagicArmorPoints)
+	IsEqual(_MagicArmour, 0)
+	CharacterGetStat(_PhysArmour, _Character, PhysicalArmorPoints)
+	IsEqual(_PhysArmour, 0)
+	CharacterGetStatusSourceCharacter(_Character, OdinGEO_PROC_EARTHQUAKE, _Source)
+THEN
+	CharacterApplyStatus(_Character, KNOCKED_DOWN, 1, 1, _Source)
+ENDIF
+	
+//SKILL -> EXPUNGE
+EVENT OdinGeo_Skill_Expunge
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+INT:_Turns
+
+ON
+	OnCharacterStatusApplied(_Character, OdinGEO_PROC_Expunge)
+ACTIONS
+IF "c1&c2"
+	CharacterHasStatus(_Character, POISONED)
+	CharacterGetStatusSourceCharacter(_Character, OdinGEO_PROC_Expunge, _Source)
+THEN
+	CharacterApplyStatus(_Character, OdinGEO_Expunge_Poison, 0, 1, _Source)
+ENDIF
+IF "c1&c2"
+	CharacterHasStatus(_Character, ACID)
+	CharacterGetStatusSourceCharacter(_Character, OdinGEO_PROC_Expunge, _Source)
+THEN
+	CharacterApplyStatus(_Character, OdinGEO_Expunge_Acid, 0, 1, _Source)
+ENDIF
+IF "c1&c2"
+	CharacterHasStatus(_Character, ENTANGLED)
+	CharacterGetStatusSourceCharacter(_Character, OdinGEO_PROC_Expunge, _Source)
+THEN
+	CharacterApplyStatus(_Character, OdinGEO_Expunge_Entangled, 0, 1, _Source)
+ENDIF
+IF "c1&c2"
+	CharacterHasStatus(_Character, OdinGEO_ParasiticAffliction)
+	CharacterGetStatusSourceCharacter(_Character, OdinGEO_ParasiticAffliction, _Source)
+THEN
+	CharacterRemoveStatus(_Character, OdinGEO_ParasiticAffliction)
+ENDIF
+
+//SKILL -> SONG_DRYAD
+EVENT OdinGEO_Skill_Dryad
+VARS
+CHARACTER:_Character
+
+ON
+	OnSkillCast(_Character, Shout_OdinGEO_SongOfTheDryads)
+ACTIONS
+	CharacterApplyStatus(_Character, OdinGEO_Ironbark, 2, 1, _Character)
+
+//SKILL -> CONTAMINATION
+EVENT OdinGEO_Skill_Contamination
+VARS
+CHARACTER:_Character
+FLOAT3:_Pos
+
+ON
+	OnSkillCast(_Character, Shout_Contamination)
+ACTIONS
+	GetPosition(_Character, _Pos)
+	CreateSurfaceAt(_Character, SurfacePoison, 1, 1, _Character)
+
+//STATUS -> CORRUPTION_START
+EVENT OdinGeo_Status_Corruption_Start
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+
+ON
+	OnCharacterStatusApplied(_Character, OdinGEO_Corruption)
+ACTIONS
+IF "c1"
+	CharacterGetStatusSourceCharacter(_Character, OdinGEO_Corruption, _Source)
+THEN
+	Set(%CorruptionSource, _Source)
+ENDIF
+
+//STATUS -> CORRUPTION_END
+EVENT OdinGeo_Status_Corruption_End
+VARS
+CHARACTER:_Character
+
+ON
+	OnCharacterStatusRemoved(_Character, OdinGEO_Corruption)
+ACTIONS
+	CharacterApplyStatus(_Character, OdinGEO_Corruption_End, 0, 1, %CorruptionSource)
+
+//STATUS -> NO_MARM_CRIPPLED
+EVENT OdinGeo_Status_No_Marm_Crippled
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+FLOAT:_MagicArmour
+
+ON
+	OnCharacterStatusApplied(_Character, OdinGEO_PROC_CRIPPLED)
+ACTIONS
+IF "c1&c2&c3"
+	CharacterGetStat(_MagicArmour, _Character, MagicArmorPoints)
+	IsEqual(_MagicArmour, 0)
+	CharacterGetStatusSourceCharacter(_Character, OdinGEO_PROC_CRIPPLED, _Source)
+THEN
+	CharacterApplyStatus(_Character, CRIPPLED, 1, 1, _Source)
+ENDIF
+
+//STATUS -> WOODLAND_CREATURES_START
+EVENT OdinGEO_Status_Squirrel_Rabbit_STaRT
+VARS
+CHARACTER:_Character
+
+ON
+	OnCharacterStatusApplied(_Character, OdinGEO_Squirrel)
+	OnCharacterStatusApplied(_Character, OdinGEO_Rabbit)
+ACTIONS
+	CharacterApplyStatus(_Character, DISARMED, 1, 1)
+	CharacterApplyStatus(_Character, MUTED, 1, 1)
+
+//STATUS -> WOODLAND_CREATURES_END
+EVENT OdinGEO_Status_Squirrel_Rabbit_END
+VARS
+CHARACTER:_Character
+
+ON
+	OnCharacterStatusRemoved(_Character, OdinGEO_Squirrel)
+	OnCharacterStatusRemoved(_Character, OdinGEO_Rabbit)
+ACTIONS
+	CharacterPlayEffect(_Character, "RS3_FX_UI_CC_Transition_Fast_01")
+
+//STATUS -> SENTINEL_FORM_ENDSKILL
+EVENT OdinGEO_Status_Sentinel_Form_ENDSKILL
+VARS
+CHARACTER:_Character
+
+ON
+	OnSkillCast(_Character, Shout_OdinGEO_Shapeshift_Revert)
+ACTIONS
+	CharacterRemoveStatus(_Character, OdinGEO_TitanForm)
+
+//STATUS -> TITAN_FORM_END
+EVENT OdinGEO_Status_Titan_Form_END
+VARS
+CHARACTER:_Character
+
+ON
+	OnCharacterStatusRemoved(_Character, OdinGEO_TitanForm)
+ACTIONS
+	CharacterPlayEffect(_Character, "RS3_FX_UI_CC_Transition_Fast_01")
+	
+//STATUS -> SHATTER
+EVENT OdinGEO_Status_Shatter
+VARS
+CHARACTER:_Character
+
+ON
+	OnCharacterStatusApplied(_Character, OdinGEO_SHATTER)
+ACTIONS
+	CharacterRemoveStatus(_Character, PETRIFIED)

@@ -1,0 +1,232 @@
+new equipment "Summon_OdinGEO_PoisonElemental_Equip"
+add equipmentgroup
+add equipment entry "_Summon_OdinGEO_PoisonElemental"
+
+new equipment "Summon_OdinGEO_EarthElemental_Equip"
+add equipmentgroup
+add equipment entry "_Summon_OdinGEO_EarthElemental"
+
+new equipment "OdinGEO_Class_Grovetender_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_CraftedStaff_Poison"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "OdinGEO_Class_Grovetender_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_Staff_Poison"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "OdinGEO_Class_Grovetender_Preview"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Grovetender_Helmet"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Grovetender_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Grovetender_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Grovetender_Gloves"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Grovetender_Boots"
+add equipmentgroup
+add equipment entry "WPN_Staff_Poison"
+
+new equipment "OdinGEO_Class_Plague_Preview"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Plague_Helmet"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Plague_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Plague_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Plague_Gloves"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Plague_Boots"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Daggers_Poison"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Daggers_Poison"
+
+new equipment "OdinGEO_Class_Plague_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Daggers_Poison"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "GRN_Grenade_OilFlask_A"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Daggers_Poison"
+
+new equipment "OdinGEO_Class_Plague_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Daggers_Poison"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "GRN_Grenade_OilFlask_A"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Daggers_Poison"
+
+new equipment "OdinGEO_Class_Sentinel_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Mace_Earth_1H"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "GRN_Grenade_Molotov_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "WPN_CraftedShield"
+
+new equipment "OdinGEO_Class_Sentinel_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Mace_Earth_1H"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "GRN_Grenade_Molotov_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "WPN_CraftedShield"
+
+new equipment "OdinGEO_Class_Sentinel_Preview"
+add equipmentgroup
+add equipment entry "ARM_Knight_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Knight_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Knight_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Knight_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Knight_Boots"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Mace_Earth_1H"
+add equipmentgroup
+add equipment entry "WPN_Conjurer_Shield_Humans"
+
+new equipment "OdinGEO_Class_Terramancer_Preview"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Terramancer_Helmet"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Terramancer_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Terramancer_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Terramancer_Gloves"
+add equipmentgroup
+add equipment entry "ARM_OdinGEO_Terramancer_Boots"
+add equipmentgroup
+add equipment entry "WPN_Wizard_Wand_Humans"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Wand_Earth"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Wand_Earth"
+
+new equipment "OdinGEO_Class_Terramancer_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Wand_Earth"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Wand_Earth"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "SCROLL_Fireball"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "OdinGEO_Class_Terramancer_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Wand_Earth"
+add equipmentgroup
+add equipment entry "WPN_OdinGEO_Wand_Earth"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "SCROLL_Fireball"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+

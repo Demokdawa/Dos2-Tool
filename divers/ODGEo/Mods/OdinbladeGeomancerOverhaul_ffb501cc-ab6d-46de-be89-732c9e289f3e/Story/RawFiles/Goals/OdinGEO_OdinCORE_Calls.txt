@@ -1,0 +1,30 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+//DB_OBCORE_EnemySkill_Pair("","");
+DB_OBCORE_EnemySkill_Pair("Projectile_EnemyPyroclasticRock","Target_EnemyCondense");
+DB_OBCORE_EnemySkill_Pair("Projectile_EnemyFireball","Target_EnemyCondense");
+DB_OBCORE_EnemySkill_Pair("Target_EnemyRockSpikes","Target_OdinGEO_Enemy_GranitePlating");
+DB_OBCORE_EnemySkill_Pair("Shout_EnemyMendMetal","Rush_OdinGEO_Enemy_SeismicSlide");
+DB_OBCORE_EnemySkill_Pair("Projectile_EnemyPoisonDart","Target_OdinGEO_Enemy_NoxiousTouch");
+
+// DB_OBCORE_CustomVendor((GUIDSTRING)_Vendor, (STRING)_Dialog);
+//Fort Joy
+DB_OBCORE_CustomVendor(OdinGEO_Trader_000_a7747a2f-5f7a-4fe7-a92d-3c36f28ba8f9, "OdinGEO_Vendor"); //Fort Joy - Square
+DB_OBCORE_CustomVendor(OdinGEO_Trader_001_5c8fafd1-de53-494d-adfd-aadc2939b61c, "OdinGEO_Vendor"); //Fort Joy - Armadia
+
+//Reaper's Coast
+DB_OBCORE_CustomVendor(OdinGEO_Trader_000_9202c449-7545-46c0-b564-92818a3fadda, "OdinGEO_Vendor"); //Lady Vengeance
+DB_OBCORE_CustomVendor(OdinGEO_Trader_001_2ca636ac-ae81-4e5b-b764-c8dc8d37a13f, "OdinGEO_Vendor"); //Driftwood Square
+
+//Nameless Isle
+DB_OBCORE_CustomVendor(OdinGEO_Trader_000_9202c449-7545-46c0-b564-92818a3fadda, "OdinGEO_Vendor"); //Lady Vengeance (carried over)
+DB_OBCORE_CustomVendor(OdinGEO_Trader_000_bea3b149-aaec-4a44-9b93-bbc783c3701a, "OdinGEO_Vendor"); //Landing beach
+
+//Arx
+DB_OBCORE_CustomVendor(OdinGEO_Trader_000_12dc222e-a224-4f73-94bd-c82595425561, "OdinGEO_Vendor"); //Arx Square
+KBSECTION
+
+EXITSECTION
+
+ENDEXITSECTION

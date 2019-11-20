@@ -1,0 +1,15 @@
+peace
+levelup 5
+addSkill Projectile_OdinGEO_CorruptingVial 
+addSkill Projectile_PoisonDartStart 
+peace
+addSkill 5
+levelup 5
+addSkill Projectile_OdinGEO_CorruptingVial 
+addSkill Projectile_PoisonDartStart 
+addSkill Projectile_Chloroform 
+nocooldowns
+levelup 14
+peace
+peace
+[HistoryLimit]30

@@ -1,0 +1,135 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION CORRUPT THE SPOOKY SKELLINGTONS
+IF
+CharacterStatusApplied(_Character, "OdinGEO_Corruption", _Source)
+AND
+CharacterHasTalent(_Character, "Zombie", 1)
+THEN
+CharacterRemoveTalent(_Character, "Zombie");
+DB_OBGEO_Corruption(_Character, _Source);
+
+IF
+CharacterStatusRemoved(_Character, "OdinGEO_Corruption", _)
+AND
+DB_OBGEO_Corruption(_Character, _Source)
+THEN
+CharacterAddToPlayerCharacter(_Character, (CHARACTERGUID)_Source);
+CharacterAddTalent(_Character, "Zombie");
+CharacterRemoveFromPlayerCharacter(_Character, (CHARACTERGUID)_Source);
+NOT DB_OBGEO_Corruption(_Character, _Source);
+//END_REGION
+
+//REGION OBGEO_Earthbrand_OnHit
+IF
+    CharacterStatusAttempt(_Defender, "OdinGEO_Earthbrand_Proc", (CHARACTERGUID)_Attacker)
+AND
+    HasActiveStatus(_Attacker, "OdinGEO_Earthbrand", 1)
+AND
+    HasActiveStatus(_Defender, "OdinGEO_Oiled", 0)
+AND
+    NOT DB_OdinGEO_Earthbrand(_Attacker, _Defender)
+THEN
+    DB_OdinGEO_Earthbrand(_Attacker, _Defender);
+    ApplyStatus(_Defender, "OdinGEO_Oiled", 6.0, 0, _Attacker);
+    ProcObjectTimer(_Defender, "Clear_DB_OdinGEO_Earthbrand", 100);
+
+PROC
+    ProcObjectTimerFinished((CHARACTERGUID)_Defender, "Clear_DB_OdinGEO_Earthbrand")
+AND
+    DB_OdinGEO_Earthbrand(_Attacker, _Defender)
+THEN
+    NOT DB_OdinGEO_Earthbrand(_Attacker, _Defender);
+//END_REGION
+
+//REGION OBGEO_Earthbrand_DeltaModifier
+IF
+    CharacterStatusApplied(_Char, "OdinGEO_Earthbrand", _)
+AND
+    CharacterGetEquippedWeapon(_Char, (ITEMGUID)_Weapon)
+AND
+    NOT QRY_OdinCORE_ItemHasDeltaModifier(_Weapon, "Boost_Weapon_OdinGEO_Earthbrand")
+THEN
+    ItemAddDeltaModifier(_Weapon, "Boost_Weapon_OdinGEO_Earthbrand");
+ //END_REGION
+
+
+//REGION OBGEO_VenomCoating_OnHit
+IF
+    CharacterStatusAttempt(_Defender, "OdinGEO_VenomCoating_Proc", (CHARACTERGUID)_Attacker)
+AND
+    HasActiveStatus(_Attacker, "VENOM_COATING", 1)
+AND
+    HasActiveStatus(_Defender, "OdinGEO_Spored", 0)
+AND
+    NOT DB_OdinGEO_VenomCoating(_Attacker, _Defender)
+THEN
+    DB_OdinGEO_VenomCoating(_Attacker, _Defender);
+    ApplyStatus(_Defender, "OdinGEO_Spored", 6.0, 0, _Attacker);
+    ProcObjectTimer(_Defender, "Clear_DB_OdinGEO_VenomCoating", 100);
+
+PROC
+    ProcObjectTimerFinished((CHARACTERGUID)_Defender, "Clear_DB_OdinGEO_VenomCoating")
+AND
+    DB_OdinGEO_VenomCoating(_Attacker, _Defender)
+THEN
+    NOT DB_OdinGEO_VenomCoating(_Attacker, _Defender);
+//END_REGION
+
+//REGION OBGEO_VenomCoating_DeltaModifier
+IF
+    CharacterStatusApplied(_Char, "VENOM_COATING", _)
+AND
+    CharacterGetEquippedWeapon(_Char, (ITEMGUID)_Weapon)
+AND
+    NOT QRY_OdinCORE_ItemHasDeltaModifier(_Weapon, "Boost_Weapon_OdinGEO_VenomCoating")
+THEN
+    ItemAddDeltaModifier(_Weapon, "Boost_Weapon_OdinGEO_VenomCoating");
+ //END_REGION
+
+//REGION DEBUG SKILLS
+IF
+CharacterUsedItem(_Char, 12143201-29dd-4864-9a02-b7229d51058b)
+AND
+IsGameLevel("OdinGeoTestRoom", 1)
+THEN
+CharacterLevelUpTo(_Char, 20);
+CharacterOverrideMaxSourcePoints(_Char, 3);
+CharacterAddSourcePoints(_Char, 1);
+CharacterAddSourcePoints(_Char, 1);
+CharacterAddSourcePoints(_Char, 1);
+
+CharacterAddSkill(_Char, "Projectile_OdinGEO_RockVolley");
+CharacterAddSkill(_Char, "Projectile_OdinGEO_CorruptingVial");
+CharacterAddSkill(_Char, "Projectile_PyroclasticRock");
+CharacterAddSkill(_Char, "Projectile_PoisonDartStart");
+
+CharacterAddSkill(_Char, "Target_Fortify");
+CharacterAddSkill(_Char, "Target_OdinGEO_PoisonousTouch");
+CharacterAddSkill(_Char, "Target_OdinGEO_OilyTouch");
+CharacterAddSkill(_Char, "Target_WormTremor");
+CharacterAddSkill(_Char, "Target_RockSpikes");
+CharacterAddSkill(_Char, "Target_OdinGEO_MidnightOil");
+CharacterAddSkill(_Char, "Target_OdinGEO_VenomousStrike");
+
+CharacterAddSkill(_Char, "Shout_Contamination");
+CharacterAddSkill(_Char, "Shout_MendMetal");
+CharacterAddSkill(_Char, "Shout_PoisonWave");
+CharacterAddSkill(_Char, "Shout_OdinGEO_NaturesJudgement");
+
+CharacterAddSkill(_Char, "Dome_OdinGEO_SporeShrooms");
+
+CharacterAddSkill(_Char, "Rush_OdinGEO_SeismicSlide");
+
+CharacterAddSkill(_Char, "Cone_OdinGEO_TectonicSpray");
+
+CharacterAddSkill(_Char, "Wall_LivingWall");
+
+CharacterAddSkill(_Char, "Quake_Earthquake");
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

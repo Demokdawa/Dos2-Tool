@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="1" build="0" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="A large boulder crashes down, dealing [1] and applying &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt; to all characters. &lt;br&gt;&lt;br&gt;Removes &lt;font color='#C7A758'&gt;Petrified&lt;/font&gt;, dealing an additional [2] if it is removed this way. &lt;br&gt;&lt;br&gt;Setting &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt; on an enemy who already has &lt;font color='#dbdbdb'&gt;Lost Footing&lt;/font&gt; will set &lt;font color='#dbdbdb'&gt;Knocked Down&lt;/font&gt; if either Armour type is depleted." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="ProjectileStrike_OdinGEO_BoulderCrash_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

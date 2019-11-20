@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="1" build="0" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Spray oil in a cone, dealing [1] and creating an &lt;font color='#676464'&gt;Oil surface&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Characters without &lt;font color=&quot;#188ede&quot;&gt;Magic Armour&lt;/font&gt; become &lt;font color='#C7A758'&gt;Petrified&lt;/font&gt;, preventing them from taking action, and &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, reducing &lt;font color='#7f3d00'&gt;Earth Resistance by [2]%&lt;/font&gt; and &lt;font color=&quot;#fe6e27&quot;&gt;Fire Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_OdinGEO_TectonicSpray_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Destroy [1] and apply &lt;font color='#00aa00'&gt;Acid&lt;/font&gt; and &lt;font color='#c80030'&gt;Atrophy&lt;/font&gt; to characters in a cone. &lt;br&gt;&lt;br&gt;Also creates a &lt;font color='#65C900'&gt;Cursed Poison surface&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_CorrosiveSpray_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="|Smash your weapon into the ground, damaging all non-allied characters in a cone in front of you for [1] damage and knocking them down. Clears non-cursed surfaces and clouds.|" type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_OdinGEO_EarthShatter_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="|Smash your weapon into the ground, damaging all non-allied characters in a cone in front of you for [1] damage and knocking them down. Clears non-cursed surfaces and clouds.|" type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Cone_OdinGEO_TitanicPummel_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

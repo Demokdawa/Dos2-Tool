@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Rocks form a defensive barrier around the target, providing [1] and preventing them from being teleported. &lt;br&gt;&lt;br&gt;Cleanses &lt;font color='#00aa00'&gt;Poisoned&lt;/font&gt;, &lt;font color='#c80030'&gt;Bleeding&lt;/font&gt;, &lt;font color='#fe6e27'&gt;Burning&lt;/font&gt;, &lt;font color='#00aa00'&gt;Acid&lt;/font&gt;, and &lt;font color=&quot;#b823cb&quot;&gt;Decaying&lt;/font&gt; from the target." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_Fortify_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Target and &lt;font color='#65C900'&gt;Poison&lt;/font&gt; a nearby character, dealing [1]. &lt;br&gt;&lt;br&gt;The target also becomes &lt;font color='#65C900'&gt;Spored&lt;/font&gt;, reducing &lt;font color='#65C900'&gt;Poison Resistance by [2]%&lt;/font&gt; and &lt;font color='#7f3d00'&gt;Earth Resistance by [3]%&lt;/font&gt;. Also reduces &lt;font color=&quot;#c80030&quot;&gt;Movement Speed by [4]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_OdinGEO_NoxiousTouch_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Target and &lt;font color='#c7a758'&gt;Slow&lt;/font&gt; a nearby character, dealing [1]. &lt;br&gt;&lt;br&gt;The target also becomes &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, reducing &lt;font color='#7f3d00'&gt;Earth Resistance by [2]%&lt;/font&gt; and &lt;font color=&quot;#fe6e27&quot;&gt;Fire Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_OdinGEO_OilyTouch_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Frenzied vines deal [1] to each character in the area. &lt;br&gt;&lt;br&gt;Characters without &lt;font color='#188ede'&gt;Magic Armour&lt;/font&gt; become &lt;font color='#7F00FF'&gt;Entangled&lt;/font&gt;, preventing movement and dealing [2] each turn." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_WormTremor_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Rock spikes impale all characters, dealing [1] and creating an &lt;font color='#676464'&gt;Oil surface&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Characters without &lt;font color='#a8a8a8'&gt;Physical Armour&lt;/font&gt; become &lt;font color='#c80030'&gt;Crippled&lt;/font&gt;, preventing movement." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_RockSpikes_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Encase your target in a stony barrier for 2 turns, providing [1] and &lt;font color=&quot;#a8a8a8&quot;&gt;[4]% max. Armour&lt;/font&gt;. &lt;font color=&quot;#C7A758&quot;&gt;Granite Plating&lt;/font&gt; also provides &lt;font color=&quot;#7f3d00&quot;&gt;[2]% Earth Resistance&lt;/font&gt; at the cost of &lt;font color=&quot;#4197e2&quot;&gt;[3]% Water Resistance&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Removes &lt;font color=&quot;#7d71d9&quot;&gt;Shocked&lt;/font&gt;, &lt;font color=&quot;#7d71d9&quot;&gt;Stunned&lt;/font&gt;, and &lt;font color=&quot;#7d71d9&quot;&gt;Dazed&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Whilst encased, the target is immune to &lt;font color=&quot;#c7a758&quot;&gt;Slowed&lt;/font&gt; and &lt;font color=&quot;#C7A758&quot;&gt;Petrified&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_OdinGEO_GranitePlating_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deals [1] to the target. &lt;br&gt;&lt;br&gt;The target is cleansed of &lt;font color=&quot;#65C900&quot;&gt;Poisoned&lt;/font&gt;, &lt;font color='#00aa00'&gt;Acid&lt;/font&gt;, and &lt;font color='#7F00FF'&gt;Entangled&lt;/font&gt;, taking additional damage for each removed this way: &lt;br&gt;&lt;br&gt;&lt;font color=&quot;#65C900&quot;&gt;Poisoned&lt;/font&gt;: [2] &lt;br&gt;&lt;font color='#00aa00'&gt;Acid&lt;/font&gt;: [3] &lt;br&gt;&lt;font color='#7F00FF'&gt;Entangled&lt;/font&gt;: [4]" type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_OdinGEO_Expunge_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Destroy [1] and apply &lt;font color='#00aa00'&gt;Acid&lt;/font&gt; to target character." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_CorrosiveTouch_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Create an &lt;font color='#676464'&gt;Oil surface&lt;/font&gt; at target location. &lt;br&gt;&lt;br&gt;Characters also become &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, reducing &lt;font color='#7f3d00'&gt;Earth Resistance by [2]%&lt;/font&gt; and &lt;font color=&quot;#fe6e27&quot;&gt;Fire Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_Condense_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Restore &lt;font color='#97fbff'&gt;50%&lt;/font&gt; of the target's &lt;font color='#a8a8a8'&gt;Physical Armour&lt;/font&gt; (plus bonuses). &lt;br&gt;&lt;br&gt;Cleanses &lt;font color='#c80030'&gt;Crippled&lt;/font&gt;, &lt;font color='#dbdbdb'&gt;Blinded&lt;/font&gt;, &lt;font color='#c80030'&gt;Bleeding&lt;/font&gt;, &lt;font color='#c80030'&gt;Taunted&lt;/font&gt;, &lt;font color='#c9aa58'&gt;Diseased&lt;/font&gt;, &lt;font color='#b823cb'&gt;Decaying&lt;/font&gt;, and &lt;font color='#c80030'&gt;Atrophy&lt;/font&gt; from the target." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_OdinGEO_NaturalRemedy_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal [1] and infect the target.&lt;br&gt;&lt;br&gt;Upon death or after one turn, the character will explode, dealing [2] in a 3m radius, setting &lt;font color=&quot;#65C900&quot;&gt;Poisoned&lt;/font&gt; and &lt;font color=&quot;#c9aa58&quot;&gt;Terrified&lt;/font&gt; to the host and each enemy hit in the area. &lt;br&gt;&lt;br&gt;The &lt;font color=&quot;#65C900&quot;&gt;Expunge&lt;/font&gt; skill purges the infection early." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_OdinGEO_ParasiticAffliction_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Target and &lt;font color='#c7a758'&gt;Slow&lt;/font&gt; a nearby character, dealing [1]. &lt;br&gt;&lt;br&gt;The target also becomes &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, reducing &lt;font color='#7f3d00'&gt;Earth Resistance by [2]%&lt;/font&gt; and &lt;font color=&quot;#fe6e27&quot;&gt;Fire Resistance by [3]%&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Target_OdinGEO_OilyTouch_Summon_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

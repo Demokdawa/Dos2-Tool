@@ -10,8 +10,8 @@
   },
   "PAK": {
     "ExtractInputPath": "",
-    "ExtractOutputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\ODHYdro",
-    "CreateInputPath": "",
+    "ExtractOutputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\ODGEo",
+    "CreateInputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\ODGEo\\Public\\OdinbladeGeomancerOverhaul_ffb501cc-ab6d-46de-be89-732c9e289f3e\\Localization\\Stats",
     "CreateOutputPath": "",
     "CreatePackageVersion": 0,
     "CreatePackageCompression": 3
@@ -19,8 +19,8 @@
   "Resources": {
     "InputPath": "",
     "OutputPath": "",
-    "BatchInputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\AA\\Public\\Attribute_Apocalypse_ea101dc5-4492-4d96-9b1f-0920ba5431f6\\Localization\\Stats",
-    "BatchOutputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\AA\\Public\\Attribute_Apocalypse_ea101dc5-4492-4d96-9b1f-0920ba5431f6\\Localization\\Stats\\Nouveau dossier",
+    "BatchInputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\ODGEo\\Public\\OdinbladeGeomancerOverhaul_ffb501cc-ab6d-46de-be89-732c9e289f3e\\Localization\\Stats",
+    "BatchOutputPath": "C:\\Users\\aprieto\\Documents\\GitHub\\Dos2-Tool\\divers\\ODGEo\\Public\\OdinbladeGeomancerOverhaul_ffb501cc-ab6d-46de-be89-732c9e289f3e\\Localization\\Stats\\conv",
     "BatchInputFormat": 1,
     "BatchOutputFormat": 0
   },

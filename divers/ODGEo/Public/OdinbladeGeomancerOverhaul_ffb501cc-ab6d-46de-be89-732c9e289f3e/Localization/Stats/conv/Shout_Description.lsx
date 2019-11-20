@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<header version="2" time="0" />
+	<version major="3" minor="6" revision="3" build="1" />
+	<region id="TranslatedStringKeys">
+		<node id="root">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Cover your weapon with sticky oil, adding [1] to your weapon attacks. &lt;br&gt;&lt;br&gt;Basic attacks will &lt;font color='#676464'&gt;Oil&lt;/font&gt; characters for 1 turn if they are not already &lt;font color='#676464'&gt;Oiled&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinGEO_Earthbrand_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deal [1] to &lt;font color=&quot;#aa3938&quot;&gt;enemies&lt;/font&gt; and &lt;font color=&quot;#88a25b&quot;&gt;undead allies&lt;/font&gt; around you and applying &lt;font color='#65C900'&gt;Poison&lt;/font&gt; to them. &lt;br&gt;&lt;br&gt;Also creates a &lt;font color='#65C900'&gt;Poison surface&lt;/font&gt; beneath you. &lt;br&gt;&lt;br&gt;Transforms &lt;font color='#4197e2'&gt;Water&lt;/font&gt; and &lt;font color=&quot;#c80030&quot;&gt;Blood&lt;/font&gt; surfaces into their &lt;font color='#65C900'&gt;Poison&lt;/font&gt; counterpart." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_Contamination_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Bestow an earthern enchantment to all allies within 7m, granting &lt;font color='#DBDBDB'&gt;Physical Armour Regeneration&lt;/font&gt; and [1] for 3 turns. &lt;br&gt;&lt;br&gt;The enchantment also provides &lt;font color=&quot;#7f3d00&quot;&gt;Slowed Immunity&lt;/font&gt; for its duration." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_MendMetal_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Unleash judgement unto &lt;font color='#88a25b'&gt;allies&lt;/font&gt; and &lt;font color='#aa3938'&gt;enemies&lt;/font&gt; around you. &lt;br&gt;&lt;br&gt;&lt;font color='#88a25b'&gt;Ally&lt;/font&gt;: Gains &lt;font color='#AA895B'&gt;Ironbark&lt;/font&gt; for 3 turns, providing [1], &lt;font color='#7f3d00'&gt;[2]% Earth Resistance&lt;/font&gt;, and &lt;font color=&quot;#a8a8a8&quot;&gt;[3]% Physical Resistance&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Whilst affected by &lt;font color='#7f3d00'&gt;Ironbark&lt;/font&gt;, characters become immune to &lt;font color='#dbdbdb'&gt;Knocked Down&lt;/font&gt; and &lt;font color='#c80030'&gt;Bleeding&lt;/font&gt;. &lt;br&gt;&lt;br&gt;&lt;font color='#aa3938'&gt;Enemy&lt;/font&gt;: Transform into a harmless &lt;font color='#FFFFFF'&gt;woodland critter&lt;/font&gt; for 1 turn provided either Armour type is depleted." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinGEO_NaturesDecree_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Shatter a portion of your armour, dealing [1] on-cast and applying &lt;font color='#c80030'&gt;Bleeding&lt;/font&gt;. &lt;br&gt;&lt;br&gt;This damage is based on your current &lt;font color=&quot;#a8a8a8&quot;&gt;Physical Armour&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_ReactiveArmor_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Noxous fumes burst around the caster, dealing [1] and creating &lt;font color='#65C900'&gt;Poison clouds&lt;/font&gt; in the area. &lt;br&gt;&lt;br&gt;The caster also receives &lt;font color='#7f3d00'&gt;Earth Immunity&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_PoisonWave_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="&lt;font color='#F7BA14'&gt;Shapeshift&lt;/font&gt; into a &lt;font color='#C7A758'&gt;Clay Sentinel&lt;/font&gt;. &lt;br&gt;&lt;br&gt;Whilst in this form, you gain an additional: &lt;br&gt; • &lt;font color=&quot;#cfecff&quot;&gt;[1]% Vitality&lt;/font&gt; &lt;br&gt; • &lt;font color='#a8a8a8'&gt;[2]% Physical Armour&lt;/font&gt; &lt;br&gt; • &lt;font color='#7f3d00'&gt;[3]% Earth Resistance&lt;/font&gt; &lt;br&gt; • &lt;font color=&quot;#a8a8a8&quot;&gt;[4]% Physical Resistance&lt;/font&gt; &lt;br&gt; • &lt;font color=&quot;#c80030&quot;&gt;[5]% Movement Speed&lt;/font&gt;" type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinGEO_Shapeshift_ClaySentinel_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Exit your current &lt;font color='#F7BA14'&gt;Shapeshift Form&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinGEO_Shapeshift_Revert_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Consume &lt;font color='#676464'&gt;Oil surfaces&lt;/font&gt; around you, restoring &lt;font color='#a8a8a8'&gt;Physical Armour&lt;/font&gt; based on the surface consumed this way. &lt;br&gt;&lt;br&gt;Grants the user &lt;font color='#AA895B'&gt;Fortified&lt;/font&gt;, granting [1] for 1 turn. &lt;br&gt;&lt;br&gt;Cleanses &lt;font color='#c7a758'&gt;Slowed&lt;/font&gt;, &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, &lt;font color='#7d71d9'&gt;Shocked&lt;/font&gt;, and &lt;font color='#cfecff'&gt;Chilled&lt;/font&gt; on-cast." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OilyCarapace_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Each ally consumes &lt;font color='#676464'&gt;Oil surfaces&lt;/font&gt; around them, restoring &lt;font color='#a8a8a8'&gt;Physical Armour&lt;/font&gt; based on the surface consumed this way. &lt;br&gt;&lt;br&gt;Each ally becomes &lt;font color='#AA895B'&gt;Fortified&lt;/font&gt; for 1 turn, granting [1]. &lt;br&gt;&lt;br&gt;Cleanses &lt;font color='#c7a758'&gt;Slowed&lt;/font&gt;, &lt;font color='#676464'&gt;Oiled&lt;/font&gt;, &lt;font color='#7d71d9'&gt;Shocked&lt;/font&gt;, and &lt;font color='#cfecff'&gt;Chilled&lt;/font&gt; on-cast." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_MassOilyCarapace_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Coat your weapon with a deadly concoction, adding [1] to your weapon attacks. &lt;br&gt;&lt;br&gt;Basic attacks will &lt;font color='#65C900'&gt;Spore&lt;/font&gt; characters for 1 turn if they are not already &lt;font color='#65C900'&gt;Spored&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_VenomCoating_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Deals [1] to and &lt;font color='#7F00FF'&gt;Entangle&lt;/font&gt; all nearby &lt;font color='#aa3938'&gt;enemies&lt;/font&gt;, preventing movement and dealing [2] each turn. &lt;br&gt;&lt;br&gt;Gain &lt;font color='#AA895B'&gt;Ironbark&lt;/font&gt;, providing [3], &lt;font color='#7f3d00'&gt;[4]% Earth Resistance&lt;/font&gt;, and &lt;font color=&quot;#a8a8a8&quot;&gt;[5]% Physical Resistance&lt;/font&gt;. Also grants immunity to &lt;font color='#dbdbdb'&gt;Knocked Down&lt;/font&gt; and &lt;font color='#c80030'&gt;Bleeding&lt;/font&gt;." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_OdinGEO_SongOfTheDryads_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Absorb all &lt;font color=&quot;#65C900&quot;&gt;Poison surfaces&lt;/font&gt; around you, restoring &lt;font color='#cfecff'&gt;Vitality&lt;/font&gt; (regardless of being &lt;font color='#88a25b'&gt;Undead&lt;/font&gt;) based on the surface area consumed this way. &lt;br&gt;&lt;br&gt;&lt;font color=&quot;#65C900&quot;&gt;Siphon Poison&lt;/font&gt; also adds [1] to your weapon attacks." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_SiphonPoison_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Gain &lt;font color='#65C900'&gt;Venom Aura&lt;/font&gt;, granting &lt;font color='#65C900'&gt;Venom Coating&lt;/font&gt; to &lt;font color='#88a25b'&gt;allies&lt;/font&gt; within 8m, adding [1] to their weapon attacks." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_VenomousAura_Description" type="22" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" value="Bestow an earthern enchantment to all allies within 7m, granting &lt;font color='#DBDBDB'&gt;Physical Armour Regeneration&lt;/font&gt; and [1] for 3 turns. &lt;br&gt;&lt;br&gt;The enchantment also provides &lt;font color=&quot;#7f3d00&quot;&gt;Slowed Immunity&lt;/font&gt; for its duration." type="28" handle="ls::TranslatedStringRepository::s_HandleUnknown" />
+					<attribute id="ExtraData" value="" type="23" />
+					<attribute id="Speaker" value="" type="22" />
+					<attribute id="Stub" value="True" type="19" />
+					<attribute id="UUID" value="Shout_MendMetal_Summon_Description" type="22" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

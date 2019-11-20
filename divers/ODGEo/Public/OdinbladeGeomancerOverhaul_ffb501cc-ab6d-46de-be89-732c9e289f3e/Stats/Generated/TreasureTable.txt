@@ -1,0 +1,206 @@
+treasure itemtypes "Common","Uncommon","Rare","Epic","Legendary","Divine","Unique"
+new treasuretable "ST_OdinGEOWeapon"
+new subtable "1,1"
+object category "OdinGEO_Staves_Earth",1,1,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "OdinGEO_Staves_Earth",1,0,1,0,0,0,0,0
+new subtable "0,1;1,1;2,1"
+StartLevel "9"
+object category "OdinGEO_Staves_Earth",1,0,0,1,0,0,0,0
+object category "OdinGEO_Staves_Earth",1,0,0,0,1,0,0,0
+new subtable "1,1"
+object category "OdinGEO_Wands_Earth",1,1,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "OdinGEO_Wands_Earth",1,0,1,0,0,0,0,0
+new subtable "0,1;1,1;2,1"
+StartLevel "9"
+object category "OdinGEO_Wands_Earth",1,0,0,1,0,0,0,0
+object category "OdinGEO_Wands_Earth",1,0,0,0,1,0,0,0
+new subtable "1,1"
+object category "OdinGEO_Maces_Earth_1H",1,1,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "OdinGEO_Maces_Earth_1H",1,0,1,0,0,0,0,0
+new subtable "0,1;1,1;2,1"
+StartLevel "9"
+object category "OdinGEO_Maces_Earth_1H",1,0,0,1,0,0,0,0
+object category "OdinGEO_Maces_Earth_1H",1,0,0,0,1,0,0,0
+new subtable "1,1"
+object category "OdinGEO_Maces_Earth_2H",1,1,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "OdinGEO_Maces_Earth_2H",1,0,1,0,0,0,0,0
+new subtable "0,1;1,1;2,1"
+StartLevel "9"
+object category "OdinGEO_Maces_Earth_2H",1,0,0,1,0,0,0,0
+object category "OdinGEO_Maces_Earth_2H",1,0,0,0,1,0,0,0
+new subtable "1,1"
+object category "OdinGEO_Daggers_Poison",1,1,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "OdinGEO_Daggers_Poison",1,0,1,0,0,0,0,0
+new subtable "0,1;1,1;2,1"
+StartLevel "9"
+object category "OdinGEO_Daggers_Poison",1,0,0,1,0,0,0,0
+object category "OdinGEO_Daggers_Poison",1,0,0,0,1,0,0,0
+new subtable "1,1"
+object category "OdinGEO_Maces_Poison_1H",1,1,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "OdinGEO_Maces_Poison_1H",1,0,1,0,0,0,0,0
+new subtable "0,1;1,1;2,1"
+StartLevel "9"
+object category "OdinGEO_Maces_Poison_1H",1,0,0,1,0,0,0,0
+object category "OdinGEO_Maces_Poison_1H",1,0,0,0,1,0,0,0
+new treasuretable "ST_OdinGEO_NewSpells"
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_OdinGEO_Earthbrand",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_OdinGEO_SporeShrooms",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_OdinGEO_NoxiousTouch",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_OdinGEO_OilyTouch",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Earth_OdinGEO_VenomBurst",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Earth_OdinGEO_RockVolley",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Earth_OdinGEO_ConjureEarthElemental",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_OdinGEO_GraniteShield",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_OdinGEO_Expunge",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_OdinGEO_SeismicSlide",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_OdinGEO_NaturesJudgement",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Earth_OdinGEO_NaturalRemedy",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Earth_OdinGEO_BoulderCrash",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Earth_OdinGEO_SongOfTheDryads",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "16"
+object category "I_SKILLBOOK_Earth_OdinGEO_TectonicSpray",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "16"
+object category "I_SKILLBOOK_Earth_OdinGEO_ParasiticAffliction",1,0,0,0,0,0,0,0
+new treasuretable "ST_OdinGEO_Trader"
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_Contamination",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_Fortify",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_PyroclasticRock",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_PoisonDart",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_VenomCoating",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Earth_MendMetal",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Earth_RockSpikes",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Earth_WormTremor",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Earth_Condense",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Earth_ArtilleryPlant",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_PoisonWave",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_ReactiveArmor",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_Earthquake",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_LivingWall",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Earth_SiphonPoison",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Earth_AcidSpores",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "16"
+object category "I_SKILLBOOK_Earth_PyroclasticEruption",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Earth_ThrowDust",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Earth_CorrosiveTouch",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Earth_OdinGEO_Sentinel",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Earth_OdinGEO_CorruptingVial",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Earth_OilyCarapace",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Earth_DustBlast",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Earth_CorrosiveSpray",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Earth_VenomousAura",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Earth_MassOilyCarapace",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinGEO_NewSpells",1,0,0,0,0,0,0,0
+new treasuretable "ST_Skillbook_EarthTrainer"
+CanMerge 1
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinGEO_NewSpells",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinGEOWeapon",1,0,0,0,0,0,0,0
+new treasuretable "FTJ_Skillbook_EarthTrainer"
+CanMerge 1
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinGEO_NewSpells",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinGEOWeapon",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Earth_VenomCoating",1,0,0,0,0,0,0,0
