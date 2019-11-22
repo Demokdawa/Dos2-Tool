@@ -1,0 +1,8 @@
+new itemcolor "OdinNECRO_01","FF3D3D3D","FF610000","FF708090"
+
+new itemcolor "OdinNECRO_02","FF13011C","FF590459","FF2F2A51"
+
+new itemcolor "OdinNECRO_03","FF420000","FF8B0000","FFB22222"
+
+new itemcolor "OdinNECRO_04","FF000000","FF3A3A51","FF49A888"
+

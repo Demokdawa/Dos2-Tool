@@ -1,0 +1,146 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION OBNECRO_SUMMON_SKILLS
+IF
+CharacterUsedSkillOnTarget(_Character, _Target, "Target_BloatedCorpse", _, _)
+THEN
+OBNECRO_SUMMON_PREREQ("Target_BloatedCorpse", "Summon_OdinNECRO_Summon_BloatedCorpse_Cast", _Target, _Character);
+
+IF
+CharacterUsedSkillOnTarget(_Character, _Target, "Target_OdinNECRO_Raise_BoneGolem", _, _)
+THEN
+OBNECRO_SUMMON_PREREQ("Target_OdinNECRO_Raise_BoneGolem", "Summon_OdinNECRO_Summon_BoneGolem_Cast", _Target, _Character);
+
+IF
+CharacterUsedSkillOnTarget(_Character, _Target, "Target_OdinNECRO_Raise_BoneWidow", _, _)
+THEN
+OBNECRO_SUMMON_PREREQ("Target_OdinNECRO_Raise_BoneWidow", "Summon_OdinNECRO_Summon_BoneWidow_Cast", _Target, _Character);
+
+IF
+CharacterUsedSkillOnTarget(_Character, _Target, "Target_OdinNECRO_Raise_UndeadWarrior", _, _)
+THEN
+OBNECRO_SUMMON_PREREQ("Target_OdinNECRO_Raise_UndeadWarrior", "Summon_OdinNECRO_Summon_UndeadWarrior_Cast", _Target, _Character);
+
+IF
+CharacterUsedSkillOnTarget(_Character, _Target, "Target_OdinNECRO_Raise_UndeadMage", _, _)
+THEN
+OBNECRO_SUMMON_PREREQ("Target_OdinNECRO_Raise_UndeadMage", "Summon_OdinNECRO_Summon_UndeadMage_Cast", _Target, _Character);
+
+IF
+CharacterUsedSkillOnTarget(_Character, _Target, "Target_OdinNECRO_Raise_UndeadAssassin", _, _)
+THEN
+OBNECRO_SUMMON_PREREQ("Target_OdinNECRO_Raise_UndeadAssassin", "Summon_OdinNECRO_Summon_UndeadAssassin_Cast", _Target, _Character);
+//END_REGION
+
+//REGION OBNECRO_SUMMON_CAST
+PROC
+OBNECRO_SUMMON_PREREQ((STRING)_RaiseSkill, (STRING)_SummonSkill, (GUIDSTRING)_FloorTarget, (CHARACTERGUID)_Caster)
+AND
+GetPosition(_FloorTarget, _X, _Y, _Z)
+THEN
+ApplyStatus(_Caster, "OdinNECRO_DEBUG_AP_ADD", 1.0);
+//OBNECRO_SUMMON_CHECKORIGIN(_Caster, _FloorTarget);
+DB_OBNECRO_Summon_Cast(_Caster, _X, _Y, _Z, _SummonSkill, _RaiseSkill);
+
+//Refund 1AP if used on an Unearthed Corpse
+//UPDATE: Removed due to EA w/ Blood abusing it
+// PROC
+// OBNECRO_SUMMON_CHECKORIGIN((CHARACTERGUID)_Caster, (GUIDSTRING)_FloorTarget)
+// AND
+// DB_OBNECRO_ExhumeCorpse((CHARACTERGUID)_FloorTarget, _X, _Y, _Z)
+// AND
+// GetSurfaceGroundAt(_Caster, _Surface)
+// AND
+// _Surface != "Blood"
+// AND
+// CharacterHasTalent(_Caster, "ElementalAffinity", _Bool)
+// AND
+// _Bool == 0
+// // AND
+// // _Corpse == _Target
+// THEN
+// ApplyStatus(_Caster, "OdinNECRO_CORPSE_AP_ADD", 1.0);
+
+IF
+SkillCast(_Character, _SkillIn, _, _)
+AND
+DB_OBNECRO_Summon_Cast(_Character, _X, _Y, _Z, _SkillOut, _SkillIn)
+THEN
+PlayEffectAtPosition("RS3_FX_Skills_Totem_Impact_Summon_Decay_01", _X, _Y, _Z);
+CharacterUseSkillAtPosition(_Character, _SkillOut, _X, _Y, _Z, 1, 1);
+ProcObjectTimer(_Character, "OBNECRO_Summon_Timer", 500);
+DB_OB_NECRO_Summon_Spawn_VFX(_Character, _X, _Y, _Z);
+ProcObjectTimer(_Character, "OBNECRO_Summon_VFX_Timer", 2450);
+NOT DB_OBNECRO_Summon_Cast(_Character, _X, _Y, _Z, _SkillOut, _SkillIn);
+
+PROC
+ProcObjectTimerFinished(_Character, "OBNECRO_Summon_Timer")
+THEN
+ApplyStatus(_Character, "OdinNECRO_DEBUG_AP_REMOVE", 1.0);
+
+PROC
+ProcObjectTimerFinished(_Character, "OBNECRO_Summon_VFX_Timer")
+AND
+DB_OB_NECRO_Summon_Spawn_VFX((CHARACTERGUID)_Character, _X, _Y, _Z)
+THEN
+PlayEffectAtPosition("OdinNECRO_Impact_04", _X, _Y, _Z);
+NOT DB_OB_NECRO_Summon_Spawn_VFX(_Character, _X, _Y, _Z);
+//END_REGION
+
+//Handles other modded summons w/ regards to Undead-Summon target spells
+//REGION OBNECRO_ADD_UNDEAD_TAGS
+IF
+CharacterStatusApplied(_Summon, "SUMMONING", _)
+AND
+CharacterHasTalent(_Summon, "Zombie", 1)
+THEN
+SetTag(_Summon, "UNDEAD");
+//END_REGION
+
+//REGION OBNECRO_HIDE_OLDSUMMONS_DEFINITION
+IF
+SkillAdded(_Character, "Summon_BonePile", 1)
+THEN
+OBNECRO_SUMMONSKILLCLEANUP(_Character, "Summon_BonePile", "Target_OdinNECRO_Raise_BoneWidow");
+
+IF
+StoryEvent((CHARACTERGUID)_Character, "OdinNECRO_SummonSkillCleanup")
+THEN
+OBNECRO_SUMMONSKILLCLEANUP(_Character, "Summon_BonePile", "Target_OdinNECRO_Raise_BoneWidow");
+
+IF
+SkillAdded(_Character, "Shout_NecromancerTotems", 1)
+THEN
+OBNECRO_SUMMONSKILLCLEANUP(_Character, "Shout_NecromancerTotems", "Target_OdinNECRO_TotemsOfTheNecromancer");
+
+IF
+StoryEvent((CHARACTERGUID)_Character, "OdinNECRO_SummonSkillCleanup")
+THEN
+OBNECRO_SUMMONSKILLCLEANUP(_Character, "Shout_NecromancerTotems", "Target_OdinNECRO_TotemsOfTheNecromancer");
+//END_REGION
+
+//REGION OBNECRO_HIDE_OLDSUMMONS_LOGIC
+IF
+SavegameLoaded(_, _, _, _)
+THEN
+IterateParties("OdinNECRO_SummonSkillCleanup");
+
+IF
+GameStarted(_,_)
+THEN
+IterateParties("OdinNECRO_SummonSkillCleanup");
+
+PROC
+OBNECRO_SUMMONSKILLCLEANUP((CHARACTERGUID)_Character, (STRING)_SkillToRemove, (STRING)_SkillToAdd)
+AND
+CharacterHasSkill(_Character, _SkillToRemove, 1)
+THEN
+CharacterRemoveSkill(_Character, _SkillToRemove);
+CharacterAddSkill(_Character, _SkillToAdd);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

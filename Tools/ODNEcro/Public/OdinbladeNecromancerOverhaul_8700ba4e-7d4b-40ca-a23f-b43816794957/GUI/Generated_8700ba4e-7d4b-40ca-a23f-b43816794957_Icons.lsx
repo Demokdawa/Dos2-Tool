@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="3" build="1" />
+    <region id="IconUVList">
+        <node id="root">
+            <children>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="b626a900-0e29-4af7-b1ef-97cb9eab5fc9_16728761553871081514-RC_Humans_Melee_Staff_Poison_(Icon_Human_Female)" type="22" />
+                    <attribute id="U1" value="0.157227" type="6" />
+                    <attribute id="U2" value="0.311523" type="6" />
+                    <attribute id="V1" value="0.00195313" type="6" />
+                    <attribute id="V2" value="0.388672" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="b626a900-0e29-4af7-b1ef-97cb9eab5fc9_9369879762738407980-RC_Humans_Melee_Staff_Poison_(Icon_Human_Female)" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.155273" type="6" />
+                    <attribute id="V1" value="0.00195313" type="6" />
+                    <attribute id="V2" value="0.388672" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="c58ac9b4-0e82-4ca1-ae06-ac9d7b3956f3_10383377419469087338-ARX_BlackRing_Melee_Staff_(Icon_Human_Female)" type="22" />
+                    <attribute id="U1" value="0.469727" type="6" />
+                    <attribute id="U2" value="0.624023" type="6" />
+                    <attribute id="V1" value="0.00195313" type="6" />
+                    <attribute id="V2" value="0.388672" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="c58ac9b4-0e82-4ca1-ae06-ac9d7b3956f3_9806912269119144458-ARX_BlackRing_Melee_Staff_(Icon_Human_Female)" type="22" />
+                    <attribute id="U1" value="0.313477" type="6" />
+                    <attribute id="U2" value="0.467773" type="6" />
+                    <attribute id="V1" value="0.00195313" type="6" />
+                    <attribute id="V2" value="0.388672" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="c80b85f8-d7e6-4967-ae7f-b2db399ddbfd_15427151030246725121-Undead_Skeleton_Sword_2H_(Icon_Human_Male)" type="22" />
+                    <attribute id="U1" value="0.000976563" type="6" />
+                    <attribute id="U2" value="0.155273" type="6" />
+                    <attribute id="V1" value="0.392578" type="6" />
+                    <attribute id="V2" value="0.779297" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="c80b85f8-d7e6-4967-ae7f-b2db399ddbfd_15427151030248566272-Undead_Skeleton_Sword_2H_(Icon_Human_Male)" type="22" />
+                    <attribute id="U1" value="0.157227" type="6" />
+                    <attribute id="U2" value="0.311523" type="6" />
+                    <attribute id="V1" value="0.392578" type="6" />
+                    <attribute id="V2" value="0.779297" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="c80b85f8-d7e6-4967-ae7f-b2db399ddbfd_9523037471897561623-RC_Paladin_Melee_Dagger_Dual_(Icon_Human_Male)" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.780273" type="6" />
+                    <attribute id="V1" value="0.00195313" type="6" />
+                    <attribute id="V2" value="0.388672" type="6" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="c80b85f8-d7e6-4967-ae7f-b2db399ddbfd_9523037471897604610-RC_Paladin_Melee_Dagger_Dual_(Icon_Human_Male)" type="22" />
+                    <attribute id="U1" value="0.782227" type="6" />
+                    <attribute id="U2" value="0.936523" type="6" />
+                    <attribute id="V1" value="0.00195313" type="6" />
+                    <attribute id="V2" value="0.388672" type="6" />
+                </node>
+            </children>
+        </node>
+    </region>
+    <region id="TextureAtlasInfo">
+        <node id="root">
+            <children>
+                <node id="TextureAtlasIconSize">
+                    <attribute id="Height" value="100" type="4" />
+                    <attribute id="Width" value="80" type="4" />
+                </node>
+                <node id="TextureAtlasPath">
+                    <attribute id="Path" value="Assets/Textures/Icons/Generated_8700ba4e-7d4b-40ca-a23f-b43816794957_Icons.dds" type="20" />
+                    <attribute id="UUID" value="a75b3016-2da6-4f95-8c42-0db7e8408fca" type="22" />
+                </node>
+                <node id="TextureAtlasTextureSize">
+                    <attribute id="Height" value="256" type="4" />
+                    <attribute id="Width" value="512" type="4" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

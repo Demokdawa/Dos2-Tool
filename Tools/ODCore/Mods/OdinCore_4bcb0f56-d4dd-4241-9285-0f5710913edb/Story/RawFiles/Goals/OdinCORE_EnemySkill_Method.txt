@@ -1,0 +1,47 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_OBCORE_EnemySkill_Pair("", "");
+
+KBSECTION
+IF
+ObjectEnteredCombat((CHARACTERGUID)_Character, _)
+AND
+GlobalGetFlag("OdinCORE_EnemySkills_Setting", 1)
+AND
+NOT DB_IsPlayer(_Character)
+AND
+NOT DB_Origins(_Character)
+AND
+CharacterIsSummon(_Character, 0)
+AND
+IsBoss(_Character, 0)
+AND
+DB_OBCORE_EnemySkill_Pair((STRING)_Lock, (STRING)_Key)
+AND
+_Lock != ""
+AND
+CharacterHasSkill((CHARACTERGUID)_Character, _Key, 0)
+AND
+CharacterHasSkill((CHARACTERGUID)_Character, _Lock, 1)
+THEN
+CharacterAddSkill(_Character, _Key);
+
+//Sets EnemySkills to be ON for new saves.
+IF
+GameStarted(_, _)
+AND
+GlobalGetFlag("OdinCORE_EnemySkills_Aware", 0)
+THEN
+GlobalSetFlag("OdinCORE_EnemySkills_Setting");
+
+// //Sets EnemySkills to be ON if the user hasn't chosen already on an existing save.
+IF
+SavegameLoaded(_, _, _, _)
+AND
+GlobalGetFlag("OdinCORE_EnemySkills_Aware", 0)
+THEN
+GlobalSetFlag("OdinCORE_EnemySkills_Setting");
+EXITSECTION
+
+ENDEXITSECTION

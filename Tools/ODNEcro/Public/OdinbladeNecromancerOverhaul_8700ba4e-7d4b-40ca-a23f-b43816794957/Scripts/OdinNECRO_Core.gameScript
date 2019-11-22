@@ -1,0 +1,50 @@
+EVENTS
+//STATUS -> TRUE_DECAYING
+EVENT OdinNecro_Status_TrueDecaying
+VARS
+CHARACTER:_Character
+
+ON
+	OnCharacterStatusApplied(_Character, OdinNECRO_PROC_DECAYING)
+ACTIONS
+	CharacterApplyStatus(_Character, DECAYING_TOUCH, 1, 1)
+	
+//STATUS -> WITCHESBREW_START
+EVENT OdinNECRO_Status_WitchesBrew_Start
+VARS
+CHARACTER:_Character
+
+ON
+	OnCharacterStatusApplied(_Character, OdinNECRO_Frog)
+ACTIONS
+	CharacterApplyStatus(_Character, DISARMED, 1, 1)
+	CharacterApplyStatus(_Character, MUTED, 1, 1)
+
+//STATUS -> WITCHESBREW_END
+EVENT OdinNECRO_Status_WitchesBrew_End
+VARS
+CHARACTER:_Character
+
+ON
+	OnCharacterStatusRemoved(_Character, OdinNECRO_Frog)
+ACTIONS
+	CharacterPlayEffect(_Character, "RS3_FX_UI_CC_Transition_Fast_01")
+	
+//SKILL -> REANIMATOR_ADD_AP_SAFELY
+EVENT OdinNECRO_Retrieve_AP
+VARS
+CHARACTER:_Character
+FLOAT:_CharAP
+FLOAT:_CharMaxAP
+
+ON
+	OnCharacterEvent(_Character, "OBNECRO_RETRIEVE_AP")
+ACTIONS
+IF "c1&c2"
+	CharacterGetStat(_CharAP, _Character, ActionPoints)
+	CharacterGetStat(_CharMaxAP, _Character, APMaximum)
+THEN
+	SetVar(_Character, "OBNECRO_AP", _CharAP)
+	SetVar(_Character, "OBNECRO_MaxAP", _CharMaxAP)
+	CharacterEvent(_Character, "OBNECRO_Found_AP")
+ENDIF

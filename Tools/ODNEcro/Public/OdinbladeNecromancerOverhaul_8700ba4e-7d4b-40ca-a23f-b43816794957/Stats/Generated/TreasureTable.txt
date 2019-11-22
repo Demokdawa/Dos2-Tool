@@ -1,0 +1,164 @@
+treasure itemtypes "Common","Uncommon","Rare","Epic","Legendary","Divine","Unique"
+new treasuretable "ST_OdinNECRO_NewSpells"
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_BloodBarrage",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_Mute",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_OathOfDesecration",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_UnearthCorpse",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_RaiseUndeadWarrior",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_RaiseUndeadElementalist",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_RaiseUndeadAssassin",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_SanguineTorrent",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_ArcaneVolley",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_MysticRupture",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_UndeadOverlord",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_Translocate",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_LocustPlague",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_ArcanePunishment",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_RaiseBoneGolem",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "16"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_HorrificScream",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "16"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_FrenzyOfTheRestless",1,0,0,0,0,0,0,0
+new treasuretable "ST_OdinNECRO_Trader"
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinNECRO_NewSpells",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Necromancy_MosquitoSwarm",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Necromancy_DecayingTouch",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Necromancy_BloodBubble",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "I_SKILLBOOK_Necromancy_BloatedCorpse",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_Infect",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_ShacklesOfPain",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "I_SKILLBOOK_Necromancy_DeathWish",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Necromancy_RainOfBlood",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_Bloodletting",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_WitchesBrew",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_DispelUndead",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "5"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_ShallowGrave",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Necromancy_BoneCage",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Necromancy_BonePile",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Necromancy_DeathsDoor",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "9"
+object category "I_SKILLBOOK_Necromancy_BlackShroud",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_SilencingStare",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_LastRites",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_GraspOfTheStarved",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_Hemoplague",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_CoagulatedArmour",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_OdinNECRO_Desecrate",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "13"
+object category "I_SKILLBOOK_Necromancy_NecromancerTotems",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "16"
+object category "I_SKILLBOOK_Water_BloodStorm",1,0,0,0,0,0,0,0
+new treasuretable "ST_OdinNECRO_Weapon"
+new subtable "1,1"
+object category "OdinNECRO_Staves_Blood",1,1,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "OdinNECRO_Staves_Blood",1,0,1,0,0,0,0,0
+new subtable "0,1;1,1;2,1"
+StartLevel "9"
+object category "OdinNECRO_Staves_Blood",1,0,0,1,0,0,0,0
+object category "OdinNECRO_Staves_Blood",1,0,0,0,1,0,0,0
+new subtable "1,1"
+object category "OdinNECRO_Wands_Blood",1,1,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "4"
+object category "OdinNECRO_Wands_Blood",1,0,1,0,0,0,0,0
+new subtable "0,1;1,1;2,1"
+StartLevel "9"
+object category "OdinNECRO_Wands_Blood",1,0,0,1,0,0,0,0
+object category "OdinNECRO_Wands_Blood",1,0,0,0,1,0,0,0
+new treasuretable "ST_Skillbook_NecromancyTrainer"
+CanMerge 1
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinNECRO_NewSpells",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinNECRO_Weapon",1,0,0,0,0,0,0,0
+new treasuretable "FTJ_Skillbook_NecroTrainer"
+CanMerge 1
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinNECRO_NewSpells",1,0,0,0,0,0,0,0
+new subtable "1,1"
+StartLevel "1"
+object category "T_ST_OdinNECRO_Weapon",1,0,0,0,0,0,0,0

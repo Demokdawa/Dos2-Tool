@@ -1,0 +1,35 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+//DB_OBCORE_EnemySkill_Pair("","");
+DB_OBCORE_EnemySkill_Pair("Target_EnemyMosquitoSwarm", "Projectile_OdinNECRO_Enemy_BloodBarrage");
+DB_OBCORE_EnemySkill_Pair("Target_EnemyBurnMyEyes","Target_OdinNECRO_Enemy_OathOfDesecration");
+DB_OBCORE_EnemySkill_Pair("Target_EnemyFrostyShell","Target_OdinNECRO_Enemy_OathOfDesecration");
+DB_OBCORE_EnemySkill_Pair("Projectile_EnemyFireball","Target_OdinNECRO_Enemy_MysticRupture");
+DB_OBCORE_EnemySkill_Pair("Projectile_EnemyHailStrike","Target_OdinNECRO_Enemy_MysticRupture");
+DB_OBCORE_EnemySkill_Pair("Projectile_EnemyPyroclasticRock","Target_OdinNECRO_Enemy_MysticRupture");
+DB_OBCORE_EnemySkill_Pair("Cone_EnemySilencingStare","Shout_OdinNECRO_Enemy_HorrificScream");
+DB_OBCORE_EnemySkill_Pair("EnemyIceFan","Projectile_OdinNECRO_Enemy_ArcaneVolley");
+DB_OBCORE_EnemySkill_Pair("EnemyFlamingDaggers","Projectile_OdinNECRO_Enemy_ArcaneVolley");
+
+// DB_OBCORE_CustomVendor((GUIDSTRING)_Vendor, (STRING)_Dialog);
+//Fort Joy
+DB_OBCORE_CustomVendor(OdinNECRO_Trader_000_eaa6916d-2e13-4878-ba32-c8e2d186acb5, "OdinNECRO_Vendor"); //Fort Joy - Square
+DB_OBCORE_CustomVendor(OdinNECRO_Trader_001_0fa1d329-a313-4fb1-aca8-524348ffcc84, "OdinNECRO_Vendor"); //Fort Joy - Armadia
+
+//Reaper's Coast
+DB_OBCORE_CustomVendor(OdinNECRO_Trader_000_232c7b0d-560b-4d05-b5e8-7ff3cf487e59, "OdinNECRO_Vendor"); //Lady Vengeance
+DB_OBCORE_CustomVendor(OdinNECRO_Trader_001_3c0057ed-b3a4-431e-ae0c-3bd621986900, "OdinNECRO_Vendor"); //Driftwood Square
+
+//Nameless Isle
+DB_OBCORE_CustomVendor(OdinNECRO_Trader_000_232c7b0d-560b-4d05-b5e8-7ff3cf487e59, "OdinNECRO_Vendor"); //Lady Vengeance (carried over)
+DB_OBCORE_CustomVendor(OdinNECRO_Trader_000_10833000-2839-4970-8173-6ccaf99c4862, "OdinNECRO_Vendor"); //Landing beach
+
+//Arx
+DB_OBCORE_CustomVendor(OdinNECRO_Trader_000_de5dab8c-54a6-42bc-9d59-2ceb763d1e84, "OdinNECRO_Vendor"); //Arx Square
+
+KBSECTION
+
+EXITSECTION
+
+ENDEXITSECTION

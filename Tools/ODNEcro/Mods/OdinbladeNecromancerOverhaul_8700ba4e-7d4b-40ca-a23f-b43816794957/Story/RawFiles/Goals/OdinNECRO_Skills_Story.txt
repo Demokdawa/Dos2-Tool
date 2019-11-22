@@ -1,0 +1,406 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+GlobalSetflag("OdinNecro_Fix_V2_DB"); //Fix ghost timers on existing saves
+
+KBSECTION
+//REGION OBNECRO_SAVE_FIX_01
+IF
+SavegameLoaded(_,_,_,_)
+AND
+NOT DB_GlobalFlag("OdinNecro_Fix_V2_DB")
+THEN
+SysClear("DB_OBNECRO_Corpse_Turn_Count", 2);
+GlobalSetflag("OdinNecro_Fix_V2_DB");
+OBNECRO_CORPSE_FIX_SAVEGAME();
+
+//Reset corpse timer for current corpses with no turns
+PROC
+OBNECRO_CORPSE_FIX_SAVEGAME()
+AND
+DB_OBNECRO_ExhumeCorpse_Owner(_Character, _Corpse)
+AND
+NOT DB_OBNECRO_Corpse_Turn_Count(_Corpse, _)
+THEN
+TimerCancel("OBNECRO_ExhumeCorpse_Fizzle_Timer");
+OBNECRO_CORPSE_DURATION(_Corpse);
+//END_REGION
+
+//REGION OBNECRO_CORPSE_SPAWN_SKILLS
+IF
+CharacterUsedSkillAtPosition(_Character, _X, _Y, _Z, "Target_OdinNECRO_UnearthCorpse", _, _)
+THEN
+OBNECRO_CORPSE_SPAWN_SKILL(_Character, _X, _Y, _Z);
+
+IF
+CharacterUsedSkillAtPosition(_Character, _X, _Y, _Z, "Target_OdinNECRO_Enemy_UnearthCorpse", _, _)
+THEN
+OBNECRO_CORPSE_SPAWN_SKILL(_Character, _X, _Y, _Z);
+
+IF
+CharacterUsedSkillAtPosition(_Character, _X, _Y, _Z, "Target_OdinNECRO_Translocate", _, _)
+AND
+GetPosition(_Character, _CastX, _CastY, _CastZ)
+THEN
+OBNECRO_CORPSE_SPAWN_SKILL(_Character, _CastX, _CastY, _CastZ);
+//END_REGION
+
+//REGION OBNECRO_CORPSE_SPAWNING
+//Creates and kills a new character -> corpse. Launches spawning timers.
+PROC
+OBNECRO_CORPSE_SPAWN_SKILL((CHARACTERGUID)_Character, (REAL)_X, (REAL)_Y, (REAL)_Z)
+AND
+GetPosition(_Character, _preX, _preY, _preZ)
+AND
+TemporaryCharacterCreateAtPositionOutOfSightTo(_preX, _preY, _preZ, "71e8cb66-d5c3-4ea8-aae4-a9a250f22cca", 0, 0, "", _Corpse)
+THEN
+SetVisible(_Corpse, 0);
+DB_OBNECRO_ExhumeCorpse(_Corpse, _X, _Y, _Z);
+DB_OBNECRO_ExhumeCorpse_Owner(_Character, _Corpse);
+CharacterSetHitpointsPercentage(_Corpse, 0.0);
+TimerLaunch("OBNECRO_ExhumeCorpse_Port_Timer", 2000);
+TimerLaunch("OBNECRO_ExhumeCorpse_Spawn_Timer", 2050);
+
+//Moves the corpse into position.
+IF
+TimerFinished("OBNECRO_ExhumeCorpse_Port_Timer")
+AND
+DB_OBNECRO_ExhumeCorpse(_Corpse, _X, _Y, _Z)
+THEN
+TeleportToPosition(_Corpse, _X, _Y, _Z, "", 0);
+
+//Displays the corpse after teleporting.
+IF
+TimerFinished("OBNECRO_ExhumeCorpse_Spawn_Timer")
+AND
+DB_OBNECRO_ExhumeCorpse(_Corpse, _X, _Y, _Z)
+AND
+RealSum(_Y, 2.0, _RaisedY)
+THEN
+SetVisible(_Corpse, 1);
+OBNECRO_CORPSE_DURATION(_Corpse);
+
+//Begins timer for corpse duration if owner is out of combat.
+PROC
+OBNECRO_CORPSE_DURATION((CHARACTERGUID)_Corpse)
+AND
+DB_OBNECRO_ExhumeCorpse_Owner(_Character, _Corpse)
+AND
+CharacterIsInCombat(_Character, 0)
+THEN
+DB_OBNECRO_Corpse_Turn_Count(_Corpse, 2);
+ProcObjectTimer(_Corpse, "OBNECRO_ExhumeCorpse_Fizzle_Timer", 6000);
+
+//Removes corpse timers if owner is in combat.
+PROC
+OBNECRO_CORPSE_DURATION((CHARACTERGUID)_Corpse)
+AND
+DB_OBNECRO_ExhumeCorpse_Owner(_Character, _Corpse)
+AND
+CharacterIsInCombat(_Character, 1)
+THEN
+ProcObjectTimerCancel(_Corpse, "OBNECRO_ExhumeCorpse_Fizzle_Timer");
+DB_OBNECRO_Corpse_Turn_Count(_Corpse, 2);
+
+//Decrements remaining corpse turns in combat.
+IF
+ObjectTurnEnded((CHARACTERGUID)_Character)
+AND
+CharacterIsInCombat(_Character, 1)
+AND
+DB_OBNECRO_ExhumeCorpse_Owner(_Character, _Corpse)
+AND
+DB_OBNECRO_Corpse_Turn_Count(_Corpse, _Turns)
+AND
+IntegerSubtract(_Turns, 1, _RemainingTurns)
+THEN
+DB_OBNECRO_Corpse_Turn_Count(_Corpse, _RemainingTurns);
+OBNECRO_CORPSE_CHECKTURNS(_Corpse, _RemainingTurns);
+
+//Decrements remaining corpse turns outside of combat.
+PROC
+ProcObjectTimerFinished(_Corpse, "OBNECRO_ExhumeCorpse_Fizzle_Timer")
+AND
+DB_OBNECRO_Corpse_Turn_Count((CHARACTERGUID)_Corpse, _Turns)
+AND
+IntegerSubtract(_Turns, 1, _RemainingTurns)
+THEN
+NOT DB_OBNECRO_Corpse_Turn_Count(_Corpse, _Turns);
+DB_OBNECRO_Corpse_Turn_Count(_Corpse, _RemainingTurns);
+OBNECRO_CORPSE_CHECKTURNS(_Corpse, _RemainingTurns);
+ProcObjectTimer(_Corpse, "OBNECRO_ExhumeCorpse_Fizzle_Timer", 6000);
+
+//Removes corpse timers if owner moves into combat.
+IF
+CombatStarted(_)
+AND
+DB_OBNECRO_Corpse_Turn_Count(_Corpse, _Turns)
+THEN
+ProcObjectTimerCancel(_Corpse, "OBNECRO_ExhumeCorpse_Fizzle_Timer");
+
+//Begins corpse removal if duration is over.
+PROC
+OBNECRO_CORPSE_CHECKTURNS((CHARACTERGUID) _Corpse, (INTEGER) _Turns)
+AND
+DB_OBNECRO_ExhumeCorpse_Owner(_Character, _Corpse)
+AND
+_Turns <= 0
+THEN
+ODINNECRO_CORPSE_CLEANUP(_Corpse);
+NOT DB_OBNECRO_ExhumeCorpse_Owner(_Character, _Corpse);
+
+//Removes corpse character.
+PROC
+ODINNECRO_CORPSE_CLEANUP((CHARACTERGUID)_Corpse)
+AND
+DB_OBNECRO_Corpse_Turn_Count(_Corpse, _Turns)
+AND
+GetPosition(_Corpse, _X, _Y, _Z)
+THEN
+ProcObjectTimerCancel(_Corpse, "OBNECRO_ExhumeCorpse_Fizzle_Timer");
+PlayEffectAtPosition("RS3_FX_Skills_Soul_Impact_Soul_Touch_Hand_01", _X, _Y, _Z);
+SetOnStage(_Corpse, 0);
+NOT DB_OBNECRO_ExhumeCorpse(_Corpse, _X, _Y, _Z);
+NOT DB_OBNECRO_Corpse_Turn_Count(_Corpse, _Turns);
+//END_REGION
+
+//REGION OBNECRO_TRANSLOCATE
+//Begins timers and plays VFX on UsedSkill.
+IF
+CharacterUsedSkillAtPosition(_Character, _X, _Y, _Z, "Target_OdinNECRO_Translocate", _, _)
+AND
+GetPosition(_Character, _preX, _preY, _preZ)
+THEN
+ProcObjectTimer(_Character, "OBNECRO_Translocate_Fade_Timer", 1250);
+PlayEffectAtPosition("OdinNECRO_Cast_Root_02", _preX, _preY, _preZ);
+CreateSurfaceAtPosition(_preX, _preY, _preZ, "SurfaceBlood", 1.0, -1.0);
+DB_OBNECRO_Translocate(_Character, _X, _Y, _Z,_preX, _preY, _preZ);
+TimerLaunch("OBNECRO_Translocate_Timer", 2000);
+
+//Hides the caster during VFX wind-up.
+PROC
+ProcObjectTimerFinished(_Character, "OBNECRO_Translocate_Fade_Timer")
+THEN
+SetVisible(_Character, 0);
+
+//Shows caster, teleports them to the correct position and plays VFX.
+IF
+TimerFinished("OBNECRO_Translocate_Timer")
+AND
+DB_OBNECRO_Translocate(_Character, _X, _Y, _Z, _preX, _preY, _preZ)
+THEN
+SetVisible(_Character, 1);
+PlayEffectAtPosition("OdinNECRO_Impact_07", _X, _Y, _Z);
+TeleportToPosition(_Character, _X, _Y, _Z, "", 0, 1);
+NOT DB_OBNECRO_Translocate(_Character, _X, _Y, _Z, _preX, _preY, _preZ);
+//END_REGION
+
+//REGION OBNECRO_UNDEAD_OVERLORD
+//OnSummon, begins Overlord checks.
+IF
+CharacterStatusApplied(_Summon, "SUMMONING", _)
+AND
+CharacterGetOwner(_Summon, _Owner)
+AND
+HasActiveStatus(_Owner, "OdinNECRO_OVERLORD", 1)
+THEN
+DB_OBNECRO_Summons(_Summon, _Owner);
+OBNECRO_OVERLORD_CHECK(_Summon, _Owner);
+OBNECRO_OVERLORD_SUMMON(_Summon, _Owner);
+
+//If non-Totem summon is not Undead, remove Overlord.
+PROC
+OBNECRO_OVERLORD_CHECK((CHARACTERGUID)_Summon, (CHARACTERGUID) _Owner)
+AND
+CharacterHasTalent(_Summon, "Zombie", 0)
+AND
+IsTagged(_Summon, "TOTEM", 0)
+THEN
+RemoveStatus(_Owner, "OdinNECRO_OVERLORD");
+
+//If summon is non-Totem, apply the Minion debuff.
+PROC
+OBNECRO_OVERLORD_SUMMON((CHARACTERGUID) _Summon, (CHARACTERGUID) _Owner)
+AND
+IsTagged(_Summon, "TOTEM", 0)
+THEN
+ApplyStatus(_Summon, "OdinNECRO_OVERLORD_SUMMON", -1.0);
+ProcObjectTimer(_Summon, "OBNECRO_Summon_Object_Timer", 50);
+
+//Loops to check if the summon owner still has Overlord.
+PROC
+ProcObjectTimerFinished(_Summon, "OBNECRO_Summon_Object_Timer")
+AND
+DB_OBNECRO_Summons((CHARACTERGUID)_Summon, _Owner)
+AND
+HasActiveStatus(_Owner, "OdinNECRO_OVERLORD", 1)
+THEN
+ProcObjectTimer(_Summon, "OBNECRO_Summon_Object_Timer", 50);
+
+//Removes the Minion debuff once the summon owner loses Overlord.
+PROC
+ProcObjectTimerFinished(_Summon, "OBNECRO_Summon_Object_Timer")
+AND
+DB_OBNECRO_Summons((CHARACTERGUID)_Summon, _Owner)
+AND
+HasActiveStatus(_Owner, "OdinNECRO_OVERLORD", 0)
+AND
+HasActiveStatus(_Summon, "OdinNECRO_OVERLORD_SUMMON", 1)
+THEN
+RemoveStatus(_Summon, "OdinNECRO_OVERLORD_SUMMON");
+NOT DB_OBNECRO_Summons(_Summon, _Owner);
+//END_REGION
+
+//REGION OBNECRO_DESECRATE
+//Checks if target is in combat, then begins MArmour removal process.
+IF
+CharacterStatusApplied(_Target, "OdinNECRO_APPLY_DESECRATE", _Caster)
+AND
+CharacterIsInCombat((CHARACTERGUID)_Target, 1)
+THEN
+RemoveStatus(_Target, "OdinNECRO_APPLY_DESECRATE");
+ApplyStatus(_Target, "OdinNECRO_DESECRATE", 1.0, 1, _Caster);
+
+//Records the targets MArmour and sets the current value to 0.
+IF
+CharacterStatusApplied(_Character, "OdinNECRO_DESECRATE", _Caster)
+AND
+CharacterGetMagicArmorPercentage(_Character, _MarmPercentage)
+THEN
+DB_OBNECRO_Desecrate(_Character, _MarmPercentage, _Caster);
+CharacterSetMagicArmorPercentage(_Character, 0.0);
+
+//Removes Desecrate from enemy once the casters turn ends.
+IF
+ObjectTurnEnded((CHARACTERGUID)_Caster)
+AND
+DB_OBNECRO_Desecrate(_Victim, _MarmPercentage, _Caster)
+THEN
+RemoveStatus(_Victim, "OdinNECRO_DESECRATE");
+
+//Reverts MArmour percentage back to pre-Desecrate value.
+IF
+CharacterStatusRemoved(_Victim, "OdinNECRO_DESECRATE", _)
+AND
+DB_OBNECRO_Desecrate(_Victim, _MarmPercentage, _Caster)
+THEN
+CharacterSetMagicArmorPercentage(_Victim, _MarmPercentage);
+NOT DB_OBNECRO_Desecrate(_Victim, _MarmPercentage, _Caster);
+//END_REGION
+
+//REGION OBNECRO_ARCANEPUNISHMENT
+//Logs target after they are affected by Arcane Punishment.
+IF
+CharacterStatusApplied(_Victim, "OdinNECRO_ARCANEPUNISHMENT", _Owner)
+THEN
+DB_OBNECRO_ArcanePunishment(_Victim, _Owner);
+
+//Deals damage to character when they cast a skill whilst Arcane Punishment is active.
+IF
+CharacterUsedSkill(_Victim, _, _, _)
+AND
+HasActiveStatus(_Victim, "OdinNECRO_ARCANEPUNISHMENT", 1)
+AND
+DB_OBNECRO_ArcanePunishment(_Victim, _Owner)
+THEN
+ApplyStatus(_Victim, "OdinNECRO_ARCANEPUNISHMENT_DAMAGE", 0.0, 1, _Owner);
+
+//Removes target from DB upon status expiration.
+IF
+CharacterStatusRemoved(_Victim, "OdinNECRO_ARCANEPUNISHMENT", _)
+AND
+DB_OBNECRO_ArcanePunishment(_Victim, _Owner)
+THEN
+NOT DB_OBNECRO_ArcanePunishment(_Victim, _Owner);
+//END_REGION
+
+//REGION OBNECRO_REANIMATOR
+//Reanimator character uses the summon zombie skill upon killing an enemy.
+IF
+CharacterKilledBy(_DeadChar, _AttackerOwner, _Attacker)
+AND
+HasActiveStatus(_AttackerOwner, "OdinNECRO_REANIMATOR", 1)
+AND
+CharacterIsAlly(_AttackerOwner, _DeadChar, 0)
+AND
+GetPosition(_DeadChar, _X, _Y, _Z)
+THEN
+DB_OBNECRO_Reanimator_Target_Pos((GUIDSTRING)_AttackerOwner, _X, _Y, _Z);
+SetStoryEvent((GUIDSTRING)_AttackerOwner, "OBNECRO_RETRIEVE_AP");
+
+//Reanimator owner has no AP -> add 1 temporarily and then remove
+IF
+StoryEvent(_Character, "OBNECRO_Found_AP")
+AND
+GetVarFloat(_Character, "OBNECRO_AP", _CharAP)
+AND
+GetVarFloat(_Character, "OBNECRO_MaxAP", _CharMaxAP)
+AND
+_CharAP == 0.0
+AND
+DB_OBNECRO_Reanimator_Target_Pos(_Character, _X, _Y, _Z)
+THEN
+ApplyStatus(_Character, "OdinNECRO_DEBUG_AP_ADD", 1.0);
+ProcObjectTimer(_Character, "OBNECRO_Remove_TempAP", 50);
+CharacterUseSkillAtPosition((CHARACTERGUID)_Character, "Summon_OdinNECRO_Summon_TotemZombie", _X, _Y, _Z, 1, 1);
+NOT DB_OBNECRO_Reanimator_Target_Pos(_Character, _X, _Y, _Z);
+
+//Removes temporary 1AP added for Reanimator
+PROC
+ProcObjectTimerFinished(_Character, "OBNECRO_Remove_TempAP")
+THEN
+ApplyStatus(_Character, "OdinNECRO_DEBUG_AP_REMOVE", 1.0);
+
+//Renimator owner has at least 1AP
+IF
+StoryEvent(_Character, "OBNECRO_Found_AP")
+AND
+GetVarFloat(_Character, "OBNECRO_AP", _CharAP)
+AND
+GetVarFloat(_Character, "OBNECRO_MaxAP", _CharMaxAP)
+AND
+_CharAP > 0.0
+AND
+DB_OBNECRO_Reanimator_Target_Pos(_Character, _X, _Y, _Z)
+THEN
+CharacterUseSkillAtPosition((CHARACTERGUID)_Character, "Summon_OdinNECRO_Summon_TotemZombie", _X, _Y, _Z, 1, 1);
+NOT DB_OBNECRO_Reanimator_Target_Pos(_Character, _X, _Y, _Z);
+//END_REGION
+
+//REGION OBNECRO_LOCUSTSPLAGUE
+//Removes RESTED and WET via Locust Plague skill.
+IF
+CharacterStatusApplied(_Character, "OdinNECRO_APPLY_LOCUSTS", _Causee)
+THEN
+RemoveStatus(_Character, "RESTED");
+RemoveStatus(_Character, "WET");
+//END_REGION
+
+//REGION OBNECRO_DISPEL_CAST
+//Adds AP to caster of Dispel Undead and procs Unearth Corpse refresh.
+IF
+CharacterUsedSkill(_Character, "Target_OdinNECRO_Dispel", _, _)
+THEN
+ApplyStatus(_Character, "OdinNECRO_DEBUG_AP_ADD", 0.0);
+OBNECRO_REFRESH_CD_UNEARTHCORPSE(_Character);
+
+//Refreshed CD of Unearth Corpse.
+PROC
+OBNECRO_REFRESH_CD_UNEARTHCORPSE((CHARACTERGUID)_Character)
+AND
+CharacterHasSkill(_Character, "Target_OdinNECRO_UnearthCorpse", 1)
+THEN
+CharacterRemoveSkill(_Character, "Target_OdinNECRO_UnearthCorpse");
+CharacterAddSkill(_Character, "Target_OdinNECRO_UnearthCorpse", 0);
+//END_REGION
+
+//REGION OBNECRO_TRANSFIXED_INMMUNITY
+//Apply Transfixed immunity for 1 turn after losing Transfixed
+IF
+CharacterStatusRemoved(_Character, "OdinNECRO_TRANSFIXED", _Causee)
+THEN
+ApplyStatus(_Character, "OdinNECRO_TRANSFIXED_IMMUNITY", 6.0, 1);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

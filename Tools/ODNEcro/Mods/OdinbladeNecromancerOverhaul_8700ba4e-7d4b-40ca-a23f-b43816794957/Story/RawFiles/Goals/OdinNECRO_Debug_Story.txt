@@ -1,0 +1,75 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION DEBUG SKILLS
+IF
+CharacterUsedItem(_Char, 123954a2-1280-4feb-a3c7-9b615a1a4260)
+AND
+IsGameLevel("OdinNECROTest", 1)
+THEN
+CharacterLevelUpTo(_Char, 20);
+CharacterOverrideMaxSourcePoints(_Char, 3);
+CharacterAddSourcePoints(_Char, 100);
+CharacterAddTalent(_Char, "ViolentMagic");
+//CharacterAddSourcePoints(_Char, 1);
+//CharacterAddSourcePoints(_Char, 1);
+
+//DEBUG_SKILLS
+//CharacterAddSkill(_Char, "Cone_");
+CharacterAddSkill(_Char, "Cone_SilencingStare");
+CharacterAddSkill(_Char, "Cone_OdinNECRO_PathOfBones");
+CharacterAddSkill(_Char, "Cone_OdinNECRO_LocustPlague");
+
+//CharacterAddSkill(_Char, "Projectile_");
+CharacterAddSkill(_Char, "Projectile_OdinNECRO_BloodBarrage");
+CharacterAddSkill(_Char, "Projectile_OdinNECRO_WitchesBrew");
+CharacterAddSkill(_Char, "Projectile_OdinNECRO_ArcaneVolley");
+
+//CharacterAddSkill(_Char, "ProjectileStrike_");
+
+//CharacterAddSkill(_Char, "Summon_");
+//CharacterAddSkill(_Char, "Summon_BonePile");
+
+//CharacterAddSkill(_Char, "Shout_");
+CharacterAddSkill(_Char, "Shout_BoneCage");
+CharacterAddSkill(_Char, "Shout_OdinNECRO_UndeadOverlord");
+CharacterAddSkill(_Char, "Shout_OdinNECRO_HorrificScream");
+CharacterAddSkill(_Char, "Shout_OdinNECRO_Bloodletting");
+CharacterAddSkill(_Char, "Shout_OdinNECRO_ShallowGrave");
+
+//CharacterAddSkill(_Char, "Target_");
+CharacterAddSkill(_Char, "Target_MosquitoSwarm");
+CharacterAddSkill(_Char, "Target_DeathWish");
+CharacterAddSkill(_Char, "Target_DecayingTouch");
+CharacterAddSkill(_Char, "Target_BlackShroud");
+CharacterAddSkill(_Char, "Target_GraspOfTheStarved");
+CharacterAddSkill(_Char, "Target_BloodBubble");
+CharacterAddSkill(_Char, "Target_BloatedCorpse");
+CharacterAddSkill(_Char, "Target_Infect");
+CharacterAddSkill(_Char, "Target_ShacklesOfPain");
+CharacterAddSkill(_Char, "Target_DeathsDoor");
+CharacterAddSkill(_Char, "Target_OdinNECRO_UnearthCorpse");
+CharacterAddSkill(_Char, "Target_OdinNECRO_SanguineTorrent");
+CharacterAddSkill(_Char, "Target_OdinNECRO_Translocate");
+CharacterAddSkill(_Char, "Target_OdinNECRO_DissectAndAugment");
+CharacterAddSkill(_Char, "Target_OdinNECRO_BoneShrapnel");
+CharacterAddSkill(_Char, "Target_OdinNECRO_LeechLife");
+CharacterAddSkill(_Char, "Target_OdinNECRO_TotemsOfTheNecromancer");
+CharacterAddSkill(_Char, "Target_OdinNECRO_Desecrate");
+CharacterAddSkill(_Char, "Target_OdinNECRO_ArcanePunishment");
+CharacterAddSkill(_Char, "Target_OdinNECRO_Mute");
+CharacterAddSkill(_Char, "Target_OdinNECRO_OathOfDesecration");
+CharacterAddSkill(_Char, "Target_OdinNECRO_Raise_BoneWidow");
+CharacterAddSkill(_Char, "Target_OdinNECRO_Raise_UndeadWarrior");
+CharacterAddSkill(_Char, "Target_OdinNECRO_Raise_UndeadMage");
+CharacterAddSkill(_Char, "Target_OdinNECRO_Raise_UndeadAssassin");
+CharacterAddSkill(_Char, "Target_OdinNECRO_MysticRupture");
+
+CharacterUnlockRecipe(_Char, "SKILLBOOK_Water_BloodStorm_A", 1);
+
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

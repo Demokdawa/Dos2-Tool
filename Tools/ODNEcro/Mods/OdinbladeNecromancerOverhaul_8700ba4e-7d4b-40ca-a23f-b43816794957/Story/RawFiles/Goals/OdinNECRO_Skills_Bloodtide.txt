@@ -1,0 +1,108 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION OBNECRO_SACRIFICE_SOURCES
+//Extra 1% added due to rounding issues.
+IF
+CharacterUsedSkill(_Character, "Target_OdinNECRO_SanguineTorrent",_,_)
+THEN
+ODINNECRO_SAC(_Character, 16);
+
+IF
+CharacterUsedSkill(_Character, "Target_OdinNECRO_Translocate",_,_)
+THEN
+ODINNECRO_SAC(_Character, 11);
+
+IF
+CharacterUsedSkill(_Character, "Projectile_OdinNECRO_BloodBarrage",_,_)
+THEN
+ODINNECRO_SAC(_Character, 16);
+
+IF
+CharacterUsedSkill(_Character, "Rain_Blood",_,_)
+THEN
+ODINNECRO_SAC(_Character, 6);
+
+IF
+CharacterUsedSkill(_Character, "Shout_OdinNECRO_Bloodletting",_,_)
+THEN
+ODINNECRO_SAC(_Character, 6);
+
+IF
+CharacterUsedSkill(_Character, "Shout_OdinNECRO_Hemoplague",_,_)
+THEN
+ODINNECRO_SAC(_Character, 21);
+
+IF
+CharacterUsedSkill(_Character, "Storm_Blood",_,_)
+THEN
+ODINNECRO_SAC(_Character, 26);
+
+//Status for Death Wish usage on allies.
+IF
+CharacterStatusApplied(_Character, "DEATH_WISH", _)
+THEN
+ODINNECRO_SAC(_Character, 11);
+//END_REGION
+
+//REGION OBNECRO_SACRIFICE_CALCULATE
+//Calculates health percentage value and calls other PRCOCs
+PROC
+ODINNECRO_SAC((CHARACTERGUID)_Character, (INTEGER)_SacPercentage)
+AND
+IntegerSubtract(100, _SacPercentage, _TargetPercentage)
+AND
+CharacterGetHitpointsPercentage(_Character, _PercentageHP)
+AND
+Integer(_PercentageHP, _INTPercentageHP)
+AND
+IntegerProduct(_INTPercentageHP, _TargetPercentage, _NewPercentageHP)
+AND
+IntegerDivide(_NewPercentageHP, 100, _PrepPercentageHP)
+AND
+Real(_PrepPercentageHP, _FinalPercentageHP)
+THEN
+ODINNECRO_SET_PERCENTAGE(_Character, _FinalPercentageHP);
+ODINNECRO_BLOODARMOUR(_Character, _SacPercentage);
+//END_REGION
+
+//REGION OBNECRO_SACRIFICE_SET_METHODS
+//Standard path for sacrifice calculation.
+PROC
+ODINNECRO_SET_PERCENTAGE((CHARACTERGUID)_Character, (REAL)_FinalPercentageHP)
+AND
+_FinalPercentageHP > 0.0
+THEN
+CharacterSetHitpointsPercentage(_Character, _FinalPercentageHP);
+
+//Only fires if Vitality is <1% and prevents character dying this way.
+PROC
+ODINNECRO_SET_PERCENTAGE((CHARACTERGUID)_Character, (REAL)_FinalPercentageHP)
+AND
+_FinalPercentageHP < 1.0
+THEN
+CharacterSetHitpointsPercentage(_Character, 0.1);
+//END_REGION
+
+//REGION OBNECRO_SACRIFICE_OTHER_USES
+//Calculates armour restoration and sets it onto character w/ Blood Armour status.
+PROC
+ODINNECRO_BLOODARMOUR((CHARACTERGUID)_Character, (INTEGER)_RestorePercentage)
+AND
+HasActiveStatus(_Character, "OdinNECRO_BLOODARMOUR", 1)
+AND
+CharacterGetArmorPercentage(_Character, _CurrentPercentage)
+AND
+Integer(_CurrentPercentage, _ICurrentPercentage)
+AND
+IntegerSum(_RestorePercentage, _ICurrentPercentage, _NewPercentage)
+AND
+Real(_NewPercentage, _RealPercentage)
+THEN
+CharacterSetArmorPercentage(_Character, _RealPercentage);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

@@ -1,0 +1,13 @@
+new entry "Stats_BoneCage"
+type "Potion"
+data "Act" "1"
+data "Act part" "0"
+data "Armor" "17"
+
+new entry "Stats_OdinNECRO_TRANSFIXED_IMMUNITY"
+type "Potion"
+data "Act" "1"
+data "Act part" "0"
+data "Duration" "1"
+data "Flags" "FearImmunity"
+

@@ -1,0 +1,87 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION OBNECRO_HEXEN_DAMAGE_SKILLS
+IF
+SkillCast(_Caster, "Cone_SilencingStare", _, _)
+THEN
+DB_OBNECRO_Hexen_Skill_Pre(_Caster, "OdinNECRO_HEXSKILL_OPHIDIANGLARE"); 
+
+//Removed due to timings of damage. Instead, used a MagicArmour saving throw to proc
+// IF
+// SkillCast(_Caster, "Projectile_OdinNECRO_ArcaneVolley", _, _)
+// THEN
+// DB_OBNECRO_Hexen_Skill_Pre(_Caster, "OdinNECRO_HEXSKILL_ARCANEVOLLEY"); 
+
+IF
+SkillCast(_Caster, "Shout_OdinNECRO_HorrificScream", _, _)
+THEN
+DB_OBNECRO_Hexen_Skill_Pre(_Caster, "OdinNECRO_HEXSKILL_HORRIFICSCREAM"); 
+
+IF
+SkillCast(_Caster, "Target_BlackShroud", _, _)
+THEN
+DB_OBNECRO_Hexen_Skill_Pre(_Caster, "OdinNECRO_HEXSKILL_BLACKSHROUD"); 
+
+IF
+SkillCast(_Caster, "Target_OdinNECRO_Mute", _, _)
+THEN
+DB_OBNECRO_Hexen_Skill_Pre(_Caster, "OdinNECRO_HEXSKILL_MUTE"); 
+
+IF
+SkillCast(_Caster, "Projectile_OdinNECRO_WitchesBrew", _, _)
+THEN
+DB_OBNECRO_Hexen_Skill_Pre(_Caster, "OdinNECRO_HEXSKILL_WITCHESBREW"); 
+//END_REGION
+
+//REGION OBNECRO_HEXEN_DAMAGE_HANDLER
+//Initiate hexen checks on non-self targets.
+IF
+AttackedByObject((CHARACTERGUID)_Target, (CHARACTERGUID)_CasterOwner, (CHARACTERGUID)_Caster, _, _)
+AND
+DB_OBNECRO_Hexen_Skill_Pre(_Caster, _Status)
+AND
+_Target != _Caster
+THEN
+OBNECRO_HEXEN_SKILL_CAST(_Caster, _Target, _Status, 350);
+
+//Buffer cast->check in case check preceeds damage application
+PROC
+OBNECRO_HEXEN_SKILL_CAST((CHARACTERGUID)_Caster, (CHARACTERGUID)_Target, (STRING)_Status, (INTEGER)_TimerLength)
+THEN
+DB_OBNECRO_Hexen_Skill(_Caster, _Target, _Status);
+ProcObjectTimer(_Target, "OBNECRO_Hexen_Skill_Timer", _TimerLength);
+
+//Happy path: sets a pop status to deal damage as target has no Magic Armour
+PROC
+ProcObjectTimerFinished(_Target, "OBNECRO_Hexen_Skill_Timer")
+AND
+DB_OBNECRO_Hexen_Skill(_Caster, (CHARACTERGUID)_Target, _Status)
+AND
+CharacterGetMagicArmorPercentage(_Target, _Percentage)
+AND
+_Percentage == 0.0
+THEN
+NOT DB_OBNECRO_Hexen_Skill_Pre(_Caster, _Status);
+NOT DB_OBNECRO_Hexen_Skill(_Caster, _Target, _Status);
+OBNECRO_HEXEN_DEAL_DAMAGE(_Caster, _Target, _Status);
+
+PROC
+OBNECRO_HEXEN_DEAL_DAMAGE((CHARACTERGUID)_Caster, (CHARACTERGUID)_Target, (STRING)_Status)
+THEN
+ApplyStatus(_Target, _Status, 0.0, 1, _Caster);
+
+//Removes DB entry if target does have Magic Armour
+PROC
+ProcObjectTimerFinished(_Target, "OBNECRO_Hexen_Skill_Timer")
+AND
+DB_OBNECRO_Hexen_Skill(_Caster, (CHARACTERGUID)_Target, _Status)
+THEN
+NOT DB_OBNECRO_Hexen_Skill_Pre(_Caster, _Status);
+NOT DB_OBNECRO_Hexen_Skill(_Caster, _Target, _Status);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION

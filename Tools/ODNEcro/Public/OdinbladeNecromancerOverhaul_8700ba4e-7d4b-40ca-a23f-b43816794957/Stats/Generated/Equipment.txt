@@ -1,0 +1,220 @@
+new equipment "OdinNECRO_Summon_UndeadWarrior"
+add equipmentgroup
+add equipment entry "_OdinNECRO_Summon_UndeadWarrior_Sword"
+
+new equipment "OdinNECRO_Summon_UndeadMage"
+add equipmentgroup
+add equipment entry "_OdinNECRO_Staves_Blood"
+
+new equipment "OdinNECRO_Class_Gravecaller_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Staves_Blood"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "OdinNECRO_Class_Gravecaller_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Staves_Blood"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "OdinNECRO_Class_Gravecaller_Preview"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Gravecaller_Helmet"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Gravecaller_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Gravecaller_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Gravecaller_Gloves"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Gravecaller_Boots"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Preview_Staves_Blood"
+
+new equipment "OdinNECRO_Class_Hexen_Preview"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Hexen_Helmet"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Hexen_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Hexen_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Hexen_Gloves"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Hexen_Boots"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Preview_Wand_Blood"
+add equipmentgroup
+add equipment entry "WPN_Cleric_Shield_Humans"
+
+new equipment "OdinNECRO_Class_Hexen_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Wand_Blood"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "WPN_Shield"
+
+new equipment "OdinNECRO_Class_HexenStart_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Wand_Blood"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "WPN_Shield"
+
+new equipment "OdinNECRO_Class_Bloodtide_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Wand_Blood"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "GRN_Grenade_Nailbomb_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Wand_Blood"
+
+new equipment "OdinNECRO_Class_Bloodtide_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Wand_Blood"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "GRN_Grenade_Nailbomb_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Wand_Blood"
+
+new equipment "OdinNECRO_Class_Bloodtide_Preview"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Bloodtide_Helmet"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Bloodtide_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Bloodtide_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Bloodtide_Gloves"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Bloodtide_Boots"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Preview_Wand_Blood"
+add equipmentgroup
+add equipment entry "WPN_OdinNECRO_Preview_Wand_Blood"
+
+new equipment "OdinNECRO_Class_Deathlord_Preview"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Deathlord_Helmet"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Deathlord_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Deathlord_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Deathlord_Gloves"
+add equipmentgroup
+add equipment entry "ARM_OdinNECRO_Deathlord_Boots"
+add equipmentgroup
+add equipment entry "WPN_Inquisitor_Mace_2H_Humans"
+
+new equipment "OdinNECRO_Class_Deathlord_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_Mace_2H"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "SCROLL_Target_ShacklesOfPain"
+
+new equipment "OdinNECRO_Class_Deathlord_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_Mace_2H"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "SCROLL_Target_ShacklesOfPain"
+
